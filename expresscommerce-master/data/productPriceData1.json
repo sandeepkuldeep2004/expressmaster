@@ -1,0 +1,488 @@
+[
+   {
+    "productCode": "1010-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 299,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1010-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 599,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1010-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 3999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1011-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 1999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1011-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 299,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1011-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 22999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1020-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 899,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1020-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 1599,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1020-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 239,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1021-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1021-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 1299,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1021-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 1799,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1030-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 599,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1030-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 799,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1030-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 799,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1031-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1031-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 35999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1031-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 2499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1040-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 599,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1040-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 399,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1040-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 2199,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1044-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 299,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1044-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 399,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1044-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1050-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 1499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1050-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 2499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1050-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 3999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1051-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 4499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1051-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 349,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1051-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 232,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1060-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 1099,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1060-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1060-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 699,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1061-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 23999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1061-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 11999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1061-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 1499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1070-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 6499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1070-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 399,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1070-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 3499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1071-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 7499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1071-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 9999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1071-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 9999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1080-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 9999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1080-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 231,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1080-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 113,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1090-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 876,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1090-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 897,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1090-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1091-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 5999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1091-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 6999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1091-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 2499,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1100-0001",
+    "catalog": "in-product-catalog",
+    "priceValue": 2999,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1100-0002",
+    "catalog": "in-product-catalog",
+    "priceValue": 99,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   },
+   {
+    "productCode": "1100-0003",
+    "catalog": "in-product-catalog",
+    "priceValue": 599,
+    "currencyIsoCode": "INR",
+    "priceGroup": "customerGroup",
+    "userpriceGroup": "customerGroup",
+    "unit": "EA"
+   }
+  ]  

@@ -1,0 +1,9 @@
+.location{
+    height: auto;
+    border: solid;
+    border-color: lightgrey;
+    border-width: thin;
+    padding: 0px 30px;
+    padding-bottom: 9px;
+    color: #128a9e;
+}

@@ -1,0 +1,49 @@
+.featureProduct {
+    padding: 0 30px;
+}
+.react-multi-carousel-list {
+    margin: 0 50px;
+    position: inherit;
+}
+
+ .sectiontitle span {
+    background: #fff;
+    display: inline-block;
+    position: relative;
+    z-index: 9;
+    padding: 0 25px;
+}
+
+
+.sectiontitle {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+ .sectiontitle:after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background: #efefef;
+    top: 33px;
+}
+
+
+.p-name {
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+}
+
+
+@media (max-width: 640px) {
+.featureProduct {
+    padding: 30px 20px !important;
+}
+}
+

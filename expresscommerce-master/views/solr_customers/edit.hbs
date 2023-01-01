@@ -1,0 +1,34 @@
+<h3>Edit Catalog</h3>
+<div class="row">
+    <form action="/solr/customer/{{customer.id}}" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="id" name="id" value="{{customer.id}}">
+                <label for="title">Customer ID</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="first_name" name="first_name" value="{{customer.first_name}}">
+                <label for="title">First Name </label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="last_name" name="last_name" value="{{customer.last_name}}">
+                <label for="title">Last Name </label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="email" name="email" value="{{customer.email}}">
+                <label for="title">Email </label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="gender" name="gender" value="{{customer.gender}}">
+                <label for="title">Gender </label>
+            </div>
+        </div>
+       
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/solr/customers/viewAll" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+<h3>Add New Product</h3>
+<h4>{{error}}</h4>
+<div class="row">
+    <form action="/products/add" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="row">
+        <div class="input-field">
+                <input type="text" id="code" name="code" value={{code}}>
+                <label for="title">Product Code</label>
+            </div>
+        </div>
+         <div class="row">
+          <div class="input-field">
+                <input type="text" id="name" name="name" value={{name}}>
+                <label for="title">Product Name </label>
+            </div>
+        </div>
+        <div class="row">
+         <div class="input-field">
+                <input type="text" id="description" name="description" value={{description}}>
+                <label for="title">Description </label>
+            </div>
+        </div>
+         <div class="row">
+            <div class="input-field">
+                <input type="text" id="catalog" name="catalog" value={{catalog}}>
+                <label for="title">Catalog </label>
+            </div>
+        </div>
+         <div class="row">
+         <div class="input-field">
+                <input type="text" id="categoryCode" name="categoryCode" value={{categoryCode}}>
+                <label for="title">Category Code </label>
+            </div>
+        </div>
+          <div class="row">
+         <div class="input-field">
+                <input type="text" id="price" name="price" value={{price}}>
+                <label for="title">price </label>
+            </div>
+        </div>
+           <div class="row">
+         <div class="input-field">
+                <input type="text" id="summary" name="summary" value={{summary}}>
+                <label for="title">Summary </label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/products" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

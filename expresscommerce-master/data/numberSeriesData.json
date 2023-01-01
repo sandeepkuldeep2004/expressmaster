@@ -1,0 +1,12 @@
+[   
+   {"key":"order","type":"numeric","prefix":"ORD","digits":12,"startBy":1,"template":"$"},
+   {"key":"cart","type":"numeric","prefix":"CT","digits":12,"startBy":1,"template":"$"},
+   {"key":"cartEntries","type":"numeric","prefix":"CTE","digits":5,"startBy":1,"template":"$"},
+   {"key":"address","type":"numeric","prefix":"AD","digits":10,"startBy":1,"template":"$"},
+   {"key":"paymentTransaction","type":"numeric","prefix":"PTXN","digits":15,"startBy":1,"template":"$"},
+   {"key":"paymentTransactionEntry","type":"numeric","prefix":"PTXNE","digits":15,"startBy":1,"template":"$"},
+   {"key":"favourite","type":"numeric","prefix":"FVT","digits":10,"startBy":1,"template":"$"},
+   {"key":"rewardWallet","type":"numeric","prefix":"RW","digits":15,"startBy":1,"template":"$"},
+   {"key":"customerActivity","type":"numeric","prefix":"CA","digits":15,"startBy":1,"template":"$"}
+   
+]

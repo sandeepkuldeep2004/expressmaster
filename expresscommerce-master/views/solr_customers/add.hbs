@@ -1,0 +1,40 @@
+<h3>Add Vendor</h3>
+<div class="row">
+    <form action="/solr/customer" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="row">
+        <div class="input-field">
+                <input type="text" id="id" name="id" value={{id}}>
+                <label for="title">Customer ID</label>
+            </div>
+        </div>
+         <div class="row">
+          <div class="input-field">
+                <input type="text" id="first_name" name="first_name" value={{first_name}}>
+                <label for="title">First Name </label>
+            </div>
+        </div>
+        <div class="row">
+         <div class="input-field">
+                <input type="text" id="last_name" name="last_name" value={{last_name}}>
+                <label for="title">Last Name </label>
+            </div>
+        </div>
+         <div class="row">
+            <div class="input-field">
+                <input type="text" id="email" name="email" value={{email}}>
+                <label for="title">Email </label>
+            </div>
+        </div>
+         <div class="row">
+         <div class="input-field">
+                <input type="text" id="gender" name="gender" value={{gender}}>
+                <label for="title">Gender </label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/solr/customers/viewall" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

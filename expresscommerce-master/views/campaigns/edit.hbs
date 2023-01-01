@@ -1,0 +1,52 @@
+<h3>Edit Catalog</h3>
+<div class="row">
+    <form action="/campaigns/{{campaign._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="type" name="type" value="{{campaign.type}}">
+                <label for="title">Type</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="emailTemplate" name="emailTemplate" value="{{campaign.emailTemplate}}">
+                <label for="title">Email Template</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="startDate" name="startDate" value="{{campaign.startDate}}">
+                <label for="title">Start Date</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="expiryDate" name="expiryDate" value="{{campaign.expiryDate}}">
+                <label for="title">Expiry Date</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="cronExpression" name="cronExpression" value="{{campaign.cronExpression}}">
+                <label for="title">cronExpression</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    {{#select campaign.status}}
+                    <option value="true" selected>true</option>
+                    <option value="false">false</option>
+                    {{/select}}
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

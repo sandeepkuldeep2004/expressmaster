@@ -1,0 +1,23 @@
+<h3>Edit Currency</h3>
+<div class="row">
+    <form action="/currency/{{currency._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="name" name="name" value="{{currency.name}}">
+                <label for="title">Currency Name</label>
+            </div>
+        </div>
+              <div class="row">
+            <div class="input-field">
+                <input type="text" id="fallbackcurrency" name="fallbackcurrency" value="{{currency.fallbackcurrency}}">
+                <label for="title">Fallback Currency</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

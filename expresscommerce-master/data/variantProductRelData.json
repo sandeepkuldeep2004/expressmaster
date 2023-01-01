@@ -1,0 +1,10 @@
+[   
+   {"base":"3101001","variants":"3101001001|3101001002","catalog":"us-product-catalog"},
+   {"base":"3101002","variants":"3101002001|3101002002","catalog":"us-product-catalog"},
+   {"base":"3102001","variants":"3102001001|3102001002","catalog":"us-product-catalog"},
+   {"base":"3102002","variants":"3102002001|3102002002","catalog":"us-product-catalog"},
+   {"base":"3103001","variants":"3103001001|3103001002","catalog":"us-product-catalog"},
+   {"base":"3103002","variants":"3103002001|3103002002","catalog":"us-product-catalog"},
+   {"base":"3104001","variants":"3104001001|3104001002","catalog":"us-product-catalog"},
+   {"base":"3104002","variants":"3104002001|3104002002","catalog":"us-product-catalog"}
+]

@@ -1,0 +1,41 @@
+{{#if usergroupList}}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each usergroupList}}
+            <tr>
+                <td><a href="/usergroup/{{code}}">{{code}}</a></td>
+                <td><a href="/usergroup/{{code}}">{{name}}</a></td>
+                <td>
+                    <div class="bo-edit-row">
+                        <a href="/usergroup/{{code}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <form action="/usergroup/remove/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<p>You have not created any usergroup</p>
+{{/if}}
+
+<div class="fixed-action-btn">
+    <a href="/usergroup/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus" title="Add New UserGroup"></i></a>
+    <a href="/usergroup/user/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-network-wired" title="Associate Group with User"></i></a>
+</div>

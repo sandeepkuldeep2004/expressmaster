@@ -1,0 +1,68 @@
+{{!-- <div class="wrapper"> --}}
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Portol</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="{{#if dashboard}}active{{/if}}">
+                    <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                  <li class="{{#if regionList}}active{{/if}}">
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-cog"></i> Localization</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="/region/viewAll"><i class="fas fa-cog"></i> Region</a>
+                        </li>
+                        <li>
+                            <a href="/country/viewAll"><i class="fas fa-cog"></i> Country</a>
+                        </li>
+                        <li>
+                            <a href="/currency/viewAll"><i class="fas fa-cog"></i> Currency</a>
+                        </li>
+                        <li>
+                            <a href="/language/viewAll"><i class="fas fa-cog"></i> Language</a>
+                        </li>
+                    </ul>
+                </li>
+                              
+                <li class="{{#if basesiteList}}active{{/if}}">
+                    <a href="/basesite/viewAll"><i class="fas fa-cube"></i> BaseSite</a>
+                </li>
+                <li class="{{#if catalogs}}active{{/if}}">
+                    <a href="/catalogs/viewAll"><i class="fas fa-bookmark"></i> Catalogs</a>
+                </li>
+              
+                <li class="{{#if categoryList}}active{{/if}}">
+                    <a href="/category/viewAll"><i class="fas fa-archive"></i> Category</a>
+                </li>
+              
+                <li class="{{#if products}}active{{/if}}">
+                    <a href="/products"><i class="fas fa-cog"></i> Products</a>
+                </li>
+                <li class="{{#if orders}}active{{/if}}">
+                    <a href="/sync/orders/viewAll"><i class="fas fa-cog"></i> Orders</a>
+                </li>
+               
+                <li class="{{#if campaignList}}active{{/if}}">
+                    <a href="/campaigns/viewAll"><i class="fas fa-bullhorn"></i> Campaigns</a>
+                </li>
+                <li class="{{#if oauthclientList}}active{{/if}}">
+                    <a href="/oauthclient/viewAll"><i class="fas fa-user"></i> OAuth Client</a>
+                </li>
+                <li class="{{#if vendors}}active{{/if}}">
+                    <a href="/vendors/viewAll"><i class="fas fa-cog"></i> Vendors</a>
+                </li>
+                <li>
+                    <a href="/usergroup/viewAll"><i class="fas fa-cog"></i> Usergroup</a>
+                </li>
+               <li class="{{#if story}}active{{/if}}">
+                    <a href="/stories"><i class="fas fa-cog"></i> Tickets</a>
+                </li>
+                
+                <li>
+                    <a href="/users/logout"><i class="fas fa-cog"></i> Logout</a>
+                </li>
+            </ul>
+        </nav>

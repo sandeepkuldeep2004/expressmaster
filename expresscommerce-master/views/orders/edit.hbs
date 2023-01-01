@@ -1,0 +1,26 @@
+<h3>Edit Catalog</h3>
+<div class="row">
+    <form action="/sync/order/{{order._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="id" name="id" value="{{order.id}}">
+                <label for="title">Order Number</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="totalPrice" name="totalPrice" value="{{order.totalPrice}}">
+                <label for="title">Total price ({{order.currencyCode}})</label>
+            </div>
+             <div class="input-field">
+                <input type="text" id="deliveryCost" name="deliveryCost" value="{{order.deliveryCost}}">
+                <label for="title">Delivery Cost ({{order.currencyCode}})</label>
+            </div>
+        </div>
+       
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/sync/orders/viewAll" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

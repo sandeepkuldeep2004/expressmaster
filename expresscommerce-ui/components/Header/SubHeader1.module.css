@@ -1,0 +1,18 @@
+.signin{
+    float: right;
+    color: inherit;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 12px;
+    display: block;
+    font-size: 1em;
+    line-height: 1.329em;
+    padding-right: 0
+}
+
+.subheader{
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}

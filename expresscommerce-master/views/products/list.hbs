@@ -1,0 +1,58 @@
+<form action="/products/search" method="POST" id="delete-form">
+    <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+    <input type="text" class="form-control web-search-box" placeholder="search" name="keyword" value=''>
+    <button type="submit" class="btn red ">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
+{{#if products.result}}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            Product Found : {{products.total}}
+            <tr>
+                <th>Code</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Catalog</th>
+                <th>price</th>
+                <th>In Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products.result}}
+            <tr>
+                <td><a href="/products/update/{{_id}}">{{code}}</a></td>
+                <td>{{title}} </td>
+                <td>{{description}} </td>
+                <td>{{catalog}}</td>
+                <td>{{price_usd}}</td>
+                <td>{{inStock}}</td>
+                <td>
+                    <div class="bo-edit-row">
+                        <a href="/products/update/{{_id}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <form action="/products/remove/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<p>{{products.error}}</p>
+{{/if}}
+
+<div class="fixed-action-btn">
+    <a href="/products/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"
+            title="Create New Product"></i></a>
+</div>

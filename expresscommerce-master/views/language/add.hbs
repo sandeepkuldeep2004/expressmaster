@@ -1,0 +1,28 @@
+<h3>Add Language</h3>
+<div class="row">
+    <form action="/language/add" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="isocode" name="isocode" value={{isocode}}>
+                <label for="title">Iso Code</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="name" name="name" value={{name}}>
+                <label for="title">name</label>
+            </div>
+        </div>
+         <div class="row">
+            <div class="input-field">
+                <input type="text" id="fallbacklanguage" name="fallbacklanguage" value={{fallbacklanguage}}>
+                <label for="title">Fallback Language</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

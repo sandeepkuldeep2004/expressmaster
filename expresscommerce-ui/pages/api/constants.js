@@ -1,0 +1,18 @@
+export const COMMON_API = {
+    GET_MAIN_MENU:  `/occ/v2/${process.env.BASE_SITE}/category`,
+    GET_MAIN_MENUS:  `/occ/v2/${process.env.BASE_SITE}/categories`,
+    GET_ACCESS_TOKEN: `/occ/v2/${process.env.BASE_SITE}/auth/token`,
+    GET_CATEGORY_PAGE: `/occ/v2/${process.env.BASE_SITE}/products/search/`,
+    GET_CART_PAGE: `/occ/v2/${process.env.BASE_SITE}/user/`,
+    POST_CART_PAGE: `/occ/v2/${process.env.BASE_SITE}/user/`,
+    POST_CHECKOUT_PAGE: `/occ/v2/${process.env.BASE_SITE}/users/`,
+    GET_MYACCOUNT_PAGE: `/occ/v2/${process.env.BASE_SITE}/users/`,
+    GET_ORDER_PAGE: `/occ/v2/${process.env.BASE_SITE}/`,
+    GET_SEARCH_PAGE: `/occ/v2/${process.env.BASE_SITE}/products/search`,
+    GET_PRODUCT_PAGE: `/occ/v2/${process.env.BASE_SITE}/products/`,
+    SIGN_UP: `/occ/v2/${process.env.BASE_SITE}/registration`,
+    SIGN_IN: `/occ/v2/${process.env.BASE_SITE}/login`,
+    HOME: `/occ/v2/${process.env.BASE_SITE}/`,
+    WISH_LIST_PAGE: `/occ/v2/${process.env.BASE_SITE}/customers/`,
+    GET_WISH_LIST_PAGE: `/occ/v2/${process.env.BASE_SITE}/customers/`,
+}

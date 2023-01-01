@@ -1,0 +1,45 @@
+{{#if languageList}}
+<div class="bo-fixed-action-btn">
+    <a href="/language/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>IsoCode</th>
+                <th>Name</th>
+                <th>Fallback Language</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {{#each languageList}}
+            <tr>
+                <td><a href="/language/{{isocode}}">{{isocode}}</a></td>
+                <td><a href="/language/{{name}}">{{name}}</a></td>
+                <td><a href="/language/{{isocode}}">{{fallbacklanguage}}</a></td>
+                <td>
+                    <div class="bo-edit-row">
+                        <a href="/language/{{isocode}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <form action="/language/remove/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+                
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<p>You have not created any Language</p>
+{{/if}}
+

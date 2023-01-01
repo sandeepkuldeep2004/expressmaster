@@ -1,0 +1,34 @@
+.searchbox {
+  width: 94%;
+  height: 2.5rem;
+  padding-left: 1rem;
+  border: none;
+  outline: none;
+}
+.searchBtn {
+  top: 12%;
+  left: 27%;
+  margin-top: 1.25rem;
+  margin-right: 1rem;
+  background-color: transparent;
+  position: absolute;
+  border: none;
+}
+
+.searchIcon {
+  color: grey;
+  vertical-align: middle;
+}
+
+.search {
+  min-height: 38px;
+  width: 450px;
+  border-radius: 0.25rem;
+  border-style: solid;
+  margin: 4px;
+  border-color: lightgray;
+}
+
+.searchIcon {
+  width: 5%;
+}

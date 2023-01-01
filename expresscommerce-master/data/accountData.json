@@ -1,0 +1,9 @@
+[   
+   {"code":"11001","vatId":"","name":"Rostic Inc","saleOrg":"100","distributionChannel":"10","division":"20","parentBusinessUnit":""},
+   {"code":"11002","vatId":"","name":"Rostic North Inc","saleOrg":"100","distributionChannel":"10","division":"20","parentBusinessUnit":"11001"},
+   {"code":"11003","vatId":"","name":"Rostic South Inc","saleOrg":"100","distributionChannel":"20","division":"20","parentBusinessUnit":"11001"},
+   {"code":"11004","vatId":"","name":"Rostic East Inc","saleOrg":"100","distributionChannel":"30","division":"30","parentBusinessUnit":"11001"},
+   {"code":"11005","vatId":"","name":"Rostic West Inc","saleOrg":"100","distributionChannel":"40","division":"30","parentBusinessUnit":"11001"},
+   {"code":"11006","vatId":"","name":"Pregis Indutries","saleOrg":"200","distributionChannel":"10","division":"20","parentBusinessUnit":"11001"}
+   
+]

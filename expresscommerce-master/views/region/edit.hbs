@@ -1,0 +1,30 @@
+<h3>Edit Region>
+<div class="row">
+    <form action="/region/{{region._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="name" name="name" value="{{region.name}}">
+                <label for="title">Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                 <select id="status" name="countryisocode">
+                     {{#select 'US'}}
+                        {{#each countryList}}
+                            <option value="{{this.isocode}}"> {{this.name}} </option>
+                        {{/each}}
+                     {{/select}}
+                 </select>
+                <label for="Country">Country</label>
+            </div>
+        </div>
+       
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

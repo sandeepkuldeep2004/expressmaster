@@ -1,0 +1,18 @@
+.footerPanel {
+    background: var(--footer-bg);
+    margin-top: 60px;
+}
+
+.footerPanel li {
+    margin-bottom: 10px;
+}
+
+.footerPanel li a {
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.footerBottom {
+    background: var(--footer-bottom-bg);
+    border-top: 1px solid #134f83;
+}
