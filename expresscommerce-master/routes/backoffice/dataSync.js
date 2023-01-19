@@ -1,5 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const { ensureAuth } = require("../../middleware/auth");
+
+console.log("test");
+// @desc    Show add page
+// @route   GET /vendors/add
+router.get("/view", ensureAuth, (req, res) => {
+  console.log("test");
+  res.render("datasync/view",{
+    csrfToken: req.csrfToken(),
+    dataSyncActive:true
+  });
+});
 const {
   essentialDataUpload,
   sampleDataUpload,
@@ -23,15 +35,25 @@ const { saveB2BUnit } = require("../../dao/Account");
 const { saveNumberSeries } = require("../../dao/NumberSeries");
 
 
+
+
 // @desc    Show add page
 // @route   GET /essentialdata/synch
-router.get("/essentialdata/synch", async (req, res) => {
+router.post("/essentialdata/synch", async (req, res) => {
   try {
     essentialDataUpload("essentialData");
 
-    res.status(201).json({
+   /* res.status(201).json({
       msg: "all essential data uploaded successfully",
-    });
+    });*/
+
+    res.render("datasync/view",{
+      csrfToken: req.csrfToken(),
+      msg: "All essential data uploaded successfully",
+      dataSyncActive:true
+     }); 
+    //res.render("/data/view",{Msg:"All essential data uploaded successfully"});
+   
   } catch (err) {
     res.status(500).json({
       err,
@@ -39,15 +61,25 @@ router.get("/essentialdata/synch", async (req, res) => {
   }
 });
 
+
+
 // @desc    Show add page
 // @route   GET /catalog/synch
-router.get("/cms/synch", async (req, res) => {
+router.post("/cms/synch", async (req, res) => {
   try {
     cmsComponentUpload("TopSellingComponent", await saveTopSellingComponent);
     //cmsComponentUpload('ProductCarouselComponent');
-    res.status(201).json({
+    /*res.status(201).json({
       msg: "all CMS data uploaded successfully",
-    });
+    });*/
+    
+    res.render("datasync/view",{
+      csrfToken: req.csrfToken(),
+      msg: "All CMS data uploaded successfully",
+      dataSyncActive:true
+     }); 
+   
+    
   } catch (err) {
     res.status(500).json({
       err,
@@ -57,7 +89,7 @@ router.get("/cms/synch", async (req, res) => {
 
 // @desc    Show add page
 // @route   GET /catalog/synch
-router.get("/sampledata/synch", async (req, res) => {
+router.post("/sampledata/synch", async (req, res) => {
   try {
     sampleDataUpload("catalogData", await saveCatalog);
     sampleDataUpload("categoryData1", await saveCategory);
@@ -70,9 +102,18 @@ router.get("/sampledata/synch", async (req, res) => {
     sampleDataUpload("productMediaData1", await saveProductMedia);
     //sampleDataUpload("variantProductRelData", await saveVariantProductRel);
 
-    res.status(201).json({
+   /* res.status(201).json({
       msg: "all sample data uploaded successfully",
-    });
+    });.*/
+    //return res.redirect("/data/view");
+
+    res.render("datasync/view",{
+      csrfToken: req.csrfToken(),
+      msg: "All sample data uploaded successfully",
+      dataSyncActive:true
+     }); 
+   
+
   } catch (err) {
     res.status(500).json({
       err,
@@ -82,12 +123,20 @@ router.get("/sampledata/synch", async (req, res) => {
 
 // @desc    Show add page
 // @route   GET /catalog/synch
-router.get("/mediadata/synch", async (req, res) => {
+router.post("/mediadata/synch", async (req, res) => {
   try {
     sampleMediaDataUpload("/data/media", saveMedia);
-    res.status(201).json({
+   /* res.status(201).json({
       msg: "all media files uploaded successfully",
-    });
+    });*/
+  //  return res.redirect("/data/view");
+    res.render("datasync/view",{
+      csrfToken: req.csrfToken(),
+      msg: "All media data uploaded successfully",
+      dataSyncActive:true
+    }); 
+   
+
   } catch (err) {
     res.status(500).json({
       err,
@@ -102,15 +151,14 @@ router.get("/b2b/sampledata/synch", async (req, res) => {
   try {
     sampleDataUpload("accountData", saveB2BUnit);
 
-    res.status(201).json({
+   /* res.status(201).json({
       msg: "all sample data uploaded successfully",
-    });
+    });*/
+    return res.redirect("/data/view");
   } catch (err) {
     res.status(500).json({
       err,
     });
   }
 });
-
-
 module.exports = router;
