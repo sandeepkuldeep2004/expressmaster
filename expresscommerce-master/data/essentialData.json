@@ -1,4 +1,8 @@
 {
+"company":
+[   
+   {"isocode":"XpressCommerce","name":"XpressCommerce","logo":"","description":"E-Commerce Company"}
+],
 "language":
 [   
    {"isocode":"en_US","name":"English US","fallbacklanguage":""},
@@ -58,8 +62,9 @@
 ],
 "basesite":
 [
-   {"code":"expresscommerce","name":"expresscommerce","description":"expresscommerce","urls":"/","productCatalog":"in-product-catalog","contentCatalog":"in-content-catalog","defaultLanguage":"en_US","defaultCurrency":"INR"}
+   {"code":"expresscommerce","name":"expresscommerce","company":"XpressCommerce","description":"expresscommerce","urls":"/","productCatalog":"in-product-catalog","contentCatalog":"in-content-catalog","defaultLanguage":"en_US","defaultCurrency":"INR"}
 ],
+
 
 "deliverymode":
 [
