@@ -12,7 +12,7 @@ const { placeOrder } = require('../ship-rocket/ship-rocket-order')
 // │ │ │ │ │ │
 // * * * * * *
 
-var cronJob = cron.schedule('* * * * *', async () => {
+var cronJob = cron.schedule('* * * 10 *', async () => {
   console.log(" starting indexing job......");
   const products = await getProducts();
   for (product of products) {
@@ -21,7 +21,7 @@ var cronJob = cron.schedule('* * * * *', async () => {
 }, { scheduled: false });
 
 // Integration with Ship Rocket API
-var syncOrderWithShipRocket = cron.schedule('* * * * *', async () => {
+var syncOrderWithShipRocket = cron.schedule('* * * 10 *', async () => {
   console.log(" sync orders with ship rocket");
   const authToken = await placeOrder();
   console.log('Received Order Details:: ', authToken)

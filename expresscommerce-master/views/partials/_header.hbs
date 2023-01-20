@@ -7,29 +7,39 @@
 
             <ul class="list-unstyled components">
                 <li class="{{#if dashboard}}active{{/if}}">
-                    <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                    <a href="/dashboard"><i class="fas fa-home"></i>Dashboard</a>
                 </li>
+
                   <li class="{{#if regionList}}active{{/if}}">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-cog"></i> Localization</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="/region/viewAll"><i class="fas fa-cog"></i> Region</a>
+                            <a href="/region/viewAll"><i class="fas fa-cog"></i>Region</a>
                         </li>
                         <li>
-                            <a href="/country/viewAll"><i class="fas fa-cog"></i> Country</a>
+                            <a href="/country/viewAll"><i class="fas fa-cog"></i>Country</a>
                         </li>
                         <li>
-                            <a href="/currency/viewAll"><i class="fas fa-cog"></i> Currency</a>
+                            <a href="/currency/viewAll"><i class="fas fa-cog"></i>Currency</a>
                         </li>
                         <li>
                             <a href="/language/viewAll"><i class="fas fa-cog"></i> Language</a>
                         </li>
                     </ul>
                 </li>
-                              
+
                 <li class="{{#if basesiteList}}active{{/if}}">
-                    <a href="/basesite/viewAll"><i class="fas fa-cube"></i> BaseSite</a>
-                </li>
+                    <a href="#pageSubmenuOne" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-cog"></i>Manage Access</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenuOne">
+                        <li>
+                            <a href="/basesite/viewAll"><i class="fas fa-cube"></i>BaseSite</a>
+                        </li>       
+                        <li>
+                            <a href="/basesite/viewAll"><i class="fas fa-cube"></i>User Group</a>
+                        </li>                   
+                    </ul>
+                </li>                            
+                
                 <li class="{{#if catalogs}}active{{/if}}">
                     <a href="/catalogs/viewAll"><i class="fas fa-bookmark"></i> Catalogs</a>
                 </li>
@@ -68,4 +78,9 @@
                     <a href="/users/logout"><i class="fas fa-cog"></i> Logout</a>
                 </li>
             </ul>
+
+
+    
+
         </nav>
+

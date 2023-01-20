@@ -15,7 +15,7 @@ var client = new SolrNode({
   protocol: "http",
 });
 
-const task = cron.schedule('* 15 * * *', () =>  {
+const task = cron.schedule('* * * 10 *', () =>  {
   console.log("Updating all Users")
   people.forEach((person) => {
     client.update(person, function (err, result) {
