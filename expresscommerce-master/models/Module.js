@@ -9,13 +9,17 @@ const ModuleSchema = new mongoose.Schema({
     type: String,
     required:true,
   },
+  url: {
+    type: String,
+    required:false,
+  },
   cssclassname: {
     type: String,
-    required:true,
+    required:false,
   },
   position: {
     type: Number,
-    required:true,
+    required:false,
   },
   active: {
     type: Boolean,
@@ -23,4 +27,4 @@ const ModuleSchema = new mongoose.Schema({
     required:false,
   }
 });
-module.exports = mongoose.model('Module', CompanySchema)
+module.exports = mongoose.model('Module', ModuleSchema)

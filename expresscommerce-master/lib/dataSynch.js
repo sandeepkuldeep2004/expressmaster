@@ -11,6 +11,10 @@ const { saveBasesite } = require("../dao/Basesite");
 const { saveDeliveryModes } = require("../dao/DeliveryMode");
 const { saveOAuthClient } = require("../dao/OAuthClient");
 const { saveBrand } = require("../dao/Brand");
+const { saveModule } = require("../dao/Module");
+const { saveSubModule } = require("../dao/SubModule");
+
+
 
 async function essentialDataUpload(fileName, callBack) {
     const file = fs.readFileSync(path.join(__dirname, '../data/' + fileName + '.json'), 'utf8');
@@ -20,6 +24,8 @@ async function essentialDataUpload(fileName, callBack) {
     saveCurrency(fileData.currency);
     saveCountry(fileData.country);
     saveRegion(fileData.region);
+    saveModule(fileData.module);
+    saveSubModule(fileData.submodule);
     saveUserGroup(fileData.usergroup);
     saveZone(fileData.zone);
     saveBasesite(fileData.basesite);

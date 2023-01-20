@@ -43,6 +43,19 @@
    {"isocode":"IN-PJ","name":"Punjab","country":"IN"}
    
 ],
+"module":
+[   
+   {"code":"dashboard","name":"Dashboard","url":"/dashboard","position":"0","cssclassname":"fas fa-home"},
+   {"code":"localization","name":"Localization","url":"","position":"1","cssclassname":"fas fa-cog"}
+ 
+],
+"submodule":
+[   
+   {"code":"region","name":"Region","landingUrl":"/region/viewAll","position":"0","cssclassname":"fas fa-cog","moduleCode":"localization"},
+   {"code":"country","name":"Country","landingUrl":"/country/viewAll","position":"1","cssclassname":"fas fa-cog","moduleCode":"localization"},
+   {"code":"currency","name":"Currency","landingUrl":"/currency/viewAll","position":"2","cssclassname":"fas fa-cog","moduleCode":"localization"},
+   {"code":"language","name":"Language","landingUrl":"/language/viewAll","position":"3","cssclassname":"fas fa-cog","moduleCode":"localization"}
+],
 "usergroup":
 [   
    {"code":"customerGroup","name":"CUSTOMER GROUP","userPriceGroup":"customerGroup","userTaxGroup":"customerGroup","parent":""},
