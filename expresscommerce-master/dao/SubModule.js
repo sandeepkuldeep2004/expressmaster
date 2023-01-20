@@ -21,8 +21,8 @@ module.exports = {
             $set: {
               name: element[1].name,
               landingUrl: element[1].landingUrl,
-              cssclassname: cssclassname,
-              position: position,
+              cssclassname: element[1].cssclassname,
+              position: element[1].position,
               module:moduleCode
             }
           },function (err) {
