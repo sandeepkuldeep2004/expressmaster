@@ -7,9 +7,7 @@ module.exports = {
     Object.entries(data).forEach(async (element) => {
       const usergroup = await getUserGroup(element[1].code);
       if (usergroup) {
-        console.log(
-          "UserGroup with same code " + element[1].code + " already exists"
-        );
+        //console.log("UserGroup with same code " + element[1].code + " already exists");
       } else {
         const usergroupModel = new UserGroupModel({
           code: element[1].code,
@@ -20,8 +18,7 @@ module.exports = {
         usergroupModel.save(function (err) {
           if (err) {
             console.log(err);
-          }
-        //  console.log('Insert UserGroup finished'); 
+          }       
         });
       }
     });

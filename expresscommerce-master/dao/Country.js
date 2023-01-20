@@ -6,9 +6,7 @@ module.exports = {
     Object.entries(data).forEach(async (element) => {
       const country = await getCountryByIsocode(element[1].isocode);
       if (country) {
-        console.log(
-          "Country with same isocode " + element[1].isocode + " already exists"
-        );
+        //console.log("Country with same isocode " + element[1].isocode + " already exists");
       } else {
         const countryModel = new CountryModel({
           isocode: element[1].isocode,
