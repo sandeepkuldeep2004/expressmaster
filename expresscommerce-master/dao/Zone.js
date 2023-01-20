@@ -6,9 +6,7 @@ module.exports = {
     Object.entries(data).forEach(async (element) => {
       const zone = await getZone(element[1].code);
       if (zone) {
-        console.log(
-          "zone with same code " + element[1].code + " already exists"
-        );
+        //console.log("zone with same code " + element[1].code + " already exists");
       } else {
         const zoneModel = new ZoneModel({
           code: element[1].code,

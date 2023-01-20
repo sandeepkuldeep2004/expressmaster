@@ -6,9 +6,7 @@ module.exports = {
     Object.entries(data).forEach(async (element) => {
       const currency = await getCurrencyByIsoCode(element[1].isocode);
       if (currency) {
-        console.log(
-          "Currency with same isocode " + element[1].isocode + " already exists"
-        );
+        //console.log("Currency with same isocode " + element[1].isocode + " already exists");
       } else {
         const currencyModel = new CurrencyModel({
           isocode: element[1].isocode,

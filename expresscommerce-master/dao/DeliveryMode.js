@@ -6,9 +6,7 @@ module.exports = {
     Object.entries(data).forEach(async (element) => {
       const deliveryModes = await getDeliveryModes();
       if (deliveryModes.length >0) {
-        console.log(
-          "delivery Modes already exists"
-        );
+        //console.log("delivery Modes already exists");
       } else {
         const deliveryModeModel = new DeliveryModeModel({
           code: element[1].code,
