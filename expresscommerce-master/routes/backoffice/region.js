@@ -79,8 +79,7 @@ router.get("/viewall", ensureAuth, async (req, res) => {
   try {
     const countryList = await getCountryList(true);
     const regionList = await RegionModel.find({}).sort({ name: "asc" }).lean();
-    //const catalogList=await getCatalogList(true);
-    res.render(listView, {
+      res.render(listView, {
       regionList,
       countryList,
       csrfToken: req.csrfToken(),

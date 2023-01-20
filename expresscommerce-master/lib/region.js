@@ -21,5 +21,5 @@ const getRegionById = async function(id){
 }
 
 module.exports={
-  getRegionListByCountry, getRegionByIsoCode,getRegionById
+  getRegionListByCountry, getRegionByIsoCode, getRegionById
 }

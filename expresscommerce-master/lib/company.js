@@ -19,5 +19,5 @@ const getCompanyById = async function(id){
 }
 
 module.exports={
-  getCompanyList, getCompanyByIsocode,getCompanyById
+  getCompanyList, getCompanyByIsocode, getCompanyById
 }
