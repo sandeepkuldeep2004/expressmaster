@@ -17,7 +17,7 @@
                 )</td>
                 <td>
                     <form action="/data/essentialdata/synch" method="post" id="syncEssentialDataForm">
-                   <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                   <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                    <input type="submit" class="btn btn-primary" name="syncEssentialData" id="syncEssentialData" value="Sync">
                    </form>
                 </td>
@@ -27,7 +27,7 @@
                 )</td>
                 <td>
                     <form action="/data/sampledata/synch" method="post" id="syncSampleDataForm">
-                   <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                   <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                    <input type="submit" class="btn btn-primary" name="syncSampleData" id="syncSampleData" value="Sync">
                    </form>
                 </td>
@@ -36,7 +36,7 @@
                 <td><b>Setup Cms Data</b></br>(CMS)</td>
                 <td>
                     <form action="/data/cms/synch" method="post" id="syncCmsDataForm">
-                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                    <input type="submit" class="btn btn-primary" name="syncCmsData" id="syncCmsData" value="Sync">
                    </form>
                 </td>
@@ -45,7 +45,7 @@
                 <td><b>Setup Media Data</b></br>(Media)</td>
                 <td>
                     <form action="/data/mediadata/synch" method="post" id="synMediaDataForm">
-                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                    <input type="submit" class="btn btn-primary" name="syncMediaData" id="syncMediaData" value="Sync">
                    </form>
                 </td>

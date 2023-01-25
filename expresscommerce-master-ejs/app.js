@@ -130,13 +130,113 @@ app.use(async function(req, res,next) {
     result.toArray(function(err, res1) {
       if (err) throw err;
       collectionArray.push(JSON.stringify(res1));
+      
       console.log(JSON.stringify(res1));
 
         
     });
 
-    collectionArray.push({"_id":"63ca3eaff39741065b7f13f3","code":"localization","name":"Localization","url":"","cssclassname":"fas fa-cog","position":1,"active":true,"__v":0,"moudulsDetail":[{"_id":"63ca4bd206ddb876b90f27d3","code":"region","name":"Region","cssclassname":"fas fa-cog","landingUrl":"/region/viewAll","position":0,"module":"63ca3eaff39741065b7f13f3","active":true,"__v":0},{"_id":"63ca4bd206ddb876b90f27d5","code":"currency","name":"Currency","cssclassname":"fas fa-cog","landingUrl":"/currency/viewAll","position":2,"module":"63ca3eaff39741065b7f13f3","active":true,"__v":0},{"_id":"63ca4bd206ddb876b90f27d7","code":"language","name":"Language","cssclassname":"fas fa-cog","landingUrl":"/language/viewAll","position":3,"module":"63ca3eaff39741065b7f13f3","active":true,"__v":0},{"_id":"63ca4bd206ddb876b90f27dc","code":"country","name":"Country","cssclassname":"fas fa-cog","landingUrl":"/country/viewAll","position":1,"module":"63ca3eaff39741065b7f13f3","active":true,"__v":0}]},{"_id":"63ca3eaff39741065b7f13f7","code":"dashboard","name":"Dashboard","url":"/dashboard","cssclassname":"fas fa-home","position":0,"active":true,"__v":0,"moudulsDetail":[]}
-    );
+    // collectionArray.push({
+    //   "_id": "63ca84d2fc878dc8060aed6c",
+    //   "code": "dashboard",
+    //   "name": "Dashboard",
+    //   "url": "/dashboard",
+    //   "cssclassname": "fas fa-home",
+    //   "position": 0,
+    //   "active": true,
+    //   "__v": 0,
+    //   "moudulsDetail": []
+    // },
+    // {
+    //   "_id": "63ca84d2fc878dc8060aed6e",
+    //   "code": "localization",
+    //   "name": "Localization",
+    //   "url": "",
+    //   "cssclassname": "fas fa-cog",
+    //   "position": 1,
+    //   "active": true,
+    //   "__v": 0,
+    //   "moudulsDetail": [
+    //     {
+    //       "_id": "63ca84d2fc878dc8060aed94",
+    //       "code": "region",
+    //       "name": "Region",
+    //       "cssclassname": "fas fa-cog",
+    //       "landingUrl": "/region/viewAll",
+    //       "position": 0,
+    //       "module": "63ca84d2fc878dc8060aed6e",
+    //       "active": true,
+    //       "__v": 0
+    //     },
+    //     {
+    //       "_id": "63ca84d2fc878dc8060aed96",
+    //       "code": "country",
+    //       "name": "Country",
+    //       "cssclassname": "fas fa-cog",
+    //       "landingUrl": "/country/viewAll",
+    //       "position": 1,
+    //       "module": "63ca84d2fc878dc8060aed6e",
+    //       "active": true,
+    //       "__v": 0
+    //     },
+    //     {
+    //       "_id": "63ca84d2fc878dc8060aed9d",
+    //       "code": "currency",
+    //       "name": "Currency",
+    //       "cssclassname": "fas fa-cog",
+    //       "landingUrl": "/currency/viewAll",
+    //       "position": 2,
+    //       "module": "63ca84d2fc878dc8060aed6e",
+    //       "active": true,
+    //       "__v": 0
+    //     },
+    //     {
+    //       "_id": "63ca84d2fc878dc8060aed9f",
+    //       "code": "language",
+    //       "name": "Language",
+    //       "cssclassname": "fas fa-cog",
+    //       "landingUrl": "/language/viewAll",
+    //       "position": 3,
+    //       "module": "63ca84d2fc878dc8060aed6e",
+    //       "active": true,
+    //       "__v": 0
+    //     }
+    //   ]
+    // },
+    // {
+    //   "_id": "63d121dc808ad0d6c92bf793",
+    //   "code": "ManageAccess",
+    //   "name": "Manage Access",
+    //   "url": "",
+    //   "cssclassname": "fas fa-cog",
+    //   "position": 2,
+    //   "active": true,
+    //   "__v": 0,
+    //   "moudulsDetail": [
+    //     {
+    //       "_id": "63d121dc808ad0d6c92bf7bb",
+    //       "code": "BaseSite",
+    //       "name": "BaseSite",
+    //       "cssclassname": "fas fa-cog",
+    //       "landingUrl": "/basesite/viewAll",
+    //       "position": 2,
+    //       "module": "63d121dc808ad0d6c92bf793",
+    //       "active": true,
+    //       "__v": 0
+    //     },
+    //     {
+    //       "_id": "63d121dc808ad0d6c92bf7bd",
+    //       "code": "UserGroup",
+    //       "name": "User Group",
+    //       "cssclassname": "fas fa-cog",
+    //       "landingUrl": "/usergroup/viewAll",
+    //       "position": 3,
+    //       "module": "63d121dc808ad0d6c92bf793",
+    //       "active": true,
+    //       "__v": 0
+    //     }
+    //   ]
+    // });
       res.locals.SubleftNavigation =collectionArray;
     console.log("testppppppppwerwrwrwer"+res.locals.SubleftNavigation);
     
