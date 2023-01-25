@@ -1,44 +1,47 @@
 {{#if currencyList}}
-<div class="bo-fixed-action-btn">
-    <a href="/currency/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>IsoCode</th>
-                <th>Currency Name</th>
-                <th>Fallback Currency</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            {{#each currencyList}}
-            <tr>
-                <td><a href="/currency/{{isocode}}">{{isocode}}</a></td>
-                <td><a href="/currency/{{isocode}}">{{name}}</a></td>
-                <td><a href="/currency/{{isocode}}">{{fallbackcurrency}}</a></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/currency/{{isocode}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="/currency/add" class="btn-floating btn-large waves-effect waves-light red float-none">
+                Add Currency <i class="fas fa-plus"></i>
+            </a>
+        </h5>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>IsoCode</th>
+                    <th>Currency Name</th>
+                    <th>Fallback Currency</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each currencyList}}
+                <tr>
+                    <td><a href="/currency/{{isocode}}">{{isocode}}</a></td>
+                    <td><a href="/currency/{{isocode}}">{{name}}</a></td>
+                    <td><a href="/currency/{{isocode}}">{{fallbackcurrency}}</a></td>
+                    <td>
+                        <div class="bo-edit-row">
+                            <a href="/currency/{{isocode}}" class="btn btn-float">
+                                <i class="fas fa-edit"></i>
+                            </a>
 
-                        <form action="/currency/remove/{{_id}}" method="POST" id="delete-form">
-                        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+                            <form action="/currency/remove/{{_id}}" method="POST" id="delete-form">
+                                <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn red">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </div>
 {{else}}
 <p>You have not created any Currency</p>
 {{/if}}
-
