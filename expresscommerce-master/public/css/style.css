@@ -442,3 +442,15 @@ body.slide .logo span {
 #sidebar.active ul li a span {
   display: none;
 } */
+
+.table-responsive {
+  background: #ffffff;
+}
+
+.bo-edit-row a.btn, .bo-edit-row button.btn {
+  padding: 4px 10px 0 0;
+  line-height: 1;
+}
+.bo-edit-row button.btn {
+  padding: 0 0 0 10px;
+}
