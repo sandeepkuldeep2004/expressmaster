@@ -1,0 +1,22 @@
+<h3>Associate UserGroup to User</h3>
+<div class="row">
+    <form action="/usergroup/user/add" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="code" name="code" value={{code}}>
+                <label for="title">User Group Code</label>
+            </div>
+        </div>
+         <div class="row">
+            <div class="input-field">
+                <input type="text" id="customerId" name="customerId" value={{customerId}}>
+                <label for="title">Customer UID</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

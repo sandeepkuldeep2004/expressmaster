@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--instruct the web crawler to noindex and nofollow this page-->
+    <meta name='robots' content="noindex,nofollow"> 
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" href="icons8-monitor-50.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Xpress Commerce Login</title>
+</head>
+
+<body>
+    <div class="container login-container">
+        <div class="card">
+            <div class="card-content">
+              <h4><i class="fas fa-shopping-cart"></i> Xpress Commerce</h4>
+              <div class="section">
+                  <p class="lead">Your commerce journey is just a click way</p>
+              </div>
+              <div class="divider"></div>
+              <div class="section">
+                  <form action="/users/login" method="POST">
+                   <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter Email"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter Password"
+                          />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <p class="lead mt-4">Don't have account ? <a href="/users/register">Register</a></p>
+                      </form>
+              </div>
+                        </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
+

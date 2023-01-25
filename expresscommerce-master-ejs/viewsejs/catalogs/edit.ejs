@@ -1,0 +1,35 @@
+<h3>Edit Catalog</h3>
+<div class="row">
+    <form action="/catalogs/{{catalog._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="name" name="name" value="{{catalog.name}}">
+                <label for="title">Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    {{#select catalog.status}}
+                    <option value="active" selected>active</option>
+                    <option value="inactive">Inactive</option>
+                    {{/select}}
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <h5>Description:</h5>
+                <textarea id="description" name="description">{{catalog.description}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+[   
+   {"code":"us-product-catalog","name":"US Product Catalog","description":"This is US Product Catalog"},
+   {"code":"us-content-catalog","name":"US Content Catalog","description":"This is Content Product Catalog"},
+   {"code":"ca-product-catalog","name":"Canada Product Catalog","description":"This is Canada Product Catalog"},
+   {"code":"ca-content-catalog","name":"CA Content Catalog","description":"This is CANADA Content Product Catalog"},
+   {"code":"uk-product-catalog","name":"UK Product Catalog","description":"This is UK Product Catalog"},
+   {"code":"uk-content-catalog","name":"UK Content Catalog","description":"This is UK Content Product Catalog"},
+   {"code":"in-product-catalog","name":"India Product Catalog","description":"This is India Product Catalog"},
+   {"code":"in-content-catalog","name":"India Content Catalog","description":"This is India Content Catalog"}
+  
+]

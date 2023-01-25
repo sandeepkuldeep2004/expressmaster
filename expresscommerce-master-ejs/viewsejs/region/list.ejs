@@ -1,0 +1,46 @@
+{{#if regionList}}
+<div class="bo-fixed-action-btn">
+    <a href="/region/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Country Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each regionList}}
+            <tr>
+                <td><a href="/region/{{isocode}}">{{isocode}}</a></td>
+                <td><a href="/region/{{isocode}}">{{name}}</a></td>
+                <td>{{this.country}}</td>
+                <td>
+                    <div class="bo-edit-row">
+                        <a href="/region/{{isocode}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form action="/region/remove/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<p>You have not created any Region</p>
+{{/if}}
+
+ {{#each countryList}}
+    <td>{{name}}</td>
+ {{/each}}

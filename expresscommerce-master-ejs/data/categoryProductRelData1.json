@@ -1,0 +1,272 @@
+[
+   {
+    "productCode": "1010-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1010
+   },
+   {
+    "productCode": "1010-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1010
+   },
+   {
+    "productCode": "1010-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1010
+   },
+   {
+    "productCode": "1011-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1011
+   },
+   {
+    "productCode": "1011-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1011
+   },
+   {
+    "productCode": "1011-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1011
+   },
+   {
+    "productCode": "1020-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1020
+   },
+   {
+    "productCode": "1020-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1020
+   },
+   {
+    "productCode": "1020-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1020
+   },
+   {
+    "productCode": "1021-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1021
+   },
+   {
+    "productCode": "1021-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1021
+   },
+   {
+    "productCode": "1021-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1021
+   },
+   {
+    "productCode": "1030-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1030
+   },
+   {
+    "productCode": "1030-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1030
+   },
+   {
+    "productCode": "1030-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1030
+   },
+   {
+    "productCode": "1031-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1031
+   },
+   {
+    "productCode": "1031-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1031
+   },
+   {
+    "productCode": "1031-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1031
+   },
+   {
+    "productCode": "1040-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1040
+   },
+   {
+    "productCode": "1040-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1040
+   },
+   {
+    "productCode": "1040-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1040
+   },
+   {
+    "productCode": "1044-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1044
+   },
+   {
+    "productCode": "1044-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1044
+   },
+   {
+    "productCode": "1044-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1044
+   },
+   {
+    "productCode": "1050-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1050
+   },
+   {
+    "productCode": "1050-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1050
+   },
+   {
+    "productCode": "1050-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1050
+   },
+   {
+    "productCode": "1051-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1051
+   },
+   {
+    "productCode": "1051-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1051
+   },
+   {
+    "productCode": "1051-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1051
+   },
+   {
+    "productCode": "1060-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1060
+   },
+   {
+    "productCode": "1060-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1060
+   },
+   {
+    "productCode": "1060-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1060
+   },
+   {
+    "productCode": "1061-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1061
+   },
+   {
+    "productCode": "1061-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1061
+   },
+   {
+    "productCode": "1061-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1061
+   },
+   {
+    "productCode": "1070-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1070
+   },
+   {
+    "productCode": "1070-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1070
+   },
+   {
+    "productCode": "1070-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1070
+   },
+   {
+    "productCode": "1071-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1071
+   },
+   {
+    "productCode": "1071-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1071
+   },
+   {
+    "productCode": "1071-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1071
+   },
+   {
+    "productCode": "1080-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1080
+   },
+   {
+    "productCode": "1080-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1080
+   },
+   {
+    "productCode": "1080-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1080
+   },
+   {
+    "productCode": "1090-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1090
+   },
+   {
+    "productCode": "1090-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1090
+   },
+   {
+    "productCode": "1090-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1090
+   },
+   {
+    "productCode": "1091-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1091
+   },
+   {
+    "productCode": "1091-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1091
+   },
+   {
+    "productCode": "1091-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1091
+   },
+   {
+    "productCode": "1100-0001",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1100
+   },
+   {
+    "productCode": "1100-0002",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1100
+   },
+   {
+    "productCode": "1100-0003",
+    "catalog": "in-product-catalog",
+    "categoryCode": 1100
+   }
+  ]  

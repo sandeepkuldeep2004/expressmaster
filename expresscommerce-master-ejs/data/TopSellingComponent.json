@@ -1,0 +1,4 @@
+[   
+   {"code":111,"title":"Top Selling Products","products":["1010-0002:in-product-catalog","1010-0003:in-product-catalog","1011-0001:in-product-catalog","1021-0002:in-product-catalog","1010-0003:in-product-catalog","1030-0003:in-product-catalog","1020-0002:in-product-catalog"],"catalog":"in-content-catalog","visibleToUserGroup":"customerGroup"},
+   {"code":112,"title":"Top Selling Products","products":["1010-0002:in-product-catalog","1010-0003:in-product-catalog","1011-0001:in-product-catalog","1021-0002:in-product-catalog","1010-0003:in-product-catalog","1030-0003:in-product-catalog","1020-0002:in-product-catalog"],"catalog":"in-content-catalog","visibleToUserGroup":"promotionalGroup"}
+]

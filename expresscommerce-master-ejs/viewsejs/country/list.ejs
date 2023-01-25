@@ -1,0 +1,41 @@
+{{#if countryList}}
+<div class="bo-fixed-action-btn">
+    <a href="/country/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each countryList}}
+            <tr>
+                <td><a href="/country/{{isocode}}">{{isocode}}</a></td>
+                <td><a href="/country/{{isocode}}">{{name}}</a></td>
+                <td>
+                    <div class="bo-edit-row">
+                        <a href="/country/{{isocode}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form action="/country/remove/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<p>You have not created any country</p>
+{{/if}}
+

@@ -1,0 +1,25 @@
+<h1>Catalogs</h1>
+<div class="row">
+    {{#each catalogs}}
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                
+            </div>
+            <div class="card-content center-align">
+                <h5>{{name}}</h5>
+                <br>
+                <div class="chip">
+                    <img src="{{user.image}}" alt="">
+                    <a href="/catalogs/{{catalog.code}}">{{catalog.name}}</a>
+                </div>
+            </div>
+            <div class="card-action center-align">
+                <a href="/catalogs/{{code}}" class="btn grey">Read More</a>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <p>No catalogs to display</p>
+    {{/each}}
+</div>

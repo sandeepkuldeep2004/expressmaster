@@ -1,0 +1,105 @@
+{
+"company":
+[   
+   {"isocode":"XpressCommerce","name":"XpressCommerce","logo":"","description":"E-Commerce Company"}
+],
+"language":
+[   
+   {"isocode":"en_US","name":"English US","fallbacklanguage":""},
+   {"isocode":"en_UK","name":"English UK","fallbacklanguage":"en_US"},
+   {"isocode":"de","name":"Germany","fallbacklanguage":"en_US"},
+   {"isocode":"ja","name":"Japenese","fallbacklanguage":"en_US"},
+   {"isocode":"zh","name":"Chinese","fallbacklanguage":"en_US"},
+   {"isocode":"hi","name":"Hindi","fallbacklanguage":"en_US"}
+],
+"currency":
+[   
+   {"isocode":"USD","name":"USD","fallbackcurrency":"","conversion":"","digit":"2","symbol":"$"},
+   {"isocode":"CAD","name":"CANADIAN DOLLAR","fallbackcurrency":"","conversion":"","digit":"2","symbol":"C$"},
+   {"isocode":"EUR","name":"USD","fallbackcurrency":"","conversion":"","digit":"2","symbol":"€"},
+   {"isocode":"INR","name":"INR","fallbackcurrency":"","conversion":"","digit":"2","symbol":"₹"}
+],
+"country":
+[  
+   {"isocode":"AD","name":"Andorra"}, 
+   {"isocode":"AE","name":"United Arab Emirates"},
+   {"isocode":"AF","name":"Afganistan"},
+   {"isocode":"CA","name":"Canada"},
+   {"isocode":"DE","name":"Germany"},
+   {"isocode":"IN","name":"India"},
+   {"isocode":"US","name":"United States"}
+],
+"region":
+[   
+   {"isocode":"US-AL","name":"Alabama","country":"US"},
+   {"isocode":"US-AK","name":"Alaska","country":"US"},
+   {"isocode":"US-AZ","name":"Arizona","country":"US"},
+   {"isocode":"US-AR","name":"Arkansas","country":"US"},
+   {"isocode":"US-CA","name":"California","country":"US"},
+   {"isocode":"US-CO","name":"Colorado","country":"US"},
+   {"isocode":"IN-UP","name":"Uttar Pradeash","country":"IN"},
+   {"isocode":"IN-BR","name":"Bihar","country":"IN"},
+   {"isocode":"IN-CH","name":"Chattisgarh","country":"IN"},
+   {"isocode":"IN-PJ","name":"Punjab","country":"IN"}
+   
+],
+"module":
+[   
+   {"code":"dashboard","name":"Dashboard","url":"/dashboard","position":"0","cssclassname":"fas fa-home"},
+   {"code":"localization","name":"Localization","url":"","position":"1","cssclassname":"fas fa-cog"}
+ 
+],
+"submodule":
+[   
+   {"code":"region","name":"Region","landingUrl":"/region/viewAll","position":"0","cssclassname":"fas fa-cog","moduleCode":"localization"},
+   {"code":"country","name":"Country","landingUrl":"/country/viewAll","position":"1","cssclassname":"fas fa-cog","moduleCode":"localization"},
+   {"code":"currency","name":"Currency","landingUrl":"/currency/viewAll","position":"2","cssclassname":"fas fa-cog","moduleCode":"localization"},
+   {"code":"language","name":"Language","landingUrl":"/language/viewAll","position":"3","cssclassname":"fas fa-cog","moduleCode":"localization"}
+],
+"usergroup":
+[   
+   {"code":"customerGroup","name":"CUSTOMER GROUP","userPriceGroup":"customerGroup","userTaxGroup":"customerGroup","parent":""},
+   {"code":"adminGroup","name":"CUSTOMER GROUP","userPriceGroup":"","userTaxGroup":"","parent":""},
+   {"code":"b2bCustomerGroup","name":"B2B CUSTOMER GROUP","userPriceGroup":"","userTaxGroup":"","parent":""},
+   {"code":"b2bManagerGroup","name":"B2B MANAGER GROUP","userPriceGroup":"","userTaxGroup":"","parent":""},
+   {"code":"b2bApproverGroup","name":"B2B APPROVER GROUP","userPriceGroup":"","userTaxGroup":"","parent":""},
+   {"code":"saleRepGroup","name":"SALES REPRESENTATIVE GROUP","userPriceGroup":"","userTaxGroup":"","parent":""},
+   {"code":"csrGroup","name":"CUSTOMER SUPPORT REPRESENTATIVE GROUP","userPriceGroup":"","userTaxGroup":"","parent":""},
+   {"code":"promotionalGroup","name":"PROMORIONAL CUSTOMER GROUP","userPriceGroup":"","userTaxGroup":"","parent":""}
+],
+"zone":
+[   
+   {"code":"asia","name":"Asia","countries":"IN,CH,JP"},
+   {"code":"EU","name":"Europe","countries":"DE,UK,FR"},
+   {"code":"NA","name":"North America","countries":"US,CN,MX"}
+],
+"basesite":
+[
+   {"code":"expresscommerce","name":"expresscommerce","company":"XpressCommerce","description":"expresscommerce","urls":"/","productCatalog":"in-product-catalog","contentCatalog":"in-content-catalog","defaultLanguage":"en_US","defaultCurrency":"INR"}
+],
+
+
+"deliverymode":
+[
+   {"code":"01","name":"Premium Delivery","description":"1-2 business days","status":true,"deliveryCost":"100"},
+   {"code":"02","name":"Standard Delivery","description":"3-5 business days","status":true,"deliveryCost":"50"},
+   {"code":"03","name":"free Delivery","description":"5-7 business days","status":true,"deliveryCost":"0.0"},
+   {"code":"04","name":"same day Delivery","description":"1-2 business days","status":true,"deliveryCost":"150"},
+   {"code":"05","name":"pickup Delivery","description":"any business days","status":true,"deliveryCost":"0.0"}
+],
+"oauth":[
+   {"clientId":"trusted_client","clientSecret":"secret","scope":"extended","active":true,"authorities":"customerGroup"}
+],
+"brand":[   
+   {"code":"1","name":"Nike","logo":"/Nike.png"},
+   {"code":"2","name":"Adidas","logo":"/Adidas.png"},
+   {"code":"3","name":"Puma","logo":"/Puma.png"},
+   {"code":"4","name":"Under Armour","logo":"/Under-Armour.png"},
+   {"code":"5","name":"New Balance","logo":"/New-Balance.png"},
+   {"code":"6","name":"Reebok","logo":"/Reebok.png"},
+   {"code":"7","name":"Fila","logo":"/Fila.png"},
+   {"code":"8","name":"HRX","logo":"/HRX.png"},
+   {"code":"9","name":"Nivia","logo":"/Nivia.jpg"},
+   {"code":"10","name":"Cosco","logo":"/Cosco.png"} 
+]
+}

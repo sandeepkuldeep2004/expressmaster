@@ -1,0 +1,48 @@
+{{#if categoryList}}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Crated At</th>
+                <th>Catalog</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each categoryList}}
+            <tr>
+                <td><a href="/category/{{code}}">{{code}}</a></td>
+                <td><a href="/category/{{code}}">{{title}}</a></td>
+                <td>{{formatDate creationdate 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                <td><span class="dash-status">{{catalog}}</span></td>
+                <td><span class="dash-status">{{status}}</span></td>
+                <td>
+                    <div class="bo-edit-row">
+                        <a href="/category/{{code}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <form action="/category/remove/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{else}}
+<p>You have not created any category</p>
+{{/if}}
+
+<div class="fixed-action-btn">
+    <a href="/category/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
+</div>

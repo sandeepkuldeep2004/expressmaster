@@ -1,0 +1,49 @@
+<h3>Add Auth Client Details</h3>
+<div class="row">
+    <form action="/oauthclient/add" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="clientId" name="clientId" value={{clientId}}>
+                <label for="title">Client Id</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="clientSecret" name="clientSecret" value={{clientSecret}}>
+                <label for="title">Secret Key</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="scope" name="scope" value={{scope}}>
+                <label for="title">Scope</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="resourceIds" name="resourceIds" value={{resourceIds}}>
+                <label for="title">Sites Associated </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="authorities" name="authorities" value={{authorities}}>
+                <label for="title">authorities</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    <option value="true" selected>active</option>
+                    <option value="false">inactive</option>
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+[   
+   {"productCode":"3101001","priority":1,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3101001_1","name":"3101001_1","mainUrl":"/productimages/mainimage/3101001_1.webp","thumbnailUrl":"/productimages/thumbnailimage/3101001_1.webp"},
+   {"productCode":"3101002","priority":1,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3101002_1","name":"3101002_1","mainUrl":"/productimages/mainimage/3101002_1.webp","thumbnailUrl":"/productimages/thumbnailimage/3101002_1.webp"},
+   {"productCode":"3102001","priority":1,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3102001_1","name":"3102001_1","mainUrl":"/productimages/mainimage/3102001_1.webp","thumbnailUrl":"/productimages/thumbnailimage/3102001_1.webp"},
+   {"productCode":"3102002","priority":1,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3102002_1","name":"3102002_1","mainUrl":"/productimages/mainimage/3102002_1.webp","thumbnailUrl":"/productimages/thumbnailimage/3102002_1.webp"},
+   {"productCode":"3103001","priority":1,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3103001_1","name":"3103001_1","mainUrl":"/productimages/mainimage/3103001_1.webp","thumbnailUrl":"/productimages/thumbnailimage/3103001_1.webp"},
+   {"productCode":"3103002","priority":1,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3103002_1","name":"3103002_1","mainUrl":"/productimages/mainimage/3103002_1.webp","thumbnailUrl":"/productimages/thumbnailimage/3103002_1.webp"},
+   {"productCode":"3104001","priority":1,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3104001_1","name":"3104001_1","mainUrl":"/productimages/mainimage/3104001_1.webp","thumbnailUrl":"/productimages/thumbnailimage/3104001_1.webp"},
+   {"productCode":"3104002","priority":1,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3104002_1","name":"3104002_1","mainUrl":"/productimages/mainimage/3104002_1.webp","thumbnailUrl":"/productimages/thumbnailimage/3104002_1.webp"},
+   {"productCode":"3104002","priority":2,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3104002_2","name":"3104002_2","mainUrl":"/productimages/mainimage/3104002_2.webp","thumbnailUrl":"/productimages/thumbnailimage/3104002_2.webp"},
+   {"productCode":"3104002","priority":3,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3104002_3","name":"3104002_3","mainUrl":"/productimages/mainimage/3104002_3.webp","thumbnailUrl":"/productimages/thumbnailimage/3104002_3.webp"},
+   {"productCode":"3104002","priority":4,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3104002_4","name":"3104002_4","mainUrl":"/productimages/mainimage/3104002_4.webp","thumbnailUrl":"/productimages/thumbnailimage/3104002_4.webp"},
+   {"productCode":"3104002","priority":5,"catalog":"us-product-catalog","mediaType":"image","mediaCode":"3104002_5","name":"3104002_5","mainUrl":"/productimages/mainimage/3104002_5.webp","thumbnailUrl":"/productimages/thumbnailimage/3104002_5.webp"}
+    
+]

@@ -1,0 +1,55 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td><h3>Sync Data</h3></td>
+            </tr>
+            {{#if msg}}
+            <tr><td>
+            <div class="alert alert-success" role="alert">
+ {{msg}}</td>
+</div></tr>
+{{/if}}
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>Setup Essential Data</b></br>(language, currency, country, region, usergroup, zone, basesite, deliverymode, oauth, brand
+                )</td>
+                <td>
+                    <form action="/data/essentialdata/synch" method="post" id="syncEssentialDataForm">
+                   <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                   <input type="submit" class="btn btn-primary" name="syncEssentialData" id="syncEssentialData" value="Sync">
+                   </form>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Setup Sample Data</b></br>(catalogData, categoryData, categoryToCategoryRelData, productData, categoryProductRelData, productStockData,  productPriceData, numberSeriesData, productMediaData
+                )</td>
+                <td>
+                    <form action="/data/sampledata/synch" method="post" id="syncSampleDataForm">
+                   <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                   <input type="submit" class="btn btn-primary" name="syncSampleData" id="syncSampleData" value="Sync">
+                   </form>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Setup Cms Data</b></br>(CMS)</td>
+                <td>
+                    <form action="/data/cms/synch" method="post" id="syncCmsDataForm">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                   <input type="submit" class="btn btn-primary" name="syncCmsData" id="syncCmsData" value="Sync">
+                   </form>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Setup Media Data</b></br>(Media)</td>
+                <td>
+                    <form action="/data/mediadata/synch" method="post" id="synMediaDataForm">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                   <input type="submit" class="btn btn-primary" name="syncMediaData" id="syncMediaData" value="Sync">
+                   </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

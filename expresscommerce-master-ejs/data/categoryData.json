@@ -1,0 +1,69 @@
+[
+   {"code":10,"title":"ROOT","description":"ROOT","catalog":"us-product-catalog"},   
+
+   {"code":100,"title":"STREETWEAR","description":"STREETWEAR","catalog":"us-product-catalog"},   
+   {"code":200,"title":"ELECTRONICS","description":"ELECTRONICS","catalog":"us-product-catalog"},   
+   {"code":300,"title":"SPORTS","description":"ALL SPORTS","catalog":"us-product-catalog"},   
+
+   {"code":3100,"title":"Cricket","description":"Cricket","catalog":"us-product-catalog"},
+   {"code":3101,"title":"Cricket Bat","description":"Cricket Bat","catalog":"us-product-catalog"},
+   {"code":3102,"title":"Cricket Ball","description":"Cricket Ball","catalog":"us-product-catalog"},
+   {"code":3103,"title":"Cricket Batting Gloves","description":"Cricket Batting Gloves","catalog":"us-product-catalog"},
+   {"code":3104,"title":"Cricket Shoes","description":"Cricket Shoes","catalog":"us-product-catalog"},
+
+   {"code":3200,"title":"Football","description":"Football","catalog":"us-product-catalog"},
+   {"code":3201,"title":"Footballs","description":"Footballs","catalog":"us-product-catalog"},
+   {"code":3202,"title":"Football Shoes","description":"Football Shoes","catalog":"us-product-catalog"},
+
+   {"code":3300,"title":"Volleyball","description":"Volleyball","catalog":"us-product-catalog"},
+   {"code":3301,"title":"Volleyballs","description":"Volleyballs","catalog":"us-product-catalog"},
+   {"code":3302,"title":"Volleyball Shoes","description":"Volleyball Shoes","catalog":"us-product-catalog"},
+   {"code":3303,"title":"Volleyball Net","description":"Volleyball Net","catalog":"us-product-catalog"},
+   
+   {"code":3400,"title":"BasketBall","description":"BasketBall","catalog":"us-product-catalog"},
+   {"code":3401,"title":"BasketBalls","description":"BasketBalls","catalog":"us-product-catalog"},
+   {"code":3402,"title":"BasketBall Shoes","description":"BasketBall Shoes","catalog":"us-product-catalog"},
+   
+
+   {"code":1000,"title":"Men","description":"Mens clothing","catalog":"us-product-catalog"},   
+   {"code":1001,"title":"Shirt","description":"Shirt","catalog":"us-product-catalog"},
+   {"code":1002,"title":"Trouser","description":"Trouser","catalog":"us-product-catalog"},
+   {"code":1003,"title":"T-Shirt","description":"T-Shirt","catalog":"us-product-catalog"},
+   {"code":1004,"title":"Jeans","description":"Jeans","catalog":"us-product-catalog"},
+
+   
+   {"code":2000,"title":"Women","description":"Womens clothing","catalog":"us-product-catalog"},   
+   {"code":2001,"title":"Shirt","description":"Shirt","catalog":"us-product-catalog"},
+   {"code":2002,"title":"Trouser","description":"Trouser","catalog":"us-product-catalog"},
+   {"code":2003,"title":"T-Shirt","description":"T-Shirt","catalog":"us-product-catalog"},
+   {"code":2004,"title":"Jeans","description":"Jeans","catalog":"us-product-catalog"},
+  
+   {"code":3000,"title":"Pumps","description":"Pumps","catalog":"us-product-catalog"},
+   {"code":3001,"title":"DOMESTIC PUMPS","description":"DOMESTIC PUMPS","catalog":"us-product-catalog"},
+   {"code":3002,"title":"AGRICULTURE PUMPS","description":"AGRICULTURE PUMPS","catalog":"us-product-catalog"},
+   {"code":3003,"title":"ELECTRIC MOTORS","description":"ELECTRIC MOTORS","catalog":"us-product-catalog"},
+
+   {"code":4000,"title":"Kitchen Appliances","description":"Kitchen Appliances","catalog":"us-product-catalog"},
+   {"code":4001,"title":"MIXER GRINDERS","description":"MIXER GRINDERS","catalog":"us-product-catalog"},
+   {"code":4002,"title":"INDUCTION COOKTOPS","description":"INDUCTION COOKTOPS","catalog":"us-product-catalog"},
+   {"code":4003,"title":"GAS STOVES","description":"GAS STOVES","catalog":"us-product-catalog"},
+   {"code":4004,"title":"RICE COOKERS","description":"RICE COOKERS","catalog":"us-product-catalog"},
+   {"code":4005,"title":"GRILLKING","description":"GRILLKING","catalog":"us-product-catalog"},
+   {"code":4006,"title":"TOASTER","description":"TOASTER","catalog":"us-product-catalog"},
+   {"code":4007,"title":"KETTLE","description":"KETTLE","catalog":"us-product-catalog"},
+   {"code":4008,"title":"CHIMNEYS","description":"CHIMNEYS","catalog":"us-product-catalog"},
+   {"code":4009,"title":"SANDWICH MAKER","description":"SANDWICH MAKER","catalog":"us-product-catalog"},
+
+   {"code":5000,"title":"DIGITAL CAMERAS","description":"DIGITAL CAMERAS","catalog":"us-product-catalog"},
+   {"code":5001,"title":"COMPACT CAMERAS","description":"COMPACT CAMERAS","catalog":"us-product-catalog"},
+   {"code":5002,"title":"SLR CAMERAS","description":"SLR CAMERAS","catalog":"us-product-catalog"},
+
+   {"code":6000,"title":"FANS","description":"FANS","catalog":"us-product-catalog"},
+   {"code":6001,"title":"CEILING FANS","description":"CEILING FANS","catalog":"us-product-catalog"},
+   {"code":6002,"title":"TABLE FANS","description":"TABLE FANS","catalog":"us-product-catalog"},
+   {"code":6003,"title":"PEDESTAL FANS","description":"PEDESTAL FANS","catalog":"us-product-catalog"},
+   {"code":6004,"title":"WALL FANS","description":"WALL FANS","catalog":"us-product-catalog"},
+   {"code":6005,"title":"VENTILATING & EXHAUST FANS","description":"VENTILATING & EXHAUST FANS","catalog":"us-product-catalog"},
+   {"code":6006,"title":"OTHERS","description":"OTHERS","catalog":"us-product-catalog"}
+   
+]

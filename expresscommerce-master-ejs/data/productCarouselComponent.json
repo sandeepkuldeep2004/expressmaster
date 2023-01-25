@@ -1,0 +1,5 @@
+[   
+   {"code":11,"products":[1101,1102,1103,1104],"catalog":"us-content-catalog","visibleToUserGroup":"customerGroup","transitionTime":"30"},
+   {"code":12,"products":[1201,1202,1203,1204],"catalog":"ca-content-catalog","visibleToUserGroup":"customerGroup","transitionTime":"60"},
+   {"code":13,"products":[1301,1302,1303,1304],"catalog":"uk-content-catalog","visibleToUserGroup":"customerGroup","transitionTime":"45"}
+]

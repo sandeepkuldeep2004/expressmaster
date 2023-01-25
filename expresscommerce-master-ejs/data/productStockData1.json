@@ -1,0 +1,381 @@
+[
+   {
+    "productCode": "1010-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 200,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 102
+   },
+   {
+    "productCode": "1010-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 100,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 103
+   },
+   {
+    "productCode": "1010-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 28,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 104
+   },
+   {
+    "productCode": "1011-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 298,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 105
+   },
+   {
+    "productCode": "1011-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 418,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 106
+   },
+   {
+    "productCode": "1011-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 231,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 107
+   },
+   {
+    "productCode": "1020-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 23,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 108
+   },
+   {
+    "productCode": "1020-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 32,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 109
+   },
+   {
+    "productCode": "1020-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 12,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 110
+   },
+   {
+    "productCode": "1021-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 34,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 111
+   },
+   {
+    "productCode": "1021-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 841,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 112
+   },
+   {
+    "productCode": "1021-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 34,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 113
+   },
+   {
+    "productCode": "1030-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 85,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 114
+   },
+   {
+    "productCode": "1030-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 10,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 115
+   },
+   {
+    "productCode": "1030-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 39,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 116
+   },
+   {
+    "productCode": "1031-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 31,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 117
+   },
+   {
+    "productCode": "1031-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 92,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 118
+   },
+   {
+    "productCode": "1031-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 84,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 119
+   },
+   {
+    "productCode": "1040-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 24,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 120
+   },
+   {
+    "productCode": "1040-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 30,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 121
+   },
+   {
+    "productCode": "1040-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 39,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 122
+   },
+   {
+    "productCode": "1044-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 62,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 123
+   },
+   {
+    "productCode": "1044-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 81,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 124
+   },
+   {
+    "productCode": "1044-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 96,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 125
+   },
+   {
+    "productCode": "1050-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 81,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 126
+   },
+   {
+    "productCode": "1050-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 75,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 127
+   },
+   {
+    "productCode": "1050-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 92,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 128
+   },
+   {
+    "productCode": "1051-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 71,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 129
+   },
+   {
+    "productCode": "1051-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 21,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 130
+   },
+   {
+    "productCode": "1051-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 42,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 131
+   },
+   {
+    "productCode": "1060-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 47,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 132
+   },
+   {
+    "productCode": "1060-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 62,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 133
+   },
+   {
+    "productCode": "1060-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 40,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 134
+   },
+   {
+    "productCode": "1061-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 55,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 135
+   },
+   {
+    "productCode": "1061-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 72,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 136
+   },
+   {
+    "productCode": "1061-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 84,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 137
+   },
+   {
+    "productCode": "1070-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 82,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 138
+   },
+   {
+    "productCode": "1070-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 92,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 139
+   },
+   {
+    "productCode": "1070-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 41,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 140
+   },
+   {
+    "productCode": "1071-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 28,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 141
+   },
+   {
+    "productCode": "1071-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 89,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 142
+   },
+   {
+    "productCode": "1071-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 52,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 143
+   },
+   {
+    "productCode": "1080-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 29,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 144
+   },
+   {
+    "productCode": "1080-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 21,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 145
+   },
+   {
+    "productCode": "1080-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 27,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 146
+   },
+   {
+    "productCode": "1090-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 88,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 147
+   },
+   {
+    "productCode": "1090-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 95,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 148
+   },
+   {
+    "productCode": "1090-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 45,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 149
+   },
+   {
+    "productCode": "1091-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 41,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 150
+   },
+   {
+    "productCode": "1091-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 85,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 151
+   },
+   {
+    "productCode": "1091-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 38,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 152
+   },
+   {
+    "productCode": "1100-0001",
+    "catalog": "in-product-catalog",
+    "availableQty": 72,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 153
+   },
+   {
+    "productCode": "1100-0002",
+    "catalog": "in-product-catalog",
+    "availableQty": 22,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 154
+   },
+   {
+    "productCode": "1100-0003",
+    "catalog": "in-product-catalog",
+    "availableQty": 37,
+    "inStockStatus": "forceInStock",
+    "warehouseCode": 155
+   }
+  ]
+  

@@ -1,0 +1,1573 @@
+[
+   {
+    "productCode": "1010-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0001-1",
+    "name": "1010-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1010-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0001-1.jpg"
+   },
+   {
+    "productCode": "1010-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0001-2",
+    "name": "1010-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1010-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0001-2.jpg"
+   },
+   {
+    "productCode": "1010-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0001-3",
+    "name": "1010-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1010-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0001-3.jpg"
+   },
+   {
+    "productCode": "1010-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0002-1",
+    "name": "1010-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1010-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0002-1.jpg"
+   },
+   {
+    "productCode": "1010-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0002-2",
+    "name": "1010-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1010-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0002-2.jpg"
+   },
+   {
+    "productCode": "1010-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0002-3",
+    "name": "1010-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1010-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0002-3.jpg"
+   },
+   {
+    "productCode": "1010-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0003-1",
+    "name": "1010-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1010-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0003-1.jpg"
+   },
+   {
+    "productCode": "1010-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0003-2",
+    "name": "1010-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1010-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0003-2.jpg"
+   },
+   {
+    "productCode": "1010-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1010-0003-3",
+    "name": "1010-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1010-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1010-0003-3.jpg"
+   },
+   {
+    "productCode": "1011-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0001-1",
+    "name": "1011-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1011-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0001-1.jpg"
+   },
+   {
+    "productCode": "1011-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0001-2",
+    "name": "1011-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1011-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0001-2.jpg"
+   },
+   {
+    "productCode": "1011-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0001-3",
+    "name": "1011-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1011-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0001-3.jpg"
+   },
+   {
+    "productCode": "1011-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0002-1",
+    "name": "1011-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1011-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0002-1.jpg"
+   },
+   {
+    "productCode": "1011-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0002-2",
+    "name": "1011-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1011-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0002-2.jpg"
+   },
+   {
+    "productCode": "1011-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0002-3",
+    "name": "1011-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1011-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0002-3.jpg"
+   },
+   {
+    "productCode": "1011-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0003-1",
+    "name": "1011-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1011-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0003-1.jpg"
+   },
+   {
+    "productCode": "1011-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0003-2",
+    "name": "1011-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1011-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0003-2.jpg"
+   },
+   {
+    "productCode": "1011-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1011-0003-3",
+    "name": "1011-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1011-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1011-0003-3.jpg"
+   },
+   {
+    "productCode": "1020-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0001-1",
+    "name": "1020-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1020-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0001-1.jpg"
+   },
+   {
+    "productCode": "1020-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0001-2",
+    "name": "1020-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1020-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0001-2.jpg"
+   },
+   {
+    "productCode": "1020-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0001-3",
+    "name": "1020-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1020-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0001-3.jpg"
+   },
+   {
+    "productCode": "1020-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0002-1",
+    "name": "1020-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1020-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0002-1.jpg"
+   },
+   {
+    "productCode": "1020-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0002-2",
+    "name": "1020-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1020-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0002-2.jpg"
+   },
+   {
+    "productCode": "1020-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0002-3",
+    "name": "1020-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1020-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0002-3.jpg"
+   },
+   {
+    "productCode": "1020-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0003-1",
+    "name": "1020-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1020-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0003-1.jpg"
+   },
+   {
+    "productCode": "1020-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0003-2",
+    "name": "1020-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1020-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0003-2.jpg"
+   },
+   {
+    "productCode": "1020-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1020-0003-3",
+    "name": "1020-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1020-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1020-0003-3.jpg"
+   },
+   {
+    "productCode": "1021-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0001-1",
+    "name": "1021-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1021-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0001-1.jpg"
+   },
+   {
+    "productCode": "1021-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0001-2",
+    "name": "1021-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1021-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0001-2.jpg"
+   },
+   {
+    "productCode": "1021-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0001-3",
+    "name": "1021-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1021-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0001-3.jpg"
+   },
+   {
+    "productCode": "1021-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0002-1",
+    "name": "1021-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1021-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0002-1.jpg"
+   },
+   {
+    "productCode": "1021-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0002-2",
+    "name": "1021-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1021-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0002-2.jpg"
+   },
+   {
+    "productCode": "1021-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0002-3",
+    "name": "1021-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1021-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0002-3.jpg"
+   },
+   {
+    "productCode": "1021-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0003-1",
+    "name": "1021-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1021-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0003-1.jpg"
+   },
+   {
+    "productCode": "1021-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0003-2",
+    "name": "1021-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1021-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0003-2.jpg"
+   },
+   {
+    "productCode": "1021-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1021-0003-3",
+    "name": "1021-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1021-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1021-0003-3.jpg"
+   },
+   {
+    "productCode": "1030-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0001-1",
+    "name": "1030-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1030-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0001-1.jpg"
+   },
+   {
+    "productCode": "1030-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0001-2",
+    "name": "1030-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1030-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0001-2.jpg"
+   },
+   {
+    "productCode": "1030-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0001-3",
+    "name": "1030-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1030-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0001-3.jpg"
+   },
+   {
+    "productCode": "1030-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0002-1",
+    "name": "1030-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1030-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0002-1.jpg"
+   },
+   {
+    "productCode": "1030-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0002-2",
+    "name": "1030-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1030-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0002-2.jpg"
+   },
+   {
+    "productCode": "1030-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0002-3",
+    "name": "1030-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1030-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0002-3.jpg"
+   },
+   {
+    "productCode": "1030-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0003-1",
+    "name": "1030-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1030-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0003-1.jpg"
+   },
+   {
+    "productCode": "1030-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0003-2",
+    "name": "1030-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1030-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0003-2.jpg"
+   },
+   {
+    "productCode": "1030-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1030-0003-3",
+    "name": "1030-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1030-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1030-0003-3.jpg"
+   },
+   {
+    "productCode": "1031-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0001-1",
+    "name": "1031-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1031-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0001-1.jpg"
+   },
+   {
+    "productCode": "1031-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0001-2",
+    "name": "1031-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1031-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0001-2.jpg"
+   },
+   {
+    "productCode": "1031-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0001-3",
+    "name": "1031-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1031-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0001-3.jpg"
+   },
+   {
+    "productCode": "1031-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0002-1",
+    "name": "1031-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1031-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0002-1.jpg"
+   },
+   {
+    "productCode": "1031-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0002-2",
+    "name": "1031-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1031-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0002-2.jpg"
+   },
+   {
+    "productCode": "1031-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0002-3",
+    "name": "1031-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1031-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0002-3.jpg"
+   },
+   {
+    "productCode": "1031-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0003-1",
+    "name": "1031-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1031-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0003-1.jpg"
+   },
+   {
+    "productCode": "1031-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0003-2",
+    "name": "1031-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1031-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0003-2.jpg"
+   },
+   {
+    "productCode": "1031-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1031-0003-3",
+    "name": "1031-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1031-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1031-0003-3.jpg"
+   },
+   {
+    "productCode": "1040-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0001-1",
+    "name": "1040-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1040-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0001-1.jpg"
+   },
+   {
+    "productCode": "1040-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0001-2",
+    "name": "1040-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1040-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0001-2.jpg"
+   },
+   {
+    "productCode": "1040-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0001-3",
+    "name": "1040-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1040-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0001-3.jpg"
+   },
+   {
+    "productCode": "1040-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0002-1",
+    "name": "1040-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1040-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0002-1.jpg"
+   },
+   {
+    "productCode": "1040-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0002-2",
+    "name": "1040-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1040-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0002-2.jpg"
+   },
+   {
+    "productCode": "1040-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0002-3",
+    "name": "1040-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1040-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0002-3.jpg"
+   },
+   {
+    "productCode": "1040-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0003-1",
+    "name": "1040-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1040-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0003-1.jpg"
+   },
+   {
+    "productCode": "1040-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0003-2",
+    "name": "1040-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1040-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0003-2.jpg"
+   },
+   {
+    "productCode": "1040-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1040-0003-3",
+    "name": "1040-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1040-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1040-0003-3.jpg"
+   },
+   {
+    "productCode": "1044-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1044-0001-1",
+    "name": "1044-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1044-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1044-0001-1.jpg"
+   },
+   {
+    "productCode": "1044-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1044-0001-2",
+    "name": "1044-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1044-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1044-0001-2.jpg"
+   },
+   {
+    "productCode": "1044-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1044-0002-1",
+    "name": "1044-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1044-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1044-0002-1.jpg"
+   },
+   {
+    "productCode": "1044-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1044-0002-2",
+    "name": "1044-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1044-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1044-0002-2.jpg"
+   },
+   {
+    "productCode": "1044-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1044-0003-1",
+    "name": "1044-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1044-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1044-0003-1.jpg"
+   },
+   {
+    "productCode": "1044-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1044-0003-2",
+    "name": "1044-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1044-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1044-0003-2.jpg"
+   },
+   {
+    "productCode": "1050-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0001-1",
+    "name": "1050-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1050-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0001-1.jpg"
+   },
+   {
+    "productCode": "1050-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0001-2",
+    "name": "1050-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1050-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0001-2.jpg"
+   },
+   {
+    "productCode": "1050-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0001-3",
+    "name": "1050-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1050-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0001-3.jpg"
+   },
+   {
+    "productCode": "1050-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0002-1",
+    "name": "1050-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1050-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0002-1.jpg"
+   },
+   {
+    "productCode": "1050-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0002-2",
+    "name": "1050-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1050-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0002-2.jpg"
+   },
+   {
+    "productCode": "1050-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0002-3",
+    "name": "1050-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1050-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0002-3.jpg"
+   },
+   {
+    "productCode": "1050-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0003-1",
+    "name": "1050-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1050-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0003-1.jpg"
+   },
+   {
+    "productCode": "1050-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0003-2",
+    "name": "1050-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1050-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0003-2.jpg"
+   },
+   {
+    "productCode": "1050-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1050-0003-3",
+    "name": "1050-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1050-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1050-0003-3.jpg"
+   },
+   {
+    "productCode": "1051-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0001-1",
+    "name": "1051-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1051-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0001-1.jpg"
+   },
+   {
+    "productCode": "1051-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0001-2",
+    "name": "1051-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1051-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0001-2.jpg"
+   },
+   {
+    "productCode": "1051-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0001-3",
+    "name": "1051-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1051-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0001-3.jpg"
+   },
+   {
+    "productCode": "1051-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0002-1",
+    "name": "1051-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1051-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0002-1.jpg"
+   },
+   {
+    "productCode": "1051-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0002-2",
+    "name": "1051-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1051-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0002-2.jpg"
+   },
+   {
+    "productCode": "1051-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0002-3",
+    "name": "1051-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1051-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0002-3.jpg"
+   },
+   {
+    "productCode": "1051-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0003-1",
+    "name": "1051-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1051-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0003-1.jpg"
+   },
+   {
+    "productCode": "1051-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0003-2",
+    "name": "1051-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1051-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0003-2.jpg"
+   },
+   {
+    "productCode": "1051-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1051-0003-3",
+    "name": "1051-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1051-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1051-0003-3.jpg"
+   },
+   {
+    "productCode": "1060-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0001-1",
+    "name": "1060-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1060-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0001-1.jpg"
+   },
+   {
+    "productCode": "1060-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0001-2",
+    "name": "1060-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1060-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0001-2.jpg"
+   },
+   {
+    "productCode": "1060-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0001-3",
+    "name": "1060-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1060-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0001-3.jpg"
+   },
+   {
+    "productCode": "1060-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0002-1",
+    "name": "1060-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1060-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0002-1.jpg"
+   },
+   {
+    "productCode": "1060-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0002-2",
+    "name": "1060-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1060-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0002-2.jpg"
+   },
+   {
+    "productCode": "1060-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0002-3",
+    "name": "1060-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1060-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0002-3.jpg"
+   },
+   {
+    "productCode": "1060-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0003-1",
+    "name": "1060-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1060-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0003-1.jpg"
+   },
+   {
+    "productCode": "1060-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0003-2",
+    "name": "1060-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1060-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0003-2.jpg"
+   },
+   {
+    "productCode": "1060-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1060-0003-3",
+    "name": "1060-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1060-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1060-0003-3.jpg"
+   },
+   {
+    "productCode": "1061-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0001-1",
+    "name": "1061-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1061-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0001-1.jpg"
+   },
+   {
+    "productCode": "1061-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0001-2",
+    "name": "1061-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1061-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0001-2.jpg"
+   },
+   {
+    "productCode": "1061-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0001-3",
+    "name": "1061-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1061-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0001-3.jpg"
+   },
+   {
+    "productCode": "1061-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0002-1",
+    "name": "1061-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1061-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0002-1.jpg"
+   },
+   {
+    "productCode": "1061-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0002-2",
+    "name": "1061-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1061-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0002-2.jpg"
+   },
+   {
+    "productCode": "1061-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0002-3",
+    "name": "1061-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1061-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0002-3.jpg"
+   },
+   {
+    "productCode": "1061-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0003-1",
+    "name": "1061-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1061-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0003-1.jpg"
+   },
+   {
+    "productCode": "1061-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0003-2",
+    "name": "1061-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1061-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0003-2.jpg"
+   },
+   {
+    "productCode": "1061-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1061-0003-3",
+    "name": "1061-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1061-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1061-0003-3.jpg"
+   },
+   {
+    "productCode": "1070-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1070-0001-1",
+    "name": "1070-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1070-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1070-0001-1.jpg"
+   },
+   {
+    "productCode": "1070-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1070-0001-2",
+    "name": "1070-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1070-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1070-0001-2.jpg"
+   },
+   {
+    "productCode": "1070-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1070-0001-3",
+    "name": "1070-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1070-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1070-0001-3.jpg"
+   },
+   {
+    "productCode": "1070-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1070-0002-1",
+    "name": "1070-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1070-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1070-0002-1.jpg"
+   },
+   {
+    "productCode": "1070-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1070-0002-2",
+    "name": "1070-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1070-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1070-0002-2.jpg"
+   },
+   {
+    "productCode": "1070-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1070-0002-3",
+    "name": "1070-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1070-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1070-0002-3.jpg"
+   },
+   {
+    "productCode": "1070-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1070-0003-1",
+    "name": "1070-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1070-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1070-0003-1.jpg"
+   },
+   {
+    "productCode": "1071-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0001-1",
+    "name": "1071-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1071-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0001-1.jpg"
+   },
+   {
+    "productCode": "1071-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0001-2",
+    "name": "1071-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1071-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0001-2.jpg"
+   },
+   {
+    "productCode": "1071-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0001-3",
+    "name": "1071-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1071-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0001-3.jpg"
+   },
+   {
+    "productCode": "1071-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0002-1",
+    "name": "1071-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1071-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0002-1.jpg"
+   },
+   {
+    "productCode": "1071-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0002-2",
+    "name": "1071-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1071-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0002-2.jpg"
+   },
+   {
+    "productCode": "1071-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0002-3",
+    "name": "1071-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1071-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0002-3.jpg"
+   },
+   {
+    "productCode": "1071-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0003-1",
+    "name": "1071-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1071-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0003-1.jpg"
+   },
+   {
+    "productCode": "1071-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0003-2",
+    "name": "1071-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1071-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0003-2.jpg"
+   },
+   {
+    "productCode": "1071-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1071-0003-3",
+    "name": "1071-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1071-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1071-0003-3.jpg"
+   },
+   {
+    "productCode": "1080-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0001-1",
+    "name": "1080-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1080-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0001-1.jpg"
+   },
+   {
+    "productCode": "1080-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0001-2",
+    "name": "1080-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1080-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0001-2.jpg"
+   },
+   {
+    "productCode": "1080-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0001-3",
+    "name": "1080-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1080-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0001-3.jpg"
+   },
+   {
+    "productCode": "1080-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0002-1",
+    "name": "1080-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1080-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0002-1.jpg"
+   },
+   {
+    "productCode": "1080-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0002-2",
+    "name": "1080-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1080-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0002-2.jpg"
+   },
+   {
+    "productCode": "1080-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0002-3",
+    "name": "1080-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1080-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0002-3.jpg"
+   },
+   {
+    "productCode": "1080-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0003-1",
+    "name": "1080-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1080-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0003-1.jpg"
+   },
+   {
+    "productCode": "1080-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0003-2",
+    "name": "1080-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1080-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0003-2.jpg"
+   },
+   {
+    "productCode": "1080-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1080-0003-3",
+    "name": "1080-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1080-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1080-0003-3.jpg"
+   },
+   {
+    "productCode": "1090-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0001-1",
+    "name": "1090-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1090-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0001-1.jpg"
+   },
+   {
+    "productCode": "1090-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0001-2",
+    "name": "1090-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1090-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0001-2.jpg"
+   },
+   {
+    "productCode": "1090-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0001-3",
+    "name": "1090-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1090-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0001-3.jpg"
+   },
+   {
+    "productCode": "1090-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0002-1",
+    "name": "1090-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1090-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0002-1.jpg"
+   },
+   {
+    "productCode": "1090-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0002-2",
+    "name": "1090-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1090-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0002-2.jpg"
+   },
+   {
+    "productCode": "1090-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0002-3",
+    "name": "1090-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1090-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0002-3.jpg"
+   },
+   {
+    "productCode": "1090-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0003-1",
+    "name": "1090-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1090-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0003-1.jpg"
+   },
+   {
+    "productCode": "1090-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0003-2",
+    "name": "1090-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1090-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0003-2.jpg"
+   },
+   {
+    "productCode": "1090-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1090-0003-3",
+    "name": "1090-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1090-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1090-0003-3.jpg"
+   },
+   {
+    "productCode": "1091-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0001-1",
+    "name": "1091-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1091-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0001-1.jpg"
+   },
+   {
+    "productCode": "1091-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0001-2",
+    "name": "1091-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1091-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0001-2.jpg"
+   },
+   {
+    "productCode": "1091-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0001-3",
+    "name": "1091-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1091-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0001-3.jpg"
+   },
+   {
+    "productCode": "1091-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0002-1",
+    "name": "1091-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1091-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0002-1.jpg"
+   },
+   {
+    "productCode": "1091-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0002-2",
+    "name": "1091-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1091-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0002-2.jpg"
+   },
+   {
+    "productCode": "1091-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0002-3",
+    "name": "1091-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1091-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0002-3.jpg"
+   },
+   {
+    "productCode": "1091-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0003-1",
+    "name": "1091-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1091-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0003-1.jpg"
+   },
+   {
+    "productCode": "1091-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0003-2",
+    "name": "1091-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1091-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0003-2.jpg"
+   },
+   {
+    "productCode": "1091-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1091-0003-3",
+    "name": "1091-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1091-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1091-0003-3.jpg"
+   },
+   {
+    "productCode": "1100-0001",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0001-1",
+    "name": "1100-0001-1",
+    "mainUrl": "\/productimages\/mainimage\/1100-0001-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0001-1.jpg"
+   },
+   {
+    "productCode": "1100-0001",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0001-2",
+    "name": "1100-0001-2",
+    "mainUrl": "\/productimages\/mainimage\/1100-0001-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0001-2.jpg"
+   },
+   {
+    "productCode": "1100-0001",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0001-3",
+    "name": "1100-0001-3",
+    "mainUrl": "\/productimages\/mainimage\/1100-0001-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0001-3.jpg"
+   },
+   {
+    "productCode": "1100-0002",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0002-1",
+    "name": "1100-0002-1",
+    "mainUrl": "\/productimages\/mainimage\/1100-0002-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0002-1.jpg"
+   },
+   {
+    "productCode": "1100-0002",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0002-2",
+    "name": "1100-0002-2",
+    "mainUrl": "\/productimages\/mainimage\/1100-0002-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0002-2.jpg"
+   },
+   {
+    "productCode": "1100-0002",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0002-3",
+    "name": "1100-0002-3",
+    "mainUrl": "\/productimages\/mainimage\/1100-0002-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0002-3.jpg"
+   },
+   {
+    "productCode": "1100-0003",
+    "priority": 1,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0003-1",
+    "name": "1100-0003-1",
+    "mainUrl": "\/productimages\/mainimage\/1100-0003-1.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0003-1.jpg"
+   },
+   {
+    "productCode": "1100-0003",
+    "priority": 2,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0003-2",
+    "name": "1100-0003-2",
+    "mainUrl": "\/productimages\/mainimage\/1100-0003-2.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0003-2.jpg"
+   },
+   {
+    "productCode": "1100-0003",
+    "priority": 3,
+    "catalog": "in-product-catalog",
+    "mediaType": "image",
+    "mediaCode": "1100-0003-3",
+    "name": "1100-0003-3",
+    "mainUrl": "\/productimages\/mainimage\/1100-0003-3.avif",
+    "thumbnailUrl": "\/productimages\/thumbnailimage\/1100-0003-3.jpg"
+   }
+  ]
+  
