@@ -4,62 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--instruct the web crawler to noindex and nofollow this page-->
-    <meta name='robots' content="noindex,nofollow"> 
-   <!--
+    {{!-- instruct the web crawler to noindex and nofollow this page--}}
+    <meta name='robots' content="noindex,nofollow">
+    {{!--
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="icon" href="icons8-monitor-50.png">
-    <!-- Place favicon.ico in the root directory -->
+    Place favicon.ico in the root directory --}}
     <link rel="stylesheet" href="/css/all.min.css">
-    {{!-- <link rel="stylesheet" href="/css/materialize.min.css"> --}}
-     {{!-- <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> --}}
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
         integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/bootstrap/bootstrap-icons/bootstrap-icons.css">
     
+    <link rel="stylesheet" href="/css/xpressstyle.css">
+    <link rel="stylesheet" href="/css/style.css">
+    
+
     <title>Xpress Commerce</title>
 </head>
 
 <body>
-   
-
-    <div class="wrapper">
-         {{> _header}}
-        <div id="content" class="main-content">
-            {{> top_header}}
+    {{> top_header}}
+    {{> _header}}
+    <div id="wrapper" class="wrapper">
+        <div class="main-content">
             {{> _error_message}}
             {{{body}}}
-            {{!-- {{> _error_message}}
-            {{{body}}} 
+            {{> _footer}}
         </div>
     </div>
-    {{!-- {{> _header}}
-    {{> _add_btn}}
-    <div class="container-fluid">
-        {{> _error_message}}
-        {{{body}}}
-    
-    </div> --}}
-    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+
+    <script src="/js/jquery-3.6.1.slim.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/js/main.js"></script>
-    {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> --}}
-    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.14.1/ckeditor.js"
-        integrity="sha256-bEIQpI72w9NJuIVhTLFUF2/8uxl0u5800r8ddViuv+o=" crossorigin="anonymous"></script>-->
 
+    {{!--
     <script>
-        {{!-- M.Sidenav.init(document.querySelector('.sidenav'))
-        M.FormSelect.init(document.querySelector('#status')) --}}
-
-/*        CKEDITOR.replace('body', {
-            plugins: 'wysiwygarea, toolbar, basicstyles, link'
-        })*/
-    //New code added
-     
-    </script>
+        {
+            M.Sidenav.init(document.querySelector('.sidenav'))
+            M.FormSelect.init(document.querySelector('#status'))
+        }
+    </script> --}}
 </body>
 
 </html>

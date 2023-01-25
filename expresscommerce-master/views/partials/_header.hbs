@@ -1,86 +1,89 @@
-{{!-- <div class="wrapper"> --}}
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Admin Portol</h3>
-            </div>
+<!-- Sidebar  -->
+<nav id="sidebar">
+    <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="logo d-flex align-items-center">
+            <img src="../assets/img/AdminLogo.png" alt="">
+            <span class="d-none d-lg-block">Admin Portol</span>
+        </a>
+    </div>
+    <ul class="list-unstyled components">
+        <li class="{{#if dashboard}}active{{/if}}">
+            <a class="nav-link" href="/dashboard" title="Dashboard">
+                <i class="fas bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
 
-            <ul class="list-unstyled components">
-                <li class="{{#if dashboard}}active{{/if}}">
-                    <a href="/dashboard"><i class="fas fa-home"></i>Dashboard</a>
-                </li>
-
-                  <li class="{{#if regionList}}active{{/if}}">
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-cog"></i> Localization</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="/region/viewAll"><i class="fas fa-cog"></i>Region</a>
-                        </li>
-                        <li>
-                            <a href="/country/viewAll"><i class="fas fa-cog"></i>Country</a>
-                        </li>
-                        <li>
-                            <a href="/currency/viewAll"><i class="fas fa-cog"></i>Currency</a>
-                        </li>
-                        <li>
-                            <a href="/language/viewAll"><i class="fas fa-cog"></i> Language</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="{{#if basesiteList}}active{{/if}}">
-                    <a href="#pageSubmenuOne" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-cog"></i>Manage Access</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenuOne">
-                        <li>
-                            <a href="/basesite/viewAll"><i class="fas fa-cube"></i>BaseSite</a>
-                        </li>       
-                        <li>
-                            <a href="/basesite/viewAll"><i class="fas fa-cube"></i>User Group</a>
-                        </li>                   
-                    </ul>
-                </li>                            
-                
-                <li class="{{#if catalogs}}active{{/if}}">
-                    <a href="/catalogs/viewAll"><i class="fas fa-bookmark"></i> Catalogs</a>
-                </li>
-              
-                <li class="{{#if categoryList}}active{{/if}}">
-                    <a href="/category/viewAll"><i class="fas fa-archive"></i> Category</a>
-                </li>
-              
-                <li class="{{#if products}}active{{/if}}">
-                    <a href="/products"><i class="fas fa-cog"></i> Products</a>
-                </li>
-                <li class="{{#if orders}}active{{/if}}">
-                    <a href="/sync/orders/viewAll"><i class="fas fa-cog"></i> Orders</a>
-                </li>
-               
-                <li class="{{#if campaignList}}active{{/if}}">
-                    <a href="/campaigns/viewAll"><i class="fas fa-bullhorn"></i> Campaigns</a>
-                </li>
-                <li class="{{#if oauthclientList}}active{{/if}}">
-                    <a href="/oauthclient/viewAll"><i class="fas fa-user"></i> OAuth Client</a>
-                </li>
-                <li class="{{#if vendors}}active{{/if}}">
-                    <a href="/vendors/viewAll"><i class="fas fa-cog"></i> Vendors</a>
+        <li class="{{#if regionList}}active{{/if}}">
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" title="Localization">
+                <i class="fas fa-cog"></i>
+                <span>Localization</span>
+            </a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="/region/viewAll"><i class="fas fa-cog" title="Region"></i><span>Region</span></a>
                 </li>
                 <li>
-                    <a href="/usergroup/viewAll"><i class="fas fa-cog"></i> Usergroup</a>
+                    <a href="/country/viewAll"><i class="fas fa-cog" title="Country"></i><span>Country</span></a>
                 </li>
-               <li class="{{#if story}}active{{/if}}">
-                    <a href="/stories"><i class="fas fa-cog"></i> Tickets</a>
+                <li>
+                    <a href="/currency/viewAll"><i class="fas fa-cog" title="Currency"></i><span>Currency</span></a>
                 </li>
-
-                <li class="{{#if dataSyncActive}}active{{/if}}">
-                    <a href="/data/view"><i class="fas fa-sync-alt"></i> Sync Data</a>
-                </li>
-                     <li>
-                    <a href="/users/logout"><i class="fas fa-cog"></i> Logout</a>
+                <li>
+                    <a href="/language/viewAll"><i class="fas fa-cog" title="Language"></i><span>Language</span></a>
                 </li>
             </ul>
+        </li>
 
+        <li class="{{#if basesiteList}}active{{/if}}">
+            <a href="#pageSubmenuOne" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" title="Manage Access"><i
+                    class="fas fa-cog"></i><span>Manage Access</span></a>
+            <ul class="collapse list-unstyled" id="pageSubmenuOne">
+                <li>
+                    <a href="/basesite/viewAll"><i class="fas fa-cube"></i><span>BaseSite</span></a>
+                </li>
+                <li>
+                    <a href="/basesite/viewAll"><i class="fas fa-cube"></i><span>User Group</span></a>
+                </li>
+            </ul>
+        </li>
 
-    
+        <li class="{{#if catalogs}}active{{/if}}">
+            <a href="/catalogs/viewAll"><i class="fas fa-bookmark"></i><span>Catalogs</span> </a>
+        </li>
 
-        </nav>
+        <li class="{{#if categoryList}}active{{/if}}">
+            <a href="/category/viewAll"><i class="fas fa-archive"></i><span>Category</span> </a>
+        </li>
 
+        <li class="{{#if products}}active{{/if}}">
+            <a href="/products"><i class="fas fa-cog"></i><span>Products</span> </a>
+        </li>
+        <li class="{{#if orders}}active{{/if}}">
+            <a href="/sync/orders/viewAll"><i class="fas fa-cog"></i><span>Orders</span> </a>
+        </li>
+
+        <li class="{{#if campaignList}}active{{/if}}">
+            <a href="/campaigns/viewAll"><i class="fas fa-bullhorn"></i><span>Campaigns</span> </a>
+        </li>
+        <li class="{{#if oauthclientList}}active{{/if}}">
+            <a href="/oauthclient/viewAll"><i class="fas fa-user"></i><span>OAuth Client</span> </a>
+        </li>
+        <li class="{{#if vendors}}active{{/if}}">
+            <a href="/vendors/viewAll"><i class="fas fa-cog"></i><span>Vendors</span> </a>
+        </li>
+        <li>
+            <a href="/usergroup/viewAll"><i class="fas fa-cog"></i><span>Usergroup</span> </a>
+        </li>
+        <li class="{{#if story}}active{{/if}}">
+            <a href="/stories"><i class="fas fa-cog"></i><span>Tickets</span> </a>
+        </li>
+
+        <li class="{{#if dataSyncActive}}active{{/if}}">
+            <a href="/data/view"><i class="fas fa-sync-alt"></i><span>Sync Data</span> </a>
+        </li>
+        <li>
+            <a href="/users/logout"><i class="fas fa-cog"></i><span>Logout</span> </a>
+        </li>
+    </ul>
+</nav>

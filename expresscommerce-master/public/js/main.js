@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
-        $('#content').toggleClass('main-content');
+        $('#wrapper').toggleClass('main-content');
+        $('body').toggleClass('slide');
     });
 });
