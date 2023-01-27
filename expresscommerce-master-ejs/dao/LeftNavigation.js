@@ -45,8 +45,7 @@ module.exports = {
 
          ]).toArray();
         var collectionString=JSON.stringify(result);
-                 console.log("qqqqqqqqq"+ collectionString);
-         dbo.collection("leftnavigations").findOneAndUpdate(
+                      dbo.collection("leftnavigations").findOneAndUpdate(
           { code: 'leftMenu' },
           {
             $set: {

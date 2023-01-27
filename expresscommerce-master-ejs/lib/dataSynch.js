@@ -11,8 +11,8 @@ const { saveBasesite } = require("../dao/Basesite");
 const { saveDeliveryModes } = require("../dao/DeliveryMode");
 const { saveOAuthClient } = require("../dao/OAuthClient");
 const { saveBrand } = require("../dao/Brand");
-const { saveModule } = require("../dao/Module");
-const { saveSubModule } = require("../dao/SubModule");
+const { saveModule,removeModule } = require("../dao/Module");
+const { saveSubModule,removeSubModule} = require("../dao/SubModule");
 const { saveLeftMenu,updLeftnavigation } = require("../dao/LeftNavigation");
 
 async function essentialDataUpload(fileName, callBack) {
@@ -23,8 +23,6 @@ async function essentialDataUpload(fileName, callBack) {
     saveCurrency(fileData.currency);
     saveCountry(fileData.country);
     saveRegion(fileData.region);
-    saveModule(fileData.module);
-    saveSubModule(fileData.submodule);
     saveUserGroup(fileData.usergroup);
     saveZone(fileData.zone);
     saveBasesite(fileData.basesite);
@@ -69,6 +67,10 @@ async function cmsComponentUpload(fileName, callBack) {
 async function lefNavigationUpload(fileName, callBack) {
     const file = fs.readFileSync(path.join(__dirname, '../data/' + fileName + '.json'), 'utf8');
     const fileData = JSON.parse(file);
+    removeModule();
+    saveModule(fileData.module);
+   await removeSubModule();
+    saveSubModule(fileData.submodule);
     saveLeftMenu(fileData.leftmenu);
     updLeftnavigation();
    

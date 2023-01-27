@@ -2,11 +2,14 @@ const ModuleModel = require("../models/Module");
 const {getModuleByCode} = require("../lib/module");
 
 module.exports = {
+  removeModule: async () => {
+    await ModuleModel.remove({});
+  },
   saveModule: async (data) => {
-
     console.log(
       "Module with same isocode " + data + " already exists"
     );
+
     Object.entries(data).forEach(async (element) => {
       const module = await getModuleByCode(element[1].code);
       if (module) {

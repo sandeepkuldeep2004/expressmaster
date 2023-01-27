@@ -2,6 +2,10 @@ const SubModuleModel = require("../models/SubModule");
 const {getSubModuleByCode} = require("../lib/submodule");
 const {getModuleByCode}=require("../lib/module");
 module.exports = {
+  
+  removeSubModule: async () => {
+    await SubModuleModel.remove({});
+  },
   saveSubModule: async (data) => {
 
     console.log(
