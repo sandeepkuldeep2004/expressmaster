@@ -17,8 +17,7 @@ module.exports = {
               name: element[1].name,
               url: element[1].url,
               cssclassname: element[1].cssclassname,
-              position: element[1].position,
-              module:moduleCode
+              position: element[1].position
             }
           },function (err) {
             if (err)
