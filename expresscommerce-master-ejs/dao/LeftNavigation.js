@@ -40,7 +40,9 @@ module.exports = {
                foreignField: 'module',
                as: 'moudulsDetail'
              }
-           }
+           },
+           {$sort: {position: 1}}
+
          ]).toArray();
         var collectionString=JSON.stringify(result);
                  console.log("qqqqqqqqq"+ collectionString);

@@ -10,6 +10,20 @@ module.exports = {
     Object.entries(data).forEach(async (element) => {
       const module = await getModuleByCode(element[1].code);
       if (module) {
+        ModuleModel.findOneAndUpdate(
+          { code: element[1].code },
+          {
+            $set: {
+              name: element[1].name,
+              url: element[1].url,
+              cssclassname: element[1].cssclassname,
+              position: element[1].position,
+              module:moduleCode
+            }
+          },function (err) {
+            if (err)
+              console.log(err);
+          })
         console.log(
           "Company with same code " + element[1].code + " already exists"
         );
