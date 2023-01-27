@@ -1,0 +1,52 @@
+<!-- Sidebar  -->
+<nav id="sidebar">
+    <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="logo d-flex align-items-center">
+            <img src="../assets/img/AdminLogo.png" alt="">
+            <span class="d-none d-lg-block">Admin Portol</span>
+        </a>
+    </div>
+    <ul class="list-unstyled components">
+        <%if(SubNavigationCount> 0){ %>
+            <% for(var i=0; i<SubleftNavigation[0].length; i++) {%>
+                <li class="">
+                    <%if (SubleftNavigation[0][i].url !='' ) { %>
+                        <a href="<%= SubleftNavigation[0][i].url%>"><i class="<%= SubleftNavigation[0][i].cssclassname%>"></i><span>
+                                <%= SubleftNavigation[0][i].name%>
+                            </span> </a>
+                        <% } else { %>
+                            <a href="#<%= SubleftNavigation[0][i].code%>" href="<%= SubleftNavigation[0][i].url%>"
+                                title="<%= SubleftNavigation[0][i].name%>" data-toggle="collapse" aria-expanded="false"
+                                class="nav-link dropdown-toggle">
+                                <i class="<%= SubleftNavigation[0][i].cssclassname%>"></i><span>
+                                    <%= SubleftNavigation[0][i].name%>
+                                </span>
+                            </a>
+                            <% } %>
+                                <ul class="collapse list-unstyled" id="<%= SubleftNavigation[0][i].code%>">
+                                    <% for(var y=0; y<SubleftNavigation[0][i].moudulsDetail.length; y++) {%>
+                                        <li>
+                                            <a href="<%= SubleftNavigation[0][i].moudulsDetail[y].landingUrl%>">
+                                                <i class="<%= SubleftNavigation[0][i].moudulsDetail[y].cssclassname%>"
+                                                    title="<%= SubleftNavigation[0][i].moudulsDetail[y].code%>"></i>
+                                                <span>
+                                                    <%= SubleftNavigation[0][i].moudulsDetail[y].name%>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                </li>
+                <% } %>
+                    <% } %>
+
+
+
+                        <li class="{{#if dataSyncActive}}active{{/if}}">
+                            <a href="/data/view"><i class="fas fa-sync-alt"></i><span>Sync Data</span> </a>
+                        </li>
+                        <li>
+                            <a href="/users/logout"><i class="fas bi bi-box-arrow-right"></i><span>Logout</span> </a>
+                        </li>
+    </ul>
+</nav>
