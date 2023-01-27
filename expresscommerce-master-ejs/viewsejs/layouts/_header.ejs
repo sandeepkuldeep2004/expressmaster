@@ -7,81 +7,46 @@
         </a>
     </div>
     <ul class="list-unstyled components">
-        <%if(SubNavigationCount > 0){ %>
-        <% for(var i=0; i<SubleftNavigation[0].length; i++) {%>
-            <li class="">
-                <%if (SubleftNavigation[0][i].url != '') { %>                  
-                    <a href="<%= SubleftNavigation[0][i].url%>"><i class="fas fa-bookmark"></i><span><%= SubleftNavigation[0][i].name%> </span> </a>
-                    <% } else { %> 
-                        <a href="#<%= SubleftNavigation[0][i].code%>" href="<%= SubleftNavigation[0][i].url%>" title="<%= SubleftNavigation[0][i].name%>" data-toggle="collapse" aria-expanded="false" class="nav-link dropdown-toggle">
-                            <i class="fas fa-bookmark"></i><span><%= SubleftNavigation[0][i].name%> </span>
-                        </a>
-                        <% } %>
-                <ul class="collapse list-unstyled" id="<%= SubleftNavigation[0][i].code%>">
-                    <% for(var y=0; y<SubleftNavigation[0][i].moudulsDetail.length; y++) {%>
-                        <li>
-                            <a href="<%= SubleftNavigation[0][i].moudulsDetail[y].landingUrl%>">
-                                <i class="fas fa-cog" title="<%= SubleftNavigation[0][i].moudulsDetail[y].code%>"></i>
-                                <span>
-                                    <%= SubleftNavigation[0][i].moudulsDetail[y].name%>
+        <%if(SubNavigationCount> 0){ %>
+            <% for(var i=0; i<SubleftNavigation[0].length; i++) {%>
+                <li class="">
+                    <%if (SubleftNavigation[0][i].url !='' ) { %>
+                        <a href="<%= SubleftNavigation[0][i].url%>"><i class="<%= SubleftNavigation[0][i].cssclassname%>"></i><span>
+                                <%= SubleftNavigation[0][i].name%>
+                            </span> </a>
+                        <% } else { %>
+                            <a href="#<%= SubleftNavigation[0][i].code%>" href="<%= SubleftNavigation[0][i].url%>"
+                                title="<%= SubleftNavigation[0][i].name%>" data-toggle="collapse" aria-expanded="false"
+                                class="nav-link dropdown-toggle">
+                                <i class="<%= SubleftNavigation[0][i].cssclassname%>"></i><span>
+                                    <%= SubleftNavigation[0][i].name%>
                                 </span>
                             </a>
-                        </li>
-                        <% } %>
-                </ul>
-            </li>
-            <% } %>
-            <% } %> 
+                            <% } %>
+                                <ul class="collapse list-unstyled" id="<%= SubleftNavigation[0][i].code%>">
+                                    <% for(var y=0; y<SubleftNavigation[0][i].moudulsDetail.length; y++) {%>
+                                        <li>
+                                            <a href="<%= SubleftNavigation[0][i].moudulsDetail[y].landingUrl%>">
+                                                <i class="<%= SubleftNavigation[0][i].moudulsDetail[y].cssclassname%>"
+                                                    title="<%= SubleftNavigation[0][i].moudulsDetail[y].code%>"></i>
+                                                <span>
+                                                    <%= SubleftNavigation[0][i].moudulsDetail[y].name%>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                </li>
+                <% } %>
+                    <% } %>
 
-                <li class="{{#if basesiteList}}active{{/if}}">
-                    <a href="#pageSubmenuOne" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
-                        title="Manage Access"><i class="fas fa-cog"></i><span>Manage Access</span></a>
-                    <ul class="collapse list-unstyled" id="pageSubmenuOne">
+
+
+                        <li class="{{#if dataSyncActive}}active{{/if}}">
+                            <a href="/data/view"><i class="fas fa-sync-alt"></i><span>Sync Data</span> </a>
+                        </li>
                         <li>
-                            <a href="/basesite/viewAll"><i class="fas fa-cube"></i><span>BaseSite</span></a>
+                            <a href="/users/logout"><i class="fas bi bi-box-arrow-right"></i><span>Logout</span> </a>
                         </li>
-                        <li>
-                            <a href="/basesite/viewAll"><i class="fas fa-cube"></i><span>User Group</span></a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="{{#if catalogs}}active{{/if}}">
-                    <a href="/catalogs/viewAll"><i class="fas fa-bookmark"></i><span>Catalogs</span> </a>
-                </li>
-
-                <li class="{{#if categoryList}}active{{/if}}">
-                    <a href="/category/viewAll"><i class="fas fa-archive"></i><span>Category</span> </a>
-                </li>
-
-                <li class="{{#if products}}active{{/if}}">
-                    <a href="/products"><i class="fas fa-cog"></i><span>Products</span> </a>
-                </li>
-                <li class="{{#if orders}}active{{/if}}">
-                    <a href="/sync/orders/viewAll"><i class="fas fa-cog"></i><span>Orders</span> </a>
-                </li>
-
-                <li class="{{#if campaignList}}active{{/if}}">
-                    <a href="/campaigns/viewAll"><i class="fas fa-bullhorn"></i><span>Campaigns</span> </a>
-                </li>
-                <li class="{{#if oauthclientList}}active{{/if}}">
-                    <a href="/oauthclient/viewAll"><i class="fas fa-user"></i><span>OAuth Client</span> </a>
-                </li>
-                <li class="{{#if vendors}}active{{/if}}">
-                    <a href="/vendors/viewAll"><i class="fas fa-cog"></i><span>Vendors</span> </a>
-                </li>
-                <li>
-                    <a href="/usergroup/viewAll"><i class="fas fa-cog"></i><span>Usergroup</span> </a>
-                </li>
-                <li class="{{#if story}}active{{/if}}">
-                    <a href="/stories"><i class="fas fa-cog"></i><span>Tickets</span> </a>
-                </li>
-
-                <li class="{{#if dataSyncActive}}active{{/if}}">
-                    <a href="/data/view"><i class="fas fa-sync-alt"></i><span>Sync Data</span> </a>
-                </li>
-                <li>
-                    <a href="/users/logout"><i class="fas fa-cog"></i><span>Logout</span> </a>
-                </li>
     </ul>
 </nav>
