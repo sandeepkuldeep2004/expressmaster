@@ -41,6 +41,11 @@ const BaseSiteSchema = new mongoose.Schema({
     ref: 'Language',
     required:false,
   },
+  company: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Company',
+    required:false,
+  },
   status: {
     type: String,
     default: 'active',

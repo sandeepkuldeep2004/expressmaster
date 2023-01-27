@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-
+const { saveCompany } = require("../dao/Company");
 const { saveLanguage } = require("../dao/Language");
 const { saveCurrency } = require("../dao/Currency");
 const { saveCountry } = require("../dao/Country");
@@ -15,6 +15,7 @@ const { saveBrand } = require("../dao/Brand");
 async function essentialDataUpload(fileName, callBack) {
     const file = fs.readFileSync(path.join(__dirname, '../data/' + fileName + '.json'), 'utf8');
     const fileData = JSON.parse(file);
+    saveCompany(fileData.company);
     saveLanguage(fileData.language);
     saveCurrency(fileData.currency);
     saveCountry(fileData.country);

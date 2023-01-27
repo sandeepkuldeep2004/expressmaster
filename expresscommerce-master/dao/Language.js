@@ -6,9 +6,7 @@ module.exports = {
     Object.entries(data).forEach(async (element) => {
       const language = await getLanguageByIsoCode(element[1].isocode);
       if (language) {
-        console.log(
-          "Language with same isocode " + element[1].isocode + " already exists"
-        );
+        //console.log("Language with same isocode " + element[1].isocode + " already exists");
       } else {
         const languageModel = new LanguageModel({
           isocode: element[1].isocode,

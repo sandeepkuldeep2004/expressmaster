@@ -6,7 +6,7 @@ npm install -g nodemon
 # Step2 : run this command to install all module dependencies, it will install all module mentioned in package.json file
 npm install
 
-# Step 3 : start the backoffice server
+# Step 3 : start the backoffice server uncomment
 
 npm run backoffice
 
@@ -55,4 +55,3 @@ npm install express-flash --save
 
 8. How to enable Transactions in mongoose
 # https://mongoosejs.com/docs/transactions.html
-

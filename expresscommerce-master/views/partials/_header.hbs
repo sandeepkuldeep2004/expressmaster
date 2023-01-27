@@ -60,8 +60,11 @@
                <li class="{{#if story}}active{{/if}}">
                     <a href="/stories"><i class="fas fa-cog"></i> Tickets</a>
                 </li>
-                
-                <li>
+
+                <li class="{{#if dataSyncActive}}active{{/if}}">
+                    <a href="/data/view"><i class="fas fa-sync-alt"></i> Sync Data</a>
+                </li>
+                     <li>
                     <a href="/users/logout"><i class="fas fa-cog"></i> Logout</a>
                 </li>
             </ul>
