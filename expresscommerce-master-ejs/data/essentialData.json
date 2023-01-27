@@ -45,7 +45,7 @@
 ],
 "module":
 [   
-   {"code":"dashboard","name":"Dashboard","url":"/dashboard","position":"0","cssclassname":"fas bi bi-grid"},
+   {"code":"dashboard","name":"Dashboard","url":"/dashboard","position":"11","cssclassname":"fas bi bi-grid"},
    {"code":"localization","name":"Localization","url":"","position":"1","cssclassname":"fas bi bi-globe-central-south-asia"},
    {"code":"manageAccess","name":"Manage Access","url":"","position":"2","cssclassname":"bi bi-universal-access-circle"},
    {"code":"catalogs","name":"Catalogs","url":"/catalogs/viewAll","position":"3","cssclassname":"fas fa-database"},
@@ -55,7 +55,6 @@
    {"code":"campaigns","name":"Campaigns","url":"/campaigns/viewAll","position":"7","cssclassname":"fas fa-bullhorn"},
    {"code":"oauthClient","name":"OAuth Client","url":"/oauthclient/viewAll","position":"8","cssclassname":"fas bi bi-motherboard"},
    {"code":"vendors","name":"Vendors","url":"/vendors/viewAll","position":"9","cssclassname":"fas fa-cog"},
-   {"code":"usergroup","name":"User Group","url":"/usergroup/viewAll","position":"10","cssclassname":"fas fa-user"},
    {"code":"tickets","name":"Tickets","url":"/stories","position":"10","cssclassname":"fas bi bi-ticket-perforated"}
  
 ],
@@ -66,7 +65,7 @@
    {"code":"currency","name":"Currency","landingUrl":"/currency/viewAll","position":"2","cssclassname":"fas fa-cog","moduleCode":"localization"},
    {"code":"language","name":"Language","landingUrl":"/language/viewAll","position":"3","cssclassname":"fas fa-cog","moduleCode":"localization"},
    {"code":"BaseSite","name":"BaseSite","landingUrl":"/basesite/viewAll","position":"2","cssclassname":"fas fa-cog","moduleCode":"manageAccess"},
-   {"code":"UserGroup","name":"User Group","landingUrl":"/usergroup/viewAll","position":"3","cssclassname":"fas fa-cog","moduleCode":"manageAccess"}
+   {"code":"UserGroup","name":"User Group","landingUrl":"/usergroup/viewAll","position":"3","cssclassname":"fas bi bi-people-fill","moduleCode":"manageAccess"}
 ],
 "usergroup":
 [   

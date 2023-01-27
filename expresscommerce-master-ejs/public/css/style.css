@@ -143,10 +143,10 @@ button.toggle-btn:focus {
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
-.wrapper {
+.wrapper, #footer {
   margin-left: 250px;
 }
-.wrapper {
+.wrapper, #footer {
   margin-top: 60px;
   padding: 20px 30px;
   transition: all 0.3s;
