@@ -19,7 +19,7 @@ const CustomerSupportTicketSchema = new mongoose.Schema({
   },
   productSKU: {
     type: String, /*product code*/
-    required: true,
+    required: false,
   },
   ticketType: {
     type: String, /*Installation,Maintenance,Emergency Breakup*/
@@ -31,7 +31,7 @@ const CustomerSupportTicketSchema = new mongoose.Schema({
   },
   purchaseDate: {
     type: Date,
-    required:true,
+    required:false,
   },
   expectedClosureDate: {
     type: Date,

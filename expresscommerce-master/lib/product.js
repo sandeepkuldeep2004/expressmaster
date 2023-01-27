@@ -170,6 +170,19 @@ const getProductByCode = async function (code) {
     ]).lean();
 }
 
+
+// @desc    fetch product by brand Name
+//@param {code}
+const getProductByBrandName = async function (brand) {
+  return await ProductModel.find({ brand: brand})
+    .populate([
+      { path: 'medias', model: 'Media', select: 'code priority main thumbnail type -_id', populate: { path: 'catalog', select: 'code -_id' } },
+      { path: 'categories', model: 'Category', select: 'code title' },
+      { path: 'catalog', select: 'code -_id', },
+      { path: 'baseProduct', select: 'code ' }
+    ]).lean();
+}
+
 // @desc    fetch product By code and catalog
 //@param {code,catalog}
 const getProduct = async function (code, catalog) {
@@ -205,5 +218,5 @@ const getProductById = async function (id) {
 module.exports = {
   getProductList, getProduct, getProducts, getProductByCode,
   getProductByBaseProduct, getProductById, getProductDTOByCode, getProductDTOByProductModel,
-  populateProduct
+  populateProduct,getProductByBrandName
 }

@@ -26,6 +26,7 @@ module.exports = {
               color:element[1].color,
               size:element[1].size,
               brand:element[1].brand,
+              rating:element[1].rating
             }
           }, function (err) {
             if (err)

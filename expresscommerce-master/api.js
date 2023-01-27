@@ -93,6 +93,7 @@ app.use('/occ/v2', require('./routes/api/brand'))
 app.use('/occ/v2', require('./routes/api/rewards'))
 
 app.use('/occ/v2', require('./routes/api/razorpay'))
+app.use('/occ/v2', require('./routes/api/store'))
 
 // let express to use this for swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

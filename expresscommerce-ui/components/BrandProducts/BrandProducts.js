@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -43,11 +44,14 @@ export default function BrandCarousel() {
         {brandProduct ? brandProduct.map((brandItem, index) => {
     return (
       <div className="card" key={index}>
-       
+      <Link href={`/brand/${brandItem.name}`}>
+       <a>
         <img className="card-img-top"
           src={brandItem.logo}
         />
-        <span className="c-title">{brandItem.name}</span>
+         <span className="c-title">{brandItem.name}</span>
+        </a>
+        </Link>
       </div>
     );
   }) : <div />}

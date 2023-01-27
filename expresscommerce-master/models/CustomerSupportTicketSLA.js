@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const CustomerSupportTicketSchema = new mongoose.Schema({
+const CustomerSupportTicketSLASchema = new mongoose.Schema({
   ticketType: {
     type: String,
     required: true,
@@ -11,7 +11,7 @@ const CustomerSupportTicketSchema = new mongoose.Schema({
     enum: ['P1','P2','P3','P4'],
   },
   SLATime: {
-    type: Number,  /*store value in minutes*/
+    type: Number,  /*store value in hours*/
     required:true,
   },
   fromDate: {
@@ -20,6 +20,12 @@ const CustomerSupportTicketSchema = new mongoose.Schema({
   },
   toDate: {
     type: Date,
-  }
+  },
+  baseSite: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'BaseSite',
+    required: false,
+  },
+
 });
-module.exports = mongoose.model('CustomerSupportTicket', CustomerSupportTicketSchema)
+module.exports = mongoose.model('CustomerSupportTicketSLA', CustomerSupportTicketSLASchema)

@@ -5,11 +5,12 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
 const { ensureTokenAuth, ensureCustomerAuth } = require("../../middleware/auth");
-const { getCurrentBaseSiteByOAuthCode, getBaseSiteByCode } = require("../../lib/basesite");
+const { getCurrentBaseSiteByOAuthCode,getDefaultBaseSite, getBaseSiteByCode, getBaseSiteById } = require("../../lib/basesite");
 const { getLanguageByIsoCode } = require("../../lib/language");
 const { getCurrencyByIsoCode } = require("../../lib/currency");
+const { getTicketPriorityByTicketType } = require("../../lib/customerSupportTicketSla");
 const { getCustomerByEmail, getCustomers, getAddresses, getAddressesForCustomer, getAddressById, getCustomerById, getCustomerByUid } = require("../../lib/customer");
-
+const { getTicketsByCustomer } = require("../../lib/supportTicket")
 const { getRegionByIsoCode } = require("../../lib/region");
 const { getCountryByIsocode } = require("../../lib/country");
 const { getCartById } = require("../../lib/cart");
@@ -17,6 +18,8 @@ const { ticketCreationEventHandler } = require("../../lib/supportTicket")
 const { getVoucherByCode } = require("../../lib/voucher");
 const { forgotPasswordEmailHandler } = require("../../lib/passwordUtil");
 const { getUserGroup } = require('../../lib/usergroup');
+const { generateNumber } = require('../../lib/numberseries');
+
 //const {generatePassword} = require('../../lib/utils')
 const CustomerModel = require("../../models/Customer");
 const AddressModel = require("../../models/Address");
@@ -30,6 +33,7 @@ const VoucherModel = require('../../models/Voucher');
 router.post("/:baseSiteId/registration",
   body('name').notEmpty().withMessage("Please provide customer name !!!"),
   body('email').isEmail().normalizeEmail().withMessage("Please entered correct email id !!!"),
+  body('phonenumber').notEmpty().withMessage("Phone number cannot be empty!!!"),
   // body('phone').notEmpty().withMessage("Phone number cannot be empty!!!"),
   // body('phone').isMobilePhone().withMessage("Phone number should be numeric value only!!!"),
   body('password').isStrongPassword({
@@ -77,7 +81,8 @@ router.post("/:baseSiteId/registration",
           email: req.body.email,
           uid: req.body.email,
           name: req.body.name,
-          phone: req.body.phone,
+          phone: req.body.phonenumber,
+          gender:req.body.gender,
           baseSite: baseSite,
           sessionLanguage: language,
           sessionCurrency: currency,
@@ -492,32 +497,37 @@ router.post(
 ); //end of method
 
 
-// @desc create address for customer
-// @route   POST /customers/supportTicket
-router.post("/:email/supportTicket", ensureCustomerAuth, async (req, res) => {
+// @desc create supportticket for customer
+// @route   POST /:email/supportTicket
+router.post("/:baseSiteId/:email/supportTicket", ensureCustomerAuth, async (req, res) => {
   console.log(req.body);
-  const oAuthClient = req.user;
   const emailParam = req.params.email;
+  const baseSiteId=req.params.baseSiteId;
   const customer = await getCustomerByEmail(emailParam);
-  const baseSite = await getCurrentBaseSiteByOAuthCode(oAuthClient);
+  const baseSite = await getDefaultBaseSite();
+  const ticketId = await generateNumber("customerSupportTicket");
+  const errorCode = await generateNumber("ticketErrorCode");
+  //const expectedClosureDate = await calculateExpectedClosureTime(req.body.priority)
+
   //const country = await getCountryByIsocode(req.body.countryIsoCode);
   //const region = await getRegionByIsoCode(req.body.regionIsoCode);
 
   if (customer && baseSite) {
     const customerSupportTicket = new CustomerSupportTicketModel({
       headline: req.body.headline,
-      errorCode: req.body.errorCode,
+      errorCode: errorCode,
+    //  expectedClosureDate: expectedClosureDate,
       productSerialNum: req.body.productSerialNum,
       productSKU: req.body.productSKU,
       ticketType: req.body.ticketType,
       description: req.body.description,
-      purchaseDate: req.body.purchaseDate,
       priority: req.body.priority,
       resolution: req.body.resolution,
       status: req.body.status,
-      crmTicketId: req.body.crmTicketId,
+      purchaseDate: req.body.purchaseDate,
       customer: customer,
       basesite: baseSite,
+      crmTicketId: ticketId
     });
 
     customerSupportTicket.save(function (err) {
@@ -538,5 +548,50 @@ router.post("/:email/supportTicket", ensureCustomerAuth, async (req, res) => {
   }
 })
 
+
+// @desc get ticketPriority for ticketType
+// @route   GET :email/:ticketType/supportTicketPriority
+router.get("/:baseSiteId/:email/:ticketType/supportTicketPriority", ensureCustomerAuth, async (req, res) => {
+
+  const emailParam = req.params.email;
+  const ticketType = req.params.ticketType;
+  const baseSiteId=req.params.baseSiteId;
+  const customer = await getCustomerByEmail(emailParam);
+  const baseSite = await getDefaultBaseSite();
+
+  try {
+    const ticketData = await getTicketPriorityByTicketType(ticketType);
+    const priority = { priority:ticketData.priority} 
+    console.log("Ticket Type", priority)
+    res.status(200).json(priority);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      error: err,
+    });
+  }
+
+})
+
+// @desc get tickethistory for a customer
+// @route   GET :email/fetchUserSupportTickets
+router.get("/:baseSiteId/:email/fetchUserSupportTickets", ensureCustomerAuth, async (req, res) => {
+
+  const emailParam = req.params.email;
+  const baseSiteId=req.params.baseSiteId;
+  const customer = await getCustomerByEmail(emailParam);
+  const baseSite = await getDefaultBaseSite();
+
+  try {
+    const customerTicketData = await getTicketsByCustomer(customer);
+    res.status(200).json(customerTicketData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      error: err,
+    });
+  }
+
+})
 
 module.exports = router;

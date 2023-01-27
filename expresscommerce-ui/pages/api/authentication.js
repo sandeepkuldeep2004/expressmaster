@@ -2,13 +2,13 @@ import { callPostPrivateAPI } from ".";
 import { getAccessToken } from "./common";
 import { COMMON_API } from "./constants";
 
-export const registerCustomer = async (name, email, password) => {
+export const registerCustomer = async (name, email, password,phonenumber, gender) => {
   const urlPath = COMMON_API.SIGN_UP;
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
-    data: { name: name, email: email, password: password },
+    data: { name: name, email: email, password: password,phonenumber:phonenumber, gender:gender},
   };
   const resData = await callPostPrivateAPI({}, urlPath, config);
   return resData;

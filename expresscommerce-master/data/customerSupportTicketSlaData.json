@@ -1,0 +1,8 @@
+[
+    {"ticketType":"Installation", "priority":"P1", "SLATime":"24"},
+    {"ticketType":"Maintenance", "priority":"P2", "SLATime":"36"},
+    {"ticketType":"Emergency BreakUp", "priority":"P1", "SLATime":"24"},
+    {"ticketType":"Return", "priority":"P3", "SLATime":"48"},
+    {"ticketType":"Refund", "priority":"P4", "SLATime":"168"}
+    
+]

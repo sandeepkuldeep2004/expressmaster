@@ -1,0 +1,15 @@
+
+.map_container_parent
+{
+    height:45rem;
+}
+
+.map_container div
+{
+     top: 0px;
+     left: 0px;
+     right: 0;
+     position: relative;
+     width: 0%;
+}
+

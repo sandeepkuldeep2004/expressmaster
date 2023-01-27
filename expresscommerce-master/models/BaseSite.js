@@ -17,6 +17,10 @@ const BaseSiteSchema = new mongoose.Schema({
     type: String,
     required: true
   }],
+  googleKey: {
+    type: String,
+    required: false
+  },
   productCatalog: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Catalog',

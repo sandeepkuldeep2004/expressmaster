@@ -20,6 +20,7 @@ module.exports = {
               code: element[1].code,
               name: element[1].name,
               logo: hostname + element[1].logo,
+              bannerImage: element[1].bannerImage
             }
           },
           { new: true }
@@ -30,6 +31,7 @@ module.exports = {
           code: element[1].code,
           name: element[1].name,
           logo: hostname + element[1].logo,
+          bannerImage: element[1].bannerImage
         }
         const brandModel = new BrandModel(brandJson);
         await brandModel.save();

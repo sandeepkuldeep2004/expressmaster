@@ -18,6 +18,9 @@ const { saveProductStock } = require("../../dao/ProductStock");
 const { saveProductMedia } = require("../../dao/ProductMedia");
 const { saveVariantProductRel } = require("../../dao/VariantProductRel");
 const { saveMedia } = require("../../dao/Media");
+const {saveStore}=require("../../dao/Store");
+const {saveAddress}=require("../../dao/Address");
+const {saveCustomerSupportTicketSla}=require("../../dao/CustomerSupportTicketSla")
 
 const { saveB2BUnit } = require("../../dao/Account");
 const { saveNumberSeries } = require("../../dao/NumberSeries");
@@ -59,6 +62,8 @@ router.get("/cms/synch", async (req, res) => {
 // @route   GET /catalog/synch
 router.get("/sampledata/synch", async (req, res) => {
   try {
+    sampleDataUpload("addressData",await saveAddress);
+   sampleDataUpload("StoreLocatorData",await saveStore);
     sampleDataUpload("catalogData", await saveCatalog);
     sampleDataUpload("categoryData1", await saveCategory);
     sampleDataUpload("categoryToCategoryRelData1", await saveCategoryToCategoryRel);
@@ -68,7 +73,9 @@ router.get("/sampledata/synch", async (req, res) => {
     sampleDataUpload("productPriceData1", await saveProductPrice);
     sampleDataUpload("numberSeriesData", await saveNumberSeries);
     sampleDataUpload("productMediaData1", await saveProductMedia);
-    //sampleDataUpload("variantProductRelData", await saveVariantProductRel);
+    sampleDataUpload("customerSupportTicketSlaData", await saveCustomerSupportTicketSla);
+    
+    sampleDataUpload("variantProductRelData", await saveVariantProductRel);
 
     res.status(201).json({
       msg: "all sample data uploaded successfully",

@@ -14,7 +14,9 @@ const BrandSchema = new mongoose.Schema({
   logo: {
     type: String,
     required: true,
+    
   },
+  bannerImage:[{type:String}]
 });
 BrandSchema.plugin(uniqueValidator);
 module.exports = mongoose.model("Brand", BrandSchema);

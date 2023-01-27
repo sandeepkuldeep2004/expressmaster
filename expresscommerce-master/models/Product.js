@@ -129,6 +129,11 @@ const ProductSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
     default: true
+  },
+  rating:{
+    type: Number,
+    required: false,
+    default: 3
   }
 });
 module.exports = mongoose.model("Product", ProductSchema);

@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { ensureTokenAuth } = require("../../middleware/auth");
-const { getProducts, getProduct, getProductById } = require("../../lib/product");
+const { getProducts, getProduct, getProductById, getProductByBrandName } = require("../../lib/product");
+const { getBrandByName } = require("../../lib/brand");
 const { fetchProductPrice } = require("../../lib/pricerow");
 const { getBaseSiteByCode } = require("../../lib/basesite");
 const { fetchProductStock } = require("../../lib/stocklevel");
 const { getRatingData } = require("../../lib/customerReview");
 const { getLanguageByIsoCode } = require("../../lib/language");
 const { getCategoryByID } = require("../../lib/category");
-const {  getMediaWithCatalog } = require("../../lib/media");
+const { getMediaWithCatalog } = require("../../lib/media");
 const ProductModel = require("../../models/Product");
 // Read the properies file 
 var PropertiesReader = require('properties-reader');
@@ -33,6 +34,31 @@ router.get("/:baseSiteId/products/", ensureTokenAuth, async (req, res) => {
     });
   }
 });
+
+// @desc   get all product By Brand Name
+// @route   GET /product List by Brand name
+router.get("/:baseSiteId/products/brand/:name", ensureTokenAuth, async (req, res) => {
+  // Check Brand
+  const brand = await getBrandByName(req.params.name);
+  if (null === brand) {
+    return res.status(404).json({ "error": 400, "message": "Brand not available", "Brand Name": req.body.brand });
+  }
+  else {
+    try {
+      
+      const productList = await getProductByBrandName(req.params.name);
+      console.log(productList);
+      res.status(200).json(productList);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({
+        error: err,
+      });
+    }
+  }
+});
+
+
 
 router.post("/:baseSiteId/setbaseproduct", ensureTokenAuth, async (req, res) => {
   try {
@@ -110,6 +136,7 @@ router.get("/:baseSiteId/products/:productCode", ensureTokenAuth, async (req, re
       return res.status(200).json({ "error": 400, "message": "Product not available", "product code": req.body.productCode });
     }
 
+
     //creating DAO for product     
     var productJson =
     {
@@ -126,11 +153,12 @@ router.get("/:baseSiteId/products/:productCode", ensureTokenAuth, async (req, re
       onSale: product.onSale,
       isPerishable: product.isPerishable,
       creationdate: product.creationdate,
-      thumbnailImage: product.thumbnailImage != null ?  product.thumbnailImage : "",
-      mainImage: product.mainImage != null ?  product.mainImage : "",
+      thumbnailImage: product.thumbnailImage != null ? product.thumbnailImage : "",
+      mainImage: product.mainImage != null ? product.mainImage : "",
       baseProduct: product.baseProduct != null ? product.baseProduct.code : "",
       medias: product.medias,
       categories: product.categories,
+      rating: product.rating,
       catalog: product.catalog,
     };
 

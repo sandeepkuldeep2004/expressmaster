@@ -1,0 +1,24 @@
+.product {
+  width: 20%;
+  /* float: left; */
+  padding: 1%;
+  margin: 1%;
+  height: 15em;
+  display: inline-table;
+  text-align: center;
+}
+.addToCart {
+  padding: 4%;
+  min-width: -webkit-fill-available;
+  /* border: none; */
+  background-color: #ec7205;
+  border-color: #ec7205;
+  /* box-shadow: none; */
+  color: white;
+}
+
+.pdtImg {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}

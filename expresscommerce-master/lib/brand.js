@@ -25,6 +25,16 @@ const getAllBrandData = async function () {
   return populateBradData(brands);
 }
 
+// @desc    fetch images by brand 
+//@param {}
+const getImagesByBrand = async function (name) {
+  let brands = await BrandModel.find({ name: name}).lean();
+  console.log(brands)
+  
+  return populateBrandImage(brands);
+}
+
+
 function populateBradData(brands) {
   let brandsJson = []
   for (brand of brands) {
@@ -32,6 +42,14 @@ function populateBradData(brands) {
   }
   return brandsJson;
 }
+
+function populateBrandImage(brands) {
+  let brandsJson = []
+  for (brand of brands) {
+    brandsJson.push({ name: brand.name, brandImages: brand.bannerImage })
+  }
+  return brandsJson;
+}
 module.exports = {
-  getBrandById, getBrandByName, getBrands, getAllBrandData
+  getBrandById, getBrandByName, getBrands, getAllBrandData, getImagesByBrand
 }

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+require('mongoose-bigdecimal');
+var BigDecimal=require('big.js');
 
 const StoreLocatorSchema = new mongoose.Schema({
   storeId: {
@@ -43,11 +45,11 @@ const StoreLocatorSchema = new mongoose.Schema({
     required:true,
   },
   latitude: {
-    type: String,
+    type: mongoose.Schema.Types.BigDecimal,
     required:false,
   },
   longitude: {
-    type: String,
+    type: mongoose.Schema.Types.BigDecimal,
     required:false,
   },
   creationdate: {
@@ -56,6 +58,10 @@ const StoreLocatorSchema = new mongoose.Schema({
   },
   modificationdate: {
     type: Date,
+  },
+  zipCode:{
+    type:String,
+    required:false,
   }
 });
 module.exports = mongoose.model('StoreLocator', StoreLocatorSchema)

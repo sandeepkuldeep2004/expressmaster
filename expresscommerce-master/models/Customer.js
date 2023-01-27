@@ -67,6 +67,11 @@ const CustomerSchema = new mongoose.Schema({
   modificationDate: {
     type: Date,
     default: Date.now,
+  },
+  gender:
+  {
+    type:String,
+    default:"Male"
   }
 });
 module.exports = mongoose.model('Customer', CustomerSchema)

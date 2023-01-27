@@ -9,10 +9,12 @@
     "lint": "next lint -p 4000"
   },
   "dependencies": {
+    "@babel/runtime": "^7.20.7",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
+    "@react-google-maps/api": "^2.17.1",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "axios": "^0.27.2",
     "cookies-next": "^2.1.1",
@@ -25,6 +27,7 @@
     "react-icons": "^4.4.0",
     "react-multi-carousel": "^2.8.2",
     "react-responsive-carousel": "^3.2.23",
+    "react-store-locator": "^0.20.7",
     "shortid": "^2.2.16"
   },
   "devDependencies": {

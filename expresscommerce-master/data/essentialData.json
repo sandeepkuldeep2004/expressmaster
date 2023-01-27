@@ -73,7 +73,7 @@
    {"clientId":"trusted_client","clientSecret":"secret","scope":"extended","active":true,"authorities":"customerGroup"}
 ],
 "brand":[   
-   {"code":"1","name":"Nike","logo":"/Nike.png"},
+   {"code":"1","name":"Nike","logo":"/Nike.png","bannerImage":["/brandbannerimages/NikeBanner1.jpg","/brandbannerimages/NikeBanner2.jpg","/brandbannerimages/NikeBanner3.jpg","/brandbannerimages/NikeBanner4.jpg","/brandbannerimages/NikeBanner5.jpg"]},
    {"code":"2","name":"Adidas","logo":"/Adidas.png"},
    {"code":"3","name":"Puma","logo":"/Puma.png"},
    {"code":"4","name":"Under Armour","logo":"/Under-Armour.png"},

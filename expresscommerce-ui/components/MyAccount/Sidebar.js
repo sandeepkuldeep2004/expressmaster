@@ -20,7 +20,7 @@ export default function Sidebar() {
                         <li >
                             <Link href="/myAccount/wishlist">
                                 <a className="flex items-center">
-                                <svg className="h-8 w-8 text-gray-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+                                    <svg className="h-8 w-8 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
                                     <span className="flex-1 ml-3 whitespace-nowrap"> Wish List</span>
                                 </a>
                             </Link>
@@ -45,6 +45,16 @@ export default function Sidebar() {
                                     </svg>
 
                                     <span className="flex-1 ml-3 whitespace-nowrap"> Address Book</span>
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/myAccount/supportTicket">
+                                <a className="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-8 w-8 text-gray-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z" />
+                                    </svg>
+                                    <span className="flex-1 ml-3 whitespace-nowrap">Support Ticket</span>
                                 </a>
                             </Link>
                         </li>
