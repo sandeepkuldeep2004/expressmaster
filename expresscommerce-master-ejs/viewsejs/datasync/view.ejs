@@ -1,15 +1,16 @@
+<%- include('../layouts/upperpart') %>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
                 <td><h3>Sync Data</h3></td>
             </tr>
-            {{#if msg}}
-            <tr><td>
-            <div class="alert alert-success" role="alert">
- {{msg}}</td>
-</div></tr>
-{{/if}}
+            <%if(locals.msg) { %>
+                <tr><td>
+                    <div class="alert alert-success" role="alert">
+                        <%=msg%></td>
+        </div></tr>
+                <% } %> 
         </thead>
         <tbody>
             <tr>
@@ -50,6 +51,17 @@
                    </form>
                 </td>
             </tr>
+            <tr>
+                <td><b>Sync left navigation</b></br></td>
+                <td>
+                    <form action="/data/leftNavigation/synch" method="post" id="leftNavigation">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                   <input type="submit" class="btn btn-primary" name="syncleftNavigation" id="syncleftNavigation" value="Sync">
+                   </form>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
+<%- include('../layouts/lowerpart') %>
+

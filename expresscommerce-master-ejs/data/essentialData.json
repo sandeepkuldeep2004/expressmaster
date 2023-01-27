@@ -81,8 +81,10 @@
 [
    {"code":"expresscommerce","name":"expresscommerce","company":"XpressCommerce","description":"expresscommerce","urls":"/","productCatalog":"in-product-catalog","contentCatalog":"in-content-catalog","defaultLanguage":"en_US","defaultCurrency":"INR"}
 ],
-
-
+"leftmenu":
+[
+   {"code":"leftMenu","leftMenu":""}
+],
 "deliverymode":
 [
    {"code":"01","name":"Premium Delivery","description":"1-2 business days","status":true,"deliveryCost":"100"},

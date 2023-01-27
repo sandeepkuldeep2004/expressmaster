@@ -15,6 +15,8 @@ var cors = require('cors')
 const MongoStore = require('connect-mongo')
 const connectDB = require('./config/db')
 const {cronJob} = require('./lib/schedulers')
+const NavigationModel = require('./models/LeftNavigation')
+
 require('./routes/backoffice/productindex')
 
 cronJob.start()
@@ -66,6 +68,9 @@ if (process.env.NODE_ENV === 'development') {
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'viewsejs'));
 
+const {collectionTest} = require('./middleware/auth')
+//collectionTest();
+
 
 // Sessions
 app.use(
@@ -93,12 +98,36 @@ app.use(passport.session())
 app.use(flash());
 
 // Global variables
-app.use(function(req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  next();
-});
+
+
+  app.use(async function(req, res,next) {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    var leftNavigation=[];
+    try{
+    res.locals.SubNavigationCount =0;
+   var leftMenuList = await NavigationModel.find();
+if (leftMenuList) {
+  Object.entries(leftMenuList).forEach(async (element) => {
+   var leftMenuArray= element[1].leftMenu;
+    if(leftMenuArray!=''){
+      leftNavigation.push(JSON.parse(leftMenuArray));
+    }
+   });
+   res.locals.SubleftNavigation =leftNavigation;
+   res.locals.SubNavigationCount =leftNavigation.length;
+  }
+
+} catch (err) {
+  res.status(500).json({
+    err,
+  });
+}
+   next();
+     
+  });
+  
 
 // Set global var
 app.use(function (req, res, next) {
@@ -108,143 +137,6 @@ app.use(function (req, res, next) {
 })
 
 // Global variables
-app.use(async function(req, res,next) {
-  var collectionArray = [];
-
-  const MongoClient = require('mongodb').MongoClient
-
-  const conn1 = await MongoClient.connect(process.env.MONGO_URI, function(err, client) {
-     
-    if (err) throw err;
-    var dbo = client.db("xpress");
-     var result = dbo.collection('modules').aggregate([
-      { $lookup:
-        {
-          from: 'submodules',
-          localField: '_id',
-          foreignField: 'module',
-          as: 'moudulsDetail'
-        }
-      }
-    ]);
-    result.toArray(function(err, res1) {
-      if (err) throw err;
-      collectionArray.push(JSON.stringify(res1));
-      
-      console.log(JSON.stringify(res1));
-
-        
-    });
-
-    // collectionArray.push({
-    //   "_id": "63ca84d2fc878dc8060aed6c",
-    //   "code": "dashboard",
-    //   "name": "Dashboard",
-    //   "url": "/dashboard",
-    //   "cssclassname": "fas fa-home",
-    //   "position": 0,
-    //   "active": true,
-    //   "__v": 0,
-    //   "moudulsDetail": []
-    // },
-    // {
-    //   "_id": "63ca84d2fc878dc8060aed6e",
-    //   "code": "localization",
-    //   "name": "Localization",
-    //   "url": "",
-    //   "cssclassname": "fas fa-cog",
-    //   "position": 1,
-    //   "active": true,
-    //   "__v": 0,
-    //   "moudulsDetail": [
-    //     {
-    //       "_id": "63ca84d2fc878dc8060aed94",
-    //       "code": "region",
-    //       "name": "Region",
-    //       "cssclassname": "fas fa-cog",
-    //       "landingUrl": "/region/viewAll",
-    //       "position": 0,
-    //       "module": "63ca84d2fc878dc8060aed6e",
-    //       "active": true,
-    //       "__v": 0
-    //     },
-    //     {
-    //       "_id": "63ca84d2fc878dc8060aed96",
-    //       "code": "country",
-    //       "name": "Country",
-    //       "cssclassname": "fas fa-cog",
-    //       "landingUrl": "/country/viewAll",
-    //       "position": 1,
-    //       "module": "63ca84d2fc878dc8060aed6e",
-    //       "active": true,
-    //       "__v": 0
-    //     },
-    //     {
-    //       "_id": "63ca84d2fc878dc8060aed9d",
-    //       "code": "currency",
-    //       "name": "Currency",
-    //       "cssclassname": "fas fa-cog",
-    //       "landingUrl": "/currency/viewAll",
-    //       "position": 2,
-    //       "module": "63ca84d2fc878dc8060aed6e",
-    //       "active": true,
-    //       "__v": 0
-    //     },
-    //     {
-    //       "_id": "63ca84d2fc878dc8060aed9f",
-    //       "code": "language",
-    //       "name": "Language",
-    //       "cssclassname": "fas fa-cog",
-    //       "landingUrl": "/language/viewAll",
-    //       "position": 3,
-    //       "module": "63ca84d2fc878dc8060aed6e",
-    //       "active": true,
-    //       "__v": 0
-    //     }
-    //   ]
-    // },
-    // {
-    //   "_id": "63d121dc808ad0d6c92bf793",
-    //   "code": "ManageAccess",
-    //   "name": "Manage Access",
-    //   "url": "",
-    //   "cssclassname": "fas fa-cog",
-    //   "position": 2,
-    //   "active": true,
-    //   "__v": 0,
-    //   "moudulsDetail": [
-    //     {
-    //       "_id": "63d121dc808ad0d6c92bf7bb",
-    //       "code": "BaseSite",
-    //       "name": "BaseSite",
-    //       "cssclassname": "fas fa-cog",
-    //       "landingUrl": "/basesite/viewAll",
-    //       "position": 2,
-    //       "module": "63d121dc808ad0d6c92bf793",
-    //       "active": true,
-    //       "__v": 0
-    //     },
-    //     {
-    //       "_id": "63d121dc808ad0d6c92bf7bd",
-    //       "code": "UserGroup",
-    //       "name": "User Group",
-    //       "cssclassname": "fas fa-cog",
-    //       "landingUrl": "/usergroup/viewAll",
-    //       "position": 3,
-    //       "module": "63d121dc808ad0d6c92bf793",
-    //       "active": true,
-    //       "__v": 0
-    //     }
-    //   ]
-    // });
-      res.locals.SubleftNavigation =collectionArray;
-    console.log("testppppppppwerwrwrwer"+res.locals.SubleftNavigation);
-    
-    });
-    next();
-
-});
-
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')))
 

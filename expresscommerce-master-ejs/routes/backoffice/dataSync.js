@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { ensureAuth } = require("../../middleware/auth");
+const { ensureAuth} = require("../../middleware/auth");
 
-console.log("test");
 // @desc    Show add page
 // @route   GET /vendors/add
 router.get("/view", ensureAuth, (req, res) => {
@@ -16,7 +15,8 @@ const {
   essentialDataUpload,
   sampleDataUpload,
   cmsComponentUpload,
-  sampleMediaDataUpload
+  sampleMediaDataUpload,
+  lefNavigationUpload
 } = require("../../lib/dataSynch.js");
 
 const { saveTopSellingComponent } = require("../../dao/TopSellingComponent");
@@ -30,7 +30,6 @@ const { saveProductStock } = require("../../dao/ProductStock");
 const { saveProductMedia } = require("../../dao/ProductMedia");
 const { saveVariantProductRel } = require("../../dao/VariantProductRel");
 const { saveMedia } = require("../../dao/Media");
-
 const { saveB2BUnit } = require("../../dao/Account");
 const { saveNumberSeries } = require("../../dao/NumberSeries");
 
@@ -133,6 +132,23 @@ router.post("/mediadata/synch", async (req, res) => {
     res.render("datasync/view",{
       csrfToken: req.csrfToken(),
       msg: "All media data uploaded successfully",
+      dataSyncActive:true
+    }); 
+   
+
+  } catch (err) {
+    res.status(500).json({
+      err,
+    });
+  }
+});
+
+router.post("/leftNavigation/synch", async (req, res) => {
+  try {
+    lefNavigationUpload("essentialData");
+    res.render("datasync/view",{
+      csrfToken: req.csrfToken(),
+      msg: "Sync left Navigation",
       dataSyncActive:true
     }); 
    

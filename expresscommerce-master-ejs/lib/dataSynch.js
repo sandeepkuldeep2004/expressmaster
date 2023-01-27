@@ -13,8 +13,7 @@ const { saveOAuthClient } = require("../dao/OAuthClient");
 const { saveBrand } = require("../dao/Brand");
 const { saveModule } = require("../dao/Module");
 const { saveSubModule } = require("../dao/SubModule");
-
-
+const { saveLeftMenu,updLeftnavigation } = require("../dao/LeftNavigation");
 
 async function essentialDataUpload(fileName, callBack) {
     const file = fs.readFileSync(path.join(__dirname, '../data/' + fileName + '.json'), 'utf8');
@@ -32,6 +31,9 @@ async function essentialDataUpload(fileName, callBack) {
     saveDeliveryModes(fileData.deliverymode);
     saveOAuthClient(fileData.oauth);
     saveBrand(fileData.brand);
+    saveLeftMenu(fileData.leftmenu);
+    updLeftnavigation();
+
     //console.log(fileData.country);
     //console.log(fileData.region);
 
@@ -64,6 +66,14 @@ async function cmsComponentUpload(fileName, callBack) {
     //console.log(fileData);
 }
 
+async function lefNavigationUpload(fileName, callBack) {
+    const file = fs.readFileSync(path.join(__dirname, '../data/' + fileName + '.json'), 'utf8');
+    const fileData = JSON.parse(file);
+    saveLeftMenu(fileData.leftmenu);
+    updLeftnavigation();
+   
+}
+
 module.exports = {
-    essentialDataUpload, sampleDataUpload, cmsComponentUpload, sampleMediaDataUpload
+    essentialDataUpload, sampleDataUpload, cmsComponentUpload, sampleMediaDataUpload,lefNavigationUpload
 }
