@@ -53,8 +53,9 @@
    {"code":"campaigns","name":"Campaigns","url":"/campaigns/viewAll","position":"5","cssclassname":"fas fa-bullhorn"},
    {"code":"oauthClient","name":"OAuth Client","url":"/oauthclient/viewAll","position":"6","cssclassname":"fas bi bi-motherboard"},
    {"code":"vendors","name":"Vendors","url":"/vendors/viewAll","position":"7","cssclassname":"fas fa-cog"},
-   {"code":"tickets","name":"Tickets","url":"/stories","position":"8","cssclassname":"fas bi bi-ticket-perforated"}
- 
+   {"code":"tickets","name":"Tickets","url":"/stories","position":"8","cssclassname":"fas bi bi-ticket-perforated"},
+   {"code":"navigation","name":"Left Navigation","url":"","position":"9","cssclassname":"fas bi bi-list"}
+
 ],
 "submodule":
 [   
@@ -66,7 +67,11 @@
    {"code":"UserGroup","name":"User Group","landingUrl":"/usergroup/viewAll","position":"3","cssclassname":"fas bi bi-people-fill","moduleCode":"manageAccess"},
    {"code":"catalogs","name":"Catalogs","landingUrl":"/catalogs/viewAll","position":"3","cssclassname":"fas fa-database","moduleCode":"manageCatalogs"},
    {"code":"category","name":"Category","landingUrl":"/category/viewAll","position":"4","cssclassname":"fas fa-archive","moduleCode":"manageCatalogs"},
-   {"code":"products","name":"Products","landingUrl":"/products","position":"5","cssclassname":"fas bi bi-kanban","moduleCode":"manageCatalogs"}
+   {"code":"products","name":"Products","landingUrl":"/products","position":"5","cssclassname":"fas bi bi-kanban","moduleCode":"manageCatalogs"},
+   {"code":"navigation","name":"Navigation","landingUrl":"/navigation/viewAll","position":"1","cssclassname":"fas bi bi-list","moduleCode":"navigation"},
+   {"code":"subnavigation","name":"Sub Navigation","landingUrl":"/subnavigation/viewAll","position":"2","cssclassname":"fas bi bi-list","moduleCode":"navigation"}
+
+
 ],
 "usergroup":
 [   
@@ -78,6 +83,7 @@
    {"code":"saleRepGroup","name":"SALES REPRESENTATIVE GROUP","userPriceGroup":"","userTaxGroup":"","parent":""},
    {"code":"csrGroup","name":"CUSTOMER SUPPORT REPRESENTATIVE GROUP","userPriceGroup":"","userTaxGroup":"","parent":""},
    {"code":"promotionalGroup","name":"PROMORIONAL CUSTOMER GROUP","userPriceGroup":"","userTaxGroup":"","parent":""}
+   
 ],
 "zone":
 [   

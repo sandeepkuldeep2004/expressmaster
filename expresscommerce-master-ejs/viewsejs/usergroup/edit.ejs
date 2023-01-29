@@ -1,11 +1,13 @@
-<h3>Edit Category</h3>
+<%- include('../layouts/header') %>
+
+<h3>Edit User Group</h3>
 <div class="row">
-    <form action="/usergroup/{{usergroup._id}}" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <form action="/usergroup/<%=usergroup._id%>" method="POST" class="col s12">
+    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
         <input type="hidden" name="_method" value="PUT">
         <div class="row">
             <div class="input-field">
-                <input type="text" id="name" name="name" value="{{usergroup.name}}">
+                <input type="text" id="name" name="name" value="<%=usergroup.name%>">
                 <label for="title">Name</label>
             </div>
         </div>
@@ -15,3 +17,4 @@
         </div>
     </form>
 </div>
+<%- include('../layouts/footer') %>

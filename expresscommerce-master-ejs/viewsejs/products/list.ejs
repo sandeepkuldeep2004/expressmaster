@@ -1,3 +1,4 @@
+<%- include('../layouts/header') %>
 <form action="/products/search" method="POST" id="delete-form">
     <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
     <input type="text" class="form-control web-search-box" placeholder="search" name="keyword" value=''>
@@ -56,3 +57,4 @@
     <a href="/products/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"
             title="Create New Product"></i></a>
 </div>
+<%- include('../layouts/footer') %>
