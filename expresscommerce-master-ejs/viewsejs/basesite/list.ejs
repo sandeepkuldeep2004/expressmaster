@@ -1,6 +1,6 @@
 <%- include('../layouts/header') %>
+<%if (basesiteList) { %>
 
-{{#if basesiteList}}
 <div class="bo-fixed-action-btn">
     <a href="/basesite/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
 </div>
@@ -18,22 +18,22 @@
             </tr>
         </thead>
         <tbody>
-            {{#each basesiteList}}
-            <tr>
-                <td><a href="/basesite/{{code}}">{{code}}</a></td>
-                <td><a href="/basesite/{{code}}">{{name}}</a></td>
-                <td><span class="dash-status">{{description}}</span></td>
-                <td><span class="dash-status">{{productCatalog}}</span></td>
-                <td><span class="dash-status">{{contentCatalog}}</span></td>
-                <td><span class="dash-status">{{status}}</span></td>
+            <% basesiteList.forEach(basesiteList => { %> 
+                <tr>
+                <td><a href="/basesite/<%=basesiteList.code%>"><%=basesiteList.code%></a></td>
+                <td><a href="/basesite/<%=basesiteList.code%>"><%=basesiteList.name%></a></td>
+                <td><span class="dash-status"><%=basesiteList.description%></span></td>
+                <td><span class="dash-status"><%=basesiteList.productCatalog%></span></td>
+                <td><span class="dash-status"><%=basesiteList.contentCatalog%></span></td>
+                <td><span class="dash-status"><%=basesiteList.status%></span></td>
                 <td>
                     <div class="bo-edit-row">
-                        <a href="/basesite/{{code}}" class="btn btn-float">
+                        <a href="/basesite/<%=basesiteList.code%>" class="btn btn-float">
                             <i class="fas fa-edit"></i>
                         </a>
 
-                        <form action="/basesite/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                        <form action="/basesite/remove/<%=basesiteList._id%>" method="POST" id="delete-form">
+                            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn red">
                                 <i class="fas fa-trash"></i>
@@ -42,13 +42,13 @@
                     </div>
                 </td>
             </tr>
-            {{/each}}
+            <% }) %>        
         </tbody>
     </table>
 </div>
-{{else}}
-<p>You have not created any basesite</p>
-{{/if}}
-<%- include('../layouts/footer') %>
+<%} else{ %>
+    <p>You have not created any usergroup</p>
+    <% } %>
+    <%- include('../layouts/footer') %>
 
 

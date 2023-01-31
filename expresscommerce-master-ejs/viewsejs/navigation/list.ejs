@@ -1,33 +1,38 @@
 <%- include('../layouts/header') %>
 
-{{#if vendors}}
-<div class="table-responsive">
+<%if (navigationList) { %>
+    <div class="table-responsive">
+        <div class="fixed-action-btn">
+            <a href="/navigation/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i>Add Navigation</a>
+        </div>
+        <div class="fixed-action-btn">
+            <a href="/subnavigation/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i>Add Sub Navigation</a>
+        </div>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Code</th>
                 <th>Name</th>
-                <th>Status</th>
-                <th>{{csrfToken}}</th>
+                <th>Landing Url</th>
+                <th>Action</th>
+
+                
             </tr>
         </thead>
         <tbody>
             
-            {{#each vendors}}
-            <tr>
-        
-                <td><a href="/vendors/{{code}}">{{code}}</a></td>
-                <td><a href="/vendors/{{code}}">{{name}}</a></td>
-                <td><span class="dash-status">{{status}}</span></td>
+            <% navigationList.forEach(navigationList => { %> 
+                <tr>
+                <td><a href="/navigation/<%=navigationList.code %>"><b><%=navigationList.code %></b></a></td>
+                <td><a href="/navigation/<%=navigationList.code %>"><b><%=navigationList.name %></a></b></td>
+                <td><span class="dash-status"><%=navigationList.url %></span></td>
                 <td>
                     <div class="bo-edit-row">
-                        <a href="/vendors/{{code}}" class="btn btn-float">
+                        <a href="/navigation/<%=navigationList.code %>" class="btn btn-float">
                             <i class="fas fa-edit"></i>
                         </a>
-
-                        <form action="/vendors/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                        <form action="/navigation/remove/<%=navigationList._id%>" method="post" id="delete-form<%=navigationList.code %>">
+                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
                             <button type="submit" class="btn red">
                                 <i class="fas fa-trash"></i>
                             </button>
@@ -35,14 +40,32 @@
                     </div>
                 </td>
             </tr>
-            {{/each}}
+            <% navigationList.submodule.forEach(submodules => { %> 
+                <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/subnavigation/<%=submodules.code %>"><%=submodules.code %></a></td>
+                <td><a href="/subnavigation/<%=submodules.code %>"><%=submodules.name %></a></td>
+                <td><span class="dash-status"><%=submodules.landingUrl %></span></td>
+                <td>
+                    <div class="bo-edit-row">
+                        <a href="/subnavigation/<%=submodules.code %>" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <form action="/subnavigation/remove/<%=submodules._id %>" method="POST" id="delete-form">
+                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <% }) %>  
+
+            <% }) %>        
         </tbody>
     </table>
 </div>
-{{else}}
-<p>You have not created any vendors</p>
-{{/if}}
-
-<div class="fixed-action-btn">
-    <a href="/vendors/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
+<%} else{ %>
+    <p>Not found</p>
+    <% } %>
+    <%- include('../layouts/footer') %>

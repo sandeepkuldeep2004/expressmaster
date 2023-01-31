@@ -1,5 +1,4 @@
 const {getModuleList} = require('../lib/module');
-const CategoryModel = require("../models/Category");
 const ModuleList= getModuleList();
 
 //console.log("module list",getModuleList());  

@@ -3,7 +3,7 @@ const ModuleModel = require('../models/Module')
 // @desc    fetch all active Category
 //@param {active}
 const getModuleList = async function(){ 
-  return  ModuleModel.find({}).sort({ name: 'asc' }).lean();
+  return  await ModuleModel.find({}).sort({ position: 'asc' }).lean();
 }
 
 // @desc    fetch Category by code

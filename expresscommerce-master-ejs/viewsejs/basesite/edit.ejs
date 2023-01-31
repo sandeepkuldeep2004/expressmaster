@@ -2,13 +2,13 @@
 
 <h3>Edit Base Site</h3>
 <div class="main-form">
-    <form action="/basesite/{{basesite._id}}" method="POST" class="form-horizontal">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <form action="/basesite/<%=basesite._id%>" method="POST" class="form-horizontal">
+    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
         <input type="hidden" name="_method" value="PUT">
         <div class="form-group row">
             <label class="control-label col-sm-3" for="name">Name:</label>
             <div class="col-sm-9">
-                <input class="form-control" type="text" id="name" name="name" value="{{basesite.name}}">
+                <input class="form-control" type="text" id="name" name="name" value="<%=basesite.name%>">
             </div>
         </div>
 

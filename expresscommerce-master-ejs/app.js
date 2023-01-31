@@ -109,12 +109,12 @@ app.use(flash());
     res.locals.SubNavigationCount =0;
    var leftMenuList = await NavigationModel.find();
 if (leftMenuList) {
-  Object.entries(leftMenuList).forEach(async (element) => {
-   var leftMenuArray= element[1].leftMenu;
+    for (moduleListIrr of leftMenuList) {
+   var leftMenuArray= moduleListIrr.leftMenu;
     if(leftMenuArray!=''){
-      leftNavigation.push(JSON.parse(leftMenuArray));
+     leftNavigation.push(JSON.parse(leftMenuArray));
     }
-   });
+  }
    res.locals.SubleftNavigation =leftNavigation;
    res.locals.SubNavigationCount =leftNavigation.length;
   }
@@ -159,6 +159,10 @@ app.use('/language', require('./routes/backoffice/language'))
 app.use('/currency', require('./routes/backoffice/currency'))
 app.use('/sync', require('./routes/backoffice/ctorder'))
 app.use('/products', require('./routes/backoffice/productindex'))
+app.use('/navigation', require('./routes/backoffice/navigation'))
+app.use('/subnavigation', require('./routes/backoffice/subnavigation'))
+
+
 const PORT = process.env.PORT || 3000
 
 app.listen(
