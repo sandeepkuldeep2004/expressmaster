@@ -1,42 +1,64 @@
 <%- include('../layouts/header') %>
-<h3>Edit Left Navigation</h3>
-<div class="row">
-    <form action="/navigation/<%=modules._id%>" method="post" class="col s12">
-    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="code" name="code" value="<%=modules.code%>">
-                <label for="title">Code</label>
+<div class="card">
+    <div class="card-body col-lg-6">
+        <h5 class="card-title">Edit Left Navigation</h5>
+
+        <!-- Vertical Form -->
+        <form action="/navigation/<%=modules._id%>" method="post" class="col s12 row g-3" needs-validation>
+            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+            <div class="col-12 mg-3">
+                <label for="inputNanme4" class="form-label">Code</label>
+                <input type="text" class="form-control" id="code" name="code" value="<%=modules.code%>" required>
+                <div class="invalid-feedback">Please provide a Code.</div>
             </div>
-        </div>
-         <div class="row">
-            <div class="input-field">
-                <input type="text" id="name" name="name" value="<%=modules.name%>">
-                <label for="title">Name</label>
+            <div class="col-12 mg-3">
+                <label for="inputEmail4" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-control" value="<%=modules.name%>" required>
+                <div class="invalid-feedback">Please provide a Name.</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="url" name="url" value="<%=modules.url%>">
-                <label for="title">landing Url</label>
+            <div class="col-12 mg-3">
+                <label for="inputPassword4" class="form-label">landing Url</label>
+                <input type="text" id="url" name="url" class="form-control" value="<%=modules.url%>">
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="cssclassname" name="cssclassname" value="<%=modules.cssclassname%>">
-                <label for="title">Class Name</label>
+            <div class="col-12 mg-3">
+                <label for="inputAddress" class="form-label">Class Name</label>
+                <input type="text" id="cssclassname" name="cssclassname" class="form-control" value="<%=modules.cssclassname%>" required>
+                <div class="invalid-feedback">Please provide a Class Name.</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="number" id="position" name="position" value="<%=modules.position%>" >
-                <label for="title">Position</label>
+            <div class="col-12 mg-3">
+                <label for="inputAddress" class="form-label">Position</label>
+                <input type="number" id="position" name="position" class="form-control" value="<%=modules.position%>" required>
+                <div class="invalid-feedback">Please provide a Position.</div>
             </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
-        </div>
-    </form>
+            <div class="form-group col-12 mg-3">
+                <label for="exampleFormControlSelect1" class="form-label">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group col-12 mg-3">
+                <label for="exampleFormControlSelect2" class="form-label">Example multiple select</label>
+                <select multiple class="form-control" id="exampleFormControlSelect2">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="text-center mg-3 col-12 mg-3">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <!-- <input type="submit" value="Save" class="btn"> -->
+                <a href="/dashboard" class="btn orange"><button type="reset"
+                        class="btn btn-secondary">Cancel</button></a>
+            </div>
+        </form><!-- Vertical Form -->
+    </div>
 </div>
 <%- include('../layouts/footer') %>
+
+

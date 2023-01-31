@@ -7,11 +7,13 @@ const ModuleModel = require("../../models/Module");
 const { getModuleList,getModuleByCode } = require("../../lib/module.js");
 const { getSubAllModuleByCode } = require("../../lib/submodule.js");
 
+var leftnavigationlinkactive = "navigation";
 // @desc    Show add page
 // @route   GET /basesite/add
 router.get("/add", ensureAuth, async (req, res) => {
   return res.render("navigation/add", {
     csrfToken: req.csrfToken(),
+    leftnavigationlinkactive: leftnavigationlinkactive,
   });
 });
 
@@ -100,16 +102,11 @@ router.get("/viewall", ensureAuth, async (req, res) => {
       await navigationList.push(moduleListObj);
     }
 
-/*
-    for (moduleListIrrs of parentModule) {
-      for (submoduls of moduleListIrrs.submodule){
-        console.log("landingUrl"+submoduls.landingUrl);
-      }
-    }
-    */
-    return res.render("navigation/list", {
+      return res.render("navigation/list", {
       navigationList,
       csrfToken: req.csrfToken(),
+      leftnavigationlinkactive: leftnavigationlinkactive,
+      leftsubnavigationlinkactive: "navigation",
     });
   } catch (err) {
     console.error(err);

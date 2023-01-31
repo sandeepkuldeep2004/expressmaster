@@ -1,8 +1,8 @@
-const express = require('express')
-const router = express.Router()
-const { ensureAuth, ensureGuest } = require('../../middleware/auth')
+const express = require('express');
+const router = express.Router();
+const { ensureAuth, ensureGuest } = require('../../middleware/auth');
 
-const Story = require('../../models/Story')
+const Story = require('../../models/Story');
 
 // @desc    Login/Landing page
 // @route   GET /
@@ -23,6 +23,7 @@ router.get('/dashboard', ensureAuth, async (req, res, next) => {
       stories,
       dashboard:true,
       csrfToken: req.csrfToken(),
+      leftnavigationlinkactive: "dashboard",
       })
   } catch (err) {
     console.error(err)

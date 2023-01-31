@@ -67,9 +67,10 @@ async function cmsComponentUpload(fileName, callBack) {
 async function lefNavigationUpload(fileName, callBack) {
     const file = fs.readFileSync(path.join(__dirname, '../data/' + fileName + '.json'), 'utf8');
     const fileData = JSON.parse(file);
-    removeModule();
+    //removeModule();
+    // Save newly added left navigation data.
     saveModule(fileData.module);
-   await removeSubModule();
+   //await removeSubModule();
     saveSubModule(fileData.submodule);
     saveLeftMenu(fileData.leftmenu);
     updLeftnavigation();

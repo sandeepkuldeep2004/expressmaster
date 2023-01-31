@@ -1,71 +1,90 @@
 <%- include('../layouts/header') %>
 
-<%if (navigationList) { %>
-    <div class="table-responsive">
-        <div class="fixed-action-btn">
-            <a href="/navigation/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i>Add Navigation</a>
-        </div>
-        <div class="fixed-action-btn">
-            <a href="/subnavigation/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i>Add Sub Navigation</a>
-        </div>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Landing Url</th>
-                <th>Action</th>
+    <%if (navigationList) { %>
 
-                
-            </tr>
-        </thead>
-        <tbody>
-            
-            <% navigationList.forEach(navigationList => { %> 
-                <tr>
-                <td><a href="/navigation/<%=navigationList.code %>"><b><%=navigationList.code %></b></a></td>
-                <td><a href="/navigation/<%=navigationList.code %>"><b><%=navigationList.name %></a></b></td>
-                <td><span class="dash-status"><%=navigationList.url %></span></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/navigation/<%=navigationList.code %>" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <form action="/navigation/remove/<%=navigationList._id%>" method="post" id="delete-form<%=navigationList.code %>">
-                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            <% navigationList.submodule.forEach(submodules => { %> 
-                <tr>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/subnavigation/<%=submodules.code %>"><%=submodules.code %></a></td>
-                <td><a href="/subnavigation/<%=submodules.code %>"><%=submodules.name %></a></td>
-                <td><span class="dash-status"><%=submodules.landingUrl %></span></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/subnavigation/<%=submodules.code %>" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <form action="/subnavigation/remove/<%=submodules._id %>" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            <% }) %>  
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title float-right">
+                    <a href="/navigation/add" class="btn-floating btn btn-primary btn-sm">
+                        <i class="fas fa-plus"></i> Add Navigation
+                    </a>
+                    <a href="/subnavigation/add" class="btn-floating btn btn-sm btn-outline-primary">
+                        <i class="fas fa-plus"></i> Add Sub Navigation
+                    </a>
+                    
+                </h5>
+                <table class="table table-striped" id="example">
+                    <thead>
+                        <tr>
+                            <th scope="col">Code</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Landing Url</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            <% }) %>        
-        </tbody>
-    </table>
-</div>
-<%} else{ %>
-    <p>Not found</p>
-    <% } %>
-    <%- include('../layouts/footer') %>
+                        <% navigationList.forEach(navigationList=> { %>
+                            <tr>
+                                <td><a href="/navigation/<%=navigationList.code %>"><b>
+                                            <%=navigationList.code %>
+                                        </b></a></td>
+                                <td><a href="/navigation/<%=navigationList.code %>"><b>
+                                            <%=navigationList.name %></a></b></td>
+                                <td><span class="dash-status">
+                                        <%=navigationList.url %>
+                                    </span></td>
+                                <td>
+                                    <div class="bo-edit-row">
+                                        <a href="/navigation/<%=navigationList.code %>" class="btn btn-float">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="/navigation/remove/<%=navigationList._id%>" method="post"
+                                            id="delete-form<%=navigationList.code %>">
+                                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                                            <button type="submit" class="btn red">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% navigationList.submodule.forEach(submodules=> { %>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/subnavigation/<%=submodules.code %>">
+                                            <%=submodules.code %>
+                                        </a></td>
+                                    <td><a href="/subnavigation/<%=submodules.code %>">
+                                            <%=submodules.name %>
+                                        </a></td>
+                                    <td><span class="dash-status">
+                                            <%=submodules.landingUrl %>
+                                        </span></td>
+                                    <td>
+                                        <div class="bo-edit-row">
+                                            <a href="/subnavigation/<%=submodules.code %>" class="btn btn-float">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <form action="/subnavigation/remove/<%=submodules._id %>" method="POST"
+                                                id="delete-form">
+                                                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                                                <button type="submit" class="btn red">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% }) %>
+
+                                    <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            <%} else{ %>
+                <p>Not found</p>
+                <% } %>
+
+        </div>
+        </div>
+        <%- include('../layouts/footer') %>

@@ -5,6 +5,7 @@ const { ensureAuth } = require("../../middleware/auth");
 const CountryModel = require("../../models/Country");
 const RegionModel = require("../../models/Region");
 const { getCountryList } = require("../../lib/commons.js");
+var leftnavigationlinkactive = "localization";
 
 const viewAll = "/region/viewAll";
 
@@ -22,6 +23,8 @@ router.get("/add", ensureAuth, async (req, res) => {
   res.render(addView, {
     countryList,
     csrfToken: req.csrfToken(),
+    leftnavigationlinkactive: leftnavigationlinkactive,
+    leftsubnavigationlinkactive: "region",
   });
 });
 
@@ -55,6 +58,8 @@ router.post(
           countryList,
           errorMessage: "Region with same code already exists",
           csrfToken: req.csrfToken(),
+          leftnavigationlinkactive: leftnavigationlinkactive,
+          leftsubnavigationlinkactive: "region",
         });
       } else {
         CountryModel.findOne({ isocode: country }).then((country) => {
@@ -83,6 +88,8 @@ router.get("/viewall", ensureAuth, async (req, res) => {
       regionList,
       countryList,
       csrfToken: req.csrfToken(),
+      leftnavigationlinkactive: leftnavigationlinkactive,
+      leftsubnavigationlinkactive: "region",
     });
   } catch (err) {
     console.error(err);
@@ -107,6 +114,8 @@ router.get("/:code", ensureAuth, async (req, res) => {
       region,
       countryList,
       csrfToken: req.csrfToken(),
+      leftnavigationlinkactive: leftnavigationlinkactive,
+      leftsubnavigationlinkactive: "region",
     });
   } catch (err) {
     console.error(err);
