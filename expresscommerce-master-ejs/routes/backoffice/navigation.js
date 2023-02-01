@@ -7,13 +7,14 @@ const ModuleModel = require("../../models/Module");
 const { getModuleList,getModuleByCode } = require("../../lib/module.js");
 const { getSubAllModuleByCode } = require("../../lib/submodule.js");
 
-var leftnavigationlinkactive = "navigation";
+var leftnavigationlinkactive = "managenavigation";
 // @desc    Show add page
 // @route   GET /basesite/add
 router.get("/add", ensureAuth, async (req, res) => {
   return res.render("navigation/add", {
     csrfToken: req.csrfToken(),
     leftnavigationlinkactive: leftnavigationlinkactive,
+    leftsubnavigationlinkactive:"addnavigation",
   });
 });
 
@@ -50,6 +51,8 @@ router.post(
           position: position,
           errorMessage: "One ore more fields are missing",
           csrfToken: req.csrfToken(),
+          leftnavigationlinkactive: leftnavigationlinkactive,
+          leftsubnavigationlinkactive: "navigationlist",
         });
       } 
         const modulesRec = await getModuleByCode(code);
@@ -63,6 +66,8 @@ router.post(
             position: position,
             errorMessage: "Base Site with same code already exists.",
             csrfToken: req.csrfToken(),
+            leftnavigationlinkactive: leftnavigationlinkactive,
+            leftsubnavigationlinkactive: "navigationlist",
           });
         } else {
           ModuleModel.create({
@@ -88,8 +93,7 @@ router.get("/viewall", ensureAuth, async (req, res) => {
   try {
     const moduleList = await getModuleList();
     var navigationList=[];
-
-      for (moduleListIrr of moduleList) {
+     for (moduleListIrr of moduleList) {
       let subnavigationArr = await getSubAllModuleByCode(moduleListIrr._id);
       let moduleListObj = {
         _id: moduleListIrr._id,
@@ -107,7 +111,7 @@ router.get("/viewall", ensureAuth, async (req, res) => {
       navigationList,
       csrfToken: req.csrfToken(),
       leftnavigationlinkactive: leftnavigationlinkactive,
-      leftsubnavigationlinkactive: "navigation",
+      leftsubnavigationlinkactive: "navigationlist",
     });
   } catch (err) {
     console.error(err);

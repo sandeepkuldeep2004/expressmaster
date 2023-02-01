@@ -2,7 +2,11 @@
     <div class="card">
         <div class="card-body col-lg-6">
             <h5 class="card-title">Add Left Sub Navigation Module</h5>
-
+            <%if(locals.errorMessage) { %>
+                <div class="alert alert-success" role="alert">
+                    <%=errorMessage%>
+                    </div>
+            <% } %> 
             <!-- Vertical Form -->
             <form action="/subnavigation/add" method="POST" class="row g-3 needs-validation">
                 <input type="hidden" name="_csrf" value="<%=csrfToken %>">

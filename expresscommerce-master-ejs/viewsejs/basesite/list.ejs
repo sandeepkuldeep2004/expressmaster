@@ -1,3 +1,81 @@
+
+<%- include('../layouts/header') %>
+
+<%if (navigationList) { %>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title float-right">
+                <a href="/navigation/add" class="btn-floating btn btn-primary btn-sm">
+                    <i class="fas fa-plus"></i> Add Navigation
+                </a>
+                <a href="/subnavigation/add" class="btn-floating btn btn-sm btn-outline-primary">
+                    <i class="fas fa-plus"></i> Add Sub Navigation
+                </a>
+
+            </h5>
+            <%if(locals.errorMessage) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%=errorMessage%>
+                        </div>
+                <% } %> 
+            <table class="table table-hover" id="example_">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Product Catalog</th>
+                        <th scope="col">Content Catalog</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" class="text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% navigationList.forEach(navigationList=> { %>
+                        <tr id="<%=navigationList._id %>" class="<%if(navigationList.url == '') { %>submenu<% } %>">
+                            <td> 
+                                <%if(navigationList.url == '') { %><i class="bi_<%=navigationList._id %> bi bi-plus-circle"></i><% } %>
+                                <%=navigationList.code %>
+                            </td>
+                            <td><%=navigationList.name %></a></td>
+                            <td><span class="dash-status">
+                                    <%=navigationList.url %>
+                                </span></td>
+                            <td><span class="dash-status">
+                                    <%=navigationList.position %>
+                                </span>
+                            </td>
+                            <td><span class="dash-status">
+                                    <%=navigationList.status %>
+                                </span></td>
+                            <td>
+                                <div class="bo-edit-row">
+                                    <a href="/navigation/<%=navigationList.code %>" class="btn btn-float">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="/navigation/remove/<%=navigationList._id%>" method="post"
+                                        id="delete-form<%=navigationList.code %>">
+                                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                                        <button type="submit" class="btn red">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                       
+
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <%} else{ %>
+            <p>Not found</p>
+            <% } %>
+    </div>
+    </div>
+    <%- include('../layouts/footer') %>
+
 <%- include('../layouts/header') %>
 <%if (basesiteList) { %>
 

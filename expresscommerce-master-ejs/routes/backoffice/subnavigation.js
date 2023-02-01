@@ -7,7 +7,7 @@ const ModuleModel = require("../../models/Module");
 const SubModuleModel = require("../../models/SubModule");
 const { getModuleList,getModuleByCode,getModuleListActive} = require("../../lib/module.js");
 const { getSubModuleByCode } = require("../../lib/submodule.js");
-
+var leftnavigationlinkactive = "managenavigation";
 // @desc    Show add page
 // @route   GET /basesite/add
 router.get("/add", ensureAuth, async (req, res) => {
@@ -15,6 +15,8 @@ var activeModuleList= await  getModuleListActive();
   return res.render("subnavigation/add", {
     csrfToken: req.csrfToken(),
     activeModuleList:activeModuleList,
+    leftsubnavigationlinkactive:"addsubnavigation",
+    leftnavigationlinkactive:leftnavigationlinkactive,
   });
 });
 
@@ -57,6 +59,8 @@ router.post(
           errorMessage: "One ore more fields are missing",
           csrfToken: req.csrfToken(),
           activeModuleList:activeModuleList,
+          leftsubnavigationlinkactive:"addSubnavigation",
+          leftnavigationlinkactive:leftnavigationlinkactive,
         });
       } 
         const subModulesRec = await getSubModuleByCode(code);
@@ -75,6 +79,8 @@ router.post(
             errorMessage: "Base Site with same code already exists.",
             csrfToken: req.csrfToken(),
             activeModuleList:activeModuleList,
+            leftsubnavigationlinkactive:"addSubnavigation",
+            leftnavigationlinkactive:leftnavigationlinkactive,
           });
         } else {
           SubModuleModel.create({
@@ -85,7 +91,11 @@ router.post(
             position: position,
             module:moduleCode,
           });
-          return res.redirect("/navigation/viewAll");
+
+          
+          return res.redirect("/navigation/viewAll?errorMessage=Sucessfully inserted.");
+
+          
         }
       
     } catch (err) {
@@ -149,6 +159,8 @@ router.get("/:code", ensureAuth, async (req, res) => {
     return res.render("subnavigation/edit", {
       modules,
       activeModuleList,
+      leftsubnavigationlinkactive:"navigationlist",
+      leftnavigationlinkactive:leftnavigationlinkactive,
       csrfToken: req.csrfToken(),
     });
   } catch (err) {
@@ -172,9 +184,9 @@ router.post("/:id", ensureAuth, async (req, res) => {
       { _id: req.params.id },
       req.body
     );
-    
 
-    return res.redirect("/navigation/viewAll");
+    return res.redirect("/navigation/viewAll?errorMessage=Sucessfully updated.");
+   
   } catch (err) {
     console.error(err);
     return res.render("error/500");

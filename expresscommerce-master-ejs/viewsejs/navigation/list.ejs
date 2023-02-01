@@ -12,6 +12,12 @@
                     </a>
 
                 </h5>
+                <%if(locals.msg) { %>
+                        <div class="alert alert-success" role="alert">
+                            <%=msg%>
+                            </div>
+                    <% } %> 
+
                 <table class="table table-hover" id="example_">
                     <thead>
                         <tr>
@@ -58,7 +64,7 @@
                                 </td>
                             </tr>
                             <% navigationList.submodule.forEach(submodules=> { %>                                
-                                    <tr class="d-none d_<%=navigationList._id %>">
+                                    <tr class="d-none d_<%=navigationList._id %> ">
                                         <td><a href="/subnavigation/<%=submodules.code %>">
                                                 <%=submodules.code %>
                                             </a></td>
