@@ -132,7 +132,7 @@ if (leftMenuList) {
 // Set global var
 app.use(function (req, res, next) {
   res.locals.user = req.user || null;
-  console.log(req.baseUrl);
+  // console.log(req.baseUrl);  
   next()
 })
 
