@@ -9,6 +9,9 @@ const { getCatalogList } = require("../../lib/commons.js");
 const { getBaseSiteByCode } = require("../../lib/basesite.js");
 const { getCatalog } = require("../../lib/catalog.js");
 
+var leftnavigationlinkactive = "manageAccess";
+
+
 // @desc    Show add page
 // @route   GET /basesite/add
 router.get("/add", ensureAuth, async (req, res) => {
@@ -18,6 +21,7 @@ router.get("/add", ensureAuth, async (req, res) => {
     contentCatalogList,
     productCatalogList,
     csrfToken: req.csrfToken(),
+    leftnavigationlinkactive:leftnavigationlinkactive,
   });
 });
 
@@ -70,6 +74,10 @@ router.post(
             $push: { url: url },
             errorMessage: "Base Site with same code already exists.",
             csrfToken: req.csrfToken(),
+            leftnavigationlinkactive:leftnavigationlinkactive,
+            leftsubnavigationlinkactive:"BaseSite",
+
+
           });
         } else {
           BaseSiteModel.create({
@@ -101,6 +109,9 @@ router.get("/viewall", ensureAuth, async (req, res) => {
     return res.render("basesite/list", {
       basesiteList,
       csrfToken: req.csrfToken(),
+      leftnavigationlinkactive:leftnavigationlinkactive,
+      leftsubnavigationlinkactive:"BaseSite",
+
     });
   } catch (err) {
     console.error(err);
@@ -123,6 +134,9 @@ router.get("/:code", ensureAuth, async (req, res) => {
     return res.render("basesite/edit", {
       basesite,
       csrfToken: req.csrfToken(),
+      leftnavigationlinkactive:leftnavigationlinkactive,
+      leftsubnavigationlinkactive:"BaseSite",
+
     });
   } catch (err) {
     console.error(err);
