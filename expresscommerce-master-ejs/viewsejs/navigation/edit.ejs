@@ -2,7 +2,6 @@
 <div class="card">
     <div class="card-body col-lg-6">
         <h5 class="card-title">Edit Left Navigation</h5>
-
         <!-- Vertical Form -->
         <form action="/navigation/<%=modules._id%>" method="post" class="col s12 row g-3" needs-validation>
             <input type="hidden" name="_csrf" value="<%=csrfToken %>">
@@ -30,6 +29,18 @@
                 <input type="number" id="position" name="position" class="form-control" value="<%=modules.position%>" required>
                 <div class="invalid-feedback">Please provide a Position.</div>
             </div>
+            <div class="col-12 mg-3">
+                <label for="exampleFormControlSelect2" class="form-label">Status</label>
+                <select class="form-control" id="active" name="active" required>
+                        <%if(modules.active) { %>
+                            <option value=true selected>Active</option>
+                            <option value=false>Inactive</option>
+                            <%}else{%>
+                            <option value=true>Active</option>
+                            <option value=false selected>Inactive</option>
+                        <%}%>
+                </select>
+              </div>
               <div class="text-center mg-3 col-12 mg-3">
                 <button type="submit" class="btn btn-primary">Save</button>
                 <!-- <input type="submit" value="Save" class="btn"> -->

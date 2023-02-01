@@ -163,13 +163,11 @@ router.post("/:id", ensureAuth, async (req, res) => {
   try {
 
     console.log("requesr:"+req.params.id)
-   // body("module")= await getModuleByCode(body("module"));
     let submodules = await SubModuleModel.findById(req.params.id).lean();
     console.log(submodules);
     if (!submodules) {
       return res.render("error/404");
     }
-
     submodules = await SubModuleModel.findOneAndUpdate(
       { _id: req.params.id },
       req.body
