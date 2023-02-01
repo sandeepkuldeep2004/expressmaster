@@ -410,19 +410,6 @@ body.slide .logo span {
   color: #012970;
 }
 
-.header {
-  transition: all 0.5s;
-  z-index: 997;
-  height: 60px;
-  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
-  padding-left: 0px;
-  /* Toggle Sidebar Button */
-  /* Search Bar */
-}
-
-
-
 .ms-auto {
   margin-left: auto !important;
 }
@@ -478,4 +465,11 @@ a.sort-by:before {
 a.sort-by:after {
 	border-top-color: #666;
 	margin-top: 1px;
+}
+.bo-edit-row .btn {
+  padding:  0;
+  line-height: 1.5;
+}
+table.table thead tr th.textright {
+  text-align: right;
 }

@@ -1,7 +1,6 @@
 <%- include('../layouts/header') %>
 
     <%if (navigationList) { %>
-
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title float-right">
@@ -11,9 +10,9 @@
                     <a href="/subnavigation/add" class="btn-floating btn btn-sm btn-outline-primary">
                         <i class="fas fa-plus"></i> Add Sub Navigation
                     </a>
-                    
+
                 </h5>
-                <table class="table table-striped" id="example23">
+                <table class="table table-hover" id="example_">
                     <thead>
                         <tr>
                             <th scope="col">Code</th>
@@ -21,32 +20,29 @@
                             <th scope="col">Landing Url</th>
                             <th scope="col">Position</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" class="text-right">Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         <% navigationList.forEach(navigationList=> { %>
-                            <tr>
-                                <td><a href="/navigation/<%=navigationList.code %>"><b>
-                                            <%=navigationList.code %>
-                                        </b></a></td>
-                                <td><a href="/navigation/<%=navigationList.code %>"><b>
-                                            <%=navigationList.name %></a></b></td>
+                            <tr id="<%=navigationList._id %>" class="<%if(navigationList.url == '') { %>submenu<% } %>">
+                                <td> 
+                                    <%if(navigationList.url == '') { %><i class="bi_<%=navigationList._id %> bi bi-plus-circle"></i><% } %>
+                                    <%=navigationList.code %>
+                                </td>
+                                <td><%=navigationList.name %></a></td>
                                 <td><span class="dash-status">
                                         <%=navigationList.url %>
                                     </span></td>
-                                
-                                    <td><span class="dash-status">
+                                <td><span class="dash-status">
                                         <%=navigationList.position %>
                                     </span>
-                                    </td>
-                                
-                                    
-                                        <td><span class="dash-status">
-                                            <%=navigationList.status %>
-                                        </span></td>
-                                    <td>
+                                </td>
+                                <td><span class="dash-status">
+                                        <%=navigationList.status %>
+                                    </span></td>
+                                <td>
                                     <div class="bo-edit-row">
                                         <a href="/navigation/<%=navigationList.code %>" class="btn btn-float">
                                             <i class="fas fa-edit"></i>
@@ -61,46 +57,47 @@
                                     </div>
                                 </td>
                             </tr>
-                            <% navigationList.submodule.forEach(submodules=> { %>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/subnavigation/<%=submodules.code %>">
-                                            <%=submodules.code %>
-                                        </a></td>
-                                    <td><a href="/subnavigation/<%=submodules.code %>">
-                                            <%=submodules.name %>
-                                        </a></td>
-                                     <td>
-                                        <span class="dash-status">
-                                            <%=submodules.landingUrl %>
-                                        </span></td>
-                                    
-                                        <td><span class="dash-status">
-                                            <%=submodules.position %>
-                                        </span>
+                            <% navigationList.submodule.forEach(submodules=> { %>                                
+                                    <tr class="d-none d_<%=navigationList._id %>">
+                                        <td><a href="/subnavigation/<%=submodules.code %>">
+                                                <%=submodules.code %>
+                                            </a></td>
+                                        <td><a href="/subnavigation/<%=submodules.code %>">
+                                                <%=submodules.name %>
+                                            </a></td>
+                                        <td>
+                                            <span class="dash-status">
+                                                <%=submodules.landingUrl %>
+                                            </span>
                                         </td>
-                                        
-                                            <td><span class="dash-status">
+
+                                        <td><span class="dash-status">
+                                                <%=submodules.position %>
+                                            </span>
+                                        </td>
+
+                                        <td><span class="dash-status">
                                                 <%=submodules.status %>
                                             </span>
                                         </td>
                                         <td>
-                                        <div class="bo-edit-row">
-                                            <a href="/subnavigation/<%=submodules.code %>" class="btn btn-float">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <form action="/subnavigation/remove/<%=submodules._id %>" method="post"
-                                                id="delete-form">
-                                                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                                                <button type="submit" class="btn red">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
+                                            <div class="bo-edit-row">
+                                                <a href="/subnavigation/<%=submodules.code %>" class="btn btn-float">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <form action="/subnavigation/remove/<%=submodules._id %>" method="post"
+                                                    id="delete-form">
+                                                    <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                                                    <button type="submit" class="btn red">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 <% }) %>
 
-                                    <% }) %>
+                            <% }) %>
                     </tbody>
                 </table>
             </div>
