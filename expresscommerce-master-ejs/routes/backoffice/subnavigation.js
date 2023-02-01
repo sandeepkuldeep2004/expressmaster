@@ -136,7 +136,9 @@ router.get("/viewall", ensureAuth, async (req, res) => {
 // @route   GET /basesite/:code
 router.get("/:code", ensureAuth, async (req, res) => {
   try {
-    const modules = await ModuleModel.findOne({
+    var activeModuleList= await  getModuleListActive();
+
+    const modules = await SubModuleModel.findOne({
       code: req.params.code,
     }).lean();
 
@@ -146,6 +148,7 @@ router.get("/:code", ensureAuth, async (req, res) => {
 
     return res.render("subnavigation/edit", {
       modules,
+      activeModuleList,
       csrfToken: req.csrfToken(),
     });
   } catch (err) {
@@ -160,13 +163,14 @@ router.post("/:id", ensureAuth, async (req, res) => {
   try {
 
     console.log("requesr:"+req.params.id)
-    let modules = await ModuleModel.findById(req.params.id).lean();
-    console.log(modules);
-    if (!modules) {
+   // body("module")= await getModuleByCode(body("module"));
+    let submodules = await SubModuleModel.findById(req.params.id).lean();
+    console.log(submodules);
+    if (!submodules) {
       return res.render("error/404");
     }
 
-    modules = await ModuleModel.findOneAndUpdate(
+    submodules = await SubModuleModel.findOneAndUpdate(
       { _id: req.params.id },
       req.body
     );
@@ -184,12 +188,12 @@ router.post("/:id", ensureAuth, async (req, res) => {
 router.post("/remove/:id", ensureAuth, async (req, res) => {
   try {
     console.log("delete query with param " + req.params.id);
-    let modules = await ModuleModel.findById({ _id: req.params.id }).lean();
-    if (!modules) {
+    let suMmodules = await SubModuleModel.findById({ _id: req.params.id }).lean();
+    if (!suMmodules) {
       return res.render("error/404");
     }
 
-    await ModuleModel.remove({ _id: req.params.id });
+    await SubModuleModel.remove({ _id: req.params.id });
     return res.redirect("/navigation/viewAll");
   } catch (err) {
     console.error(err);

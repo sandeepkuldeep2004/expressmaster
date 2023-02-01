@@ -39,7 +39,7 @@ module.exports = {
                localField: '_id',
                foreignField: 'module',
                as: 'moudulsDetail',
-               pipeline: [{ $match:{ active: true }}],
+               pipeline: [{ $match:{ active: true }},{ $sort:{ position: 1 }}],
              }
            },
            {$sort: {position: 1}},
