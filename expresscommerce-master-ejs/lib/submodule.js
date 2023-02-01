@@ -6,6 +6,11 @@ const getSubModuleList = async function(){
   return  SubModuleModel.find({}).sort({ name: 'asc' }).lean();
 }
 
+const getSubModuleListActive = async function(){ 
+  return  SubModuleModel.find({active: { $exists: true }}).sort({ name: 'asc' }).lean();
+}
+
+
 // @desc    fetch Category by code
 //@param {active}
 const getSubModuleByIsocode = async function(isocode){ 

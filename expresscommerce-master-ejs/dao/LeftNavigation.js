@@ -38,11 +38,12 @@ module.exports = {
                from: 'submodules',
                localField: '_id',
                foreignField: 'module',
-               as: 'moudulsDetail'
+               as: 'moudulsDetail',
+               pipeline: [{ $match:{ active: true }}],
              }
            },
-           {$sort: {position: 1}}
-
+           {$sort: {position: 1}},
+           {$match: { active: true }},
          ]).toArray();
         var collectionString=JSON.stringify(result);
                       dbo.collection("leftnavigations").findOneAndUpdate(

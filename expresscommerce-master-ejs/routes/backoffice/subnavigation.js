@@ -3,21 +3,18 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const colors = require("colors");
 const { ensureAuth } = require("../../middleware/auth");
-const BaseSiteModel = require("../../models/BaseSite");
-const CatalogModel = require("../../models/Catalog");
-const { getCatalogList } = require("../../lib/commons.js");
-const { getBaseSiteByCode } = require("../../lib/basesite.js");
-const { getCatalog } = require("../../lib/catalog.js");
+const ModuleModel = require("../../models/Module");
+const SubModuleModel = require("../../models/SubModule");
+const { getModuleList,getModuleByCode,getModuleListActive} = require("../../lib/module.js");
+const { getSubModuleByCode } = require("../../lib/submodule.js");
 
 // @desc    Show add page
 // @route   GET /basesite/add
 router.get("/add", ensureAuth, async (req, res) => {
-  const contentCatalogList = await getCatalogList(true);
-  const productCatalogList = await getCatalogList(true);
-  return res.render("basesite/add", {
-    contentCatalogList,
-    productCatalogList,
+var activeModuleList= await  getModuleListActive();
+  return res.render("subnavigation/add", {
     csrfToken: req.csrfToken(),
+    activeModuleList:activeModuleList,
   });
 });
 
@@ -29,58 +26,66 @@ router.post(
   [
     body("code").notEmpty(),
     body("name").notEmpty(),
-    body("url").notEmpty(),
-    body("productCatalog").notEmpty(),
-    body("contentCatalog").notEmpty()
+    body("landingUrl").notEmpty(),
+    body("cssclassname").notEmpty(),
+    body("position").notEmpty(),
+    body("parentModule").notEmpty(),
+
   ],
   async (req, res) => {
     try {
       const errors = validationResult(req);
+      var activeModuleList= await  getModuleListActive();
       //One of more validation fails then return back to same page
       const {
         code,
         name,
-        description,
-        url,
-        productCatalog,
-        contentCatalog,
-        status
+        landingUrl,
+        cssclassname,
+         position,
+         parentModule,
       } = req.body;
-      
       if (!errors.isEmpty()) {
           console.log('validation fail: '+errors);
-        return res.render("basesite/add", {
+        return res.render("subnavigation/add", {
           code: code,
           name: name,
-          description: description,
-          $push: { url: url },
+          landingUrl: landingUrl ,
+          cssclassname:cssclassname,
+          position: position,
+          parentModule: parentModule,
           errorMessage: "One ore more fields are missing",
           csrfToken: req.csrfToken(),
+          activeModuleList:activeModuleList,
         });
       } 
-        const _productCatalog = await getCatalog(productCatalog);
-        const _contentCatalog = await getCatalog(contentCatalog);
-        const basesite = await getBaseSiteByCode(code);
-        if (basesite) {
+        const subModulesRec = await getSubModuleByCode(code);
+        const moduleCode = await getModuleByCode(parentModule);
+
+        if (subModulesRec) {
+          
           console.log(colors.red("Base Site with same code already exists."));
-          return res.render("basesite/add", {
+          return res.render("subnavigation/add", {
             code: code,
             name: name,
-            description: description,
-            $push: { url: url },
+            landingUrl: landingUrl,
+            cssclassname:cssclassname,
+            position: position,
+            parentModule:parentModule,
             errorMessage: "Base Site with same code already exists.",
             csrfToken: req.csrfToken(),
+            activeModuleList:activeModuleList,
           });
         } else {
-          BaseSiteModel.create({
+          SubModuleModel.create({
             code: code,
             name: name,
-            description: description,
-            $push: url,
-            productCatalog: _productCatalog,
-            contentCatalog: _contentCatalog,
+            landingUrl: landingUrl,
+            cssclassname: cssclassname,
+            position: position,
+            module:moduleCode,
           });
-          return res.redirect("/basesite/viewAll");
+          return res.redirect("/navigation/viewAll");
         }
       
     } catch (err) {
@@ -94,12 +99,31 @@ router.post(
 // @route   GET /stories
 router.get("/viewall", ensureAuth, async (req, res) => {
   try {
-    const basesiteList = await BaseSiteModel.find({})
-      .sort({ creationdate: "desc" })
-      .lean();
-    //const catalogList=await getCatalogList(true);
-    return res.render("basesite/list", {
-      basesiteList,
+    const moduleList = await getModuleList();
+    var navigationList=[];
+
+      for (moduleListIrr of moduleList) {
+      let subnavigationArr = await getSubAllModuleByCode(moduleListIrr._id);
+      let moduleListObj = {
+        _id: moduleListIrr._id,
+        code: moduleListIrr.code,
+        name: moduleListIrr.name,
+        url: moduleListIrr.url,
+        position: moduleListIrr.position,
+        submodule:subnavigationArr
+      };
+      await navigationList.push(moduleListObj);
+    }
+
+/*
+    for (moduleListIrrs of parentModule) {
+      for (submoduls of moduleListIrrs.submodule){
+        console.log("landingUrl"+submoduls.landingUrl);
+      }
+    }
+    */
+    return res.render("subnavigation/list", {
+      navigationList,
       csrfToken: req.csrfToken(),
     });
   } catch (err) {
@@ -112,16 +136,16 @@ router.get("/viewall", ensureAuth, async (req, res) => {
 // @route   GET /basesite/:code
 router.get("/:code", ensureAuth, async (req, res) => {
   try {
-    const basesite = await BaseSiteModel.findOne({
+    const modules = await ModuleModel.findOne({
       code: req.params.code,
     }).lean();
 
-    if (!basesite) {
+    if (!modules) {
       return res.render("error/404");
     }
 
-    return res.render("basesite/edit", {
-      basesite,
+    return res.render("subnavigation/edit", {
+      modules,
       csrfToken: req.csrfToken(),
     });
   } catch (err) {
@@ -132,20 +156,23 @@ router.get("/:code", ensureAuth, async (req, res) => {
 
 // @desc    Update catalog
 // @route   PUT /basesite/:_id
-router.patch("/:id", ensureAuth, async (req, res) => {
+router.post("/:id", ensureAuth, async (req, res) => {
   try {
-    let basesite = await BaseSiteModel.findById(req.params.id).lean();
-    console.log(basesite);
-    if (!basesite) {
+
+    console.log("requesr:"+req.params.id)
+    let modules = await ModuleModel.findById(req.params.id).lean();
+    console.log(modules);
+    if (!modules) {
       return res.render("error/404");
     }
 
-    basesite = await BaseSiteModel.findOneAndUpdate(
+    modules = await ModuleModel.findOneAndUpdate(
       { _id: req.params.id },
       req.body
     );
+    
 
-    return res.redirect("/basesite/viewAll");
+    return res.redirect("/navigation/viewAll");
   } catch (err) {
     console.error(err);
     return res.render("error/500");
@@ -154,16 +181,16 @@ router.patch("/:id", ensureAuth, async (req, res) => {
 
 // @desc    Delete story
 // @route   DELETE /basesite/remove/:code
-router.delete("remove/:id", ensureAuth, async (req, res) => {
+router.post("/remove/:id", ensureAuth, async (req, res) => {
   try {
     console.log("delete query with param " + req.params.id);
-    let basesite = await BaseSiteModel.findById({ _id: req.params.id }).lean();
-    if (!basesite) {
+    let modules = await ModuleModel.findById({ _id: req.params.id }).lean();
+    if (!modules) {
       return res.render("error/404");
     }
 
-    await BaseSiteModel.remove({ _id: req.params.id });
-    return res.redirect("/basesite/viewAll");
+    await ModuleModel.remove({ _id: req.params.id });
+    return res.redirect("/navigation/viewAll");
   } catch (err) {
     console.error(err);
     return res.render("error/500");

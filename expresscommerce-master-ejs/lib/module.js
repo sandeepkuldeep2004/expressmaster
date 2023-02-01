@@ -23,6 +23,11 @@ const getModuleByCode = async function(code){
   return  ModuleModel.findOne({code:code}).lean();
 }
 
+const getModuleListActive = async function(){ 
+  return  await ModuleModel.find({active: { $ne: false }}).sort({ name: 'asc' }).lean();
+}
+
+
 module.exports={
-  getModuleList, getModuleByIsocode,getModuleById,getModuleByCode
+  getModuleList, getModuleByIsocode,getModuleById,getModuleByCode,getModuleListActive
 }

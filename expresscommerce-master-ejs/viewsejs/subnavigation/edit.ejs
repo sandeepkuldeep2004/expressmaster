@@ -1,24 +1,47 @@
 <%- include('../layouts/header') %>
-<h3>Edit Catalog</h3>
+<h3>Edit left sub navigation</h3>
 <div class="row">
-    <form action="/vendors/{{vendor._id}}" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <input type="hidden" name="_method" value="PUT">
+    <form action="/subnavigation/<%=modules._id%>" method="post" class="col s12">
+    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+    <div class="form-group col-12 mg-3">
+        <label for="exampleFormControlSelect2" class="form-label">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect2" name="module">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+
         <div class="row">
             <div class="input-field">
-                <input type="text" id="name" name="name" value="{{vendor.name}}">
+                <input type="text" id="code" name="code" value="<%=modules.code%>">
+                <label for="title">Code</label>
+            </div>
+        </div>
+         <div class="row">
+            <div class="input-field">
+                <input type="text" id="name" name="name" value="<%=modules.name%>">
                 <label for="title">Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field">
-                <select id="status" name="status">
-                    {{#select vendor.status}}
-                    <option value="true" selected>active</option>
-                    <option value="false">Inactive</option>
-                    {{/select}}
-                </select>
-                <label for="status">Status</label>
+                <input type="text" id="url" name="url" value="<%=modules.url%>">
+                <label for="title">landing Url</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="cssclassname" name="cssclassname" value="<%=modules.cssclassname%>">
+                <label for="title">Class Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="number" id="position" name="position" value="<%=modules.position%>" >
+                <label for="title">Position</label>
             </div>
         </div>
         <div class="row">
