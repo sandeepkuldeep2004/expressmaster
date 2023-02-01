@@ -19,6 +19,8 @@
                             <th scope="col">Code</th>
                             <th scope="col">Name</th>
                             <th scope="col">Landing Url</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -34,7 +36,17 @@
                                 <td><span class="dash-status">
                                         <%=navigationList.url %>
                                     </span></td>
-                                <td>
+                                
+                                    <td><span class="dash-status">
+                                        <%=navigationList.position %>
+                                    </span>
+                                    </td>
+                                
+                                    
+                                        <td><span class="dash-status">
+                                            <%=navigationList.status %>
+                                        </span></td>
+                                    <td>
                                     <div class="bo-edit-row">
                                         <a href="/navigation/<%=navigationList.code %>" class="btn btn-float">
                                             <i class="fas fa-edit"></i>
@@ -57,10 +69,21 @@
                                     <td><a href="/subnavigation/<%=submodules.code %>">
                                             <%=submodules.name %>
                                         </a></td>
-                                    <td><span class="dash-status">
+                                     <td>
+                                        <span class="dash-status">
                                             <%=submodules.landingUrl %>
                                         </span></td>
-                                    <td>
+                                    
+                                        <td><span class="dash-status">
+                                            <%=submodules.position %>
+                                        </span>
+                                        </td>
+                                        
+                                            <td><span class="dash-status">
+                                                <%=submodules.status %>
+                                            </span>
+                                        </td>
+                                        <td>
                                         <div class="bo-edit-row">
                                             <a href="/subnavigation/<%=submodules.code %>" class="btn btn-float">
                                                 <i class="fas fa-edit"></i>
@@ -84,7 +107,6 @@
             <%} else{ %>
                 <p>Not found</p>
                 <% } %>
-
         </div>
         </div>
         <%- include('../layouts/footer') %>

@@ -97,6 +97,7 @@ router.get("/viewall", ensureAuth, async (req, res) => {
         name: moduleListIrr.name,
         url: moduleListIrr.url,
         position: moduleListIrr.position,
+        status:moduleListIrr.active,
         submodule:subnavigationArr
       };
       await navigationList.push(moduleListObj);

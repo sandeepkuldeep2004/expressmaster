@@ -38,7 +38,9 @@ const getSubAllModuleByCode = async function(id){
           code: element2[1].code,
           name: element2[1].name,
           landingUrl: element2[1].landingUrl,
-          position: element2[1].position
+          position: element2[1].position,
+          status: element2[1].active,
+
         };   
        await  subnavigationArr.push(subModuleListObj);   
       
