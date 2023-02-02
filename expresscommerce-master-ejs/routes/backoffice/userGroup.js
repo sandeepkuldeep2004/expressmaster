@@ -4,21 +4,26 @@ const { body, validationResult } = require("express-validator");
 const { ensureAuth } = require("../../middleware/auth");
 const UserGroupModel = require("../../models/UserGroup");
 const CustomerModel = require("../../models/Customer");
+const { getModuleList,getModuleByCode,getModuleListActive} = require("../../lib/module.js");
+var leftnavigationlinkactive = "manageAccess";
 const viewAll = "/usergroup/viewAll";
-
 const listView = "usergroup/list";
 const editView = "usergroup/edit";
 const addView = "usergroup/add";
 const addUserAssociationView = "usergroup/addGroupInCustomer";
-
 const _404View = "error/404";
 const _500errorView = "error/500";
 
 // @desc    Show add page
 // @route   GET /usergroup/add
 router.get("/add", ensureAuth, async (req, res) => {
+  var activeModuleList= await  getModuleListActive();
+
   res.render(addView, {
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    activeModuleList:activeModuleList,
+    leftsubnavigationlinkactive:"UserGroup",
+    leftnavigationlinkactive:leftnavigationlinkactive,
   });
 });
 
@@ -29,7 +34,7 @@ router.post("/add", ensureAuth,
     body("code").notEmpty(),
     body("name").notEmpty()],
   async (req, res) => {
-
+    console.log("Bdody"+req.body)
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -50,7 +55,7 @@ router.post("/add", ensureAuth,
           csrfToken: req.csrfToken()
         });
       } else {
-        await UserGroupModel.create(req.body);
+        //await UserGroupModel.create(req.body);
         return res.redirect(viewAll);
       }
     } catch (err) {
@@ -70,6 +75,8 @@ router.get("/viewAll", ensureAuth, async (req, res) => {
     res.render(listView, {
       usergroupList,
       csrfToken: req.csrfToken(),
+    leftsubnavigationlinkactive:"UserGroup",
+    leftnavigationlinkactive:leftnavigationlinkactive,
     });
   } catch (err) {
     console.error(err);

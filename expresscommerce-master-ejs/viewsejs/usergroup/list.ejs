@@ -1,45 +1,62 @@
 <%- include('../layouts/header') %>
 <%if (usergroupList) { %>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title float-right">
 
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% usergroupList.forEach(usergroupList => { %> 
-            <tr>
-                <td><a href="/usergroup/<%=usergroupList.code %> "><%=usergroupList.code %> </a></td>
-                <td><a href="/usergroup/<%=usergroupList.code %>"><%=usergroupList.name %></a></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/usergroup/<%=usergroupList.code %>" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
+                <a href="/usergroup/add" class="btn-floating btn btn-primary btn-sm">
+                    <i class="fas fa-plus"></i> Add new usergroup
+                </a>
+                <a href="/usergroup/user/add" class="btn-floating btn btn-sm btn-outline-primary">
+                    <i class="fas fa-plus"></i> Add user in group
+                </a>
+               
+            </h5>
+            <%if(locals.errorMessage) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%=errorMessage%>
+                        </div>
+                <% } %> 
+            <table class="table table-hover" id="example">
+                <thead>
+                    <tr>
+                        <th scope="col">Code</th>
+                        <th scope="col">Name</th>
+                        <th scope="col" class="text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <form action="/usergroup/remove/<%=usergroupList._id %>" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            <% }) %>        
-        </tbody>
-    </table>
-</div>
-<%} else{ %>
-<p>You have not created any usergroup</p>
-<% } %>
+                    <% usergroupList.forEach(usergroupList => { %> 
+                        <tr>
+                            <td><span class="dash-status"></span><%=usergroupList.code%><span></td>
+                            <td><span class="dash-status"></span><%=usergroupList.name%></span></td>
+                            <td>
 
-<div class="fixed-action-btn">
-    <a href="/usergroup/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus" title="Add New UserGroup"></i></a>
-    <a href="/usergroup/user/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-network-wired" title="Associate Group with User"></i></a>
-</div>
-<%- include('../layouts/footer') %>
+                                <div class="bo-edit-row">
+                                    <a href="/usergroup/<%=usergroupList.code %>" class="btn btn-float">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+            
+                                    <form action="/usergroup/remove/<%=usergroupList._id %>" method="POST" id="delete-form">
+                                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                                        <button type="submit" class="btn red">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                               
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <%} else{ %>
+            <p>Not found</p>
+            <% } %>
+    </div>
+    </div>
+    <%- include('../layouts/footer') %>
 
+ 
