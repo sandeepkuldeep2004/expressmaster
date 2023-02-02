@@ -13,6 +13,9 @@ const addView = "usergroup/add";
 const addUserAssociationView = "usergroup/addGroupInCustomer";
 const _404View = "error/404";
 const _500errorView = "error/500";
+const permisionEnum = {"read":"Read", "write":"Write", "remove":"Remove"}
+
+
 
 // @desc    Show add page
 // @route   GET /usergroup/add
@@ -24,6 +27,7 @@ router.get("/add", ensureAuth, async (req, res) => {
     activeModuleList:activeModuleList,
     leftsubnavigationlinkactive:"UserGroup",
     leftnavigationlinkactive:leftnavigationlinkactive,
+    fieldtypes:permisionEnum,
   });
 });
 
@@ -34,13 +38,15 @@ router.post("/add", ensureAuth,
     body("code").notEmpty(),
     body("name").notEmpty()],
   async (req, res) => {
-    console.log("Bdody"+req.body)
+    const accessmoules=JSON.parse(req.body.modulename);
+    console.log(accessmoules)
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.render(addView, {
           code: req.body.isocode,
           name: req.body.name,
+          modulename:accessmoules,
           errorMessage: "One or more value for mandatory field(s) missing",
           csrfToken: req.csrfToken(),
         });
@@ -51,11 +57,16 @@ router.post("/add", ensureAuth,
         return res.render(addView, {
           code: req.body.code,
           name: req.body.name,
+          modulename:accessmoules,
           errorMessage: "userGroup with same code already exists",
           csrfToken: req.csrfToken()
         });
       } else {
-        //await UserGroupModel.create(req.body);
+        await UserGroupModel.create({ 
+          code: req.body.code,
+          name: req.body.name,
+          accessmoules: accessmoules,
+         });
         return res.redirect(viewAll);
       }
     } catch (err) {
