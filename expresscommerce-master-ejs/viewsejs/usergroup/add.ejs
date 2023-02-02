@@ -1,83 +1,63 @@
 <%- include('../layouts/header') %>
-    <div class="card">
-        <div class="card-body col-lg-6">
-            <h5 class="card-title">Add Usergroup</h5>
-            <%if(locals.errorMessage) { %>
-                <div class="alert alert-success" role="alert">
-                    <%=errorMessage%>
-                    </div>
-            <% } %> 
-            <!-- Vertical Form -->
-            <form action="/usergroup/add" method="POST" class="row g-3 needs-validation">
-                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                
-                <div class="col-12 mg-3">
-                    <label for="inputNanme4" class="form-label">Code</label>
-                    <input type="text" class="form-control" id="code" name="code" required>
-                    <div class="invalid-feedback">Please provide a Code.</div>
-                </div>
-                <div class="col-12 mg-3">
-                    <label for="inputEmail4" class="form-label">Name</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
-                    <div class="invalid-feedback">Please provide a Name.</div>
-                </div>
-                
-                    <%if (activeModuleList) { %>
-                        <% activeModuleList.forEach(navigationListIrr=> { %>
-                            <div class="col-12 mg-3">
-
-                            <div class="form-check">
-                                <div class="col-3 mg-3">
-
-                                <label class="form-check-label" for="defaultCheck1">
-                                  <%=navigationListIrr.name%>
-                                </label>
-                                </div>
-
-                                <div class="col-3 mg-3">
-
-
-                                <input class="form-check-input" type="radio" name="<%=navigationListIrr.code%>" id="<%=navigationListIrr.code%>" value="read" checked>
-                                <label class="form-check-label" for="defaultCheck1">
-                                  Read
-                                </label>
-                            </div>
-
-                            <div class="col-3 mg-3">
-
-                                <input class="form-check-input" type="radio" name="<%=navigationListIrr.code%>" id="<%=navigationListIrr.code%>" value="write" >
-                                <label class="form-check-label" for="defaultCheck1">
-                                  Write
-                                </label>
-                            </div>
-
-                            <div class="col-3 mg-3">
-                                <input class="form-check-input" type="radio" name="<%=navigationListIrr.code%>" id="<%=navigationListIrr.code%>" value="write" >
-                                <label class="form-check-label" for="defaultCheck1">
-                                  Remove
-                                </label>
-                            </div>
-
-                            <div class="col-3 mg-3">
-                                <input class="form-check-input" type="radio" name="<%=navigationListIrr.code%>" id="navigationListIrr.code" value="both">
-                                <label class="form-check-label" for="defaultCheck1">
-                                  Both
-                                </label>
-                            </div>
-
-                            
-                              </div>
-                              </div>
-                        <% }) %>
-                     <%}%>
-                     <div class="text-center mg-3 col-12 mg-3">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <!-- <input type="submit" value="Save" class="btn"> -->
-                        <a href="/usergroup/viewAll" class="btn orange btn-secondary">Cancel</a>
-                    </div>
-
-                
-            </form><!-- Vertical Form -->
-        </div>
+<div class="card">
+  <div class="card-body col-lg-12">
+    <h5 class="card-title">Add Usergroup</h5>
+    <%if(locals.errorMessage) { %>
+    <div class="alert alert-success" role="alert">
+      <%=errorMessage%>
     </div>
-    <%- include('../layouts/footer') %>
+    <% } %>
+    <!-- Vertical Form -->
+    <form action="/usergroup/add" method="POST" class="row g-3 needs-validation">
+      <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+      <input type="hidden" name="modulename" value="" id="modulelistarray">
+      <div class="row col-lg-6">
+        <div class="col-12">
+          <label for="inputNanme4" class="form-label">Code</label>
+          <input type="text" class="form-control" id="code" name="code" required>
+          <div class="invalid-feedback">Please provide a Code.</div>
+        </div>
+        <div class="col-12 mg-3">
+          <label for="inputEmail4" class="form-label">Name</label>
+          <input type="text" id="name" name="name" class="form-control" required>
+          <div class="invalid-feedback">Please provide a Name.</div>
+        </div>
+      </div>
+      <%if (activeModuleList) { %>
+      <% activeModuleList.forEach(navigationListIrr=> { %>
+
+      <div class="col-12 mg-3">
+        <div class="row mg-3">
+          <div class="col-3">
+            <label class="form-label" for="defaultCheck1"><%=navigationListIrr.name%></label>
+          </div>
+          <div class="col">
+            <input class="form-check-input" type="checkbox" name="<%=navigationListIrr.code%>" value="read">
+            <label class="form-check-label" for="defaultCheck1">Read</label>
+          </div>
+          <div class="col">
+            <input class="form-check-input" type="checkbox" name="<%=navigationListIrr.code%>" value="write">
+            <label class="form-check-label" for="defaultCheck1">Write</label>
+          </div>
+          <div class="col">
+            <input class="form-check-input" type="checkbox" name="<%=navigationListIrr.code%>" value="both">
+            <label class="form-check-label" for="defaultCheck1">Both</label>
+          </div>
+          <div class="col">
+            <input class="form-check-input" type="checkbox" name="<%=navigationListIrr.code%>" value="write">
+            <label class="form-check-label" for="defaultCheck1">Remove</label>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+      <% } %>
+      <div class="text-center mg-3 col-12 mg-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <!-- <input type="submit" value="Save" class="btn"> -->
+        <a href="/usergroup/viewAll" class="btn orange btn-secondary">Cancel</a>
+      </div>
+    </form>
+    <!-- Vertical Form -->
+  </div>
+</div>
+<%- include('../layouts/footer') %>
