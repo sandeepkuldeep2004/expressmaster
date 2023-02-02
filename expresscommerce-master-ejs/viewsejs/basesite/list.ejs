@@ -1,6 +1,4 @@
-
 <%- include('../layouts/header') %>
-
 <%if (basesiteList) { %>
     <div class="card">
         <div class="card-body">
@@ -43,6 +41,7 @@
                                     <a href="/basesite/<%=basesiteList.code%>" class="btn btn-float">
                                         <i class="fas fa-edit"></i>
                                     </a>
+            
                                     <form action="/basesite/remove/<%=basesiteList._id%>" method="POST" id="delete-form">
                                         <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                                         <button type="submit" class="btn red">
@@ -61,4 +60,6 @@
             <% } %>
     </div>
     </div>
+    <%- include('../layouts/footer') %>
+
  

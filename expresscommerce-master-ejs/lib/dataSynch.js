@@ -29,6 +29,11 @@ async function essentialDataUpload(fileName, callBack) {
     saveDeliveryModes(fileData.deliverymode);
     saveOAuthClient(fileData.oauth);
     saveBrand(fileData.brand);
+     //removeModule();
+    // Save newly added left navigation data.
+    saveModule(fileData.module);
+   //await removeSubModule();
+    saveSubModule(fileData.submodule);
     saveLeftMenu(fileData.leftmenu);
     updLeftnavigation();
 
@@ -67,13 +72,8 @@ async function cmsComponentUpload(fileName, callBack) {
 async function lefNavigationUpload(fileName, callBack) {
     const file = fs.readFileSync(path.join(__dirname, '../data/' + fileName + '.json'), 'utf8');
     const fileData = JSON.parse(file);
-    //removeModule();
-    // Save newly added left navigation data.
-    saveModule(fileData.module);
-   //await removeSubModule();
-    saveSubModule(fileData.submodule);
-    saveLeftMenu(fileData.leftmenu);
-    updLeftnavigation();
+   
+   updLeftnavigation();
    
 }
 
