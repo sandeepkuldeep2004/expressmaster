@@ -9,6 +9,14 @@ const getBaseSiteList = async function (param) {
   return BaseSiteModel.find({ status: param }).sort({ creationdate: 'desc' }).lean();
 }
 
+const getBaseSiteListActive = async function (param) {
+  return BaseSiteModel.find({}).sort({ name: -1 }).lean();
+}
+
+
+
+
+
 // @desc    fetch BaseSite by code
 //@param {active}
 const getBaseSiteByCode = async function (code) {
@@ -50,5 +58,5 @@ const getCurrentBaseSiteByOAuthCode = async function (oAuthCode) {
 
 
 module.exports = {
-  getBaseSiteList, getBaseSiteByCode, getCurrentBaseSiteByOAuthCode, getBaseSiteById, getDefaultBaseSite
+  getBaseSiteList, getBaseSiteByCode, getCurrentBaseSiteByOAuthCode, getBaseSiteById, getDefaultBaseSite,getBaseSiteListActive
 }

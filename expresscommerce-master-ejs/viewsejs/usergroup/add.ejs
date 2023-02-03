@@ -23,6 +23,21 @@
           <div class="invalid-feedback">Please provide a Name.</div>
         </div>
       </div>
+      <div class="col-12 mg-3">
+        <label for="inputEmail4" class="form-label">Module</label>
+        <select class="form-control" id="module" name="module" required>
+            <%if (basesiteList) { %>
+                <option value="backoffice">BackOffice</option>
+                <% basesiteList.forEach(basesiteListIrr=> { %>
+                    <%if(String(basesiteListIrr._id)) { %>
+                    <option value="<%=basesiteListIrr._id%>" selected><%=basesiteListIrr.name%></option>
+                    <%}else{%>
+                        <option value="<%=basesiteListIrr._id%>"><%=basesiteListIrr.name%></option>
+                    <%}%>
+                <% }) %>
+             <%}%>
+        </select>
+      </div>
       <%if (activeModuleList) { %>
       <% activeModuleList.forEach(navigationListIrr=> { %>
 

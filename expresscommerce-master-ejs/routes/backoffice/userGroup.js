@@ -5,7 +5,7 @@ const { ensureAuth } = require("../../middleware/auth");
 const UserGroupModel = require("../../models/UserGroup");
 const CustomerModel = require("../../models/Customer");
 const {getModuleListActive} = require("../../lib/module.js");
-const {getBaseSiteListActive} = require("../../lib/module.js");
+const {getBaseSiteList,getBaseSiteListActive} = require("../../lib/basesite.js");
 
 var leftnavigationlinkactive = "manageAccess";
 const viewAll = "/usergroup/viewAll";
@@ -24,6 +24,8 @@ const permisionEnum = {"read":"Read", "write":"Write", "remove":"Remove"}
 // @route   GET /usergroup/add
 router.get("/add", ensureAuth, async (req, res) => {
   var activeModuleList= await  getModuleListActive();
+  const basesiteList = await getBaseSiteListActive();
+  console.log("basesiteList"+basesiteList);
 
   res.render(addView, {
     csrfToken: req.csrfToken(),
@@ -31,6 +33,7 @@ router.get("/add", ensureAuth, async (req, res) => {
     leftsubnavigationlinkactive:"UserGroup",
     leftnavigationlinkactive:leftnavigationlinkactive,
     fieldtypes:permisionEnum,
+    basesiteList:basesiteList,
   });
 });
 
