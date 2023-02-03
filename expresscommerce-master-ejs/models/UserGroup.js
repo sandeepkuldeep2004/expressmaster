@@ -26,6 +26,23 @@ const UserGroupSchema = new mongoose.Schema({
     type: Array,
     default:[],
     required:false,
+  },
+  basesite: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'BaseSite',
+    required:false,
+  },
+  creationdate: {
+    type: Date,
+    default: Date.now,
+  },
+  modificationdate: {
+    type: Date,
+  },
+  Status: {
+    type: Boolean,
+    default:true,
+    required:false,
   }
 });
 module.exports = mongoose.model('UserGroup', UserGroupSchema)

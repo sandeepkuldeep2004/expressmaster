@@ -4,7 +4,9 @@ const { body, validationResult } = require("express-validator");
 const { ensureAuth } = require("../../middleware/auth");
 const UserGroupModel = require("../../models/UserGroup");
 const CustomerModel = require("../../models/Customer");
-const { getModuleList,getModuleByCode,getModuleListActive} = require("../../lib/module.js");
+const {getModuleListActive} = require("../../lib/module.js");
+const {getBaseSiteListActive} = require("../../lib/module.js");
+
 var leftnavigationlinkactive = "manageAccess";
 const viewAll = "/usergroup/viewAll";
 const listView = "usergroup/list";
@@ -14,6 +16,7 @@ const addUserAssociationView = "usergroup/addGroupInCustomer";
 const _404View = "error/404";
 const _500errorView = "error/500";
 const permisionEnum = {"read":"Read", "write":"Write", "remove":"Remove"}
+
 
 
 
