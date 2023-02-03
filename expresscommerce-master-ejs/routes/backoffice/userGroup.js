@@ -4,8 +4,10 @@ const { body, validationResult } = require("express-validator");
 const { ensureAuth } = require("../../middleware/auth");
 const UserGroupModel = require("../../models/UserGroup");
 const CustomerModel = require("../../models/Customer");
-const {getModuleListActive} = require("../../lib/module.js");
-const {getBaseSiteList,getBaseSiteListActive} = require("../../lib/basesite.js");
+const {getModuleListActive} = require("../../services/module.js");
+const {getBaseSiteList,getBaseSiteListActive,getBaseSiteById} = require("../../services/basesite.js");
+const {getAllUserGroupServices,getOneUserGroupBycodeService} = require("../../services/UserGroup.js");
+
 
 var leftnavigationlinkactive = "manageAccess";
 const viewAll = "/usergroup/viewAll";
@@ -53,6 +55,7 @@ router.post("/add", ensureAuth,
           code: req.body.isocode,
           name: req.body.name,
           modulename:accessmoules,
+          BaseSite:req.body.BaseSite,
           errorMessage: "One or more value for mandatory field(s) missing",
           csrfToken: req.csrfToken(),
         });
@@ -65,13 +68,15 @@ router.post("/add", ensureAuth,
           name: req.body.name,
           modulename:accessmoules,
           errorMessage: "userGroup with same code already exists",
-          csrfToken: req.csrfToken()
+          csrfToken: req.csrfToken(),
+          BaseSite:req.body.BaseSite,
         });
       } else {
         await UserGroupModel.create({ 
           code: req.body.code,
           name: req.body.name,
           accessmoules: accessmoules,
+          basesite:req.body.BaseSite,
          });
         return res.redirect(viewAll);
       }
@@ -85,10 +90,7 @@ router.post("/add", ensureAuth,
 // @route   GET /stories
 router.get("/viewAll", ensureAuth, async (req, res) => {
   try {
-    const usergroupList = await UserGroupModel.find({})
-      .sort({ creationdate: "desc" })
-      .lean();
-    //const catalogList=await getCatalogList(true);
+    const usergroupList = await getAllUserGroupServices();
     res.render(listView, {
       usergroupList,
       csrfToken: req.csrfToken(),
@@ -104,18 +106,24 @@ router.get("/viewAll", ensureAuth, async (req, res) => {
 // @desc    Show edit page
 // @route   GET /usergroup/:code
 router.get("/:code", ensureAuth, async (req, res) => {
-  try {
-    const usergroup = await UserGroupModel.findOne({
-      code: req.params.code,
-    }).lean();
+  var activeModuleList= await  getModuleListActive();
+  const basesiteList = await getBaseSiteListActive();
 
+  try {
+    const usergroup=await getOneUserGroupBycodeService(req.params.code);
+    console.log("usergroup"+usergroup.baseSiteId);
     if (!usergroup) {
       return res.render(_404View);
     }
 
     res.render(editView, {
-      usergroup,
-      csrfToken: req.csrfToken()
+      usergroup:usergroup,
+      basesiteList:basesiteList,
+      activeModuleList:activeModuleList,
+      csrfToken: req.csrfToken(),
+      leftsubnavigationlinkactive:"UserGroup",
+      leftnavigationlinkactive:leftnavigationlinkactive,
+      fieldtypes:permisionEnum,
     });
   } catch (err) {
     console.error(err);
@@ -147,7 +155,7 @@ router.put("/:id", ensureAuth, async (req, res) => {
 
 // @desc    Delete story
 // @route   DELETE /usergroup/remove/:code
-router.post("remove/:id", ensureAuth, async (req, res) => {
+router.post("/remove/:id", ensureAuth, async (req, res) => {
   try {
     let usergroup = await UserGroupModel.findById({
       _id: req.params.id,

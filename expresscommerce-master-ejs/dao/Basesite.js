@@ -58,4 +58,9 @@ module.exports = {
       }
     });
   },
+  getBaseSiteById : async function (id) {
+    return await BaseSiteModel.findOne({ _id: id }).lean();
+  },
+
+
 };

@@ -21,8 +21,8 @@
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Base Site</th>
-                        <th scope="col">Acess Module</th>
+                        <th scope="col">Basesite</th>
+                        <th scope="col">Access Module</th>
                         <th scope="col">Status</th>
                         <th scope="col" class="text-right">Action</th>
                     </tr>
@@ -32,7 +32,7 @@
                     <% usergroupList.forEach(usergroupList => { %> 
                         <tr>
                             <td><span class="dash-status"></span><%=usergroupList.name%><span></td>
-                            <td><span class="dash-status"></span><%=usergroupList.name%></span></td>
+                            <td><span class="dash-status"></span><%=usergroupList.baseSiteDetail%></span></td>
                             <td><span class="dash-status"></span><%=usergroupList.accessmoules%></span></td>
                             <td><span class="dash-status"></span><%=usergroupList.Status%></span></td>
                             <td>
@@ -40,8 +40,7 @@
                                     <a href="/usergroup/<%=usergroupList.code %>" class="btn btn-float">
                                         <i class="fas fa-edit"></i>
                                     </a>
-            
-                                    <form action="/usergroup/remove/<%=usergroupList._id %>" method="POST" id="delete-form">
+                                    <form action="/usergroup/remove/<%=usergroupList._id %>" method="post" id="delete-form">
                                         <input type="hidden" name="_csrf" value="<%=csrfToken %>">
                                         <button type="submit" class="btn red">
                                             <i class="fas fa-trash"></i>

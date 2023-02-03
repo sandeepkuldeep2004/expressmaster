@@ -23,4 +23,11 @@ module.exports = {
       }
     });
   },
+  getAllUserGroup:async function(){ 
+    return  await UserGroupModel.find({}).sort({ creationdate: "desc" }).lean();
+  },
+  getOneUserGroup:async function(code){ 
+    return  await UserGroupModel.findOne({code: code}).lean();
+  }
+  
 };

@@ -24,10 +24,10 @@
         </div>
       
       <div class="col-12 mg-3">
-        <label for="inputEmail4" class="form-label">Module</label>
-        <select class="form-control" id="module" name="module" required>
-            <%if (basesiteList) { %>
-                <option value="backoffice">BackOffice</option>
+        <label for="inputEmail4" class="form-label">Base Site</label>
+        <select class="form-control" id="BaseSite" name="BaseSite" required>
+            <%if (basesiteList) { %> 
+                <option value="" selected>---Select--</option>
                 <% basesiteList.forEach(basesiteListIrr=> { %>
                     <%if(String(basesiteListIrr._id)) { %>
                     <option value="<%=basesiteListIrr._id%>" selected><%=basesiteListIrr.name%></option>
@@ -36,6 +36,7 @@
                     <%}%>
                 <% }) %>
              <%}%>
+            
         </select>
       </div>
     </div>
