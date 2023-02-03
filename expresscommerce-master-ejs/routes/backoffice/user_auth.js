@@ -8,6 +8,7 @@ const {sendEmail,getEmailTemplate} = require("../../lib/utils");
 const User = require("../../models/User");
 const { forwardAuthenticated } = require("../../middleware/auth");
 const mailer = require("../../lib/utils");
+const { ensureAuth } = require("../../middleware/auth");
 
 // Login Page
 router.get("/login",forwardAuthenticated, (req, res) =>
@@ -18,9 +19,8 @@ router.get("/login",forwardAuthenticated, (req, res) =>
 );
 
 // Register Page
-router.get("/register", forwardAuthenticated,(req, res) =>
-  res.render("register", { 
-    layout: "logintemplate",
+router.get("/register", ensureAuth,(req, res) =>
+  res.render("user/register", {     
     csrfToken: req.csrfToken()
     })
 );
@@ -56,7 +56,7 @@ router.post("/register",[
   }*/
 
   if (result.errors.length > 0) {
-    res.render("register", {
+    res.render("user/register", {
       errors,
       name,
       email,
@@ -68,7 +68,7 @@ router.post("/register",[
     User.findOne({ email: email }).then((user) => {
       if (user) {
         //errors.push({ msg: "Email already exists" });
-        res.render("register", {
+        res.render("user/register", {
           errors,
           name,
           email,
@@ -90,7 +90,7 @@ router.post("/register",[
               .save()
               .then((user) => {
                 var mailOptions = {
-                  from: 'shivrajchoudhary2506@gmail.com',
+                  from: 'kumardh@deloitte.com',
                   to: email,
                   subject: 'Congratuation you have registred successfully',
                   template: 'registration_email_template',
