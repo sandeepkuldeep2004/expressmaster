@@ -1,3 +1,4 @@
+const UserGroupModel = require("../models/UserGroup");
 const { getBaseSiteById } = require("../dao/BaseSite");
 const { getAllUserGroup, getOneUserGroup } = require("../dao/UserGroup");
 
@@ -43,7 +44,7 @@ const getAllUserGroupServices = async function () {
     };
 
     return usergroupSingletObj;
-  },
+  }
   module.exports = {
-     getAllUserGroupServices,getOneUserGroupBycodeService 
+     getAllUserGroupServices, getOneUserGroupBycodeService 
     }
