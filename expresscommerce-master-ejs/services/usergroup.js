@@ -19,6 +19,7 @@ const getAllUserGroupServices = async function () {
         code: usergroupListIrr.code,
         name: usergroupListIrr.name,
         accessmoules: usergroupListIrr.accessmoules,
+        accessMoulesStr: await JSON.stringify(usergroupListIrr.accessmoules),
         Status: usergroupListIrr.Status,
         baseSiteDetail: baseSiteName,
         creationdate: usergroupListIrr.creationdate,

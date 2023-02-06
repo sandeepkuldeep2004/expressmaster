@@ -23,9 +23,16 @@ $(document).ready(function () {
     })
     var elems = [];
 
+    
+    
+
+
     $("input.form-check-input:checkbox").on('click', function () {
         var $box = $(this);
         if ($box.is(":checked")) {
+
+          
+
             var group = "input:checkbox[name='" + $box.attr("name") + "']";
             var $modulename = "{" + $box.attr("name") + ":" + $box.attr("value") + "}";
             const checkValue = getItem(elems, $box.attr("name"));
@@ -52,5 +59,17 @@ $(document).ready(function () {
         return arrayItem.filter(element => element.includes(getItem))
     }
 
+    
+    $("#editUserGroup").click(function(){
+        var permissionArray=[];
 
+        $("input:checkbox:checked").each(function(){
+            permissionArray.push($(this).val());
+        });
+        $('#modulenameedit').val(JSON.stringify(permissionArray)); //store array
+       alert($('#modulenameedit').val());
+       $( "#editusergroupform" ).submit();
+
+      });
+  
 });

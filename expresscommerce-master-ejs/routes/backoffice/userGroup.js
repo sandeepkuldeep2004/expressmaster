@@ -133,18 +133,28 @@ router.get("/:code", ensureAuth, async (req, res) => {
 
 // @desc    Update catalog
 // @route   PUT /usergroup/:_id
-router.put("/:id", ensureAuth, async (req, res) => {
+router.post("/:id", ensureAuth, async (req, res) => {
   try {
     let usergroup = await UserGroupModel.findById(req.params.id).lean();
+    const accessmoules=JSON.parse(req.body.modulenameedit);
     console.log(usergroup);
     if (!usergroup) {
       return res.render(_404View);
     }
-
     usergroup = await UserGroupModel.findOneAndUpdate(
-      { _id: req.params.id },
-      req.body
+      { _id: usergroup._id },
+      {
+        $set: {
+          code: req.body.code,
+          name: req.body.name,
+          accessmoules:accessmoules,
+          basesite:req.body.BaseSite,
+          
+        }
+      }
     );
+
+
 
     res.redirect(viewAll);
   } catch (err) {
