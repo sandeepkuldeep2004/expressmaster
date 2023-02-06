@@ -37,7 +37,7 @@ router.post("/register",[
   // password must be at least 5 chars long
   body('password').isLength({ min: 5 }),
   body('basesite').notEmpty(),
-  body('makesuperadmin').notEmpty(),
+  body('issuperadmin').notEmpty(),
 ], (req, res) => {
   
   const { name, email, password, password2 } = req.body;
