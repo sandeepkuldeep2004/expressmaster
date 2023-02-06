@@ -22,16 +22,9 @@ $(document).ready(function () {
         }
     })
     var elems = [];
-
-    
-    
-
-
     $("input.form-check-input:checkbox").on('click', function () {
         var $box = $(this);
         if ($box.is(":checked")) {
-
-          
 
             var group = "input:checkbox[name='" + $box.attr("name") + "']";
             var $modulename = "{" + $box.attr("name") + ":" + $box.attr("value") + "}";
@@ -67,7 +60,6 @@ $(document).ready(function () {
             permissionArray.push($(this).val());
         });
         $('#modulenameedit').val(JSON.stringify(permissionArray)); //store array
-       alert($('#modulenameedit').val());
        $( "#editusergroupform" ).submit();
 
       });

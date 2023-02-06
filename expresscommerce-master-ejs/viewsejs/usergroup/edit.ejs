@@ -47,7 +47,6 @@
             <label class="form-label" for="defaultCheck1"><strong><%=navigationListIrr.name%></strong></label>
           </div>
           <%if (fieldtypes) { %>
-
           <% Object.keys(fieldtypes).forEach(function(key) {%>
           <% var scale_text =  '{'+navigationListIrr.code+':'+ key+'}'; %>
                         <% if((usergroup.accessmoules) && usergroup.accessmoules.includes(scale_text)){ %>
@@ -55,7 +54,6 @@
                             <input class="form-check-input checkedvalue" type="checkbox" name="<%=navigationListIrr.code%>" value=<%= scale_text %> checked>
                             <label class="form-check-label" for="defaultCheck1"><%= fieldtypes[key] %></label>
                         </div>
-
                           <% } else{ %>
             <div class="col-md-1">
                 <input class="form-check-input checkedvalue" type="checkbox" name="<%=navigationListIrr.code%>" value=<%= scale_text %>>
@@ -65,12 +63,23 @@
 
          <% }); %>
          <%}%>
-
-       
         </div>
       </div>
       <% }) %>
       <% } %>
+      <div class="col-12 mg-3">
+            <label for="exampleFormControlSelect2" class="form-label">Status</label>
+            <select class="form-control" id="Status" name="Status" required>
+                
+                    <%if(usergroup.Status) { %>
+                        <option value=true selected>Active</option>
+                        <option value=false>Inactive</option>
+                        <%}else{%>
+                        <option value=true>Active</option>
+                        <option value=false selected>Inactive</option>
+                    <%}%>
+            </select>
+            </div>
       <div class="text-center mg-3 col-6 mg-3">
         <input type="button" class="btn btn-primary" id="editUserGroup" name="editUserGroup" value="Save">
         <!-- <input type="submit" value="Save" class="btn"> -->

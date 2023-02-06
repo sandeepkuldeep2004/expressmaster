@@ -149,6 +149,7 @@ router.post("/:id", ensureAuth, async (req, res) => {
           name: req.body.name,
           accessmoules:accessmoules,
           basesite:req.body.BaseSite,
+          Status:req.body.Status,
           
         }
       }
