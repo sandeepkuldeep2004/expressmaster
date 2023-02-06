@@ -17,7 +17,7 @@ const addView = "usergroup/add";
 const addUserAssociationView = "usergroup/addGroupInCustomer";
 const _404View = "error/404";
 const _500errorView = "error/500";
-const permisionEnum = {"read":"Read", "write":"Write", "remove":"Remove"}
+const permisionEnum = {"read":"Read", "write":"Write", "remove":"Read/Write/Execute"}
 
 
 
