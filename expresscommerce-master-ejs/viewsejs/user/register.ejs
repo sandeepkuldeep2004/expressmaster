@@ -1,5 +1,6 @@
 <%- include('../layouts/header') %>
 
+<%=leftnavigationlinkactive%>
   <div class="card">
     <div class="card-body col-lg-6">
       <h5 class="card-title float-none">Add New User</h5>
@@ -16,6 +17,21 @@
             placeholder="Enter Email" />
         </div>
         <div class="form-group">
+          <label for="inputEmail4" class="form-label">Base Site</label>
+          <select class="form-control" id="BaseSite" name="basesite" required>
+              <%if (basesiteList) { %> 
+                  <option value="" selected>---Select--</option>
+                  <% basesiteList.forEach(basesiteListIrr=> { %>
+                      <%if(String(basesiteListIrr._id)) { %>
+                      <option value="<%=basesiteListIrr._id%>" selected><%=basesiteListIrr.name%></option>
+                      <%}else{%>
+                          <option value="<%=basesiteListIrr._id%>"><%=basesiteListIrr.name%></option>
+                      <%}%>
+                  <% }) %>
+               <%}%>              
+          </select>
+        </div>
+        <div class="form-group">
           <label for="password">Password</label>
           <input class="form-control" type="password" id="password" name="password" class="form-control"
             placeholder="Create Password" />
@@ -25,6 +41,12 @@
           <input class="form-control" type="password" id="password2" name="password2" class="form-control"
             placeholder="Confirm Password" />
         </div>
+
+        <div class="form-group">
+          <label for="superadminname">Make Super Admin</label>
+          <input type="checkbox" name="makesuperadmin">
+        </div>
+
         <button type="submit" class="btn btn-primary btn-block">
           Register
         </button>

@@ -9,7 +9,8 @@ const User = require("../../models/User");
 const { forwardAuthenticated } = require("../../middleware/auth");
 const mailer = require("../../lib/utils");
 const { ensureAuth } = require("../../middleware/auth");
-
+const {getBaseSiteList,getBaseSiteListActive,getBaseSiteById} = require("../../services/basesite.js");
+var leftnavigationlinkactive = "createnewuser";
 // Login Page
 router.get("/login",forwardAuthenticated, (req, res) =>
   res.render("login", { 
@@ -17,13 +18,15 @@ router.get("/login",forwardAuthenticated, (req, res) =>
     csrfToken: req.csrfToken()
    })
 );
-
 // Register Page
-router.get("/register", ensureAuth,(req, res) =>
+router.get("/register", ensureAuth, async (req, res) => {
+  const basesiteList = await getBaseSiteListActive();
   res.render("user/register", {     
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    leftnavigationlinkactive: leftnavigationlinkactive,
+    basesiteList:basesiteList,
     })
-);
+});
 
 // Register
 router.post("/register",[
@@ -32,7 +35,9 @@ router.post("/register",[
     // email
   body('email').isEmail().normalizeEmail(),
   // password must be at least 5 chars long
-  body('password').isLength({ min: 5 })
+  body('password').isLength({ min: 5 }),
+  body('basesite').notEmpty(),
+  body('makesuperadmin').notEmpty(),
 ], (req, res) => {
   
   const { name, email, password, password2 } = req.body;
