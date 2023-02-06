@@ -26,7 +26,7 @@
             <%if (basesiteList) { %> 
                 <option value="" selected>---Select--</option>
                 <% basesiteList.forEach(basesiteListIrr=> { %>
-                    <%if(String(basesiteListIrr._id==usergroup.baseSiteId)) { %>
+                    <%if(String(basesiteListIrr._id)==usergroup.baseSiteId) { %>
                     <option value="<%=basesiteListIrr._id%>" selected><%=basesiteListIrr.name%></option>
                     <%}else{%>
                         <option value="<%=basesiteListIrr._id%>"><%=basesiteListIrr.name%></option>
@@ -37,6 +37,12 @@
         </select>
       </div>
     </div>
+    <% usergroup.accessmoules.forEach(accessmoulesList => { %>
+      <%-accessmoulesList%><br>
+
+      <% }) %>
+
+
       <%if (activeModuleList) { %>
       <% activeModuleList.forEach(navigationListIrr=> { %>
 
@@ -46,11 +52,25 @@
             <label class="form-label" for="defaultCheck1"><strong><%=navigationListIrr.name%></strong></label>
           </div>
           
-          <% Object.keys(fieldtypes).forEach(function(key) { %>
+          <% Object.keys(fieldtypes).forEach(function(key) {%>
+
+                        <% var scale_text %>
+<% scale_text =  '{'+navigationListIrr.code+':'+ key+'}'; %>
+
+
+                        <% if(usergroup.accessmoules.includes(scale_text)){ %>
+                          <div class="col-md-1">
+                            <input class="form-check-input" type="checkbox" name="<%=navigationListIrr.code%>" value="<%= key %>" checked>
+                            <label class="form-check-label" for="defaultCheck1"><%= fieldtypes[key] %></label>
+                        </div>
+
+                          <% } else{ %>
             <div class="col-md-1">
                 <input class="form-check-input" type="checkbox" name="<%=navigationListIrr.code%>" value="<%= key %>">
                 <label class="form-check-label" for="defaultCheck1"><%= fieldtypes[key] %></label>
             </div>
+            <% } %>
+
          <% }); %>
        
         </div>
@@ -68,27 +88,3 @@
 </div>
 <%- include('../layouts/footer') %>
 
-<%- include('../layouts/header') %>
-    <div class="card">
-        <div class="card-body col-lg-12">
-            <h5 class="card-title">Edit User Group</h5>
-            <form action="/usergroup/<%=usergroup._id%>" method="POST" class="row s12">
-                <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-                <input type="hidden" name="_method" value="PUT">
-                <div class="row col-lg-6">
-                    <div class="col-12">
-                        <label for="inputNanme4" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<%=usergroup.name%>"
-                            required>
-                    </div>
-                    
-                    <div class="text-center mg-3 col-12 mg-3">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="/usergroup/viewAll" class="btn orange btn-secondary">Cancel</a>
-                    </div>
-                </div>
-            </form>
-            </form>
-        </div>
-    </div>
-<%- include('../layouts/footer') %>
