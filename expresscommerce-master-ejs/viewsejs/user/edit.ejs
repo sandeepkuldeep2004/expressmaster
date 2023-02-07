@@ -1,25 +1,25 @@
 <%- include('../layouts/header') %>
 <div class="card">
   <div class="card-body col-lg-6">
-    <h5 class="card-title float-none">Add New User</h5>
-    <form action="/register/register" method="POST">
+    <h5 class="card-title float-none">Edit User</h5>
+    <form action="/user/80808080" method="POST">
       <input type="hidden" name="_csrf" id= "_csrf" value="<%=csrfToken%>">
       <div class="form-group">
         <label for="name">Name</label>
-        <input class="form-control" type="name" id="name" name="name" class="form-control" placeholder="Enter Name" />
+        <input class="form-control" type="name" id="name" name="name" class="form-control" placeholder="Enter Name" value="<%=userList.name%>"/>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input class="form-control" type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+        <input class="form-control" type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="<%=userList.email%>" />
       </div>
-      <div class="form-group">
+      <!--<div class="form-group">
         <label for="password">Password</label>
         <input class="form-control" type="password" id="password" name="password" class="form-control" placeholder="Create Password" />
       </div>
       <div class="form-group">
         <label for="password2">Confirm Password</label>
         <input class="form-control" type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password" />
-      </div>
+      </div>-->
       <div class="form-group">
         <label for="superadminname">Make Super Admin</label>
         <input type="checkbox" name="issuperadmin">
@@ -30,7 +30,7 @@
           <%if (basesiteList) { %>
           <option value="" selected>---Select--</option>
           <% basesiteList.forEach(basesiteListIrr=> { %>
-          <%if(String(basesiteListIrr._id)) { %>
+          <%if(String(basesiteListIrr._id) == userList.baseSiteId ) { %>
           <option value="<%=String(basesiteListIrr._id)%>" selected>
             <%=basesiteListIrr.name%>
           </option>
@@ -44,12 +44,14 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="usergroup">Select User Group</label>
+        <label for="usergroup" title="<%=userList.accessmoules%>">Select User Group</label>
         <select class="form-control" id="UserGroupDropDownByBaseId" name="usergroup" required>
+            <option value="<%=userList._id%>" selected><%=userList.groupName%></option>
+
         </select>
       </div>
       <button type="submit" class="btn btn-primary btn-block">
-        Register
+        Save
       </button>
     </form>
 

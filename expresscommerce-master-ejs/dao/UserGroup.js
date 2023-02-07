@@ -31,6 +31,9 @@ module.exports = {
   },
   getUserGroupsBybaseSiteId:async function(id){ 
     return  await UserGroupModel.find({basesite: id}).lean();
+  },
+  getAcessModuleByUserGroupId:async function(id){ 
+    return  await UserGroupModel.findOne({_id: id}).lean();
   }
   
 };

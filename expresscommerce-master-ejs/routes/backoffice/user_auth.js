@@ -10,6 +10,8 @@ const { forwardAuthenticated } = require("../../middleware/auth");
 const mailer = require("../../lib/utils");
 const { ensureAuth } = require("../../middleware/auth");
 const {getBaseSiteList,getBaseSiteListActive,getBaseSiteById} = require("../../services/basesite.js");
+const {getAllAcessModuleServices} = require("../../services/UserGroup.js");
+
 var leftnavigationlinkactive = "createnewuser";
 // Login Page
 router.get("/login",forwardAuthenticated, (req, res) =>
@@ -18,114 +20,7 @@ router.get("/login",forwardAuthenticated, (req, res) =>
     csrfToken: req.csrfToken()
    })
 );
-// Register Page
-router.get("/register", ensureAuth, async (req, res) => {
-  const basesiteList = await getBaseSiteListActive();
-  res.render("user/register", {     
-    csrfToken: req.csrfToken(),
-    leftnavigationlinkactive: leftnavigationlinkactive,
-    basesiteList:basesiteList,
-    })
-});
 
-// Register
-router.post("/register",[
-  // username must be an email
-  body('name').notEmpty(),
-    // email
-  body('email').isEmail().normalizeEmail(),
-  // password must be at least 5 chars long
-  body('password').isLength({ min: 5 }),  
-  
-], async (req, res) => {
-  const basesiteList = await getBaseSiteListActive();
-  const { name, email, password, password2, issuperadmin, basesitereg, usergroup} = req.body;
-  console.log(name + email + password + password2 + issuperadmin + basesitereg + usergroup);
-   
-  // Finds the validation errors in this request and wraps them in an object with handy functions
-   const result = validationResult(req);
-   console.log(result);
-  let errors = [];
- /*
-  if (!name || !email || !password || !password2) {
-    errors.push({ msg: "Please enter all fields" });
-  }
-
-  if (password != password2) {
-    errors.push({ msg: "Passwords do not match" });
-  }
-
-  if (password.length < 4) {
-    errors.push({ msg: "Password must be at least 6 characters" });
-  }*/
-
-  if (result.errors.length > 0) {
-    res.render("user/register", {
-      errors,
-      name,
-      email,
-      password,
-      password2,
-      issuperadmin, basesitereg, usergroup,
-      csrfToken: req.csrfToken(),
-      leftnavigationlinkactive: leftnavigationlinkactive,
-      basesiteList:basesiteList,
-    });
-  } else {
-    User.findOne({ email: email }).then((user) => {
-      if (user) {
-        //errors.push({ msg: "Email already exists" });
-        res.render("user/register", {
-          errors,
-          name,
-          email,
-          password,
-          password2,
-          issuperadmin, basesitereg, usergroup,
-          leftnavigationlinkactive: leftnavigationlinkactive,
-          basesiteList:basesiteList,
-        });
-      } else {
-        const newUser = new User({
-          name,
-          email,
-          password,
-          issuperadmin, basesitereg, usergroup,
-        });
-
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-            //if (err) throw err;
-            newUser.password = hash;
-            newUser
-              .save()
-              .then((user) => {
-                var mailOptions = {
-                  from: 'kumardh@deloitte.com',
-                  to: email,
-                  subject: 'Congratuation you have registred successfully',
-                  template: 'registration_email_template',
-                  context: {
-                    name: newUser.name,
-                    email:newUser.email
-                  },
-                  //html: fetchEmailTemplate('registration_email_template',user)
-                }
-                console.log(mailOptions);
-                sendEmail(mailOptions);
-                req.flash(
-                  "success_msg",
-                  "You are now registered and can log in"
-                );
-                res.redirect("/users/login");
-              })
-              .catch((err) => console.log(err));
-          });
-        });
-      }
-    });
-  }
-});
 
 // Login
 router.post("/login", (req, res, next) => {
@@ -135,6 +30,7 @@ router.post("/login", (req, res, next) => {
     failureFlash: true,
   })(req, res, next);
 });
+
 
 // Logout
 router.get("/logout", (req, res,next) => {

@@ -30,6 +30,11 @@ const UserSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'UserGroup',
     required:false,
+  },
+  accessmoules: {
+    type: Array,
+    default:[],
+    required:false,
   }
 });
 module.exports = mongoose.model('User', UserSchema)

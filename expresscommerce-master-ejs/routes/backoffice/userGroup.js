@@ -185,10 +185,6 @@ router.post("/remove/:id", ensureAuth, async (req, res) => {
   }
 });
 
-router.post("/getselectbox", ensureAuth, async (req, res) => {
-  console.log("inasdfasdf"+req.body.basesiteid);
-});
-
 // @desc    Show Association User group with Customer  page
 // @route   GET /usergroup/add
 router.get("/user/add", ensureAuth, async (req, res) => {

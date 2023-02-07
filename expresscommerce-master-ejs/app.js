@@ -132,11 +132,9 @@ if (leftMenuList) {
 // Set global var
 app.use(function (req, res, next) {
   res.locals.user = req.user || null;
-  // console.log(req.baseUrl);  
+  console.log(res.locals.user);  
   next()
 })
-
-
 
 
 // Global variables
@@ -165,6 +163,10 @@ app.use('/products', require('./routes/backoffice/productindex'))
 app.use('/navigation', require('./routes/backoffice/navigation'))
 app.use('/subnavigation', require('./routes/backoffice/subnavigation'))
 app.use('/ajax', require('./routes/backoffice/ajax'))
+app.use('/register',require('./routes/backoffice/users'))
+app.use('/user',require('./routes/backoffice/users'))
+
+
 
 
 

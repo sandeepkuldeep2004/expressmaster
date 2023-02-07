@@ -26,7 +26,6 @@ router.post(
   [
     body("code").notEmpty(),
     body("name").notEmpty(),
-    body("url").notEmpty(),
     body("cssclassname").notEmpty(),
     body("position").notEmpty(),
   ],
