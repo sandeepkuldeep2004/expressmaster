@@ -35,13 +35,12 @@ router.post("/register",[
     // email
   body('email').isEmail().normalizeEmail(),
   // password must be at least 5 chars long
-  body('password').isLength({ min: 5 }),
-  body('basesite').notEmpty(),
-  body('issuperadmin').notEmpty(),
-], (req, res) => {
+  body('password').isLength({ min: 5 }),  
   
-  const { name, email, password, password2 } = req.body;
-  console.log(name + email + password + password2);
+], async (req, res) => {
+  const basesiteList = await getBaseSiteListActive();
+  const { name, email, password, password2, issuperadmin, basesitereg, usergroup} = req.body;
+  console.log(name + email + password + password2 + issuperadmin + basesitereg + usergroup);
    
   // Finds the validation errors in this request and wraps them in an object with handy functions
    const result = validationResult(req);
@@ -67,7 +66,10 @@ router.post("/register",[
       email,
       password,
       password2,
-      csrfToken: req.csrfToken()
+      issuperadmin, basesitereg, usergroup,
+      csrfToken: req.csrfToken(),
+      leftnavigationlinkactive: leftnavigationlinkactive,
+      basesiteList:basesiteList,
     });
   } else {
     User.findOne({ email: email }).then((user) => {
@@ -79,12 +81,16 @@ router.post("/register",[
           email,
           password,
           password2,
+          issuperadmin, basesitereg, usergroup,
+          leftnavigationlinkactive: leftnavigationlinkactive,
+          basesiteList:basesiteList,
         });
       } else {
         const newUser = new User({
           name,
           email,
           password,
+          issuperadmin, basesitereg, usergroup,
         });
 
         bcrypt.genSalt(10, (err, salt) => {

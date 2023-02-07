@@ -52,32 +52,37 @@ $(document).ready(function () {
         return arrayItem.filter(element => element.includes(getItem))
     }
 
-    
-    $("#editUserGroup").click(function(){
-        var permissionArray=[];
-        $("input:checkbox:checked").each(function(){
+
+    $("#editUserGroup").click(function () {
+        var permissionArray = [];
+        $("input:checkbox:checked").each(function () {
             permissionArray.push($(this).val());
         });
         $('#modulenameedit').val(JSON.stringify(permissionArray)); //store array
-       $( "#editusergroupform" ).submit();
-      });
-      $("#basesitereg").change(function(){
-        $.ajax({ 
-            url: '/ajax/getselectbox',
-            type: 'POST',
-            cache: false, 
-            async : true,
-            data: { basesitereg: $("#basesitereg").val(),_csrf:$("#_csrf").val() }, 
-            success: function(data){
-                $('#UserGroupDropDownByBaseId').empty();
-                $('#UserGroupDropDownByBaseId').append("<option value=''>--Select Group--</option>");
-                for (let i = 0; i < data.length; i++) {
-                    $('#UserGroupDropDownByBaseId').append('<option  value="'+data[i]._id+'">'+data[i].name+'</optoin>');
+        $("#editusergroupform").submit();
+    });
+
+    $("#basesitereg").change(function () {
+        if ($("#basesitereg").val() != '') {
+            $.ajax({
+                url: '/ajax/getselectbox',
+                type: 'POST',
+                cache: false,
+                async: true,
+                data: { basesitereg: $("#basesitereg").val(), _csrf: $("#_csrf").val() },
+                success: function (data) {
+
+                    $('#UserGroupDropDownByBaseId').empty();
+                    $('#UserGroupDropDownByBaseId').append("<option value=''>--Select Group--</option>");
+                    for (let i = 0; i < data.length; i++) {
+                        $('#UserGroupDropDownByBaseId').append('<option  value="' + data[i]._id + '">' + data[i].name + '</optoin>');
+                    }
+
+                }, error: function (jqXHR, textStatus, err) {
+                    console.log('text status ' + textStatus + ', err ' + err)
                 }
-            
-            } , error: function(jqXHR, textStatus, err){
-                console.log('text status '+textStatus+', err '+err)
-            }
-         })
-      });
+            })
+        }
+
+    });
 });
