@@ -5,7 +5,7 @@ const { ensureAuth } = require("../../middleware/auth");
 const UserGroupModel = require("../../models/UserGroup");
 const CustomerModel = require("../../models/Customer");
 const {getModuleListActive} = require("../../services/module.js");
-const {getBaseSiteList,getBaseSiteListActive,getBaseSiteById} = require("../../services/basesite.js");
+const {getBaseSiteListActive} = require("../../services/basesite.js");
 const {getAllUserGroupServices,getOneUserGroupBycodeService} = require("../../services/UserGroup.js");
 
 
@@ -18,6 +18,7 @@ const addUserAssociationView = "usergroup/addGroupInCustomer";
 const _404View = "error/404";
 const _500errorView = "error/500";
 const permisionEnum = {"read":"Read", "write":"Write", "remove":"Read/Write/Execute"}
+
 
 
 
@@ -135,6 +136,7 @@ router.get("/:code", ensureAuth, async (req, res) => {
 // @route   PUT /usergroup/:_id
 router.post("/:id", ensureAuth, async (req, res) => {
   try {
+    console.log("innnnnnnnnn");
     let usergroup = await UserGroupModel.findById(req.params.id).lean();
     const accessmoules=JSON.parse(req.body.modulenameedit);
     console.log(usergroup);
@@ -181,6 +183,10 @@ router.post("/remove/:id", ensureAuth, async (req, res) => {
     console.error(err);
     return res.render(_500errorView);
   }
+});
+
+router.post("/getselectbox", ensureAuth, async (req, res) => {
+  console.log("inasdfasdf"+req.body.basesiteid);
 });
 
 // @desc    Show Association User group with Customer  page

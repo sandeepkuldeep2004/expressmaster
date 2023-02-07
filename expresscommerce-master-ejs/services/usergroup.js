@@ -1,6 +1,6 @@
 const UserGroupModel = require("../models/UserGroup");
 const { getBaseSiteById } = require("../dao/BaseSite");
-const { getAllUserGroup, getOneUserGroup } = require("../dao/UserGroup");
+const { getAllUserGroup, getOneUserGroup,getUserGroupsBybaseSiteId } = require("../dao/UserGroup");
 
 const getAllUserGroupServices = async function () {
     var usergroupListF = [];
@@ -45,7 +45,20 @@ const getAllUserGroupServices = async function () {
     };
 
     return usergroupSingletObj;
+  },
+  getUserGroupsBybaseSiteService = async function (id) {
+    var usergroupListService = await getUserGroupsBybaseSiteId(id);
+       var usergroupListServiceData=[];
+        for (usergroupListServiceIrr of usergroupListService) {
+        let usergroupBybaseSitetObj = {
+          _id: usergroupListServiceIrr._id,
+          name: usergroupListServiceIrr.name,
+        };
+        usergroupListServiceData.push(usergroupBybaseSitetObj);
+      }
+     return usergroupListService;
   }
+  
   module.exports = {
-     getAllUserGroupServices, getOneUserGroupBycodeService 
+     getAllUserGroupServices, getOneUserGroupBycodeService,getUserGroupsBybaseSiteService
     }

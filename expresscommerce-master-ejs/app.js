@@ -136,6 +136,9 @@ app.use(function (req, res, next) {
   next()
 })
 
+
+
+
 // Global variables
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')))
@@ -161,6 +164,9 @@ app.use('/sync', require('./routes/backoffice/ctorder'))
 app.use('/products', require('./routes/backoffice/productindex'))
 app.use('/navigation', require('./routes/backoffice/navigation'))
 app.use('/subnavigation', require('./routes/backoffice/subnavigation'))
+app.use('/ajax', require('./routes/backoffice/ajax'))
+
+
 
 
 const PORT = process.env.PORT || 3000
