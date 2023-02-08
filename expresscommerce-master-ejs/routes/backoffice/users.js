@@ -14,7 +14,7 @@ const {getAllAcessModuleServices} = require("../../services/UserGroup.js");
 const {getAllUserServices,getOneUserService} = require("../../services/users.js");
 
 
-var leftnavigationlinkactive = "createnewuser";
+var leftnavigationlinkactive = "manageusers";
 
 // Register Page
 router.get("/register", ensureAuth, async (req, res) => {
@@ -22,6 +22,7 @@ router.get("/register", ensureAuth, async (req, res) => {
   res.render("user/register", {     
     csrfToken: req.csrfToken(),
     leftnavigationlinkactive: leftnavigationlinkactive,
+    leftsubnavigationlinkactive:"addnewuser",
     basesiteList:basesiteList,
     })
 });
@@ -38,8 +39,13 @@ router.post("/register",[
 ], async (req, res) => {
   const basesiteList = await getBaseSiteListActive();
 
-  const { name, email, password, password2, issuperadmin, basesite, usergroup} = req.body;
-  console.log(name + email + password + password2 + issuperadmin + basesite + usergroup);
+  const { name, email, password, password2,basesite, usergroup} = req.body;
+  console.log(name + email + password + password2 +  basesite + usergroup);
+  var issuperadmin=false;
+    if(req.body.issuperadmin && req.body.issuperadmin=="on"){
+      issuperadmin=true;
+
+    }
    
   // Finds the validation errors in this request and wraps them in an object with handy functions
    const result = validationResult(req);
@@ -57,6 +63,8 @@ router.post("/register",[
       csrfToken: req.csrfToken(),
       leftnavigationlinkactive: leftnavigationlinkactive,
       basesiteList:basesiteList,
+      leftsubnavigationlinkactive:"addnewuser",
+
     });
   } else {
     const accessmoules = await getAllAcessModuleServices(usergroup);
@@ -72,6 +80,8 @@ router.post("/register",[
           issuperadmin, basesite, usergroup,
           leftnavigationlinkactive: leftnavigationlinkactive,
           basesiteList:basesiteList,
+          leftsubnavigationlinkactive:"addnewuser",
+
         });
       } else {
 
@@ -121,7 +131,7 @@ router.get("/viewAll", ensureAuth, async (req, res) => {
     res.render("user/list", {
       usergroupList,
       csrfToken: req.csrfToken(),
-    leftsubnavigationlinkactive:"UserGroup",
+    leftsubnavigationlinkactive:"viewalluser",
     leftnavigationlinkactive:leftnavigationlinkactive,
     });
   } catch (err) {
@@ -144,10 +154,48 @@ router.get("/:id", ensureAuth, async (req, res) => {
       userList:userList,
       basesiteList:basesiteList,
       csrfToken: req.csrfToken(),
-      leftsubnavigationlinkactive:"UserGroup",
+      leftsubnavigationlinkactive:"viewalluser",
       leftnavigationlinkactive:leftnavigationlinkactive,
       
     });
+  } catch (err) {
+    console.error(err);
+    return res.render(_500errorView);
+  }
+});
+
+router.post("/:id", ensureAuth, async (req, res) => {
+  try {
+    console.log("innnnnnnnnn");
+    let  userOneData = await getOneUserService(req.params.id);
+    console.log(userOneData);
+    if (!userOneData) {
+      return res.render(_404View);
+    }
+    const accessmoulesData = await getAllAcessModuleServices(req.body.usergroup);
+    console.log("accessmoules"+userOneData);
+
+    var issuperadmin=false;
+    if(req.body.issuperadmin && req.body.issuperadmin=="on"){
+      issuperadmin=true;
+
+    }
+
+    usergroup = await User.findOneAndUpdate(
+      { email: userOneData.email },
+      {
+        $set: {
+          name: req.body.name,
+          accessmoules:accessmoulesData,
+          basesite:req.body.basesite,
+          usergroup:req.body.usergroup,
+          issuperadmin:issuperadmin,
+          
+        }
+      }
+    );
+    return res.redirect("/user/viewAll?errorMessage=Sucessfully updated.");
+
   } catch (err) {
     console.error(err);
     return res.render(_500errorView);

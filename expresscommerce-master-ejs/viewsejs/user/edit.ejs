@@ -2,7 +2,7 @@
 <div class="card">
   <div class="card-body col-lg-6">
     <h5 class="card-title float-none">Edit User</h5>
-    <form action="/user/80808080" method="POST">
+    <form action="/user/<%=userList._id%>" method="POST">
       <input type="hidden" name="_csrf" id= "_csrf" value="<%=csrfToken%>">
       <div class="form-group">
         <label for="name">Name</label>
@@ -10,7 +10,7 @@
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input class="form-control" type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="<%=userList.email%>" />
+        <input class="form-control" type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="<%=userList.email%>" readonly />
       </div>
       <!--<div class="form-group">
         <label for="password">Password</label>
@@ -22,7 +22,15 @@
       </div>-->
       <div class="form-group">
         <label for="superadminname">Make Super Admin</label>
-        <input type="checkbox" name="issuperadmin">
+        
+        <%if ((userList.issuperadmin) && userList.issuperadmin==true){ %>
+        <input type="checkbox" name="issuperadmin" checked>
+
+        <%}else{%>
+          <input type="checkbox" name="issuperadmin">
+
+          <% } %>
+
       </div>
       <div class="form-group">
         <label for="inputEmail4" class="form-label">Base Site</label>
@@ -46,7 +54,7 @@
       <div class="form-group">
         <label for="usergroup" title="<%=userList.accessmoules%>">Select User Group</label>
         <select class="form-control" id="UserGroupDropDownByBaseId" name="usergroup" required>
-            <option value="<%=userList._id%>" selected><%=userList.groupName%></option>
+            <option value="<%=userList.groupId%>" selected><%=userList.groupName%></option>
 
         </select>
       </div>

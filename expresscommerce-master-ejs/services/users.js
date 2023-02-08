@@ -59,6 +59,7 @@ const getAllUserServices = async function () {
       password:usergroupList.password,
       email:usergroupList.email,
       groupId:groupId,
+      issuperadmin:usergroupList.issuperadmin,
     };
 
     return usergroupSingletObj;
