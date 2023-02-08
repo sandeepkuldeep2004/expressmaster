@@ -163,14 +163,19 @@ router.post("/leftNavigation/synch", async (req, res) => {
 
 // @desc    Show add page
 // @route   GET data/b2b/sampledata/synch
-router.get("/b2b/sampledata/synch", async (req, res) => {
+router.post("/b2b/sampledata/synch", async (req, res) => {
   try {
     sampleDataUpload("accountData", saveB2BUnit);
-
    /* res.status(201).json({
       msg: "all sample data uploaded successfully",
     });*/
-    return res.redirect("/data/view");
+    //return res.redirect("/data/view");
+
+    res.render("datasync/view",{
+      csrfToken: req.csrfToken(),
+      msg: "Sync b2b sample data",
+      dataSyncActive:true
+    }); 
   } catch (err) {
     res.status(500).json({
       err,

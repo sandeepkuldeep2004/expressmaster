@@ -31,11 +31,11 @@ async function essentialDataUpload(fileName, callBack) {
     saveBrand(fileData.brand);
      //removeModule();
     // Save newly added left navigation data.
-    saveModule(fileData.module);
+    //saveModule(fileData.module);
    //await removeSubModule();
-    saveSubModule(fileData.submodule);
-    saveLeftMenu(fileData.leftmenu);
-    updLeftnavigation();
+    //saveSubModule(fileData.submodule);
+    //saveLeftMenu(fileData.leftmenu);
+    //updLeftnavigation();
 
     //console.log(fileData.country);
     //console.log(fileData.region);

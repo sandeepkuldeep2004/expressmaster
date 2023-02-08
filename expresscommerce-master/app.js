@@ -16,8 +16,7 @@ var csrf = require('csurf')
 var cors = require('cors')
 
 const MongoStore = require('connect-mongo')
-const {connectDB}= require('./config/db')
-
+const connectDB = require('./config/db')
 const {cronJob} = require('./lib/schedulers')
 require('./routes/backoffice/productindex')
 
@@ -101,8 +100,7 @@ app.use(
     saveUninitialized: false,
    // store: new MongoStore({ mongooseConnection: mongoose.connection }),
    store: MongoStore.create({
-    mongoUrl:process.env.MONGO_URI,
-    mongoDb:process.env.MONGO_DB,
+    mongoUrl:process.env.MONGO_URI
     }),
   })
 )

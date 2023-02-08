@@ -52,6 +52,16 @@
                 </td>
             </tr>
             <tr>
+                <td><b>Setup B2B Sample Data</b></br>(Media)</td>
+                <td>
+                    <form action="/data/b2b/sampledata/synch" method="post" id="synB2BDataForm">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                   <input type="submit" class="btn btn-primary" name="syncb2bData" id="syncb2bData" value="Sync">
+                   </form>
+                </td>
+            </tr>
+
+            <tr>
                 <td><b>Sync left navigation</b></br></td>
                 <td>
                     <form action="/data/leftNavigation/synch" method="post" id="leftNavigation">
