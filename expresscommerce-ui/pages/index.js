@@ -22,7 +22,7 @@ export default function HomePage() {
      
       <FeatureProduct/>
      <SellingProduct/>
-     <BrandCarousel />
+     {/* <BrandCarousel /> */}
       <Footer/>
       </div>
     </Fragment>
