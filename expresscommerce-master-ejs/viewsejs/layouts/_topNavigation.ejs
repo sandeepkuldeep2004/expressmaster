@@ -15,8 +15,7 @@
             <input type="text" name="query" placeholder="Search" title="Enter search keyword">
             <button type="submit" title="Search"><i class="bi bi-search"></i></button>
         </form>
-    </div><!-- End Search Bar -->
-
+    </div><!-- End Search Bar -->    
     <nav class="header-nav ms-auto">
         <ul class="d-flex align-items-center">
 
@@ -182,7 +181,9 @@
                             <% } %>
 
                         </h6>
-                        <span>Admin</span>
+                        <% if(locals.user.issuperadmin) { %>
+                            <span>Admin</span>
+                        <% } %>
                     </li>
                     <li>
                         <hr class="dropdown-divider">

@@ -9,41 +9,96 @@
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="icon" href="icons8-monitor-50.png">
   <!-- Place favicon.ico in the root directory -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
-    integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <link rel="stylesheet" href="/css/style.css">
   <title>Xpress Commerce Login</title>
+  <style>
+    .main-head {
+      height: 150px;
+      background: #FFF;
+    }
+    .sidenav {
+      height: 100%;
+      background-color: #343a40;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+    .main {
+      padding: 0px 10px;
+    }
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+    }
+    @media screen and (max-width: 450px) {
+      .login-form {
+        margin-top: 10%;
+      }
+      .register-form {
+        margin-top: 10%;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .main {
+        margin-left: 40%;
+      }
+      .sidenav {
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+      }
+      .login-form {
+        margin-top: 70%;
+      }
+    }
+    .login-main-text {
+      margin-top: 45%;
+      padding: 60px;
+      color: #fff;
+    }
+    .login-main-text h2 {
+      font-weight: 300;
+    }
+    .btn-black {
+      background-color: #000 !important;
+      color: #fff;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container login-container">
-    <div class="card">
-      <div class="card-content">
-        <h4><i class="fas fa-shopping-cart"></i> Xpress Commerce</h4>
-        <div class="section">
-          <p class="lead">Your commerce journey is just a click way</p>
-        </div>
-        <div class="divider"></div>
-        <div class="section">
-          <form action="/users/login" method="POST">
-            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" />
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-          </form>
-        </div>
+
+  <!------ Include the above in your HEAD tag ---------->
+
+  <div class="sidenav">
+    <div class="login-main-text">
+      <h2>Xpress Commerce <br>Backoffice</h2>
+      <p>Login from here to access.</p>
+    </div>
+  </div>
+  <div class="main">
+    <div class="col-md-6 col-sm-12">
+      <div class="login-form">       
+        <form action="/users/login" method="POST">
+          <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+          <div class="form-group">
+            <label>User Name</label>            
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>            
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" />
+          </div>
+          <button type="submit" class="btn btn-black">Login</button>
+        </form>
       </div>
     </div>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-
 </html>
