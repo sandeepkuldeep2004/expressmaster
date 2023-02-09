@@ -14,6 +14,8 @@ const addView = "catalogs/add";
 const _404View = "error/404";
 const _500errorView = "error/500";
 
+var leftnavigationlinkactive = "manageCatalogs";
+
 // @desc    Show add page
 // @route   GET /catalogs/add
 router.get("/add", ensureAuth, (req, res) => {
@@ -76,7 +78,10 @@ router.get("/viewall", ensureAuth, async (req, res) => {
     res.render(listView, {
       catalogs,
       csrfToken: req.csrfToken(),
+      leftsubnavigationlinkactive:"catalogs",
+      leftnavigationlinkactive:leftnavigationlinkactive,
     });
+    console.log("leftnavigation active" + leftnavigationlinkactive);
   } catch (err) {
     console.error(err);
     res.render(_500errorView);

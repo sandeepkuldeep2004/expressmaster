@@ -518,7 +518,7 @@ h6 {
 }
 
 .header-nav .notifications {
-  inset: 8px -15px auto auto !important;
+  inset: 8px -80px auto auto !important;
 }
 
 .header-nav .notifications .notification-item {
@@ -550,7 +550,7 @@ h6 {
 }
 
 .header-nav .messages {
-  inset: 8px -15px auto auto !important;
+  inset: 8px -115px auto auto !important;
 }
 
 .header-nav .messages .message-item {
@@ -829,7 +829,7 @@ h6 {
 .dashboard .info-card h6 {
   font-size: 28px;
   color: #012970;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   padding: 0;
 }

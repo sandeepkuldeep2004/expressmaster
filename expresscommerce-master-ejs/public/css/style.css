@@ -230,6 +230,9 @@ ul ul a {
   padding-left: 30px !important;
   background: #343a40;
 }
+ul.d-flex ul a {
+  background: transparent;
+}
 
 ul.CTAs {
   padding: 20px;
