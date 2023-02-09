@@ -4,9 +4,8 @@ const ProductModel = require('../../models/Product')
 const { searchProductById, searchAllProducts, searchProductsByTerm } = require('../../lib/indexer');
 const { saveProductViaWeb } = require("../../dao/Product");
 
-const { getProductDTOByProductModel } = require("../../lib/product");
+const { getProductDTOByProductModel,getProducts } = require("../../lib/product");
 
-const { getProducts } = require("./product");
 
 // @desc   search products from solr based on term
 // @route   GET /products/search
@@ -43,7 +42,7 @@ router.get("/", async (req, res) => {
       result: productDTOs,
       total: products.length,
     }
-    console.log("All customers details is ::",customers)
+    //console.log("All customers details is ::",customers)
     res.render("products/list", {
       response,
       csrfToken: req.csrfToken()

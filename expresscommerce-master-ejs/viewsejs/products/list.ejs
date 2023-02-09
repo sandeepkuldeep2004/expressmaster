@@ -1,60 +1,64 @@
 <%- include('../layouts/header') %>
-<form action="/products/search" method="POST" id="delete-form">
-    <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-    <input type="text" class="form-control web-search-box" placeholder="search" name="keyword" value=''>
-    <button type="submit" class="btn red ">
-        <i class="fas fa-search"></i>
-    </button>
-</form>
-{{#if products.result}}
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            Product Found : {{products.total}}
-            <tr>
-                <th>Code</th>
-                <th>Product Name</th>
-                <th>Description</th>
-                <th>Catalog</th>
-                <th>price</th>
-                <th>In Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each products.result}}
-            <tr>
-                <td><a href="/products/update/{{_id}}">{{code}}</a></td>
-                <td>{{title}} </td>
-                <td>{{description}} </td>
-                <td>{{catalog}}</td>
-                <td>{{price_usd}}</td>
-                <td>{{inStock}}</td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/products/update/{{_id}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
+<%if (response.result) { %>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title float-right">
 
-                        <form action="/products/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
-{{else}}
-<p>{{products.error}}</p>
-{{/if}}
+                <a href="/products/add" class="btn-floating btn btn-primary btn-sm">
+                    <i class="fas fa-plus"></i> Add new product
+                </a>
+                <a href="/usergroup/user/add" class="btn-floating btn btn-sm btn-outline-primary">
+                    <i class="fas fa-plus"></i> Add user in group
+                </a>
+               
+            </h5>
+            <%if(locals.errorMessage) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%=errorMessage%>
+                        </div>
+                <% } %> 
+            <table class="table table-hover" id="example">
+                <thead>
+                    <tr>
+                        <th scope="col">Code</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Catalog</th>
+                        <th scope="col">In Stock</th>
+                        <th scope="col" class="text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <% response.result.forEach(productList => { %> 
+                        <tr>
+                            <td><span class="dash-status"></span><%=productList.code%><span></td>
+                            <td><span class="dash-status"></span><%=productList.title%></span></td>
+                            <td><span class="dash-status"></span><%=productList.catalog%></span></td>
+                            <td><span class="dash-status"></span><%=productList.availableQty%></span></td>
+                            <td>
+                                <div class="bo-edit-row">
+                                    <a href="/products/update/<%=productList._id%>" class="btn btn-float">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="/products/remove/<%=productList._id %>" method="post" id="delete-form">
+                                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                                        <button type="submit" class="btn red">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                               
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <%} else{ %>
+            <p>Not found</p>
+            <% } %>
+    </div>
+    </div>
+    <%- include('../layouts/footer') %>
 
-<div class="fixed-action-btn">
-    <a href="/products/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"
-            title="Create New Product"></i></a>
-</div>
-<%- include('../layouts/footer') %>
+ 

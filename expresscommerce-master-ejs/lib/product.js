@@ -34,7 +34,9 @@ const getProducts = async () => {
       { path: 'medias', model: 'Media', select: 'code priority main thumbnail type -_id', populate: { path: 'catalog', select: 'code -_id' } },
       { path: 'categories', model: 'Category', select: 'code title' },
       { path: 'catalog', select: 'code' },
-      { path: 'baseProduct', select: 'code ' }
+      { path: 'baseProduct', select: 'code ' },
+      { path: 'availableQty', model: 'ProductStock', select: 'availableQty' }
+ 
     ]).lean();
   // console.log("Searching all products",products)
   return products;
