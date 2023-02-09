@@ -1,0 +1,13 @@
+
+solr-9.0.0/server/logs/2023_02_08.request.log
+solr-9.0.0/server/logs/solr-8983-console.log
+*.log
+solr-9.0.0/server/logs/solr.log
+solr-9.0.0/server/logs/solr.log.7
+*.log
+solr-9.0.0/server/tmp/start_18175976170571635929.properties
+solr-9.0.0/server/logs/solr.log
+solr-9.0.0/server/logs/solr_gc.log
+solr-9.0.0/server/logs/solr_gc.log.2
+solr-9.0.0/server/logs/solr_gc.log
+solr-9.0.0/server/logs/solr.log
