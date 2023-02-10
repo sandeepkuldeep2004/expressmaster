@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const ProductModel = require('../../models/Product')
-const { searchProductById, searchAllProducts, searchProductsByTerm } = require('../../lib/indexer');
 const { saveProductViaWeb } = require("../../dao/Product");
-
-const { getProductDTOByProductModel,getProducts } = require("../../lib/product");
+const { getProductDTOByProductModelService,getProductsService } = require("../../services/product");
 
 
 // @desc   search products from solr based on term
@@ -36,10 +34,9 @@ router.get("/", async (req, res) => {
   try {
     console.log("****************")
     // add solr call
-    const products = await getProducts();
-    let productDTOs = await populateProduct(products)
+    const products = await getProductsService();
     var response = {
-      result: productDTOs,
+      result: products,
       total: products.length,
     }
     //console.log("All customers details is ::",customers)
@@ -56,7 +53,7 @@ router.get("/", async (req, res) => {
 async function populateProduct(products) {
   let productDTOs = [];
   for (product of products) {
-    let productDTO = await getProductDTOByProductModel(product)
+    let productDTO = await getProductDTOByProductModelService(product)
     productDTOs.push(productDTO);
   };
   return productDTOs;

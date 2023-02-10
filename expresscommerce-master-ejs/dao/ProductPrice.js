@@ -72,4 +72,14 @@ module.exports = {
       }
     });
   },
+  getProductPrice : async function(productCode,catalog){ 
+    return await ProductPriceModel.findOne({productCode:productCode,catalog:catalog}).lean();
+  },
+  getProductPriceDetails : async function(productCode,catalog,currency){ 
+    return await ProductPriceModel.findOne({productCode:productCode,catalog:catalog,currencyIsoCode:currency}).lean();
+  },
+  fetchProductPrice : async function(product, catalog, currency, symbol) {
+    var productPrice = await getProductPriceDetails(product.code, catalog, currency);
+    return productPrice;
+  }
 };

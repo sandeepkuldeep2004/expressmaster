@@ -108,5 +108,16 @@ module.exports = {
       });
       return "Product created successfully!!"
     }
-  }
+  }, getProducts: async (data) => {
+     //var valueArr = codes.split(', ')
+  console.log("Searching all products")
+  var products = await ProductModel.find()
+    .populate([
+      { path: 'medias', model: 'Media', select: 'code priority main thumbnail type -_id', populate: { path: 'catalog', select: 'code -_id' } },
+      { path: 'categories', model: 'Category', select: 'code title' },
+      { path: 'catalog', select: 'code' },
+      { path: 'baseProduct', select: 'code ' },
+    ]).lean();
+  return products;
+  },
 };

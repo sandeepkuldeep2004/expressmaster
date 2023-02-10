@@ -54,4 +54,11 @@ module.exports = {
       }
     });
   },
+  getProductStock : async function(productCode){ 
+    return await ProductStockModel.findOne({productCode:productCode}).lean();
+  },
+  getStockByWarehouseAndProductCode : async function(productCode,warehouseCode){ 
+    return await ProductStockModel.findOne({productCode:productCode,warehouseCode:warehouseCode}).lean();
+  }
+
 };
