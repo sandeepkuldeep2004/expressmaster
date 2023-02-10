@@ -1,55 +1,185 @@
 <%- include('../layouts/header') %>
-<h3>Add New Product</h3>
-<h4>{{error}}</h4>
-<div class="row">
-    <form action="/products/add" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <div class="row">
-        <div class="input-field">
-                <input type="text" id="code" name="code" value={{code}}>
-                <label for="title">Product Code</label>
+    <div class="card">
+        <div class="card-header">
+            <ul class="nav nav-tabs justify-content-left" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#product" role="tab">
+                        <i class="now-ui-icons objects_umbrella-13"></i> Product
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#price" role="tab">
+                        <i class="now-ui-icons shopping_cart-simple"></i> Price
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#stock" role="tab">
+                        <i class="now-ui-icons shopping_shop"></i> Stock
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body col-lg-6">
+            <!-- Tab panes -->
+            <div class="tab-content text-left">
+                <div class="tab-pane active" id="product" role="tabpanel">
+                    <h5 class="card-title">Add New Product</h5>
+                    <!-- <h4>{{error}}</h4> -->
+                    <!-- Vertical Form -->
+                    <form action="/navigation/add" method="POST" class="row g-3 needs-validation">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                        <div class="col-12 mg-3">
+                            <label for="inputNanme4" class="form-label">Code</label>
+                            <input type="text" class="form-control" id="code" name="code" required>
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">brand</label>
+                            <input type="text" id="url" name="url" class="form-control">
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">description</label>
+                            <input type="text" id="cssclassname" name="cssclassname" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Class Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">productType</label>
+                            <select class="form-control" id="status" name="status" required="">
+                                <option value="ORDINARY" selected>ORDINARY</option>
+                                <option value="VARIANT">VARIANT</option>
+                                <option value="BUNDLE">BUNDLE</option>
+                                <option value="WARRANTY">WARRANTY</option>
+                                <option value="DIGITAL">DIGITAL</option>                               
+                            </select>
+                        </div>                       
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">unit</label>
+                            <select class="form-control" id="status" name="status" required="">
+                                <option value="active" selected>EA</option>
+                                <option value="NOS">NOS</option>
+                                <option value="PKG">PKG</option>
+                                <option value="KIT">KIT</option>
+                                <option value="KG">KG</option>
+                                <option value="GM">GM</option>
+                                <option value="MTR">MTR</option>
+                                <option value="CM">CM</option>
+                                <option value="LTR">LTR</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">status</label>
+                            <select class="form-control" id="status" name="status" required="">
+                                <option value="active" selected>active</option>
+                                <option value="inactive">inactive</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">inUseStatus</label>
+                            <select class="form-control" id="status" name="status" required="">
+                                <option value="NEW">NEW</option>
+                                <option value="OBSOLETE">OBSOLETE</option>
+                                <option value="CONTEMPORARY" selected>CONTEMPORARY</option>
+                                <option value="TREND">TREND</option>                               
+                            </select>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">fsnStatus</label>
+                            <select class="form-control" id="status" name="status" required="">
+                                <option value="active" selected>active</option>
+                                <option value="inactive">inactive</option>
+                            </select>
+                        </div>
+                                               
+                        <div class="text-center mg-3 col-12 mg-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <!-- <input type="submit" value="Save" class="btn"> -->
+                            <a href="/navigation/viewAll" class="btn orange btn-secondary">Cancel</a>
+                        </div>
+                    </form><!-- Vertical Form -->
+
+                </div>
+                <div class="tab-pane" id="price" role="tabpanel">
+                    <h5 class="card-title">Add Product Price</h5>
+                    <!-- <h4>{{error}}</h4> -->
+                    <!-- Vertical Form -->
+                    <form action="/navigation/add" method="POST" class="row g-3 needs-validation">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                        <div class="col-12 mg-3">
+                            <label for="inputNanme4" class="form-label">price</label>
+                            <input type="text" class="form-control" id="code" name="code" required>
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">landing Url</label>
+                            <input type="text" id="url" name="url" class="form-control">
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Class Name</label>
+                            <input type="text" id="cssclassname" name="cssclassname" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Class Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Position</label>
+                            <input type="number" id="position" name="position" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Position.</div>
+                        </div>
+                        <div class="text-center mg-3 col-12 mg-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <!-- <input type="submit" value="Save" class="btn"> -->
+                            <a href="/navigation/viewAll" class="btn orange btn-secondary">Cancel</a>
+                        </div>
+                    </form><!-- Vertical Form -->
+                </div>
+                <div class="tab-pane" id="stock" role="tabpanel">
+                    <h5 class="card-title">Add Product Stock</h5>
+                    <!-- <h4>{{error}}</h4> -->
+                    <!-- Vertical Form -->
+                    <form action="/navigation/add" method="POST" class="row g-3 needs-validation">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                        <div class="col-12 mg-3">
+                            <label for="inputNanme4" class="form-label">Code</label>
+                            <input type="text" class="form-control" id="code" name="code" required>
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">landing Url</label>
+                            <input type="text" id="url" name="url" class="form-control">
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Class Name</label>
+                            <input type="text" id="cssclassname" name="cssclassname" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Class Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Position</label>
+                            <input type="number" id="position" name="position" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Position.</div>
+                        </div>
+                        <div class="text-center mg-3 col-12 mg-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <!-- <input type="submit" value="Save" class="btn"> -->
+                            <a href="/navigation/viewAll" class="btn orange btn-secondary">Cancel</a>
+                        </div>
+                    </form><!-- Vertical Form -->
+                </div>
+
             </div>
         </div>
-         <div class="row">
-          <div class="input-field">
-                <input type="text" id="name" name="name" value={{name}}>
-                <label for="title">Product Name </label>
-            </div>
-        </div>
-        <div class="row">
-         <div class="input-field">
-                <input type="text" id="description" name="description" value={{description}}>
-                <label for="title">Description </label>
-            </div>
-        </div>
-         <div class="row">
-            <div class="input-field">
-                <input type="text" id="catalog" name="catalog" value={{catalog}}>
-                <label for="title">Catalog </label>
-            </div>
-        </div>
-         <div class="row">
-         <div class="input-field">
-                <input type="text" id="categoryCode" name="categoryCode" value={{categoryCode}}>
-                <label for="title">Category Code </label>
-            </div>
-        </div>
-          <div class="row">
-         <div class="input-field">
-                <input type="text" id="price" name="price" value={{price}}>
-                <label for="title">price </label>
-            </div>
-        </div>
-           <div class="row">
-         <div class="input-field">
-                <input type="text" id="summary" name="summary" value={{summary}}>
-                <label for="title">Summary </label>
-            </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/products" class="btn orange">Cancel</a>
-        </div>
-    </form>
-</div>
-<%- include('../layouts/footer') %>
+    </div>
+
+    <%- include('../layouts/footer') %>

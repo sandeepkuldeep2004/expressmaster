@@ -1,39 +1,46 @@
 <%- include('../layouts/header') %>
-<h3>Add Catalog</h3>
-<div class="row">
-    <form action="/catalogs/add" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="code" name="code" value={{code}}>
-                <label for="title">Code</label>
-            </div>
+    <div class="card">
+        <div class="card-body col-lg-6">
+            <h5 class="card-title">Add Catalog</h5>
+            <%if(locals.errorMessage) { %>
+                <div class="alert alert-success" role="alert">
+                    <%=errorMessage%>
+                </div>
+                <% } %>
+                    <!-- Vertical Form -->
+                    <form action="/navigation/add" method="POST" class="row g-3 needs-validation">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                        <div class="col-12 mg-3">
+                            <label for="inputNanme4" class="form-label">Code</label>
+                            <input type="text" class="form-control" id="code" name="code" required>
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">Description</label>
+                            <input type="text" id="description" name="Description" class="form-control">
+                        </div>
+
+
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Status</label>
+                            <select class="form-control" id="status" name="status" required="">
+                                <option value="active" selected>active</option>
+                                <option value="inactive">inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="text-center mg-3 col-12 mg-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <!-- <input type="submit" value="Save" class="btn"> -->
+                            <a href="/dashboard" class="btn orange btn-secondary">Cancel</a>
+
+                        </div>
+                    </form><!-- Vertical Form -->
         </div>
-         <div class="row">
-            <div class="input-field">
-                <input type="text" id="name" name="name" value={{name}}>
-                <label for="title">Name</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="description" name="description" value={{description}}>
-                <label for="title">Description</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <select id="status" name="status">
-                    <option value="active" selected>active</option>
-                    <option value="inactive">inactive</option>
-                </select>
-                <label for="status">Status</label>
-            </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
-        </div>
-    </form>
-</div>
-<%- include('../layouts/footer') %>
+    </div>
+    <%- include('../layouts/footer') %>
