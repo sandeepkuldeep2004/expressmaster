@@ -1,6 +1,4 @@
 const CatalogModel = require("../models/Catalog");
-const { getCatalog } = require("../lib/catalog");
-
 module.exports = {
   saveCatalog: async (data) => {
     Object.entries(data).forEach(async (element) => {
@@ -21,4 +19,15 @@ module.exports = {
       }
     });
   },
+  getCatalogList : async function(param){ 
+    return  CatalogModel.find({status:param}).sort({ creationdate: 'desc' }).lean();
+  },
+  getCatalog : async (code)=>{ 
+     var catalog=  await CatalogModel.findOne({code:code}).lean();
+     return catalog;
+   },
+   getCatalogById : async function(id){ 
+    return  await CatalogModel.findById(id).lean();
+  }
+  
 };
