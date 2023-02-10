@@ -4,6 +4,7 @@ const ProductModel = require('../../models/Product')
 const { saveProductViaWeb } = require("../../dao/Product");
 const { getProductDTOByProductModelService,getProductsService } = require("../../services/product");
 
+var leftnavigationlinkactive = "manageCatalogs";
 
 // @desc   search products from solr based on term
 // @route   GET /products/search
@@ -38,11 +39,15 @@ router.get("/", async (req, res) => {
     var response = {
       result: products,
       total: products.length,
+      
+
     }
     //console.log("All customers details is ::",customers)
     res.render("products/list", {
       response,
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      leftnavigationlinkactive:leftnavigationlinkactive,
+      leftsubnavigationlinkactive:"products",
     });
   } catch (err) {
     console.error(err);
