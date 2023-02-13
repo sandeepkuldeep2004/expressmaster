@@ -1,37 +1,39 @@
 <%- include('../layouts/header') %>
-<h3>Edit Catalog</h3>
-<div class="row">
-    <form action="/catalogs/{{catalog._id}}" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="name" name="name" value="{{catalog.name}}">
-                <label for="title">Name</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <select id="status" name="status">
-                    {{#select catalog.status}}
-                    <option value="active" selected>active</option>
-                    <option value="inactive">Inactive</option>
-                    {{/select}}
-                </select>
-                <label for="status">Status</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <h5>Description:</h5>
-                <textarea id="description" name="description">{{catalog.description}}</textarea>
-            </div>
-        </div>
+    <div class="card">
+        <div class="card-body col-lg-6">
+            <h5 class="card-title">Edit Catalog</h5>
+            <%if(locals.errorMessage) { %>
+                <div class="alert alert-success" role="alert">
+                    <%=errorMessage%>
+                </div>
+                <% } %>
+                    <!-- Vertical Form -->
+                    <form action="/catalogs/<%=catalog._id%>" method="POST" class="row g-3 needs-validation">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                        <input type="hidden" name="_method" value="PUT">
+                        <div class="col-12 mg-3">
+                            <label for="title" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" value="<%=catalog.name%>" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>                        
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">Description</label>
+                            <textarea id="description" name="description" class="form-control"><%=catalog.description%></textarea>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Status</label>                            
+                            <select class="form-control" id="status" name="status" required="">
+                                <option value="active" selected>active</option>
+                                <option value="inactive">inactive</option>
+                            </select>
+                        </div>
 
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
+                        <div class="text-center mg-3 col-12 mg-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <a href="/catalogs/viewAll" class="btn orange btn-secondary">Cancel</a>
+
+                        </div>
+                    </form><!-- Vertical Form -->
         </div>
-    </form>
-</div>
-<%- include('../layouts/footer') %>
+    </div>
+    <%- include('../layouts/footer') %>
