@@ -40,4 +40,16 @@ module.exports = {
       }
     });
   },
+  fetchSuperCategories: async (param) => {
+
+    return  await CategoryModel.find({status:param,superCategories:'63b4121ca29f61b90a407421'}).sort().lean();
+
+   
+  },
+  fetchChildCategories: async (param,id) => {
+    return await CategoryModel.findById({status:param,_id:id}).lean();
+  }
+  
+
+
 };

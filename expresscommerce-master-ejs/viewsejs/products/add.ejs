@@ -119,30 +119,34 @@
                                 <div class="dropdown-list" style="display: none;">
                                     <input type="search" placeholder="Search states" class="dropdown-search" />
                                     <ul>
+                                        <% categoriesList.categories.forEach(categoriesListIrr => { %> 
+
                                         <li style="display: list-item;">
-                                            <input name="AL" type="checkbox">
-                                            <label for="AL">Alabama</label>
+                                            <input name="<%=categoriesListIrr._id%>" value="<%=categoriesListIrr._id%>" type="checkbox">
+                                            <label for="AL"><%=categoriesListIrr.title%></label>
                                         </li>
-                                        <li style="display: list-item;">
-                                            <input name="AK" type="checkbox">
-                                            <label for="AK">Alaska</label>
-                                        </li>
-                                        <li style="display: list-item;">
-                                            <input name="AS" type="checkbox">
-                                            <label for="AS">American Samoa</label>
-                                        </li>        
-                                        <li style="display: list-item;">
-                                            <input name="AL" type="checkbox">
-                                            <label for="AL">Alabama</label>
-                                        </li>
-                                        <li style="display: list-item;">
-                                            <input name="AK" type="checkbox">
-                                            <label for="AK">Alaska</label>
-                                        </li>
-                                        <li style="display: list-item;">
-                                            <input name="AS" type="checkbox">
-                                            <label for="AS">American Samoa</label>
-                                        </li>                                              
+                                        <% categoriesListIrr.categories.forEach(categoriesListIrr1 => { %>
+                                            
+                                            <li style="display: list-item;">
+                                               &nbsp; &nbsp;<input name="<%=categoriesListIrr1._id%>" value="<%=categoriesListIrr1._id%>" type="checkbox">
+                                                <label for="AL"><%=categoriesListIrr1.title%></label>
+                                            </li>
+
+                                            <% categoriesListIrr1.categories.forEach(categoriesListIrr2 => { %>
+                                            
+                                                <li style="display: list-item;">
+                                                   &nbsp; &nbsp;&nbsp; &nbsp; <input name="<%=categoriesListIrr2._id%>" value="<%=categoriesListIrr2._id%>" type="checkbox">
+                                                    <label for="AL"><%=categoriesListIrr2.title%></label>
+                                                </li>
+                                                
+                                                <% }) %>
+
+                                            <% }) %>
+
+
+
+                                        <% }) %>
+                                             
                                     </ul>
                                 </div>
                             </div>

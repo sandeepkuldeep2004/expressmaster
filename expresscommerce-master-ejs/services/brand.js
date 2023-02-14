@@ -24,6 +24,10 @@ const getAllBrandData = async function () {
   let brands =await BrandModel.find().lean();
   return populateBradData(brands);
 }
+const getAllBrandDataService = async function () {
+  let brands =await BrandModel.find().lean();
+  return populateBradData(brands);
+}
 
 function populateBradData(brands) {
   let brandsJson = []
@@ -33,5 +37,5 @@ function populateBradData(brands) {
   return brandsJson;
 }
 module.exports = {
-  getBrandById, getBrandByName, getBrands, getAllBrandData
+  getBrandById, getBrandByName, getBrands, getAllBrandData,getAllBrandDataService
 }

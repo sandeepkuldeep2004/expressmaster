@@ -3,6 +3,26 @@ const router = express.Router();
 const ProductModel = require('../../models/Product')
 const { saveProductViaWeb } = require("../../dao/Product");
 const { getProductDTOByProductModelService,getProductsService } = require("../../services/product");
+const { getCatalogListService } = require('../../services/catalog');
+const { getAllBrandDataService } = require('../../services/brand');
+const { fetchSuperCategoriesService } = require('../../services/category');
+
+
+
+
+
+
+
+const ProductTypeArr = {"ORDINARY":"ORDINARY", "VARIANT":"VARIANT","BUNDLE":"BUNDLE", "WARRANTY":"WARRANTY","DIGITAL":"DIGITAL"}
+const unitTypeArr = {"EA":"EA", "NOS":"NOS", "PKG":"PKG", "KIT":"KIT", "KG":"KG", "GM":"GM","MTR":"MTR", "CM":"CM","LTR":"LTR"}
+const inUseStatusArr = {"NEW":"NEW", "OBSOLETE":"OBSOLETE", "CONTEMPORARY":"CONTEMPORARY", "TREND":"TREND"}
+const statusArr = {"ACTIVE":"ACTIVE", "INACTIVE":"INACTIVE", "SUSPENDED":"SUSPENDED"}
+const fnsStatusArr = {"FASTMOVING":"FASTMOVING", "SLOWMOVING":"SLOWMOVING", "NONMOVING":"NONMOVING"}
+
+
+
+
+
 
 var leftnavigationlinkactive = "manageCatalogs";
 
@@ -115,8 +135,26 @@ router.put("/update/:id", async (req, res) => {
 // @desc    Show add page
 // @route   GET /solr/customer/add
 router.get("/add", async (req, res) => {
+  console.log("inllll");
+
+ const catalogList= await getCatalogListService("active");
+ const brandList=await getAllBrandDataService();
+const categoriesList= await fetchSuperCategoriesService(10);
+console.log(categoriesList);
+
+
   res.render("products/add", {
     csrfToken: req.csrfToken(),
+    ProductTypeArr:ProductTypeArr,
+    unitTypeArr:unitTypeArr,
+    inUseStatusArr:inUseStatusArr,
+    statusArr:statusArr,
+    fnsStatusArr:fnsStatusArr,
+    catalogList:catalogList,
+    leftnavigationlinkactive:leftnavigationlinkactive,
+    leftsubnavigationlinkactive:"products",
+    categoriesList:categoriesList,
+
   });
 });
 
