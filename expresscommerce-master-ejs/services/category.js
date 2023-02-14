@@ -111,10 +111,12 @@ const fetchSuperCategoriesService = async function (code) {
       {
         path: "categories",
         model: "Category",
+        match: {status:"active"},
         populate: {
           path: "categories",
           model: "Category",
-          populate: { path: "categories", model: "Category" },
+          match: {status:"active"},
+          populate: { path: "categories", model: "Category", match: {status:"active"} },
         },
       },
       { path: "catalog" },

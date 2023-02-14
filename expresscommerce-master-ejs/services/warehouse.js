@@ -13,7 +13,12 @@ const getWarehouseByCode = async function(code){
   return  WarehouseModel.findOne({code:code}).lean();
 }
 
+const getActiveWarehouseList = async function(){ 
+
+  return await WarehouseModel.find({status:"active"}).lean();
+}
+
 
 module.exports={
-  getWarehouseList, getWarehouseByCode
+  getWarehouseList, getWarehouseByCode,getActiveWarehouseList
 }
