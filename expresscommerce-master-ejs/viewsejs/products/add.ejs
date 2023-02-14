@@ -1,10 +1,16 @@
 <%- include('../layouts/header') %>
     <div class="card">
+
         <div class="card-header">
             <ul class="nav nav-tabs justify-content-left" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#product" role="tab">
                         <i class="now-ui-icons objects_umbrella-13"></i> Product
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#category" role="tab">
+                        <i class="now-ui-icons shopping_cart-simple"></i> Category
                     </a>
                 </li>
                 <li class="nav-item">
@@ -17,17 +23,22 @@
                         <i class="now-ui-icons shopping_shop"></i> Stock
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#multimedia" role="tab">
+                        <i class="now-ui-icons shopping_shop"></i> Multimedia
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="card-body col-lg-6">
-            <!-- Tab panes -->
-            <div class="tab-content text-left">
-                <div class="tab-pane active" id="product" role="tabpanel">
-                    <h5 class="card-title">Add New Product</h5>
-                    <!-- <h4>{{error}}</h4> -->
-                    <!-- Vertical Form -->
-                    <form action="/navigation/add" method="POST" class="row g-3 needs-validation">
-                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+            <form action="/navigation/add" method="POST" class="g-3 needs-validation">
+                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                <!-- Tab panes -->
+                <div class="tab-content text-left">
+
+                    <div class="tab-pane active" id="product" role="tabpanel">
+                        <h5 class="card-title">Add New Product</h5>
+
                         <div class="col-12 mg-3">
                             <label for="inputNanme4" class="form-label">Code</label>
                             <input type="text" class="form-control" id="code" name="code" required>
@@ -54,9 +65,9 @@
                                 <option value="VARIANT">VARIANT</option>
                                 <option value="BUNDLE">BUNDLE</option>
                                 <option value="WARRANTY">WARRANTY</option>
-                                <option value="DIGITAL">DIGITAL</option>                               
+                                <option value="DIGITAL">DIGITAL</option>
                             </select>
-                        </div>                       
+                        </div>
                         <div class="col-12 mg-3">
                             <label for="inputEmail4" class="form-label">unit</label>
                             <select class="form-control" id="status" name="status" required="">
@@ -84,7 +95,7 @@
                                 <option value="NEW">NEW</option>
                                 <option value="OBSOLETE">OBSOLETE</option>
                                 <option value="CONTEMPORARY" selected>CONTEMPORARY</option>
-                                <option value="TREND">TREND</option>                               
+                                <option value="TREND">TREND</option>
                             </select>
                         </div>
                         <div class="col-12 mg-3">
@@ -93,21 +104,52 @@
                                 <option value="active" selected>active</option>
                                 <option value="inactive">inactive</option>
                             </select>
+                        </div>                        
+                    </div>
+                    <div class="tab-pane" id="category" role="tabpanel">
+                        <h5 class="card-title">Add Category</h5>
+                        <div class="col-12 mg-3">
+                            <div class="instructions">(Click to expand and select states to filter)</div>
+                            <div class="dropdown-container">
+                                <div class="dropdown-button noselect">
+                                    <div class="dropdown-label">States</div>
+                                    <div class="dropdown-quantity">(<span class="quantity">Any</span>)</div>
+                                    <i class="fa fa-filter"></i>
+                                </div>
+                                <div class="dropdown-list" style="display: none;">
+                                    <input type="search" placeholder="Search states" class="dropdown-search" />
+                                    <ul>
+                                        <li style="display: list-item;">
+                                            <input name="AL" type="checkbox">
+                                            <label for="AL">Alabama</label>
+                                        </li>
+                                        <li style="display: list-item;">
+                                            <input name="AK" type="checkbox">
+                                            <label for="AK">Alaska</label>
+                                        </li>
+                                        <li style="display: list-item;">
+                                            <input name="AS" type="checkbox">
+                                            <label for="AS">American Samoa</label>
+                                        </li>        
+                                        <li style="display: list-item;">
+                                            <input name="AL" type="checkbox">
+                                            <label for="AL">Alabama</label>
+                                        </li>
+                                        <li style="display: list-item;">
+                                            <input name="AK" type="checkbox">
+                                            <label for="AK">Alaska</label>
+                                        </li>
+                                        <li style="display: list-item;">
+                                            <input name="AS" type="checkbox">
+                                            <label for="AS">American Samoa</label>
+                                        </li>                                              
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                                               
-                        <div class="text-center mg-3 col-12 mg-3">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="/products" class="btn orange btn-secondary">Cancel</a>
-                        </div>
-                    </form><!-- Vertical Form -->
-
-                </div>
-                <div class="tab-pane" id="price" role="tabpanel">
-                    <h5 class="card-title">Add Product Price</h5>
-                    <!-- <h4>{{error}}</h4> -->
-                    <!-- Vertical Form -->
-                    <form action="/navigation/add" method="POST" class="row g-3 needs-validation">
-                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                    </div>
+                    <div class="tab-pane" id="price" role="tabpanel">
+                        <h5 class="card-title">Add Product Price</h5>
                         <div class="col-12 mg-3">
                             <label for="inputNanme4" class="form-label">price</label>
                             <input type="text" class="form-control" id="code" name="code" required>
@@ -131,19 +173,10 @@
                             <label for="inputAddress" class="form-label">Position</label>
                             <input type="number" id="position" name="position" class="form-control" required>
                             <div class="invalid-feedback">Please provide a Position.</div>
-                        </div>
-                        <div class="text-center mg-3 col-12 mg-3">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="/products" class="btn orange btn-secondary">Cancel</a>
-                        </div>
-                    </form><!-- Vertical Form -->
-                </div>
-                <div class="tab-pane" id="stock" role="tabpanel">
-                    <h5 class="card-title">Add Product Stock</h5>
-                    <!-- <h4>{{error}}</h4> -->
-                    <!-- Vertical Form -->
-                    <form action="/navigation/add" method="POST" class="row g-3 needs-validation">
-                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                        </div>                       
+                    </div>
+                    <div class="tab-pane" id="stock" role="tabpanel">
+                        <h5 class="card-title">Add Product Stock</h5>
                         <div class="col-12 mg-3">
                             <label for="inputNanme4" class="form-label">Code</label>
                             <input type="text" class="form-control" id="code" name="code" required>
@@ -168,15 +201,26 @@
                             <input type="number" id="position" name="position" class="form-control" required>
                             <div class="invalid-feedback">Please provide a Position.</div>
                         </div>
-                        <div class="text-center mg-3 col-12 mg-3">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="/products" class="btn orange btn-secondary">Cancel</a>
+                    </div>
+                    <div class="tab-pane" id="multimedia" role="tabpanel">
+                        <h5 class="card-title">Upload Product images</h5>
+                        <div class="col-12 mg-3">
+                            <label for="inputNumber" class="form-label">Product Image Upload</label>
+                            <input class="form-control" type="file" id="formFile">
                         </div>
-                    </form><!-- Vertical Form -->
+                        <div class="col-12 mg-3">
+                            <label for="inputNumber" class="form-label">Product thumbnail File Upload</label>
+                            <input class="form-control" type="file" id="formthumbnailFile">
+                        </div>
+                    </div>
                 </div>
-
-            </div>
+                <div class="text-center mg-3 col-12 mg-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="/products" class="btn orange btn-secondary">Cancel</a>
+                </div>
+            </form><!-- Vertical Form -->
         </div>
+
     </div>
 
     <%- include('../layouts/footer') %>

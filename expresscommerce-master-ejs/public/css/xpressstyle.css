@@ -246,6 +246,7 @@ h6 {
   background-color: #fff;
   color: #798eb3;
   padding: 15px;
+  border-bottom: 0;
 }
 
 .card-title {
@@ -320,16 +321,16 @@ h6 {
 }
 
 /* Breadcrumbs */
-.breadcrumb {  
+.breadcrumb {
   font-size: 14px;
   font-family: "Nunito", sans-serif;
   color: #899bbd;
   font-weight: 500;
   background: transparent;
-  padding: 0;  
-  display: flex;   
-  padding: 0.2rem 0rem;   
-  list-style: none;    
+  padding: 0;
+  display: flex;
+  padding: 0.2rem 0rem;
+  list-style: none;
   border-radius: 0rem;
 }
 
@@ -394,7 +395,7 @@ h6 {
 .logo span {
   font-size: 24px;
   font-weight: 500;
-  color: rgba(255,255,255,.8);
+  color: rgba(255, 255, 255, .8);
   font-family: "Nunito", sans-serif;
   padding-left: 7px;
 }
@@ -1270,4 +1271,73 @@ h6 {
 .badge {
   color: #ffffff;
   padding: 0.4em 0.4em;
+}
+
+/* Category Dropdown */
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.dropdown-container,
+.instructions {
+  width: 200px;
+  margin: 20px 0 0;
+  font-size: 14px;
+  font-family: sans-serif;
+  overflow: auto;
+}
+.instructions {
+  width: 100%;
+  text-align: left;
+}
+.dropdown-button {
+  float: left;
+  width: 100%;
+  background: whitesmoke;
+  padding: 10px 12px;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  box-sizing: border-box;
+}
+.dropdown-label,
+.dropdown-quantity {
+  float: left;
+}
+.dropdown-quantity {
+  margin-left: 4px;
+}
+.fa-filter {
+  float: right;
+}
+.dropdown-list {
+  float: left;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-top: none;
+  box-sizing: border-box;
+  padding: 10px 12px;
+}
+.dropdown-list input[type="search"] {
+  padding: 5px 0;
+}
+.dropdown-list ul {
+  margin: 10px 0;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+}
+.dropdown-list ul input[type="checkbox"] {
+  position: relative;
+  top: 2px;
+}
+.form-control {
+  padding: 0.2rem 0rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
