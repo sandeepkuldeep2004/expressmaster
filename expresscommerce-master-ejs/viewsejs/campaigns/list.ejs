@@ -1,49 +1,52 @@
 <%- include('../layouts/header') %>
-{{#if campaignList}}
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Type</th>
-                <th>StartDate</th>
-                <th>ExpiryDate</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each campaignList}}
-            <tr>
-                <td><a href="/campaigns/{{code}}">{{code}}</a></td>
-                <td><a href="/campaigns/{{code}}">{{type}}</a></td>
-                <td>{{formatDate startDate 'MMMM Do YYYY, h:mm:ss a'}}</td>
-                <td>{{formatDate expiryDate 'MMMM Do YYYY, h:mm:ss a'}}</td>
-                <td><span class="dash-status">{{status}}</span></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/campaigns/{{code}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
-
-                        <form action="/campaigns/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
-{{else}}
-<p>You have not created any campaigns</p>
-{{/if}}
-
-<div class="fixed-action-btn">
-    <a href="/campaigns/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
+<% if(campaignList) { %>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title float-right">
+            <a href="/campaigns/add" class="btn-floating btn btn-primary btn-sm">
+              <i class="fas fa-plus"></i> Add new Campaign
+            </a>
+          </h5>
+            <table class="table table-hover" id="example">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Type</th>
+                        <th>StartDate</th>
+                        <th>ExpiryDate</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>           
+                    <% campaignList.forEach(campaignList=> { %>
+                    <tr>
+                        <td><%=campaignList.code%></td>
+                        <td><%=campaignList.type%></td>
+                        <td><%=campaignList.startDate%></td>
+                        <td><%=campaignList.expiryDate%></td>
+                        <td><span class="dash-status"><%=campaignList.status%></span></td>
+                        <td>
+                            <div class="bo-edit-row">
+                                <a href="/campaigns/<%=campaignList.code%>" class="btn btn-float">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form action="/campaigns/remove/<%=campaignList._id%>" method="POST" id="delete-form">
+                                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn red">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <%} else{ %>
+            <p>You have not created any campaigns</p>
+        <% } %>
+    </div>
 <%- include('../layouts/footer') %>

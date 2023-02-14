@@ -1335,7 +1335,7 @@ h6 {
   position: relative;
   top: 2px;
 }
-.form-control {
+#multimedia .form-control {
   padding: 0.2rem 0rem;
   font-size: 1rem;
   font-weight: 400;

@@ -1,57 +1,60 @@
 <%- include('../layouts/header') %>
-<h3>Add Campaign</h3>
-<div class="row">
-    <form action="/campaigns/add" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="code" name="code" value={{code}}>
-                <label for="title">Code</label>
-            </div>
+<div class="card">
+  <div class="card-body col-lg-12">
+    <h5 class="card-title">Add Campaign</h5>
+    <%if(locals.errorMessage) { %>
+    <div class="alert alert-success" role="alert">
+      <%=errorMessage%>
+    </div>
+    <% } %>
+    <!-- Vertical Form -->
+    <form action="/campaigns/add" method="POST" class="row g-3 needs-validation">
+      <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+      <div class="row col-lg-6">
+        <div class="col-12">
+          <label for="Code" class="form-label">Code</label>
+          <input type="text" class="form-control" id="code" name="code" required>
+          <div class="invalid-feedback">Please provide a Code.</div>
         </div>
-         <div class="row">
-            <div class="input-field">
-                <input type="text" id="type" name="type" value={{type}}>
-                <label for="title">Type</label>
-            </div>
+
+        <div class="col-12 mg-3">
+          <label for="Type" class="form-label">Type</label>
+          <input type="text" class="form-control" id="type" name="type" required>
+          <div class="invalid-feedback">Please provide a Type.</div>
         </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="emailTemplate" name="emailTemplate" value={{emailTemplate}}>
-                <label for="title">Email Template</label>
-            </div>
+        <div class="col-12 mg-3">
+          <label for="emailTemplate" class="form-label">Email Template</label>
+          <input type="text" class="form-control" id="emailTemplate" name="emailTemplate" required>
+          <div class="invalid-feedback">Please provide a Email Template.</div>
         </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="startDate" name="startDate" value={{startDate}}>
-                <label for="title">Start Date</label>
-            </div>
+        <div class="col-12 mg-3">
+          <label for="startDate" class="form-label">Start Date</label>
+          <input type="date" class="form-control" id="startDate" name="startDate" required>
+          <div class="invalid-feedback">Please provide a startDate.</div>
         </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="expiryDate" name="expiryDate" value={{expiryDate}}>
-                <label for="title">Expiry Date</label>
-            </div>
+        <div class="col-12 mg-3">
+          <label for="expiryDate" class="form-label">Expiry Date</label>
+          <input type="date" class="form-control" id="expiryDate" name="expiryDate" required>
+          <div class="invalid-feedback">Please provide a Expiry Date.</div>
         </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="cronExpression" name="cronExpression" value={{cronExpression}}>
-                <label for="title">cron Expression</label>
-            </div>
+        <div class="col-12 mg-3">
+          <label for="cronExpression" class="form-label">cron Expression</label>
+          <input type="text" class="form-control" id="cronExpression" name="cronExpression" required>
+          <div class="invalid-feedback">Please provide a cron Expression.</div>
         </div>
-        <div class="row">
-            <div class="input-field">
-                <select id="status" name="status">
-                    <option value="true" selected>true</option>
-                    <option value="false">false</option>
-                </select>
-                <label for="status">Status</label>
-            </div>
+        <div class="col-12 mg-3">
+          <label for="status" class="form-label">Status</label>
+          <select class="form-control" id="status" name="status" required>
+            <option value=true selected>active</option>
+            <option value=false>inactive</option>
+          </select>
         </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
+        <div class="text-center mg-3 col-12">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <a href="/campaigns/viewAll" class="btn orange btn-secondary">Cancel</a>
         </div>
+      </div>
     </form>
+  </div>
 </div>
 <%- include('../layouts/footer') %>

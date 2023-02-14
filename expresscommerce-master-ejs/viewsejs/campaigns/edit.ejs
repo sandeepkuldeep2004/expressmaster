@@ -1,54 +1,65 @@
 <%- include('../layouts/header') %>
-<h3>Edit Catalog</h3>
-<div class="row">
-    <form action="/campaigns/{{campaign._id}}" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="type" name="type" value="{{campaign.type}}">
-                <label for="title">Type</label>
+<div class="card">
+    <div class="card-body col-lg-12">
+      <h5 class="card-title">Edit Campaign</h5>
+      <%if(locals.errorMessage) { %>
+      <div class="alert alert-success" role="alert">
+        <%=errorMessage%>
+      </div>
+      <% } %>
+      <!-- Vertical Form -->
+      <form action="/campaigns/<%=campaign._id%>" method="POST" class="row g-3 needs-validation">
+        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+        <div class="row col-lg-6">
+            <div class="col-12">
+              <label for="Code" class="form-label">Code</label>
+              <input type="text" class="form-control" id="code" name="code" required value="<%=campaign.code%>">
+              <div class="invalid-feedback">Please provide a Code.</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="emailTemplate" name="emailTemplate" value="{{campaign.emailTemplate}}">
-                <label for="title">Email Template</label>
+    
+            <div class="col-12 mg-3">
+              <label for="Type" class="form-label">Type</label>
+              <input type="text" class="form-control" id="type" name="type" required value="<%=campaign.type%>">
+              <div class="invalid-feedback">Please provide a Type.</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="startDate" name="startDate" value="{{campaign.startDate}}">
-                <label for="title">Start Date</label>
+            <div class="col-12 mg-3">
+              <label for="emailTemplate" class="form-label">Email Template</label>
+              <input type="text" class="form-control" id="emailTemplate" name="emailTemplate" required value="<%=campaign.emailTemplate%>">
+              <div class="invalid-feedback">Please provide a Email Template.</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="expiryDate" name="expiryDate" value="{{campaign.expiryDate}}">
-                <label for="title">Expiry Date</label>
+            <div class="col-12 mg-3">
+              <label for="startDate" class="form-label">Start Date</label>
+              <input type="date" class="form-control" id="startDate" name="startDate" required value="<%=campaign.startDate%>">
+              <div class="invalid-feedback">Please provide a startDate.</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="cronExpression" name="cronExpression" value="{{campaign.cronExpression}}">
-                <label for="title">cronExpression</label>
+            <div class="col-12 mg-3">
+              <label for="expiryDate" class="form-label">Expiry Date</label>
+              <input type="date" class="form-control" id="expiryDate" name="expiryDate" required value="<%=campaign.expiryDate%>">
+              <div class="invalid-feedback">Please provide a Expiry Date.</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <select id="status" name="status">
-                    {{#select campaign.status}}
-                    <option value="true" selected>true</option>
-                    <option value="false">false</option>
-                    {{/select}}
-                </select>
-                <label for="status">Status</label>
+            <div class="col-12 mg-3">
+              <label for="cronExpression" class="form-label">cron Expression</label>
+              <input type="text" class="form-control" id="cronExpression" name="cronExpression" required value="<%=campaign.cronExpression%>">
+              <div class="invalid-feedback">Please provide a cron Expression.</div>
             </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
-        </div>
+            <div class="col-12 mg-3">
+              <label for="status" class="form-label">Status</label>
+              <select class="form-control" id="status" name="status" required>
+                <%if(campaign.status) { %>
+                    <option value=true selected>Active</option>
+                    <option value=false>Inactive</option>
+                    <%}else{%>
+                    <option value=true>Active</option>
+                    <option value=false selected>Inactive</option>
+                <%}%>                
+              </select>
+            </div>
+            <div class="text-center mg-3 col-12">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <a href="/campaigns/viewAll" class="btn orange btn-secondary">Cancel</a>
+            </div>
+          </div>
     </form>
+</div>
 </div>
 <%- include('../layouts/footer') %>

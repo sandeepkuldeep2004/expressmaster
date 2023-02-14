@@ -14,11 +14,15 @@ const addView = "campaigns/add";
 const _404View = "error/404";
 const _500errorView = "error/500";
 
+var leftnavigationlinkactive = "campaigns";
+
 // @desc    Show add campaign
 // @route   GET /campaigns/add
 router.get("/add", ensureAuth, (req, res) => {
   res.render(addView, {
     csrfToken: req.csrfToken(),
+    leftsubnavigationlinkactive:"campaigns",
+    leftnavigationlinkactive:leftnavigationlinkactive,
   });
 });
 
@@ -42,6 +46,8 @@ router.post(
           status:req.body.status,
           errorMessage: "One of more field(s) missing",
           csrfToken: req.csrfToken(),
+          leftsubnavigationlinkactive:"campaigns",
+          leftnavigationlinkactive:leftnavigationlinkactive,
         });
       } else {
         const campaign = await CampaignModel.findOne({
@@ -60,6 +66,8 @@ router.post(
             status:req.body.status,
             errorMessage: "Campaign with same code already exists.",
             csrfToken: req.csrfToken(),
+            leftsubnavigationlinkactive:"campaigns",
+            leftnavigationlinkactive:leftnavigationlinkactive,
           });
         } else {
           await CampaignModel.create(req.body);
@@ -83,7 +91,10 @@ router.get("/viewall", ensureAuth, async (req, res) => {
     res.render(listView, {
       campaignList: campaignList,
       csrfToken: req.csrfToken(),
+      leftsubnavigationlinkactive:"campaigns",
+      leftnavigationlinkactive:leftnavigationlinkactive,
     });
+    
   } catch (err) {
     console.error(err);
     res.render(_500errorView);
@@ -105,6 +116,8 @@ router.get("/:code", ensureAuth, async (req, res) => {
     res.render(editView, {
       campaign: campaign,
       csrfToken: req.csrfToken(),
+      leftsubnavigationlinkactive:"campaigns",
+      leftnavigationlinkactive:leftnavigationlinkactive,
     });
   } catch (err) {
     console.error(err);
@@ -114,7 +127,7 @@ router.get("/:code", ensureAuth, async (req, res) => {
 
 // @desc    Update catalog
 // @route   PUT /catalogs/:_id
-router.put("/:id", ensureAuth, async (req, res) => {
+router.post("/:id", ensureAuth, async (req, res) => {
   try {
     let campaign = await CampaignModel.findById(req.params.id).lean();
     console.log(campaign);
