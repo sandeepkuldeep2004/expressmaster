@@ -88,9 +88,9 @@ $(document).ready(function () {
 
 // Events
 $('.dropdown-container')
-	.on('click', '.dropdown-button', function() {
-        $(this).siblings('.dropdown-list').toggle();
-	})
+	// .on('click', '.dropdown-button', function() {
+    //     $(this).siblings('.dropdown-list').toggle();
+	// })
 	.on('input', '.dropdown-search', function() {
     	var target = $(this);
         var dropdownList = target.closest('.dropdown-list');
@@ -112,13 +112,5 @@ $('.dropdown-container')
         var numChecked = container. find('[type="checkbox"]:checked').length;
     	container.find('.quantity').text(numChecked || 'Any');
 	});
-
-    var usStates = [
-        { name: 'ALABAMA', abbreviation: 'AL'},
-        { name: 'ALASKA', abbreviation: 'AK'},
-        { name: 'AMERICAN SAMOA', abbreviation: 'AS'},
-        { name: 'ARIZONA', abbreviation: 'AZ'},
-    ]
-
 
 });

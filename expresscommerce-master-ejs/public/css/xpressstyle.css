@@ -1284,7 +1284,7 @@ h6 {
 }
 .dropdown-container,
 .instructions {
-  width: 200px;
+  width: auto;
   margin: 20px 0 0;
   font-size: 14px;
   font-family: sans-serif;
@@ -1326,7 +1326,7 @@ h6 {
 }
 .dropdown-list ul {
   margin: 10px 0;
-  max-height: 200px;
+  max-height: 350px;
   overflow-y: auto;
   list-style: none;
   padding: 0;

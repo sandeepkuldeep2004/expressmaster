@@ -149,45 +149,39 @@
                                     <% }) %>
                                  <%}%>
                             </select>
-                        </div>
-                       
-                
-                        
-
-                       
-                                               
+                        </div>                    
                     </div>
+                    <!-- Category started here -->
                     <div class="tab-pane" id="category" role="tabpanel">
-                        <h5 class="card-title">Add Category</h5>
-                        <div class="col-12 mg-3">
-                            <div class="instructions">(Click to expand and select states to filter)</div>
+                        <h5 class="card-title">Select Categories</h5>
+                        <div class="col-12 mg-3">                            
                             <div class="dropdown-container">
                                 <div class="dropdown-button noselect">
-                                    <div class="dropdown-label">States</div>
+                                    <div class="dropdown-label">Category list</div>
                                     <div class="dropdown-quantity">(<span class="quantity">Any</span>)</div>
                                     <i class="fa fa-filter"></i>
                                 </div>
-                                <div class="dropdown-list" style="display: none;">
-                                    <input type="search" placeholder="Search states" class="dropdown-search" />
+                                <div class="dropdown-list form-group">
+                                    <input type="search" placeholder="Search states" class="dropdown-search form-control" />
                                     <ul>
                                         <% categoriesList.categories.forEach(categoriesListIrr => { %> 
 
                                         <li style="display: list-item;">
                                             <input name="<%=categoriesListIrr._id%>" value="<%=categoriesListIrr._id%>" type="checkbox">
-                                            <label for="AL"><%=categoriesListIrr.title%></label>
+                                            <label for="AL" class="form-label"><%=categoriesListIrr.title%></label>
                                         </li>
                                         <% categoriesListIrr.categories.forEach(categoriesListIrr1 => { %>
                                             
                                             <li style="display: list-item;">
                                                &nbsp; &nbsp;<input name="<%=categoriesListIrr1._id%>" value="<%=categoriesListIrr1._id%>" type="checkbox">
-                                                <label for="AL"><%=categoriesListIrr1.title%></label>
+                                                <label for="AL" class="form-label"><%=categoriesListIrr1.title%></label>
                                             </li>
 
                                             <% categoriesListIrr1.categories.forEach(categoriesListIrr2 => { %>
                                             
                                                 <li style="display: list-item;">
                                                    &nbsp; &nbsp;&nbsp; &nbsp; <input name="<%=categoriesListIrr2._id%>" value="<%=categoriesListIrr2._id%>" type="checkbox">
-                                                    <label for="AL"><%=categoriesListIrr2.title%></label>
+                                                    <label for="AL" class="form-label"><%=categoriesListIrr2.title%></label>
                                                 </li>
                                                 
                                                 <% }) %>
