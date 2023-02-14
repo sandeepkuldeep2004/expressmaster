@@ -50,61 +50,112 @@
                             <div class="invalid-feedback">Please provide a Name.</div>
                         </div>
                         <div class="col-12 mg-3">
-                            <label for="inputPassword4" class="form-label">brand</label>
-                            <input type="text" id="url" name="url" class="form-control">
-                        </div>
-                        <div class="col-12 mg-3">
-                            <label for="inputAddress" class="form-label">description</label>
-                            <input type="text" id="cssclassname" name="cssclassname" class="form-control" required>
+                            <label for="inputAddress" class="form-label">Description</label>
+                            <input type="text" id="cssclassname" name="cssclassname" class="form-control" >
                             <div class="invalid-feedback">Please provide a Class Name.</div>
                         </div>
+
                         <div class="col-12 mg-3">
-                            <label for="inputEmail4" class="form-label">productType</label>
-                            <select class="form-control" id="status" name="status" required="">
-                                <option value="ORDINARY" selected>ORDINARY</option>
-                                <option value="VARIANT">VARIANT</option>
-                                <option value="BUNDLE">BUNDLE</option>
-                                <option value="WARRANTY">WARRANTY</option>
-                                <option value="DIGITAL">DIGITAL</option>
+                            <label for="inputEmail4" class="form-label">Catalog</label>
+                            <select class="form-control" id="catalog" name="catalog" required>
+                                <%if (catalogList) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% catalogList.forEach(catalogListIrr=> { %>
+                                        <%if(String(catalogListIrr._id)) { %>
+                                        <option value="<%=catalogListIrr._id%>" selected><%=catalogListIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=catalogListIrr._id%>"><%=catalogListIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
                             </select>
                         </div>
+
                         <div class="col-12 mg-3">
-                            <label for="inputEmail4" class="form-label">unit</label>
-                            <select class="form-control" id="status" name="status" required="">
-                                <option value="active" selected>EA</option>
-                                <option value="NOS">NOS</option>
-                                <option value="PKG">PKG</option>
-                                <option value="KIT">KIT</option>
-                                <option value="KG">KG</option>
-                                <option value="GM">GM</option>
-                                <option value="MTR">MTR</option>
-                                <option value="CM">CM</option>
-                                <option value="LTR">LTR</option>
+                            <label for="inputEmail4" class="form-label">Brand</label>
+                            <select class="form-control" id="brand" name="brand" >
+                                <%if (brandList) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% brandList.forEach(brandListIrr=> { %>
+                                        <%if(String(brandListIrr._id)) { %>
+                                        <option value="<%=brandListIrr._id%>" selected><%=brandListIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=brandListIrr._id%>"><%=brandListIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
                             </select>
                         </div>
+
                         <div class="col-12 mg-3">
-                            <label for="inputEmail4" class="form-label">status</label>
-                            <select class="form-control" id="status" name="status" required="">
-                                <option value="active" selected>active</option>
-                                <option value="inactive">inactive</option>
+                            <label for="inputEmail4" class="form-label">Product Type</label>
+                            <select class="form-control" id="productType" name="productType" >
+                                <%if (ProductTypeArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(ProductTypeArr).forEach(function(key) { %>
+                                        <%if(String(ProductTypeArr[key])) { %>
+                                        <option value="<%=key%>" selected><%=ProductTypeArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=ProductTypeArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
                             </select>
                         </div>
+
                         <div class="col-12 mg-3">
-                            <label for="inputEmail4" class="form-label">inUseStatus</label>
-                            <select class="form-control" id="status" name="status" required="">
-                                <option value="NEW">NEW</option>
-                                <option value="OBSOLETE">OBSOLETE</option>
-                                <option value="CONTEMPORARY" selected>CONTEMPORARY</option>
-                                <option value="TREND">TREND</option>
+                            <label for="inputEmail4" class="form-label">In Use Status</label>
+                            <select class="form-control" id="inUseStatus" name="inUseStatus">
+                                <%if (inUseStatusArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(inUseStatusArr).forEach(function(key) { %>
+                                        <%if(String(inUseStatusArr[key])) { %>
+                                        <option value="<%=key%>" selected><%=inUseStatusArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=inUseStatusArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
                             </select>
                         </div>
+
                         <div class="col-12 mg-3">
-                            <label for="inputEmail4" class="form-label">fsnStatus</label>
-                            <select class="form-control" id="status" name="status" required="">
-                                <option value="active" selected>active</option>
-                                <option value="inactive">inactive</option>
+                            <label for="inputEmail4" class="form-label">Unit</label>
+                            <select class="form-control" id="unit" name="unit" required="">
+                                <%if (unitTypeArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(unitTypeArr).forEach(function(key) { %>
+                                        <%if(String(unitTypeArr[key])) { %>
+                                        <option value="<%=key%>" selected><%=unitTypeArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=unitTypeArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
                             </select>
-                        </div>                        
+                        </div>
+                        
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Status</label>
+                            <select class="form-control" id="status" name="status" >
+                                <%if (fnsStatusArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(statusArr).forEach(function(key) { %>
+                                        <%if(String(statusArr[key])) { %>
+                                        <option value="<%=key%>" selected><%=statusArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=statusArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+                       
+                
+                        
+
+                       
+                                               
                     </div>
                     <div class="tab-pane" id="category" role="tabpanel">
                         <h5 class="card-title">Add Category</h5>
@@ -155,54 +206,92 @@
                     <div class="tab-pane" id="price" role="tabpanel">
                         <h5 class="card-title">Add Product Price</h5>
                         <div class="col-12 mg-3">
-                            <label for="inputNanme4" class="form-label">price</label>
-                            <input type="text" class="form-control" id="code" name="code" required>
+                            <label for="inputNanme4" class="form-label">Price</label>
+                            <input type="text" class="form-control" id="pricevalue" name="pricevalue">
                             <div class="invalid-feedback">Please provide a Code.</div>
                         </div>
+
                         <div class="col-12 mg-3">
-                            <label for="inputEmail4" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                            <div class="invalid-feedback">Please provide a Name.</div>
+                            <label for="inputEmail4" class="form-label">Currency</label>
+                            <select class="form-control" id="catalog" name="catalog" required="">
+                                <%if (currencyList) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% currencyList.forEach(currencyListIrr=> { %>
+                                        <%if(String(currencyListIrr._id)) { %>
+                                        <option value="<%=currencyListIrr._id%>" selected><%=currencyListIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=currencyListIrr._id%>"><%=currencyListIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
                         </div>
-                        <div class="col-12 mg-3">
-                            <label for="inputPassword4" class="form-label">landing Url</label>
-                            <input type="text" id="url" name="url" class="form-control">
-                        </div>
-                        <div class="col-12 mg-3">
-                            <label for="inputAddress" class="form-label">Class Name</label>
-                            <input type="text" id="cssclassname" name="cssclassname" class="form-control" required>
-                            <div class="invalid-feedback">Please provide a Class Name.</div>
-                        </div>
-                        <div class="col-12 mg-3">
-                            <label for="inputAddress" class="form-label">Position</label>
-                            <input type="number" id="position" name="position" class="form-control" required>
-                            <div class="invalid-feedback">Please provide a Position.</div>
-                        </div>                       
                     </div>
                     <div class="tab-pane" id="stock" role="tabpanel">
                         <h5 class="card-title">Add Product Stock</h5>
                         <div class="col-12 mg-3">
-                            <label for="inputNanme4" class="form-label">Code</label>
-                            <input type="text" class="form-control" id="code" name="code" required>
+                            <label for="inputNanme4" class="form-label">Available Qty</label>
+                            <input type="number" class="form-control" id="availableQty" name="availableQty" >
                             <div class="invalid-feedback">Please provide a Code.</div>
                         </div>
+
                         <div class="col-12 mg-3">
-                            <label for="inputEmail4" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                            <div class="invalid-feedback">Please provide a Name.</div>
+                            <label for="inputEmail4" class="form-label">Ware House</label>
+                            <select class="form-control" id="catalog" name="catalog">
+                                <%if (activeWarehouseList) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% activeWarehouseList.forEach(activeWarehouseListIrr=> { %>
+                                        <%if(String(activeWarehouseListIrr._id)) { %>
+                                        <option value="<%=activeWarehouseListIrr._id%>" selected><%=activeWarehouseListIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=activeWarehouseListIrr._id%>"><%=activeWarehouseListIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+                       
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">In Stock Status</label>
+                            <select class="form-control" id="inStockStatus" name="inStockStatus" >
+                                <%if (fnsStatusArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(inStockStatusArr).forEach(function(key) { %>
+                                        <%if(String(inStockStatusArr[key])) { %>
+                                        <option value="<%=key%>" selected><%=inStockStatusArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=inStockStatusArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+
+                        
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">Max Pre Order</label>
+                            <input type="number" id="maxPreOrder" name="maxPreOrder" class="form-control">
                         </div>
                         <div class="col-12 mg-3">
-                            <label for="inputPassword4" class="form-label">landing Url</label>
-                            <input type="text" id="url" name="url" class="form-control">
-                        </div>
-                        <div class="col-12 mg-3">
-                            <label for="inputAddress" class="form-label">Class Name</label>
-                            <input type="text" id="cssclassname" name="cssclassname" class="form-control" required>
+                            <label for="inputAddress" class="form-label">Max Stock Level History Count</label>
+                            <input type="number" id="maxStockLevelHistoryCount" name="maxStockLevelHistoryCount" class="form-control">
                             <div class="invalid-feedback">Please provide a Class Name.</div>
                         </div>
                         <div class="col-12 mg-3">
-                            <label for="inputAddress" class="form-label">Position</label>
-                            <input type="number" id="position" name="position" class="form-control" required>
+                            <label for="inputAddress" class="form-label">Over Selling</label>
+                            <input type="number" id="overSelling" name="overSelling" class="form-control">
+                            <div class="invalid-feedback">Please provide a Position.</div>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Reserved</label>
+                            <input type="number" id="reserved" name="reserved" class="reserved" class="form-control">
+                            <div class="invalid-feedback">Please provide a Position.</div>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Pre Order</label>
+                            <input type="number" id="preOrder" name="preOrder" class="preOrder" value="0" class="form-control">
                             <div class="invalid-feedback">Please provide a Position.</div>
                         </div>
                     </div>

@@ -6,11 +6,8 @@ const { getProductDTOByProductModelService,getProductsService } = require("../..
 const { getCatalogListService } = require('../../services/catalog');
 const { getAllBrandDataService } = require('../../services/brand');
 const { fetchSuperCategoriesService } = require('../../services/category');
-
-
-
-
-
+const { getActiveCurrencyList } = require('../../services/currency');
+const { getActiveWarehouseList } = require('../../services/warehouse');
 
 
 const ProductTypeArr = {"ORDINARY":"ORDINARY", "VARIANT":"VARIANT","BUNDLE":"BUNDLE", "WARRANTY":"WARRANTY","DIGITAL":"DIGITAL"}
@@ -18,10 +15,7 @@ const unitTypeArr = {"EA":"EA", "NOS":"NOS", "PKG":"PKG", "KIT":"KIT", "KG":"KG"
 const inUseStatusArr = {"NEW":"NEW", "OBSOLETE":"OBSOLETE", "CONTEMPORARY":"CONTEMPORARY", "TREND":"TREND"}
 const statusArr = {"ACTIVE":"ACTIVE", "INACTIVE":"INACTIVE", "SUSPENDED":"SUSPENDED"}
 const fnsStatusArr = {"FASTMOVING":"FASTMOVING", "SLOWMOVING":"SLOWMOVING", "NONMOVING":"NONMOVING"}
-
-
-
-
+const inStockStatusArr = {"notSpecified":"notSpecified", "outOfStock":"outOfStock", "forceInStock":"forceInStock"}
 
 
 var leftnavigationlinkactive = "manageCatalogs";
@@ -140,6 +134,8 @@ router.get("/add", async (req, res) => {
  const catalogList= await getCatalogListService("active");
  const brandList=await getAllBrandDataService();
 const categoriesList= await fetchSuperCategoriesService(10);
+const currencyList= await getActiveCurrencyList();
+const activeWarehouseList= await getActiveWarehouseList();
 console.log(categoriesList);
 
 
@@ -154,6 +150,10 @@ console.log(categoriesList);
     leftnavigationlinkactive:leftnavigationlinkactive,
     leftsubnavigationlinkactive:"products",
     categoriesList:categoriesList,
+    brandList:brandList,
+    currencyList:currencyList,
+    inStockStatusArr:inStockStatusArr,
+    activeWarehouseList:activeWarehouseList,
 
   });
 });

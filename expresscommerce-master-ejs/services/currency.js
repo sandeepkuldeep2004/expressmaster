@@ -19,6 +19,13 @@ const getCurrencyById = async function(id){
   return await  CurrencyModel.findById(id).lean();
 }
 
+// @desc    fetch all Currency
+//@param {active}
+const getActiveCurrencyList = async function(){ 
+
+  return await CurrencyModel.find({status:"active"}).lean();
+}
+
 module.exports={
-  getCurrencyList, getCurrencyByIsoCode,getCurrencyById
+  getCurrencyList, getCurrencyByIsoCode,getCurrencyById,getActiveCurrencyList
 }
