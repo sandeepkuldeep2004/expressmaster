@@ -85,14 +85,22 @@ async function populateProduct(products) {
 
 // @desc    Delete product from DB
 // @route   DELETE /products/remove/:id
-router.delete("/remove/:id", async (req, res) => {
+router.post("/remove/:id", async (req, res) => {
+ 
   try {
-    console.log(req.params)
-    // removeCustomerInSolr(req.params.id);
+    let productDetail = await ProductModel.findById({
+      _id: req.params.id,
+    }).lean();
+    if (!productDetail) {
+      return res.render(_404View);
+    }
+    await ProductModel.remove({ _id: req.params.id });
+    await ProductStockModel.remove({ productCode: productDetail.code,catalog:productDetail.catalog });
+    await ProductPriceModel.remove({ productCode: productDetail.code,catalog:productDetail.catalog });
     res.redirect("/products");
   } catch (err) {
     console.error(err);
-    return res.render("error/500");
+    return res.render(_500errorView);
   }
 });
 
