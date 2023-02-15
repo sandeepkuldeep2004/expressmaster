@@ -120,4 +120,16 @@ module.exports = {
     ]).lean();
   return products;
   },
+  getProductByIds : async function (code) {
+    console.log("sdfsdf"+code);
+    const products1= await ProductModel.findOne({ code: code })
+    .populate([
+      { path: 'medias', model: 'Media', select: 'code priority main thumbnail type -_id', populate: { path: 'catalog', select: 'code -_id' } },
+      { path: 'categories', model: 'Category', select: 'code title' },
+      { path: 'catalog', select: 'code -_id', },
+      { path: 'baseProduct', select: 'code ' }
+    ]).lean();
+    console.log("pppp"+products1);
+    return products1;
+},
 };

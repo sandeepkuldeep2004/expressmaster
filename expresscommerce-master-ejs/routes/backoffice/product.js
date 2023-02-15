@@ -5,7 +5,7 @@ const ProductModel = require('../../models/Product')
 const ProductPriceModel = require('../../models/ProductPrice')
 const { ensureAuth } = require("../../middleware/auth");
 const { saveProductViaWeb } = require("../../dao/Product");
-const { getProductDTOByProductModelService,getProductsService } = require("../../services/product");
+const { getProductDTOByProductModelService,getProductsService, getProductByIdService,getProductByCodeService } = require("../../services/product");
 const { getCatalogListService,getCatalogByIdService } = require('../../services/catalog');
 const { getAllBrandDataService,getBrandById } = require('../../services/brand');
 const { fetchSuperCategoriesService } = require('../../services/category');
@@ -105,51 +105,7 @@ router.post("/remove/:id", async (req, res) => {
 });
 
 
-// @desc    Show product edit page
-// @route   GET /products/update/:id
-router.get("/:id", async (req, res) => {
-  const catalogList= await getCatalogListService("active");
- const brandList=await getAllBrandDataService();
-const categoriesList= await fetchSuperCategoriesService(10);
-const currencyList= await getActiveCurrencyList();
-const activeWarehouseList= await getActiveWarehouseList();
-  try {
-    
 
-    res.render("products/edit", {
-      csrfToken: req.csrfToken(),
-      ProductTypeArr:ProductTypeArr,
-      unitTypeArr:unitTypeArr,
-      inUseStatusArr:inUseStatusArr,
-      statusArr:statusArr,
-      fnsStatusArr:fnsStatusArr,
-      catalogList:catalogList,
-      leftnavigationlinkactive:leftnavigationlinkactive,
-      leftsubnavigationlinkactive:"products",
-      categoriesList:categoriesList,
-      brandList:brandList,
-      currencyList:currencyList,
-      inStockStatusArr:inStockStatusArr,
-      activeWarehouseList:activeWarehouseList,
-    });
-  } catch (err) {
-    console.error(err);
-    return res.render("error/500");
-  }
-});
-
-// @desc    Update Product inDB
-// @route   PUT /products/update/:id
-router.put("/update/:id", async (req, res) => {
-  try {
-    //await updateCustomerInSolr(req.body);
-
-    res.redirect("/products");
-  } catch (err) {
-    console.error(err);
-    return res.render("error/500");
-  }
-});
 
 // @desc    Show add page
 // @route   GET /solr/customer/add
@@ -315,6 +271,64 @@ router.post("/add", ensureAuth, [
   } catch (err) {
     console.error(err);
     res.render(_500errorView);
+  }
+});
+
+// @desc    Show product edit page
+// @route   GET /products/update/:id
+router.get("/:code", async (req, res) => {
+  console.log("existpro"+req.params.code);
+  const productDetail= await getProductByCodeService(req.params.code);
+if(productDetail.categories){
+var cateSelectedArr=[];
+for(var i=0; i<productDetail.categories.length; i++) {
+  cateSelectedArr.push(String(productDetail.categories[i]))
+}
+}
+console.log(cateSelectedArr);
+
+const catalogList= await getCatalogListService("active");
+const brandList=await getAllBrandDataService();
+const categoriesList= await fetchSuperCategoriesService(10);
+const currencyList= await getActiveCurrencyList();
+const activeWarehouseList= await getActiveWarehouseList();
+  try {
+    
+
+    res.render("products/edit", {
+      csrfToken: req.csrfToken(),
+      ProductTypeArr:ProductTypeArr,
+      unitTypeArr:unitTypeArr,
+      inUseStatusArr:inUseStatusArr,
+      statusArr:statusArr,
+      fnsStatusArr:fnsStatusArr,
+      catalogList:catalogList,
+      leftnavigationlinkactive:leftnavigationlinkactive,
+      leftsubnavigationlinkactive:"products",
+      categoriesList:categoriesList,
+      brandList:brandList,
+      currencyList:currencyList,
+      inStockStatusArr:inStockStatusArr,
+      activeWarehouseList:activeWarehouseList,
+      productDetail:productDetail,
+      cateSelectedArr:cateSelectedArr,
+    });
+  } catch (err) {
+    console.error(err);
+    return res.render("error/500");
+  }
+});
+
+// @desc    Update Product inDB
+// @route   PUT /products/update/:id
+router.put("/update/:id", async (req, res) => {
+  try {
+    //await updateCustomerInSolr(req.body);
+
+    res.redirect("/products");
+  } catch (err) {
+    console.error(err);
+    return res.render("error/500");
   }
 });
 

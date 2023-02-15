@@ -5,7 +5,7 @@ const { getDefaultBaseSite } = require("./basesite");
 const { fetchProductStockService,getProductStockService } = require("../services/stocklevel");
 const { getRatingDataService } = require("../services/customerReview");
 const { getLanguageByIsoCodeService } = require("../services/language");
-const { getProducts } = require("../dao/Product");
+const { getProducts,getProductByIds } = require("../dao/Product");
 
 // @desc    fetch all active Catalogs
 //@param {active}
@@ -196,8 +196,7 @@ const getProductByCodeService = async function (code) {
   return await ProductModel.findOne({ code: code })
     .populate([
       { path: 'medias', model: 'Media', select: 'code priority main thumbnail type -_id', populate: { path: 'catalog', select: 'code -_id' } },
-      { path: 'categories', model: 'Category', select: 'code title' },
-      { path: 'catalog', select: 'code -_id', },
+      { path: 'catalog', select: 'code _id', },
       { path: 'baseProduct', select: 'code ' }
     ]).lean();
 }
@@ -209,7 +208,7 @@ const getProductService = async function (code, catalog) {
   return ProductModel.findOne({ code: code, catalog: catalog })
     .populate([
       { path: 'medias', model: 'Media', select: 'code priority main thumbnail type _id', populate: { path: 'catalog', select: 'code -_id' } },
-      { path: 'categories', model: 'Category', select: 'code title' },
+      { path: 'categories', model: 'Category', select: '_id code title' },
       { path: 'catalog', select: 'code -_id', },
       { path: 'baseProduct', populate: { path: 'variants', populate: { path: 'medias', } } },
       { path: 'variants', populate: { path: 'medias', } }
@@ -223,14 +222,21 @@ const getProductByBaseProductService = async function (baseProductCode, catalog)
 
 // @desc    fetch product by Id
 //@param {code}
-const getProductByIdService = async function (id) {
-  return ProductModel.findOne({ _id: id })
-    .populate([
-      { path: 'medias', model: 'Media', select: 'code priority main thumbnail type -_id', populate: { path: 'catalog', select: 'code -_id' } },
-      { path: 'categories', model: 'Category', select: 'code title' },
-      { path: 'catalog', select: 'code -_id', },
-      { path: 'baseProduct', select: 'code ' }
-    ]).lean();
+
+
+const getProductByIdService = async function (code){
+  //var valueArr = codes.split(', ')
+  console.log("ids",+code);
+
+  const productDataDetail = await getProductByIds(code);
+
+  console.log("Searching all tewere fff products",+productDataDetail.code);
+
+  var productList=[];
+ 
+  console.log("Searching all tewere products",+productList)
+
+  return productList;
 }
 
 

@@ -43,30 +43,31 @@
 
                         <div class="col-12 mg-3">
                             <label for="inputNanme4" class="form-label">Code</label>
-                            <input type="text" class="form-control" id="code" name="code" required>
+                            <input type="text" class="form-control" id="code" name="code" value="<%=productDetail.code%>" required>
                             <div class="invalid-feedback">Please provide a Code.</div>
                         </div>
                         <div class="col-12 mg-3">
                             <label for="inputEmail4" class="form-label">Name</label>
-                            <input type="text" id="title" name="title" class="form-control" required>
+                            <input type="text" id="title" name="title" class="form-control" value="<%=productDetail.title%>" required>
                             <div class="invalid-feedback">Please provide a Name.</div>
                         </div>
                         <div class="col-12 mg-3">
                             <label for="inputAddress" class="form-label">Description</label>
-                            <input type="text" id="description" name="description" class="form-control" >
+                            <input type="text" id="description" name="description" class="form-control" value="<%=productDetail
+                            .description%>">
                             <div class="invalid-feedback">Please provide a Class Name.</div>
                         </div>
-
                         <div class="col-12 mg-3">
                             <label for="inputEmail4" class="form-label">Catalog</label>
                             <select class="form-control" id="catalog" name="catalog" required>
+                                
                                 <%if (catalogList) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% catalogList.forEach(catalogListIrr=> { %>
-                                        <%if(String(catalogListIrr._id)) { %>
-                                        <option value="<%=catalogListIrr._id%>"><%=catalogListIrr.name%></option>
+                                        <%if(String(catalogListIrr._id)==String(productDetail.catalog._id)) { %>
+                                        <option value="<%=catalogListIrr._id%>" selected><%=catalogListIrr.name%></option>
                                         <%}else{%>
-                                            <option value="<%=catalogListIrr._id%>"><%=catalogListIrr.name%></option>
+                                            <option value="<%=catalogListIrr._id%>"><%= catalogListIrr.name%></option>
                                         <%}%>
                                     <% }) %>
                                  <%}%>
@@ -79,8 +80,8 @@
                                 <%if (brandList) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% brandList.forEach(brandListIrr=> { %>
-                                        <%if(String(brandListIrr._id)) { %>
-                                        <option value="<%=brandListIrr.name%>"><%=brandListIrr.name%></option>
+                                        <%if(String(brandListIrr.name)== productDetail.brand) { %>
+                                        <option value="<%=brandListIrr.name%>" selected><%=brandListIrr.name%></option>
                                         <%}else{%>
                                             <option value="<%=brandListIrr.name%>"><%=brandListIrr.name%></option>
                                         <%}%>
@@ -95,8 +96,8 @@
                                 <%if (ProductTypeArr) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% Object.keys(ProductTypeArr).forEach(function(key) { %>
-                                        <%if(String(ProductTypeArr[key])) { %>
-                                        <option value="<%=key%>" ><%=ProductTypeArr[key]%></option>
+                                        <%if(String(ProductTypeArr[key])==productDetail.productType) { %>
+                                        <option value="<%=key%>" selected ><%=ProductTypeArr[key]%></option>
                                         <%}else{%>
                                             <option value="<%=key%>"><%=ProductTypeArr[key]%></option>
                                         <%}%>
@@ -111,8 +112,8 @@
                                 <%if (inUseStatusArr) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% Object.keys(inUseStatusArr).forEach(function(key) { %>
-                                        <%if(String(inUseStatusArr[key])) { %>
-                                        <option value="<%=key%>" ><%=inUseStatusArr[key]%></option>
+                                        <%if(String(inUseStatusArr[key])==productDetail.inUseStatus) { %>
+                                        <option value="<%=key%>" selected><%=inUseStatusArr[key]%></option>
                                         <%}else{%>
                                             <option value="<%=key%>"><%=inUseStatusArr[key]%></option>
                                         <%}%>
@@ -127,8 +128,8 @@
                                 <%if (unitTypeArr) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% Object.keys(unitTypeArr).forEach(function(key) { %>
-                                        <%if(String(unitTypeArr[key])) { %>
-                                        <option value="<%=key%>" ><%=unitTypeArr[key]%></option>
+                                        <%if(String(unitTypeArr[key])==productDetail.unit ) { %>
+                                        <option value="<%=key%>" selected ><%=unitTypeArr[key]%></option>
                                         <%}else{%>
                                             <option value="<%=key%>"><%=unitTypeArr[key]%></option>
                                         <%}%>
@@ -143,8 +144,8 @@
                                 <%if (fnsStatusArr) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% Object.keys(statusArr).forEach(function(key) { %>
-                                        <%if(String(statusArr[key])) { %>
-                                        <option value="<%=key%>" ><%=statusArr[key]%></option>
+                                        <%if(String(statusArr[key])==productDetail.status) { %>
+                                        <option value="<%=key%>" selected ><%=statusArr[key]%></option>
                                         <%}else{%>
                                             <option value="<%=key%>"><%=statusArr[key]%></option>
                                         <%}%>
@@ -169,21 +170,50 @@
                                         <% categoriesList.categories.forEach(categoriesListIrr => { %> 
 
                                         <li style="display: list-item;">
+                                            <%
+                                            if(cateSelectedArr.length >0 && cateSelectedArr.includes(String(categoriesListIrr._id))){
+                                                
+                                            %>
+                                            <input name="<%=categoriesListIrr._id%>" value="<%=categoriesListIrr._id%>" type="checkbox" checked>
+                                           <% }else{%>
                                             <input name="<%=categoriesListIrr._id%>" value="<%=categoriesListIrr._id%>" type="checkbox">
+
+                                        <% }%>
+
                                             <label for="AL" class="form-label"><%=categoriesListIrr.title%></label>
                                         </li>
                                         <% categoriesListIrr.categories.forEach(categoriesListIrr1 => { %>
                                             
                                             <li style="display: list-item;">
-                                               &nbsp; &nbsp;<input name="<%=categoriesListIrr1._id%>" value="<%=categoriesListIrr1._id%>" type="checkbox">
-                                                <label for="AL" class="form-label"><%=categoriesListIrr1.title%></label>
+
+                                                <%
+                                                if(cateSelectedArr.length >0 && cateSelectedArr.includes(String(categoriesListIrr1._id))){
+                                                    
+                                                %>
+                                                &nbsp; &nbsp;<input name="<%=categoriesListIrr1._id%>" value="<%=categoriesListIrr1._id%>" type="checkbox" checked>
+                                                <% }else{%>
+                                                    &nbsp; &nbsp;<input name="<%=categoriesListIrr1._id%>" value="<%=categoriesListIrr1._id%>" type="checkbox">
+    
+                                            <% }%>
+                                            <label for="AL" class="form-label"><%=categoriesListIrr1.title%></label>
+
                                             </li>
 
                                             <% categoriesListIrr1.categories.forEach(categoriesListIrr2 => { %>
                                             
                                                 <li style="display: list-item;">
-                                                   &nbsp; &nbsp;&nbsp; &nbsp; <input name="<%=categoriesListIrr2._id%>" value="<%=categoriesListIrr2._id%>" type="checkbox">
-                                                    <label for="AL" class="form-label"><%=categoriesListIrr2.title%></label>
+
+                                                    <%
+                                                    if(cateSelectedArr.length >0 && cateSelectedArr.includes(String(categoriesListIrr2._id))){
+                                                        
+                                                    %>
+                                                    &nbsp; &nbsp;&nbsp; &nbsp; <input name="<%=categoriesListIrr2._id%>" value="<%=categoriesListIrr2._id%>" checked type="checkbox">
+                                                    <% }else{%>
+                                                        &nbsp; &nbsp;&nbsp; &nbsp; <input name="<%=categoriesListIrr2._id%>" value="<%=categoriesListIrr2._id%>" type="checkbox">
+        
+                                                <% }%>
+                                                <label for="AL" class="form-label"><%=categoriesListIrr2.title%></label>
+
                                                 </li>
                                                 
                                                 <% }) %>
