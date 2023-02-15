@@ -8,11 +8,11 @@ const ProductPriceSchema = new mongoose.Schema({
   priceValue: {
     type: Number,
     default:0,
-    required:true,
+    required:false,
   },
   currencyIsoCode: {
     type: String,
-    required:true,
+    required:false,
   },
   priceGroup: {
     type: String,
@@ -28,7 +28,7 @@ const ProductPriceSchema = new mongoose.Schema({
   },
   unit: {
     type: String,
-    required:true,
+    required:false,
   },
   unitFactor: {
     type: Number,

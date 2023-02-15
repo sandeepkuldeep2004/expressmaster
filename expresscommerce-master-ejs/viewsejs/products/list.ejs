@@ -36,11 +36,24 @@
                     <% response.result.forEach(productList => { %> 
                         <tr>
                             <td><span class="dash-status"></span><%=productList.code%><span></td>
-                                <td><span class="dash-status"></span><img src="<%=productList.medias.thumbnail.replace('http://localhost:5000','')%>" alt="<%=productList.title%>" width="30" height="30">                                    <span></td>
-                            <td><span class="dash-status"></span><%=productList.title%></span></td>
-                            <td><span class="dash-status"></span><%=productList.catalog.code%></span></td>
-                            <td><span class="dash-status"></span><%=productList.price.currencyIsoCode%> <%=productList.price.priceValue%></span></td>
-                            <td><span class="dash-status"></span><%=productList.stock.availableQty%></span></td>
+                                <% if(productList.medias){ %> 
+                                    <td><span class="dash-status"></span><img src="<%=productList.medias.thumbnail.replace('http://localhost:5000','')%>" alt="<%=productList.title%>" width="30" height="30">                                    <span></td>
+
+                                    <%} else{%> 
+                                        <td>&nbsp;</td>
+                                        <%}%> 
+                                    <td><span class="dash-status"></span><%=productList.title%></span></td>
+                                    <td><span class="dash-status"></span><%=productList.catalog.code%></span></td>
+                            <% if(productList.price){ %> 
+                                    <td><span class="dash-status"></span><%=productList.price.currencyIsoCode%> <%=productList.price.priceValue%></span></td>
+                                <%} else{%> 
+                                    <td>&nbsp;</td>
+                                    <%}%> 
+                                    <% if(productList.stock){ %> 
+                                        <td><span class="dash-status"></span><%=productList.stock.availableQty%></span></td>
+                                    <%} else{%> 
+                                        <td>&nbsp;</td>
+                                        <%}%> 
                             <td><span class="dash-status"></span><%=productList.status%></span></td>
 
                             <td>

@@ -7,18 +7,18 @@ const ProductStockSchema = new mongoose.Schema({
   },
   warehouseCode: {
     type: String,
-    required:true,
+    required:false,
   },
   availableQty: {
     type: Number,
     default:0,
-    required:true,
+    required:false,
   },
   inStockStatus: {
     type: String,
     default:'notSpecified',
     enum:['notSpecified','forceInStock','outOfStock'],
-    required:true,
+    required:false,
   },
   maxPreOrder: {
     type: Number,

@@ -1,13 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const { body, validationResult } = require("express-validator");
 const ProductModel = require('../../models/Product')
+const ProductPriceModel = require('../../models/ProductPrice')
+const { ensureAuth } = require("../../middleware/auth");
 const { saveProductViaWeb } = require("../../dao/Product");
 const { getProductDTOByProductModelService,getProductsService } = require("../../services/product");
-const { getCatalogListService } = require('../../services/catalog');
-const { getAllBrandDataService } = require('../../services/brand');
+const { getCatalogListService,getCatalogByIdService } = require('../../services/catalog');
+const { getAllBrandDataService,getBrandById } = require('../../services/brand');
 const { fetchSuperCategoriesService } = require('../../services/category');
 const { getActiveCurrencyList } = require('../../services/currency');
 const { getActiveWarehouseList } = require('../../services/warehouse');
+const ProductStockModel = require('../../models/ProductStock')
+
 
 
 const ProductTypeArr = {"ORDINARY":"ORDINARY", "VARIANT":"VARIANT","BUNDLE":"BUNDLE", "WARRANTY":"WARRANTY","DIGITAL":"DIGITAL"}
@@ -128,7 +133,7 @@ router.put("/update/:id", async (req, res) => {
 
 // @desc    Show add page
 // @route   GET /solr/customer/add
-router.get("/add", async (req, res) => {
+router.get("/add",ensureAuth, async (req, res) => {
   console.log("inllll");
 
  const catalogList= await getCatalogListService("active");
@@ -136,7 +141,7 @@ router.get("/add", async (req, res) => {
 const categoriesList= await fetchSuperCategoriesService(10);
 const currencyList= await getActiveCurrencyList();
 const activeWarehouseList= await getActiveWarehouseList();
-console.log(categoriesList);
+//console.log(categoriesList);
 
 
   res.render("products/add", {
@@ -160,17 +165,136 @@ console.log(categoriesList);
 
 // @desc    Create Customer in solr index
 // @route   POST /solr/customer/add
-router.post("/add", async (req, res) => {
+
+router.post("/add", ensureAuth, [
+  body("code").notEmpty(),
+  body("title").notEmpty()], async (req, res) => {
+  //const accessmoules=JSON.parse(req.body.modulename);
+  //console.log(accessmoules)
+
+  console.log("pasedsfsdfsdf");
   try {
-    //await createCustomerInSolr(req.body);
-    var response = await saveProductViaWeb(req.body);
-    console.log("Product creation response: ", response);
-    res.render("products/add", {
-      error: response
-    });
+    const catalogList= await getCatalogListService("active");
+    const brandList=await getAllBrandDataService();
+    const categoriesList= await fetchSuperCategoriesService(10);
+    const currencyList= await getActiveCurrencyList();
+    const activeWarehouseList= await getActiveWarehouseList();
+    const errors = validationResult(req);
+    console.log(errors);
+
+    if (!errors.isEmpty()) {
+      return res.render("products/add", {
+        code: req.body.isocode,
+        title: req.body.title,
+        errorMessage: "One or more value for mandatory field(s) missing",
+        csrfToken: req.csrfToken(),
+        ProductTypeArr:ProductTypeArr,
+        unitTypeArr:unitTypeArr,
+        inUseStatusArr:inUseStatusArr,
+        statusArr:statusArr,
+        fnsStatusArr:fnsStatusArr,
+        catalogList:catalogList,
+        leftnavigationlinkactive:leftnavigationlinkactive,
+        leftsubnavigationlinkactive:"products",
+        categoriesList:categoriesList,
+        brandList:brandList,
+        currencyList:currencyList,
+        inStockStatusArr:inStockStatusArr,
+        activeWarehouseList:activeWarehouseList,
+        csrfToken: req.csrfToken(),
+
+      });
+    }
+
+    const products = await ProductModel.findOne({ code: req.body.code });
+    if (products) {
+      return res.render("products/add", {
+        code: req.body.code,
+        title: req.body.title,
+        ProductTypeArr:ProductTypeArr,
+        unitTypeArr:unitTypeArr,
+        inUseStatusArr:inUseStatusArr,
+        statusArr:statusArr,
+        fnsStatusArr:fnsStatusArr,
+        catalogList:catalogList,
+        leftnavigationlinkactive:leftnavigationlinkactive,
+        leftsubnavigationlinkactive:"products",
+        categoriesList:categoriesList,
+        brandList:brandList,
+        currencyList:currencyList,
+        inStockStatusArr:inStockStatusArr,
+        activeWarehouseList:activeWarehouseList,
+        csrfToken: req.csrfToken(),
+
+        
+        
+      });
+    } else {
+
+      const catalogcode = await getCatalogByIdService(req.body.catalog);
+      const productCatagories=JSON.parse(req.body.categories);
+      console.log("brand"+ req.body.brand);
+
+      await ProductModel.create({ 
+        code: req.body.code,
+        title: req.body.title,
+        description:req.body.description,
+        catalog:catalogcode,
+        brand:String(req.body.brand),
+        productType:req.body.productType,
+        inUseStatus:req.body.inUseStatus,
+        unit:req.body.unit,
+        status:req.body.status,
+        categories:productCatagories,
+        csrfToken: req.csrfToken(),
+
+       });
+
+       const productPrice = await ProductPriceModel.findOne({ productCode: req.body.code,currencyIsoCode:req.body.currencyIsoCode,catalog:catalogcode });
+       if (productPrice) {
+
+       }else{
+        await ProductPriceModel.create({ 
+          productCode: req.body.code,
+          priceValue: Number(req.body.priceValue),
+          currencyIsoCode:req.body.currencyIsoCode,
+          catalog:catalogcode,
+          priceGroup:"customerGroup",
+          userpriceGroup:"customerGroup",
+          inUseStatus:req.body.inUseStatus,
+          unit:req.body.unit,
+          unitFactor:1,
+          csrfToken: req.csrfToken(),
+  
+         });
+
+       }
+
+       const productStock = await ProductStockModel.findOne({ productCode: req.body.code,warehouseCode:req.body.warehouseCode,catalog:catalogcode });
+       if (productStock) {
+
+       }else{
+        await ProductStockModel.create({ 
+          productCode: req.body.code,
+          warehouseCode: req.body.warehouseCode,
+          availableQty:Number(req.body.availableQty),
+          inStockStatus:req.body.inStockStatus,
+          maxPreOrder:Number(req.body.maxPreOrder),
+          maxStockLevelHistoryCount:Number(req.body.maxStockLevelHistoryCount),
+          overSelling:Number(req.body.overSelling),
+          preOrder:Number(req.body.preOrder),
+          catalog:catalogcode,
+          reserved:Number(req.body.reserved),
+         });
+
+       }
+
+       
+      return res.redirect("/products");
+    }
   } catch (err) {
     console.error(err);
-    return res.render("error/500");
+    res.render(_500errorView);
   }
 });
 

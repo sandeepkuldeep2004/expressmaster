@@ -62,6 +62,18 @@ $(document).ready(function () {
         $("#editusergroupform").submit();
     });
 
+    $("#product-add-submit-button").click(function () {
+
+    var proCateGoriesArray = [];
+        $("input:checkbox:checked").each(function () {
+            proCateGoriesArray.push($(this).val());
+        });
+        $('#product_categories').val(JSON.stringify(proCateGoriesArray)); //store array
+        
+        $("#product-addi-form").submit();
+    });
+
+
     $("#basesitereg").change(function () {
         if ($("#basesitereg").val() != '') {
             $.ajax({
