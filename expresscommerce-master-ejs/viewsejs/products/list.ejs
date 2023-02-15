@@ -63,7 +63,7 @@
                                     </a>
                                     <form action="/products/remove/<%=productList._id %>" method="post" id="delete-form">
                                         <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                                        <button type="submit" class="btn red">
+                                        <button type="submit"  class="btn red" onclick="javascript:confirmation()">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>

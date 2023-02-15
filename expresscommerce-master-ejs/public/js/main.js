@@ -125,4 +125,12 @@ $('.dropdown-container')
     	container.find('.quantity').text(numChecked || 'Any');
 	});
 
+  
+
 });
+function confirmation(){
+    var result = confirm("Are you sure you want to delete?");
+    if(result){
+      console.log("Deleted")
+    }
+  }
