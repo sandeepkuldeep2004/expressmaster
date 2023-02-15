@@ -1,36 +1,316 @@
 <%- include('../layouts/header') %>
-<h3>Edit Product</h3>
-<div class="row">
-    <form action="/products/{{product.id}}" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="code" name="code" value="{{product.code}}">
-                <label for="title">product ID</label>
-            </div>
-            <div class="input-field">
-                <input type="text" id="name" name="name" value="{{product.name}}">
-                <label for="title">Name </label>
-            </div>
-            <div class="input-field">
-                <input type="text" id="description" name="description" value="{{product.description}}">
-                <label for="title">Description </label>
-            </div>
-            <div class="input-field">
-                <input type="text" id="catalog" name="catalog" value="{{product.catalogCode}}">
-                <label for="title">Catalog </label>
-            </div>
-            <div class="input-field">
-                <input type="text" id="price" name="price" value="{{product.price_usd}}">
-                <label for="title">Price </label>
-            </div>
+    <div class="card">
+
+        <div class="card-header">
+            <ul class="nav nav-tabs justify-content-left" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#product" role="tab">
+                        <i class="now-ui-icons objects_umbrella-13"></i> Product
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#category" role="tab">
+                        <i class="now-ui-icons shopping_cart-simple"></i> Category
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#price" role="tab">
+                        <i class="now-ui-icons shopping_cart-simple"></i> Price
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#stock" role="tab">
+                        <i class="now-ui-icons shopping_shop"></i> Stock
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#multimedia" role="tab">
+                        <i class="now-ui-icons shopping_shop"></i> Multimedia
+                    </a>
+                </li>
+            </ul>
         </div>
-       
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/products" class="btn orange">Cancel</a>
+        <div class="card-body col-lg-6">
+            <form action="/products/add" method="POST" class="g-3 needs-validation" id="product-addi-form">
+                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                <input type="hidden" name="categories" id="product_categories">
+
+                <!-- Tab panes -->
+                <div class="tab-content text-left">
+
+                    <div class="tab-pane active" id="product" role="tabpanel">
+                        <h5 class="card-title">Edit Product</h5>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputNanme4" class="form-label">Code</label>
+                            <input type="text" class="form-control" id="code" name="code" required>
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Name</label>
+                            <input type="text" id="title" name="title" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Description</label>
+                            <input type="text" id="description" name="description" class="form-control" >
+                            <div class="invalid-feedback">Please provide a Class Name.</div>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Catalog</label>
+                            <select class="form-control" id="catalog" name="catalog" required>
+                                <%if (catalogList) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% catalogList.forEach(catalogListIrr=> { %>
+                                        <%if(String(catalogListIrr._id)) { %>
+                                        <option value="<%=catalogListIrr._id%>"><%=catalogListIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=catalogListIrr._id%>"><%=catalogListIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Brand</label>
+                            <select class="form-control" id="brand" name="brand" >
+                                <%if (brandList) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% brandList.forEach(brandListIrr=> { %>
+                                        <%if(String(brandListIrr._id)) { %>
+                                        <option value="<%=brandListIrr.name%>"><%=brandListIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=brandListIrr.name%>"><%=brandListIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Product Type</label>
+                            <select class="form-control" id="productType" name="productType" >
+                                <%if (ProductTypeArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(ProductTypeArr).forEach(function(key) { %>
+                                        <%if(String(ProductTypeArr[key])) { %>
+                                        <option value="<%=key%>" ><%=ProductTypeArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=ProductTypeArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">In Use Status</label>
+                            <select class="form-control" id="inUseStatus" name="inUseStatus">
+                                <%if (inUseStatusArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(inUseStatusArr).forEach(function(key) { %>
+                                        <%if(String(inUseStatusArr[key])) { %>
+                                        <option value="<%=key%>" ><%=inUseStatusArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=inUseStatusArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Unit</label>
+                            <select class="form-control" id="unit" name="unit">
+                                <%if (unitTypeArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(unitTypeArr).forEach(function(key) { %>
+                                        <%if(String(unitTypeArr[key])) { %>
+                                        <option value="<%=key%>" ><%=unitTypeArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=unitTypeArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+                        
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Status</label>
+                            <select class="form-control" id="status" name="status" >
+                                <%if (fnsStatusArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(statusArr).forEach(function(key) { %>
+                                        <%if(String(statusArr[key])) { %>
+                                        <option value="<%=key%>" ><%=statusArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=statusArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>                    
+                    </div>
+                    <!-- Category started here -->
+                    <div class="tab-pane" id="category" role="tabpanel">
+                        <h5 class="card-title">Select Categories</h5>
+                        <div class="col-12 mg-3">                            
+                            <div class="dropdown-container">
+                                <div class="dropdown-button noselect">
+                                    <div class="dropdown-label">Category list</div>
+                                    <div class="dropdown-quantity">(<span class="quantity">Any</span>)</div>
+                                    <i class="fa fa-filter"></i>
+                                </div>
+                                <div class="dropdown-list form-group">
+                                    <input type="search" placeholder="Search Categories" class="dropdown-search form-control" />
+                                    <ul>
+                                        <% categoriesList.categories.forEach(categoriesListIrr => { %> 
+
+                                        <li style="display: list-item;">
+                                            <input name="<%=categoriesListIrr._id%>" value="<%=categoriesListIrr._id%>" type="checkbox">
+                                            <label for="AL" class="form-label"><%=categoriesListIrr.title%></label>
+                                        </li>
+                                        <% categoriesListIrr.categories.forEach(categoriesListIrr1 => { %>
+                                            
+                                            <li style="display: list-item;">
+                                               &nbsp; &nbsp;<input name="<%=categoriesListIrr1._id%>" value="<%=categoriesListIrr1._id%>" type="checkbox">
+                                                <label for="AL" class="form-label"><%=categoriesListIrr1.title%></label>
+                                            </li>
+
+                                            <% categoriesListIrr1.categories.forEach(categoriesListIrr2 => { %>
+                                            
+                                                <li style="display: list-item;">
+                                                   &nbsp; &nbsp;&nbsp; &nbsp; <input name="<%=categoriesListIrr2._id%>" value="<%=categoriesListIrr2._id%>" type="checkbox">
+                                                    <label for="AL" class="form-label"><%=categoriesListIrr2.title%></label>
+                                                </li>
+                                                
+                                                <% }) %>
+
+                                            <% }) %>
+
+
+
+                                        <% }) %>
+                                             
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="price" role="tabpanel">
+                        <h5 class="card-title">Add Product Price</h5>
+                        <div class="col-12 mg-3">
+                            <label for="inputNanme4" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="priceValue" name="priceValue">
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Currency</label>
+                            <select class="form-control" id="currencyIsoCode" name="currencyIsoCode" required="">
+                                <%if (currencyList) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% currencyList.forEach(currencyListIrr=> { %>
+                                        <%if(String(currencyListIrr.isocode)) { %>
+                                        <option value="<%=currencyListIrr.isocode%>" selected><%=currencyListIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=currencyListIrr.isocode%>"><%=currencyListIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="stock" role="tabpanel">
+                        <h5 class="card-title">Add Product Stock</h5>
+                        <div class="col-12 mg-3">
+                            <label for="inputNanme4" class="form-label">Available Qty</label>
+                            <input type="number" class="form-control" id="availableQty" name="availableQty" >
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">Ware House</label>
+                            <select class="form-control" id="warehouseCode" name="warehouseCode">
+                                <%if (activeWarehouseList) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% activeWarehouseList.forEach(activeWarehouseListIrr=> { %>
+                                        <%if(String(activeWarehouseListIrr.code)) { %>
+                                        <option value="<%=activeWarehouseListIrr.code%>" selected><%=activeWarehouseListIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=activeWarehouseListIrr.code%>"><%=activeWarehouseListIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+                       
+                        <div class="col-12 mg-3">
+                            <label for="inputEmail4" class="form-label">In Stock Status</label>
+                            <select class="form-control" id="inStockStatus" name="inStockStatus" >
+                                <%if (fnsStatusArr) { %> 
+                                    <option value="" selected>---Select--</option>
+                                    <% Object.keys(inStockStatusArr).forEach(function(key) { %>
+                                        <%if(String(inStockStatusArr[key])) { %>
+                                        <option value="<%=key%>" selected><%=inStockStatusArr[key]%></option>
+                                        <%}else{%>
+                                            <option value="<%=key%>"><%=inStockStatusArr[key]%></option>
+                                        <%}%>
+                                    <% }) %>
+                                 <%}%>
+                            </select>
+                        </div>
+
+                        
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">Max Pre Order</label>
+                            <input type="number" id="maxPreOrder" name="maxPreOrder" class="form-control">
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Max Stock Level History Count</label>
+                            <input type="number" id="maxStockLevelHistoryCount" name="maxStockLevelHistoryCount" class="form-control">
+                            <div class="invalid-feedback">Please provide a Class Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Over Selling</label>
+                            <input type="number" id="overSelling" name="overSelling" class="form-control">
+                            <div class="invalid-feedback">Please provide a Position.</div>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Reserved</label>
+                            <input type="number" id="reserved" name="reserved"  class="form-control">
+                            <div class="invalid-feedback">Please provide a Position.</div>
+                        </div>
+
+                        <div class="col-12 mg-3">
+                            <label for="inputAddress" class="form-label">Pre Order</label>
+                            <input type="number" id="preOrder" name="preOrder" class="form-control">
+                            <div class="invalid-feedback">Please provide a Position.</div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="multimedia" role="tabpanel">
+                        <h5 class="card-title">Upload Product images</h5>
+                        <div class="col-12 mg-3">
+                            <label for="inputNumber" class="form-label">Product Image Upload</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputNumber" class="form-label">Product thumbnail File Upload</label>
+                            <input class="form-control" type="file" id="formthumbnailFile">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mg-3 col-12 mg-3">
+
+                    <input type="button" class="btn btn-primary" id="product-add-submit-button" name="product-add-submit-button" value="Save">
+
+                    <a href="/products" class="btn orange btn-secondary">Cancel</a>
+                </div>
+            </form><!-- Vertical Form -->
         </div>
-    </form>
-</div>
-<%- include('../layouts/footer') %>
+
+    </div>
+
+    <%- include('../layouts/footer') %>

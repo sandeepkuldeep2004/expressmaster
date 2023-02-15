@@ -107,18 +107,30 @@ router.post("/remove/:id", async (req, res) => {
 
 // @desc    Show product edit page
 // @route   GET /products/update/:id
-router.get("/update/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
+  const catalogList= await getCatalogListService("active");
+ const brandList=await getAllBrandDataService();
+const categoriesList= await fetchSuperCategoriesService(10);
+const currencyList= await getActiveCurrencyList();
+const activeWarehouseList= await getActiveWarehouseList();
   try {
-    const product = await searchProductById(req.params.id);
-
-    console.log("All product details is ::", product)
-    if (!product) {
-      return res.render("error/404");
-    }
+    
 
     res.render("products/edit", {
-      product,
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      ProductTypeArr:ProductTypeArr,
+      unitTypeArr:unitTypeArr,
+      inUseStatusArr:inUseStatusArr,
+      statusArr:statusArr,
+      fnsStatusArr:fnsStatusArr,
+      catalogList:catalogList,
+      leftnavigationlinkactive:leftnavigationlinkactive,
+      leftsubnavigationlinkactive:"products",
+      categoriesList:categoriesList,
+      brandList:brandList,
+      currencyList:currencyList,
+      inStockStatusArr:inStockStatusArr,
+      activeWarehouseList:activeWarehouseList,
     });
   } catch (err) {
     console.error(err);
@@ -142,7 +154,7 @@ router.put("/update/:id", async (req, res) => {
 // @desc    Show add page
 // @route   GET /solr/customer/add
 router.get("/add",ensureAuth, async (req, res) => {
-  console.log("inllll");
+  //console.log("inllll");
 
  const catalogList= await getCatalogListService("active");
  const brandList=await getAllBrandDataService();
@@ -180,7 +192,7 @@ router.post("/add", ensureAuth, [
   //const accessmoules=JSON.parse(req.body.modulename);
   //console.log(accessmoules)
 
-  console.log("pasedsfsdfsdf");
+  //console.log("pasedsfsdfsdf");
   try {
     const catalogList= await getCatalogListService("active");
     const brandList=await getAllBrandDataService();
