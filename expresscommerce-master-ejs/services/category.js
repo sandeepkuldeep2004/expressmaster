@@ -126,6 +126,27 @@ const fetchSuperCategoriesService = async function (code) {
   return rootCategory;
 };
 
+const fetchAllCategoriesService = async function (code) {
+  let rootCategory = await CategoryModel.findOne({
+    code: code,
+  })
+    .populate([
+      {
+        path: "categories",
+        model: "Category",
+        populate: {
+          path: "categories",
+          model: "Category",
+          populate: { path: "categories", model: "Category"},
+        },
+      },
+      { path: "catalog", model: "Catalog" , select: '_id code name'},
+    ])
+    .lean()
+    .sort({ rank: "asc" });
+  return rootCategory;
+};
+
 
 module.exports = {
   getCategoryList,
@@ -133,5 +154,6 @@ module.exports = {
   getCategoryByCode,
   getCategoryByID,
   getCategoriesByRoot,
-  fetchSuperCategoriesService,  
+  fetchSuperCategoriesService,
+  fetchAllCategoriesService  
 };

@@ -1,50 +1,79 @@
 <%- include('../layouts/header') %>
-{{#if categoryList}}
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Crated At</th>
-                <th>Catalog</th>
-                <th>Status</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each categoryList}}
-            <tr>
-                <td><a href="/category/{{code}}">{{code}}</a></td>
-                <td><a href="/category/{{code}}">{{title}}</a></td>
-                <td>{{formatDate creationdate 'MMMM Do YYYY, h:mm:ss a'}}</td>
-                <td><span class="dash-status">{{catalog}}</span></td>
-                <td><span class="dash-status">{{status}}</span></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/category/{{code}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
 
-                        <form action="/category/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
-{{else}}
-<p>You have not created any category</p>
-{{/if}}
+    <%if (categoriesList) { %>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title float-right">
+                    <a href="/navigation/add" class="btn-floating btn btn-primary btn-sm">
+                        <i class="fas fa-plus"></i> Add Super Category
+                    </a>
+                    <a href="/subnavigation/add" class="btn-floating btn btn-sm btn-outline-primary">
+                        <i class="fas fa-plus"></i> Add Sub Category
+                    </a>
 
-<div class="fixed-action-btn">
-    <a href="/category/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
-<%- include('../layouts/footer') %>
+                </h5>
+                <%if(locals.errorMessage) { %>
+                        <div class="alert alert-success" role="alert">
+                            <%=errorMessage%>
+                            </div>
+                    <% } %> 
+                <table class="table table-hover" id="example">
+                    <thead>
+                        <tr>
+                            <th scope="col">code</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Catalog</th>
+                            <th scope="col">visible</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% categoriesList.categories.forEach(categoriesListIrr=> { %>
+                            <tr>
+                                <td> 
+                                    <%=categoriesListIrr.code %>
+                                </td>
+                                <td><%=categoriesListIrr.title %></a></td>
+                                <td><span class="dash-status">
+                                        <%=categoriesListIrr.description %>
+                                    </span></td>
+                                <td><span class="dash-status">
+                                        <%=categoriesList.catalog.name %>
+                                    </span>
+                                </td>
+                                <td><span class="dash-status">
+                                    <%=categoriesListIrr.visible %>
+                                </span>
+                            </td>
+                                <td><span class="dash-status">
+                                        <%=categoriesListIrr.status %>
+                                    </span></td>
+                                <td>
+                                    <div class="bo-edit-row">
+                                        <a href="/navigation/<%=categoriesListIrr._id%>" class="btn btn-float">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="/navigation/remove/<%=categoriesListIrr._id%>" method="post"
+                                            id="delete-form<%=categoriesListIrr.code %>">
+                                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                                            <button type="submit" class="btn red">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% }) %>
+
+                        </tbody>
+                </table>
+            </div>
+
+            <%} else{ %>
+                <p>Not found</p>
+                <% } %>
+        </div>
+        </div>
+        <%- include('../layouts/footer') %>

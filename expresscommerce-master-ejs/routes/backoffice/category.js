@@ -5,9 +5,9 @@ const colors = require("colors");
 const { ensureAuth } = require("../../middleware/auth");
 const CategoryModel = require("../../models/Category");
 const CatalogModel = require("../../models/Catalog");
-const { getCatalogList } = require("../../lib/commons.js");
-const { fetchCategoryByCode } = require("../../lib/category.js");
-const { getCatalog } = require("../../lib/catalog.js");
+const { getCatalogList } = require("../../services/commons.js");
+const { fetchCategoryByCode,fetchSuperCategoriesService,fetchAllCategoriesService } = require("../../services/category.js");
+const { getCatalog } = require("../../services/catalog.js");
 
 // @desc    Show add page
 // @route   GET /category/add
@@ -82,12 +82,13 @@ router.post(
 // @route   GET /stories
 router.get("/viewall", ensureAuth, async (req, res) => {
   try {
-    const categoryList = await CategoryModel.find({})
-      .sort({ creationdate: "desc" })
-      .lean();
+    
+      const categoriesList= await fetchAllCategoriesService(10);
+      console.log(categoriesList);
+
     //const catalogList=await getCatalogList(true);
     res.render("category/list", {
-      categoryList,
+      categoriesList,
       csrfToken: req.csrfToken(),
     });
   } catch (err) {
@@ -100,16 +101,16 @@ router.get("/viewall", ensureAuth, async (req, res) => {
 // @route   GET /category/:code
 router.get("/:code", ensureAuth, async (req, res) => {
   try {
-    const category = await CategoryModel.findOne({
+    const categoriesList = await CategoryModel.findOne({
       code: req.params.code,
     }).lean();
 
-    if (!category) {
+    if (!categoriesList) {
       return res.render("error/404");
     }
 
     res.render("category/edit", {
-      category,
+      categoriesList,
       csrfToken: req.csrfToken(),
     });
   } catch (err) {
