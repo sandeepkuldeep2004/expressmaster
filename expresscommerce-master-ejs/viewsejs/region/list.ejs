@@ -1,48 +1,52 @@
 <%- include('../layouts/header') %>
-{{#if regionList}}
-<div class="bo-fixed-action-btn">
-    <a href="/region/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Country Name</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each regionList}}
-            <tr>
-                <td><a href="/region/{{isocode}}">{{isocode}}</a></td>
-                <td><a href="/region/{{isocode}}">{{name}}</a></td>
-                <td>{{this.country}}</td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/region/{{isocode}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <form action="/region/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
-{{else}}
-<p>You have not created any Region</p>
-{{/if}}
+<% if(regionList) { %>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title float-right">
+            <a href="/region/add" class="btn-floating btn btn-primary btn-sm">
+              <i class="fas fa-plus"></i> Add new Region
+            </a>
+          </h5>
+            <table class="table table-hover" id="example">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Country Name</th>
+                        <!-- <th>Status</th> -->
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>           
+                    <% regionList.forEach(regionList=> { %>
+                    <tr>
+                        <td><%=regionList.isocode%></td>  
+                        <td><%=regionList.name%></td>                              
+                        <td><%=regionList.country.name%></td>  
+                        <!-- <td><span class="dash-status"><%=regionList.status%></span></td> -->
+                        <td>
+                            <div class="bo-edit-row">
+                                <a href="/region/<%=regionList._id%>" class="btn btn-float">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form action="/region/remove/<%=regionList._id%>" method="POST" id="delete-form">
+                                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn red">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <%} else{ %>
+            <p>You have not created any Region</p>
+        <% } %>
+    </div>
+    
+<%- include('../layouts/footer') %>
 
- {{#each countryList}}
-    <td>{{name}}</td>
- {{/each}}
- <%- include('../layouts/footer') %>

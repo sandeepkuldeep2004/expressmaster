@@ -5,6 +5,7 @@ const { ensureAuth } = require("../../middleware/auth");
 const CountryModel = require("../../models/Country");
 const RegionModel = require("../../models/Region");
 const { getCountryList } = require("../../lib/commons.js");
+const {getAllRegionServices, getRegionByIdServices} = require("../../services/region");
 var leftnavigationlinkactive = "localization";
 
 const viewAll = "/region/viewAll";
@@ -82,14 +83,14 @@ router.post(
 // @route   GET /stories
 router.get("/viewall", ensureAuth, async (req, res) => {
   try {
-    const countryList = await getCountryList(true);
-    const regionList = await RegionModel.find({}).sort({ name: "asc" }).lean();
+    
+    const regionList = await getAllRegionServices();
       res.render(listView, {
-      regionList,
-      countryList,
+      regionList,      
       csrfToken: req.csrfToken(),
       leftnavigationlinkactive: leftnavigationlinkactive,
       leftsubnavigationlinkactive: "region",
+      
     });
   } catch (err) {
     console.error(err);
@@ -99,20 +100,14 @@ router.get("/viewall", ensureAuth, async (req, res) => {
 
 // @desc    Show edit page
 // @route   GET /category/:code
-router.get("/:code", ensureAuth, async (req, res) => {
+router.get("/:_id", ensureAuth, async (req, res) => {
   try {
-    const countryList = await getCountryList(true);
-    const region = await RegionModel.findOne({
-      isocode: req.params.code,
-    }).lean();
-
-    if (!region) {
+    const regionData = await getRegionByIdServices(req.params._id);
+    if (!regionData) {
       return res.render(_404View);
     }
-
     res.render(editView, {
-      region,
-      countryList,
+      region:regionData,
       csrfToken: req.csrfToken(),
       leftnavigationlinkactive: leftnavigationlinkactive,
       leftsubnavigationlinkactive: "region",
@@ -125,7 +120,7 @@ router.get("/:code", ensureAuth, async (req, res) => {
 
 // @desc    Update catalog
 // @route   PUT /category/:_id
-router.put("/:id", ensureAuth, async (req, res) => {
+router.post("/:id", ensureAuth, async (req, res) => {
   try {
     let region = await RegionModel.findById(req.params.id).lean();
     if (!region) {
