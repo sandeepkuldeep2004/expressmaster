@@ -243,5 +243,5 @@ const getProductByIdService = async function (code){
 module.exports = {
   getProductListService, getProductService, getProductsService, getProductByCodeService,
   getProductByBaseProductService, getProductByIdService, getProductDTOByCodeService, getProductDTOByProductModelService,
-  populateProductService,getProductDTOByProductModel1Service
+  populateProductService,getProductDTOByProductModel1Service,getProductDTOByProductMediaService
 }

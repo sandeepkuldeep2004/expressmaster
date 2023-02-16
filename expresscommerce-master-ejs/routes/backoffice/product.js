@@ -5,14 +5,15 @@ const ProductModel = require('../../models/Product')
 const ProductPriceModel = require('../../models/ProductPrice')
 const { ensureAuth } = require("../../middleware/auth");
 const { saveProductViaWeb } = require("../../dao/Product");
-const { getProductDTOByProductModelService,getProductsService, getProductByIdService,getProductByCodeService } = require("../../services/product");
+const { getProductDTOByProductModelService,getProductsService,getProductByCodeService,getProductDTOByProductMediaService} = require("../../services/product");
 const { getCatalogListService,getCatalogByIdService } = require('../../services/catalog');
 const { getAllBrandDataService,getBrandById } = require('../../services/brand');
 const { fetchSuperCategoriesService } = require('../../services/category');
 const { getActiveCurrencyList } = require('../../services/currency');
 const { getActiveWarehouseList } = require('../../services/warehouse');
 const ProductStockModel = require('../../models/ProductStock')
-
+const { getProductPriceService} = require("../../services/pricerow");
+const { getProductStockService } = require("../../services/stocklevel");
 
 
 const ProductTypeArr = {"ORDINARY":"ORDINARY", "VARIANT":"VARIANT","BUNDLE":"BUNDLE", "WARRANTY":"WARRANTY","DIGITAL":"DIGITAL"}
@@ -285,7 +286,17 @@ for(var i=0; i<productDetail.categories.length; i++) {
   cateSelectedArr.push(String(productDetail.categories[i]))
 }
 }
-console.log(cateSelectedArr);
+
+var price = await getProductPriceService(productDetail.code,productDetail.catalog._id);
+var stock = await getProductStockService(productDetail.code);
+var medias = await getProductDTOByProductMediaService(productDetail.medias);
+console.log(price);
+
+console.log(stock);
+
+console.log(medias);
+
+
 
 const catalogList= await getCatalogListService("active");
 const brandList=await getAllBrandDataService();
@@ -312,6 +323,9 @@ const activeWarehouseList= await getActiveWarehouseList();
       activeWarehouseList:activeWarehouseList,
       productDetail:productDetail,
       cateSelectedArr:cateSelectedArr,
+      price:price,
+      stock:stock,
+      medias:medias,
     });
   } catch (err) {
     console.error(err);

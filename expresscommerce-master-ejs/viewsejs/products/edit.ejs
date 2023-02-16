@@ -233,7 +233,7 @@
                         <h5 class="card-title">Add Product Price</h5>
                         <div class="col-12 mg-3">
                             <label for="inputNanme4" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="priceValue" name="priceValue">
+                            <input type="number" class="form-control" id="priceValue" name="priceValue" value="<%=price.priceValue%>">
                         </div>
 
                         <div class="col-12 mg-3">
@@ -242,8 +242,8 @@
                                 <%if (currencyList) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% currencyList.forEach(currencyListIrr=> { %>
-                                        <%if(String(currencyListIrr.isocode)) { %>
-                                        <option value="<%=currencyListIrr.isocode%>" selected><%=currencyListIrr.name%></option>
+                                        <%if(String(currencyListIrr.isocode)==price.currencyIsoCode) { %>
+                                        <option value="<%=currencyListIrr.isocode%>"  selected><%=currencyListIrr.name%></option>
                                         <%}else{%>
                                             <option value="<%=currencyListIrr.isocode%>"><%=currencyListIrr.name%></option>
                                         <%}%>
@@ -256,7 +256,7 @@
                         <h5 class="card-title">Add Product Stock</h5>
                         <div class="col-12 mg-3">
                             <label for="inputNanme4" class="form-label">Available Qty</label>
-                            <input type="number" class="form-control" id="availableQty" name="availableQty" >
+                            <input type="number" class="form-control" id="availableQty" name="availableQty" value="<%=stock.availableQty%>">
                             <div class="invalid-feedback">Please provide a Code.</div>
                         </div>
 
@@ -266,7 +266,7 @@
                                 <%if (activeWarehouseList) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% activeWarehouseList.forEach(activeWarehouseListIrr=> { %>
-                                        <%if(String(activeWarehouseListIrr.code)) { %>
+                                        <%if(String(activeWarehouseListIrr.code)==stock.warehouseCode) { %>
                                         <option value="<%=activeWarehouseListIrr.code%>" selected><%=activeWarehouseListIrr.name%></option>
                                         <%}else{%>
                                             <option value="<%=activeWarehouseListIrr.code%>"><%=activeWarehouseListIrr.name%></option>
@@ -282,7 +282,7 @@
                                 <%if (fnsStatusArr) { %> 
                                     <option value="" selected>---Select--</option>
                                     <% Object.keys(inStockStatusArr).forEach(function(key) { %>
-                                        <%if(String(inStockStatusArr[key])) { %>
+                                        <%if(String(inStockStatusArr[key])== stock.inStockStatus) { %>
                                         <option value="<%=key%>" selected><%=inStockStatusArr[key]%></option>
                                         <%}else{%>
                                             <option value="<%=key%>"><%=inStockStatusArr[key]%></option>
@@ -295,28 +295,28 @@
                         
                         <div class="col-12 mg-3">
                             <label for="inputPassword4" class="form-label">Max Pre Order</label>
-                            <input type="number" id="maxPreOrder" name="maxPreOrder" class="form-control">
+                            <input type="number" id="maxPreOrder" name="maxPreOrder" class="form-control" value="<%=stock.maxPreOrder%>">
                         </div>
                         <div class="col-12 mg-3">
                             <label for="inputAddress" class="form-label">Max Stock Level History Count</label>
-                            <input type="number" id="maxStockLevelHistoryCount" name="maxStockLevelHistoryCount" class="form-control">
+                            <input type="number" id="maxStockLevelHistoryCount" name="maxStockLevelHistoryCount" class="form-control" value="<%=stock.maxStockLevelHistoryCount%>">
                             <div class="invalid-feedback">Please provide a Class Name.</div>
                         </div>
                         <div class="col-12 mg-3">
                             <label for="inputAddress" class="form-label">Over Selling</label>
-                            <input type="number" id="overSelling" name="overSelling" class="form-control">
+                            <input type="number" id="overSelling" name="overSelling" class="form-control" value="<%=stock.overSelling%>">
                             <div class="invalid-feedback">Please provide a Position.</div>
                         </div>
 
                         <div class="col-12 mg-3">
                             <label for="inputAddress" class="form-label">Reserved</label>
-                            <input type="number" id="reserved" name="reserved"  class="form-control">
+                            <input type="number" id="reserved" name="reserved"  class="form-control" value="<%=stock.reserved%>">
                             <div class="invalid-feedback">Please provide a Position.</div>
                         </div>
 
                         <div class="col-12 mg-3">
                             <label for="inputAddress" class="form-label">Pre Order</label>
-                            <input type="number" id="preOrder" name="preOrder" class="form-control">
+                            <input type="number" id="preOrder" name="preOrder" class="form-control" value="<%=stock.preOrder%>">
                             <div class="invalid-feedback">Please provide a Position.</div>
                         </div>
                     </div>
