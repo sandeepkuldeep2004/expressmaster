@@ -133,4 +133,7 @@ function confirmation(){
     if(result){
       console.log("Deleted")
     }
+    else{
+        return false;
+    }
   }

@@ -30,7 +30,7 @@
                 </li>
             </ul>
         </div>
-        <div class="card-body col-lg-6">
+        <div class="card-body col-lg-12">
             <form action="/products/add" method="POST" class="g-3 needs-validation" id="product-addi-form">
                 <input type="hidden" name="_csrf" value="<%=csrfToken %>">
                 <input type="hidden" name="categories" id="product_categories">
@@ -41,23 +41,23 @@
                     <div class="tab-pane active" id="product" role="tabpanel">
                         <h5 class="card-title">Edit Product</h5>
 
-                        <div class="col-12 mg-3">
+                        <div class="col-lg-12 row g-3">
+                            <div class="col-md-6 mg-3">
                             <label for="inputNanme4" class="form-label">Code</label>
                             <input type="text" class="form-control" id="code" name="code" value="<%=productDetail.code%>" required>
                             <div class="invalid-feedback">Please provide a Code.</div>
                         </div>
-                        <div class="col-12 mg-3">
+                        <div class="col-md-6 mg-3">
                             <label for="inputEmail4" class="form-label">Name</label>
                             <input type="text" id="title" name="title" class="form-control" value="<%=productDetail.title%>" required>
                             <div class="invalid-feedback">Please provide a Name.</div>
                         </div>
-                        <div class="col-12 mg-3">
-                            <label for="inputAddress" class="form-label">Description</label>
-                            <input type="text" id="description" name="description" class="form-control" value="<%=productDetail
-                            .description%>">
+                        <div class="col-md-12 mg-3">
+                            <label for="inputAddress" class="form-label">Description</label>                            
+                            <textarea id="description" name="description" class="form-control" style="height: 100px"><%=productDetail.description%></textarea>
                             <div class="invalid-feedback">Please provide a Class Name.</div>
                         </div>
-                        <div class="col-12 mg-3">
+                        <div class="col-md-6 mg-3">
                             <label for="inputEmail4" class="form-label">Catalog</label>
                             <select class="form-control" id="catalog" name="catalog" required>
                                 
@@ -74,7 +74,7 @@
                             </select>
                         </div>
 
-                        <div class="col-12 mg-3">
+                        <div class="col-md-6 mg-3">
                             <label for="inputEmail4" class="form-label">Brand</label>
                             <select class="form-control" id="brand" name="brand" >
                                 <%if (brandList) { %> 
@@ -90,7 +90,7 @@
                             </select>
                         </div>
 
-                        <div class="col-12 mg-3">
+                        <div class="col-md-6 mg-3">
                             <label for="inputEmail4" class="form-label">Product Type</label>
                             <select class="form-control" id="productType" name="productType" >
                                 <%if (ProductTypeArr) { %> 
@@ -106,7 +106,7 @@
                             </select>
                         </div>
 
-                        <div class="col-12 mg-3">
+                        <div class="col-md-6 mg-3">
                             <label for="inputEmail4" class="form-label">In Use Status</label>
                             <select class="form-control" id="inUseStatus" name="inUseStatus">
                                 <%if (inUseStatusArr) { %> 
@@ -122,7 +122,7 @@
                             </select>
                         </div>
 
-                        <div class="col-12 mg-3">
+                        <div class="col-md-6 mg-3">
                             <label for="inputEmail4" class="form-label">Unit</label>
                             <select class="form-control" id="unit" name="unit">
                                 <%if (unitTypeArr) { %> 
@@ -138,7 +138,7 @@
                             </select>
                         </div>
                         
-                        <div class="col-12 mg-3">
+                        <div class="col-md-6 mg-3">
                             <label for="inputEmail4" class="form-label">Status</label>
                             <select class="form-control" id="status" name="status" >
                                 <%if (fnsStatusArr) { %> 
@@ -152,6 +152,7 @@
                                     <% }) %>
                                  <%}%>
                             </select>
+                        </div>
                         </div>                    
                     </div>
                     <!-- Category started here -->
@@ -214,14 +215,9 @@
                                                 <% }%>
                                                 <label for="AL" class="form-label"><%=categoriesListIrr2.title%></label>
 
-                                                </li>
-                                                
+                                                </li>                                                
                                                 <% }) %>
-
                                             <% }) %>
-
-
-
                                         <% }) %>
                                              
                                     </ul>
@@ -231,7 +227,8 @@
                     </div>
                     <div class="tab-pane" id="price" role="tabpanel">
                         <h5 class="card-title">Add Product Price</h5>
-                        <div class="col-12 mg-3">
+                        <div class="col-lg-6 row g-3">
+                            <div class="col-md-12 mg-3">
                             <label for="inputNanme4" class="form-label">Price</label>
                             <input type="number" class="form-control" id="priceValue" name="priceValue" value="<%=price.priceValue%>">
                         </div>
@@ -251,16 +248,18 @@
                                  <%}%>
                             </select>
                         </div>
+                        </div>
                     </div>
                     <div class="tab-pane" id="stock" role="tabpanel">
                         <h5 class="card-title">Add Product Stock</h5>
-                        <div class="col-12 mg-3">
+                        <div class="col-lg-12 row g-3">
+                            <div class="col-6 mg-3">
                             <label for="inputNanme4" class="form-label">Available Qty</label>
                             <input type="number" class="form-control" id="availableQty" name="availableQty" value="<%=stock.availableQty%>">
                             <div class="invalid-feedback">Please provide a Code.</div>
                         </div>
 
-                        <div class="col-12 mg-3">
+                        <div class="col-6 mg-3">
                             <label for="inputEmail4" class="form-label">Ware House</label>
                             <select class="form-control" id="warehouseCode" name="warehouseCode">
                                 <%if (activeWarehouseList) { %> 
@@ -276,7 +275,7 @@
                             </select>
                         </div>
                        
-                        <div class="col-12 mg-3">
+                        <div class="col-6 mg-3">
                             <label for="inputEmail4" class="form-label">In Stock Status</label>
                             <select class="form-control" id="inStockStatus" name="inStockStatus" >
                                 <%if (fnsStatusArr) { %> 
@@ -293,31 +292,32 @@
                         </div>
 
                         
-                        <div class="col-12 mg-3">
+                        <div class="col-6 mg-3">
                             <label for="inputPassword4" class="form-label">Max Pre Order</label>
                             <input type="number" id="maxPreOrder" name="maxPreOrder" class="form-control" value="<%=stock.maxPreOrder%>">
                         </div>
-                        <div class="col-12 mg-3">
+                        <div class="col-6 mg-3">
                             <label for="inputAddress" class="form-label">Max Stock Level History Count</label>
                             <input type="number" id="maxStockLevelHistoryCount" name="maxStockLevelHistoryCount" class="form-control" value="<%=stock.maxStockLevelHistoryCount%>">
                             <div class="invalid-feedback">Please provide a Class Name.</div>
                         </div>
-                        <div class="col-12 mg-3">
+                        <div class="col-6 mg-3">
                             <label for="inputAddress" class="form-label">Over Selling</label>
                             <input type="number" id="overSelling" name="overSelling" class="form-control" value="<%=stock.overSelling%>">
                             <div class="invalid-feedback">Please provide a Position.</div>
                         </div>
 
-                        <div class="col-12 mg-3">
+                        <div class="col-6 mg-3">
                             <label for="inputAddress" class="form-label">Reserved</label>
                             <input type="number" id="reserved" name="reserved"  class="form-control" value="<%=stock.reserved%>">
                             <div class="invalid-feedback">Please provide a Position.</div>
                         </div>
 
-                        <div class="col-12 mg-3">
+                        <div class="col-6 mg-3">
                             <label for="inputAddress" class="form-label">Pre Order</label>
                             <input type="number" id="preOrder" name="preOrder" class="form-control" value="<%=stock.preOrder%>">
                             <div class="invalid-feedback">Please provide a Position.</div>
+                        </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="multimedia" role="tabpanel">
@@ -333,10 +333,8 @@
                     </div>
                 </div>
                 <div class="text-center mg-3 col-12 mg-3">
-
-                    <input type="button" class="btn btn-primary" id="product-add-submit-button" name="product-add-submit-button" value="Save">
-
-                    <a href="/products" class="btn orange btn-secondary">Cancel</a>
+                    <input type="button" class="btn btn-primary col-3" id="product-add-submit-button" name="product-add-submit-button" value="Save">
+                    <a href="/products" class="btn orange btn-secondary col-3">Cancel</a>
                 </div>
             </form><!-- Vertical Form -->
         </div>
