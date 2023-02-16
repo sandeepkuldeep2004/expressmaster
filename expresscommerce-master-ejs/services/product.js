@@ -192,8 +192,8 @@ const getProductDTOByCodeService = async function (code) {
 
 // @desc    fetch product by code
 //@param {code}
-const getProductByCodeService = async function (code) {
-  return await ProductModel.findOne({ code: code })
+const getProductByCodeService = async function (id) {
+  return await ProductModel.findOne({ _id: id })
     .populate([
       { path: 'medias', model: 'Media', select: 'code priority main thumbnail type -_id', populate: { path: 'catalog', select: 'code -_id' } },
       { path: 'catalog', select: 'code _id', },

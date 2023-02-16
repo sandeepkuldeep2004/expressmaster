@@ -102,6 +102,8 @@ router.put("/update/:id", async (req, res) => {
 // @desc    Show add page
 // @route   GET /solr/customer/add
 router.get("/add", async (req, res) => {
+
+  console.log("inllll");
   res.render("products/add", {
     csrfToken: req.csrfToken(),
   });

@@ -12,12 +12,11 @@
                     </a>
 
                 </h5>
-                <%if(locals.msg) { %>
+                <%if(locals.errorMessage) { %>
                         <div class="alert alert-success" role="alert">
-                            <%=msg%>
+                            <%=errorMessage%>
                             </div>
                     <% } %> 
-
                 <table class="table table-hover" id="example_">
                     <thead>
                         <tr>

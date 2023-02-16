@@ -26,29 +26,6 @@ const inStockStatusArr = {"notSpecified":"notSpecified", "outOfStock":"outOfStoc
 
 var leftnavigationlinkactive = "manageCatalogs";
 
-// @desc   search products from solr based on term
-// @route   GET /products/search
-router.post('/search', async (req, res) => {
-  try {
-    const term = req.body.keyword
-    console.log(term);
-    const response = await searchProductsByTerm(term);
-    var products = {
-      result: response.docs,
-      total: response.numFound,
-      error: response.error
-    }
-    res.render("products/list", {
-      products,
-      csrfToken: req.csrfToken()
-    });
-  } catch (err) {
-    console.error(err)
-    res.status(500).json({
-      error: err
-    })
-  }
-});
 // @desc    Search ALL Products
 // @route   GET /products
 router.get("/", async (req, res) => {
@@ -277,36 +254,24 @@ router.post("/add", ensureAuth, [
 
 // @desc    Show product edit page
 // @route   GET /products/update/:id
-router.get("/:code", async (req, res) => {
-  console.log("existpro"+req.params.code);
-  const productDetail= await getProductByCodeService(req.params.code);
+router.get("/:id", async (req, res) => {
+  const productDetail= await getProductByCodeService(req.params.id);
 if(productDetail.categories){
 var cateSelectedArr=[];
 for(var i=0; i<productDetail.categories.length; i++) {
   cateSelectedArr.push(String(productDetail.categories[i]))
 }
 }
-
 var price = await getProductPriceService(productDetail.code,productDetail.catalog._id);
 var stock = await getProductStockService(productDetail.code);
 var medias = await getProductDTOByProductMediaService(productDetail.medias);
-console.log(price);
-
-console.log(stock);
-
-console.log(medias);
-
-
-
 const catalogList= await getCatalogListService("active");
 const brandList=await getAllBrandDataService();
 const categoriesList= await fetchSuperCategoriesService(10);
 const currencyList= await getActiveCurrencyList();
 const activeWarehouseList= await getActiveWarehouseList();
   try {
-    
-
-    res.render("products/edit", {
+      res.render("products/edit", {
       csrfToken: req.csrfToken(),
       ProductTypeArr:ProductTypeArr,
       unitTypeArr:unitTypeArr,
@@ -335,14 +300,85 @@ const activeWarehouseList= await getActiveWarehouseList();
 
 // @desc    Update Product inDB
 // @route   PUT /products/update/:id
-router.put("/update/:id", async (req, res) => {
+router.post("/update/:id", async (req, res) => {
   try {
-    //await updateCustomerInSolr(req.body);
+    console.log("innnnnnnnnn");
+    let products = await ProductModel.findById(req.params.id).lean();
+    console.log(products);
+    if (!products) {
+      return res.render(_404View);
+    }
+    const catalogcode = await getCatalogByIdService(req.body.catalog);
+    const productCatagories=JSON.parse(req.body.categories);
+
+    updProduct = await ProductModel.findOneAndUpdate(
+      { _id: products._id },
+      {
+        $set: {
+          title: req.body.title,
+          description:req.body.description,
+          catalog:catalogcode,
+          brand:String(req.body.brand),
+          productType:req.body.productType,
+          inUseStatus:req.body.inUseStatus,
+          unit:req.body.unit,
+          status:req.body.status,
+          categories:productCatagories,
+          
+        }
+      }
+    );
+
+    
+     let productPrice = await ProductPriceModel.findOne({productCode: req.body.code});
+     if (productPrice) {
+      updPrice = await ProductPriceModel.findOneAndUpdate(
+        { _id: productPrice._id },
+        {
+          $set: {
+            priceValue: Number(req.body.priceValue),
+            currencyIsoCode:req.body.currencyIsoCode,
+            catalog:catalogcode,
+            priceGroup:"customerGroup",
+            userpriceGroup:"customerGroup",
+            inUseStatus:req.body.inUseStatus,
+            unit:req.body.unit,
+            unitFactor:1,
+            
+          }
+        }
+      );
+
+     }
+
+let productStock = await ProductStockModel.findOne({productCode: req.body.code});
+     if (productStock) {
+
+      updStock = await ProductStockModel.findOneAndUpdate(
+        { _id: productStock._id },
+        {
+          $set: {
+            warehouseCode: req.body.warehouseCode,
+        availableQty:Number(req.body.availableQty),
+        inStockStatus:req.body.inStockStatus,
+        maxPreOrder:Number(req.body.maxPreOrder),
+        maxStockLevelHistoryCount:Number(req.body.maxStockLevelHistoryCount),
+        overSelling:Number(req.body.overSelling),
+        preOrder:Number(req.body.preOrder),
+        catalog:catalogcode,
+        reserved:Number(req.body.reserved),
+            
+          }
+        }
+      );
+
+     }
+
 
     res.redirect("/products");
   } catch (err) {
     console.error(err);
-    return res.render("error/500");
+    return res.render(_500errorView);
   }
 });
 
