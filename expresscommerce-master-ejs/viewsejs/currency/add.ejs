@@ -1,31 +1,46 @@
 <%- include('../layouts/header') %>
-<h3>Add Currency</h3>
-<div class="row">
-    <form action="/currency/add" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="isocode" name="isocode" value={{isocode}}>
-                <label for="title">Code</label>
+    <div class="card">
+      <div class="card-body col-lg-12">
+        <h5 class="card-title">Add Currency</h5>
+        <%if(locals.errorMessage) { %>
+        <div class="alert alert-success" role="alert">
+          <%=errorMessage%>
+        </div>
+        <% } %>
+        <!-- Vertical Form -->
+        <form action="/currency/add" method="POST" class="row g-3 needs-validation">
+          <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+          <div class="row col-lg-6">
+            <div class="col-12">
+              <label for="Code" class="form-label">Code</label>
+              <input type="text" class="form-control" id="isocode" name="isocode" required>
+              <div class="invalid-feedback">Please provide a Code.</div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="name" name="name" value={{name}}>
-                <label for="title">Name</label>
+    
+            <div class="col-12 mg-3">
+              <label for="Type" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+              <div class="invalid-feedback">Please provide a Name.</div>
             </div>
-        </div>
-       
-         <div class="row">
-            <div class="input-field">
-                <input type="text" id="fallbackcurrency" name="fallbackcurrency" value={{fallbackcurrency}}>
-                <label for="title">Fallback Currency</label>
+            <div class="col-12 mg-3">
+                <label for="Type" class="form-label">Fallback Currency</label>
+                <input type="text" class="form-control" id="fallbackcurrency" name="fallbackcurrency" required>
+                <div class="invalid-feedback">Please provide a Fallback Currency.</div>
+              </div>
+
+            <div class="col-12 mg-3">
+              <label for="status" class="form-label">Status</label>
+              <select class="form-control" id="status" name="status" required>
+                <option value=true selected>Active</option>
+                <option value=false>Inactive</option>
+              </select>
             </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
-        </div>
-    </form>
-</div>
+            <div class="text-center mg-3 col-12">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <a href="/currency/viewAll" class="btn orange btn-secondary">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>    
 <%- include('../layouts/footer') %>
