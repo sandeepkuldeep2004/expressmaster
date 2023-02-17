@@ -2,10 +2,8 @@ const express = require('express')
 const router = express.Router()
 const { body, validationResult } = require("express-validator");
 const colors = require('colors');
-
-const { ensureAuth } = require('../../middleware/auth')
-const LanguageModel = require('../../models/Language')
-
+const { ensureAuth } = require('../../middleware/auth');
+const LanguageModel = require('../../models/Language');
 
 const viewAll = "/language/viewAll";
 const listView = "language/list";
@@ -14,13 +12,15 @@ const addView = "language/add";
 const _404View = "error/404";
 const _500errorView = "error/500";
 
-
+var leftnavigationlinkactive = "localization";
 
 // @desc    Show add page
 // @route   GET /language/add
 router.get('/add', ensureAuth, (req, res) => {
     res.render(addView,{
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      leftnavigationlinkactive: leftnavigationlinkactive,
+      leftsubnavigationlinkactive: "language",
     })
   })
 
@@ -35,6 +35,8 @@ router.post('/add', ensureAuth, [body("isocode").notEmpty(), body("name").notEmp
         name: req.body.name,
         errorMessage: "One or more value for mandatory field(s) missing",
         csrfToken: req.csrfToken(),
+        leftnavigationlinkactive: leftnavigationlinkactive,
+        leftsubnavigationlinkactive: "language",
       });
     }
 
@@ -47,7 +49,9 @@ router.post('/add', ensureAuth, [body("isocode").notEmpty(), body("name").notEmp
         name:req.body.name,
         fallbacklanguage:req.body.fallbacklanguage,
         errorMessage:'Language with same code already exists.',
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        leftnavigationlinkactive: leftnavigationlinkactive,
+        leftsubnavigationlinkactive: "language",
       })
     }else{
       await LanguageModel.create(req.body)
@@ -73,6 +77,8 @@ router.get('/viewall', ensureAuth, async (req, res) => {
       res.render(listView, {
         languageList,
         csrfToken: req.csrfToken(),
+        leftnavigationlinkactive: leftnavigationlinkactive,
+        leftsubnavigationlinkactive: "language",
       })
     } catch (err) {
       console.error(err)
@@ -95,7 +101,9 @@ router.get('/:isocode', ensureAuth, async (req, res) => {
   
        res.render(editView, {
          language,
-         csrfToken: req.csrfToken()
+         csrfToken: req.csrfToken(),
+         leftnavigationlinkactive: leftnavigationlinkactive,
+          leftsubnavigationlinkactive: "language",
         })
       
     } catch (err) {
@@ -106,7 +114,7 @@ router.get('/:isocode', ensureAuth, async (req, res) => {
   
   // @desc    Update catalog
 // @route   PUT /language/:_id
-router.put('/:id', ensureAuth, async (req, res) => {
+router.post('/:id', ensureAuth, async (req, res) => {
     try {
       let language = await LanguageModel.findById(req.params.id).lean()
       console.log(language);

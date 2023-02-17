@@ -1,23 +1,47 @@
 <%- include('../layouts/header') %>
-<h3>Edit Langauge</h3>
-<div class="row">
-    <form action="/language/{{language._id}}" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="name" name="name" value="{{language.name}}">
-                <label for="title">Name</label>
-            </div>
-            <div class="input-field">
-                <input type="text" id="fallbacklanguage" name="fallbacklanguage" value="{{language.fallbacklanguage}}">
-                <label for="title">Fallback Language</label>
-            </div>
+<div class="card">
+  <div class="card-body col-lg-12">
+    <h5 class="card-title">Edit Langauge</h5>
+    <%if(locals.errorMessage) { %>
+    <div class="alert alert-success" role="alert">
+      <%=errorMessage%>
+    </div>
+    <% } %>
+    <!-- Vertical Form -->
+    <form action="/language/<%=language._id%>" method="POST" class="row g-3 needs-validation">
+      <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+      <div class="row col-lg-6">
+
+        <div class="col-12 mg-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required value="<%=language.name%>">
+          <div class="invalid-feedback">Please provide a Name.</div>
         </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
+
+        <div class="col-12 mg-3">
+            <label for="fallbacklanguage" class="form-label">Fallback Language</label>
+            <input type="text" class="form-control" id="fallbacklanguage" name="fallbacklanguage" required value="<%=language.fallbacklanguage%>">
+            <div class="invalid-feedback">Please provide a Fallback Language.</div>
+          </div>
+
+        <div class="col-12 mg-3">
+          <label for="status" class="form-label">Status</label>
+          <select class="form-control" id="status" name="active" required>
+            <% if(language.status) { %>
+            <option value=active selected>Active</option>
+            <option value=inactive>Inactive</option>
+            <%}else{%>
+            <option value=active>Active</option>
+            <option value=inactive selected>Inactive</option>
+            <% } %>
+          </select>
         </div>
+        <div class="text-center mg-3 col-12">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <a href="/language/viewAll" class="btn orange btn-secondary">Cancel</a>
+        </div>
+      </div>
     </form>
+  </div>
 </div>
 <%- include('../layouts/footer') %>
