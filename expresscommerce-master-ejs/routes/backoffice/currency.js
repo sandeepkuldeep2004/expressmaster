@@ -13,6 +13,7 @@ const editView = "currency/edit";
 const addView = "currency/add";
 const _404View = "error/404";
 const _500errorView = "error/500";
+var leftnavigationlinkactive = "localization";
 
 
 
@@ -20,7 +21,9 @@ const _500errorView = "error/500";
 // @route   GET /currency/add
 router.get('/add', ensureAuth, (req, res) => {
     res.render(addView,{
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      leftnavigationlinkactive: leftnavigationlinkactive,
+      leftsubnavigationlinkactive: "currency",
     })
   })
 
@@ -38,7 +41,9 @@ router.post('/add', ensureAuth, async (req, res) => {
         isocode:req.body.isocode,
         name:req.body.name,
         fallbackcurrency:req.body.fallbackcurrency,
-        errorMessage:'Currency with same code already exists.'
+        errorMessage:'Currency with same code already exists.',
+        leftnavigationlinkactive: leftnavigationlinkactive,
+        leftsubnavigationlinkactive: "currency",
       })
     }else{
       await CurrencyModel.create(req.body)
@@ -64,6 +69,8 @@ router.get('/viewall', ensureAuth, async (req, res) => {
       res.render(listView, {
         currencyList,
         csrfToken: req.csrfToken(),
+        leftnavigationlinkactive: leftnavigationlinkactive,
+        leftsubnavigationlinkactive: "currency",
       })
     } catch (err) {
       console.error(err)
@@ -86,6 +93,9 @@ router.get('/:isocode', ensureAuth, async (req, res) => {
   
        res.render(editView, {
          currency,
+         csrfToken: req.csrfToken(),
+         leftnavigationlinkactive: leftnavigationlinkactive,
+          leftsubnavigationlinkactive: "currency",
         })
       
     } catch (err) {
@@ -96,7 +106,7 @@ router.get('/:isocode', ensureAuth, async (req, res) => {
   
   // @desc    Update catalog
 // @route   PUT /currency/:_id
-router.put('/:id', ensureAuth, async (req, res) => {
+router.post('/:id', ensureAuth, async (req, res) => {
     try {
       let currency = await CurrencyModel.findById(req.params.id).lean()
       console.log(currency);

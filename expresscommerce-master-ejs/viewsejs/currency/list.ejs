@@ -1,46 +1,60 @@
 <%- include('../layouts/header') %>
-{{#if currencyList}}
-<div class="bo-fixed-action-btn">
-    <a href="/currency/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
+<% if(currencyList) { %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title float-right">
+          <a href="/currency/add" class="btn-floating btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i> Add new Currency
+          </a>
+        </h5>
+        <table class="table table-hover" id="example">
+          <thead>
             <tr>
                 <th>IsoCode</th>
                 <th>Currency Name</th>
+                <th>Symbol</th>
                 <th>Fallback Currency</th>
-                
+                <th>Status</th>
+                <th class="text-right">Action</th>
             </tr>
-        </thead>
-        <tbody>
-            {{#each currencyList}}
+          </thead>
+          <tbody>
+            <% currencyList.forEach(currencyList=> { %>
             <tr>
-                <td><a href="/currency/{{isocode}}">{{isocode}}</a></td>
-                <td><a href="/currency/{{isocode}}">{{name}}</a></td>
-                <td><a href="/currency/{{isocode}}">{{fallbackcurrency}}</a></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/currency/{{isocode}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
-
-                        <form action="/currency/remove/{{_id}}" method="POST" id="delete-form">
-                        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
+              <td><%=currencyList.isocode%></td>
+              <td><%=currencyList.name%></td>
+              <td><%=currencyList.symbol%></td>
+              <td><%= currencyList.fallbackcurrency %></td>
+              <td><span class="dash-status">
+                  <% if(currencyList.status) { %>
+                  Active
+                  <% }else{ %>
+                  Inactive
+                  <% } %>
+                </span></td>
+              <td>
+                <div class="bo-edit-row">
+                  <a href="/currency/<%=currencyList.isocode%>" class="btn btn-float">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <form action="/currency/remove/<%=currencyList._id%>" method="POST" id="delete-form">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn red">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </form>
+                </div>
+              </td>
             </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
-{{else}}
-<p>You have not created any Currency</p>
-{{/if}}
-<%- include('../layouts/footer') %>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <%} else{ %>
+      <p>You have not created any Currency</p>
+      <% } %>
+    </div>
 
+
+<%- include('../layouts/footer') %>
