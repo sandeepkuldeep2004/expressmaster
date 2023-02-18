@@ -30,7 +30,7 @@
                 <option value="" selected>---Select--</option>
                 <% basesiteList.forEach(basesiteListIrr=> { %>
                     <%if(String(basesiteListIrr._id)) { %>
-                    <option value="<%=basesiteListIrr._id%>" selected><%=basesiteListIrr.name%></option>
+                    <option value="<%=basesiteListIrr._id%>"><%=basesiteListIrr.name%></option>
                     <%}else{%>
                         <option value="<%=basesiteListIrr._id%>"><%=basesiteListIrr.name%></option>
                     <%}%>
