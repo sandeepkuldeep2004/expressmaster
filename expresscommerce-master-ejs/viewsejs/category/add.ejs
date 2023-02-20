@@ -1,42 +1,72 @@
 <%- include('../layouts/header') %>
-<h3>Add Categories</h3>
-<div class="row">
-    <form action="/category/add" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="code" name="code" value={{code}}>
-                <label for="title">Code</label>
-            </div>
+    <div class="card">
+        <div class="card-body col-lg-6">
+            <h5 class="card-title">Add Catagory under <strong>"<%=parentCat.title%>"</strong></h5>
+            <%if(locals.errorMessage) { %>
+                <div class="alert alert-success" role="alert">
+                    <%=errorMessage%>
+                    </div>
+            <% } %> 
+            <!-- Vertical Form -->
+            <form action="/category/add" method="POST" class="row g-3 needs-validation">
+                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                <input type="hidden" name="parentId" value="<%=parentCat._id %>">
+                <input type="hidden" id="catalog" name="catalog" class="form-control" value="<%=parentCat.catalog%>">
+
+
+                <div class="col-12 mg-3">
+                    <label for="inputNanme4" class="form-label">Code</label>
+                    <input type="text" class="form-control" id="code" name="code" required>
+                </div>
+                <div class="col-12 mg-3">
+                    <label for="inputEmail4" class="form-label">Title</label>
+                    <input type="text" id="name" name="title" class="form-control" required>
+                </div>
+                <div class="col-12 mg-3">
+                                <label for="inputAddress" class="form-label">Description</label>
+                                <textarea id="description" name="description" class="form-control" style="height: 100px"></textarea>
+                                <div class="invalid-feedback">Please provide a Description.</div>
+                            </div>
+                <div class="col-12 mg-3">
+                    <label for="inputEmail4" class="form-label">Rank</label>
+                    <input type="number" id="rank" name="rank" class="form-control">
+                </div>
+
+                
+                <div class="col-md-6 mg-3">
+                    <label for="inputEmail4" class="form-label">Catalog</label>
+                    <select class="form-control" id="catalogShow" name="catalogShow" disabled="disabled">
+                        <%if (catalogList) { %> 
+                            <option value="">---Select--</option>
+                            <% catalogList.forEach(catalogListIrr=> { %>
+                                <%if(String(catalogListIrr._id)==parentCat.catalog) { %>
+                                <option value="<%=catalogListIrr._id%>" selected><%=catalogListIrr.name%></option>
+                                <%}else{%>
+                                    <option value="<%=catalogListIrr._id%>"><%=catalogListIrr.name%></option>
+                                <%}%>
+                            <% }) %>
+                        <%}%>
+                    </select>
+                </div>
+                <div class="col-12 mg-3">
+                    <label for="isvisible">Is Visible</label>
+                    <input type="checkbox" value=true name="isvisible">
+                </div>
+
+                <div class="col-12 mg-3">
+                    <label for="exampleFormControlSelect2" class="form-label">Status</label>
+                    <select class="form-control" id="active" name="active" required>
+                        <option value=true selected>Active</option>
+                        <option value=false>Inactive</option>
+                    </select>
+                  </div>
+               
+                <div class="text-center mg-3 col-12 mg-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <!-- <input type="submit" value="Save" class="btn"> -->
+                    <a href="/navigation/viewAll" class="btn orange btn-secondary">Cancel</a>
+                </div>
+            </form><!-- Vertical Form -->
         </div>
-         <div class="row">
-            <div class="input-field">
-                <input type="text" id="title" name="title" value={{title}}>
-                <label for="title">Name</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="description" name="description" value={{description}}>
-                <label for="title">Description</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                 <select id="status" name="catalogCode">
-                     {{#select 'us-product-catalog'}}
-                        {{#each catalogList}}
-                            <option value="{{this.code}}"> {{this.name}} </option>
-                        {{/each}}
-                     {{/select}}
-                 </select>
-                <label for="Catalog">Catalog</label>
-            </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
-        </div>
-    </form>
-</div>
-<%- include('../layouts/footer') %>
+    </div>
+    <%- include('../layouts/footer') %>

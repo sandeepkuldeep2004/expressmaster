@@ -6,15 +6,22 @@ const { ensureAuth } = require("../../middleware/auth");
 const CategoryModel = require("../../models/Category");
 const CatalogModel = require("../../models/Catalog");
 const { getCatalogList } = require("../../services/commons.js");
-const { fetchCategoryByCode,fetchSuperCategoriesService,fetchAllCategoriesService } = require("../../services/category.js");
+const { fetchCategoryByCode,fetchAllCategoriesService,fetchCategoryByCodeOnly,getCategoryByID,getCategoriesById2LevelService } = require("../../services/category.js");
 const { getCatalog } = require("../../services/catalog.js");
+const { getCatalogListService } = require('../../services/catalog');
+var leftnavigationlinkactive = "manageCatalogs";
 
 // @desc    Show add page
 // @route   GET /category/add
-router.get("/add", ensureAuth, async (req, res) => {
-  const catalogList = await getCatalogList(true);
+router.get("/add/:parentId", ensureAuth, async (req, res) => {
+  const catalogList= await getCatalogListService("active");
+ const parentCat = await fetchCategoryByCodeOnly(req.params.parentId);
+ console.log("catalog"+parentCat.catalog);
   res.render("category/add", {
-    catalogList,
+    catalogList:catalogList,
+    parentCat:parentCat,
+    leftnavigationlinkactive:leftnavigationlinkactive,
+    leftsubnavigationlinkactive:"category",
     csrfToken: req.csrfToken(),
   });
 });
@@ -90,6 +97,9 @@ router.get("/viewall", ensureAuth, async (req, res) => {
     res.render("category/list", {
       categoriesList,
       csrfToken: req.csrfToken(),
+      leftsubnavigationlinkactive:"category",
+      leftnavigationlinkactive:leftnavigationlinkactive,
+
     });
   } catch (err) {
     console.error(err);
@@ -99,11 +109,13 @@ router.get("/viewall", ensureAuth, async (req, res) => {
 
 // @desc    Show edit page
 // @route   GET /category/:code
-router.get("/:code", ensureAuth, async (req, res) => {
+router.get("/:id", ensureAuth, async (req, res) => {
   try {
-    const categoriesList = await CategoryModel.findOne({
-      code: req.params.code,
-    }).lean();
+    const catalogList= await getCatalogListService("active");
+
+    const parentCatList=await getCategoriesById2LevelService();
+
+    const categoriesList = await getCategoryByID(req.params.id);
 
     if (!categoriesList) {
       return res.render("error/404");
@@ -111,6 +123,10 @@ router.get("/:code", ensureAuth, async (req, res) => {
 
     res.render("category/edit", {
       categoriesList,
+      catalogList,
+      parentCatList,
+      leftnavigationlinkactive:leftnavigationlinkactive,
+      leftsubnavigationlinkactive:"category",
       csrfToken: req.csrfToken(),
     });
   } catch (err) {

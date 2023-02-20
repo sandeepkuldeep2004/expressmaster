@@ -59,49 +59,6 @@ const getCategoryByID = function (id) {
 const fetchCategoryByCode = async function (code, catalog) {
   return CategoryModel.findOne({ code: code, catalog: catalog }).lean();
 };
-// @desc  fetch Category by code
-//@param {code,catalog}
-/*const fetchSuperCategoriesService = async function () {
- const superCategoriesList = await fetchSuperCategories("active");
-  var cateListServiceData = [];
-  for (superCategoriesListIrr of superCategoriesList) {
-  var childCatData= await  fetchchildCategoriesService(superCategoriesListIrr.categories);
-    let superCategoriesListObj = {
-      _id: superCategoriesListIrr._id,
-      title: superCategoriesListIrr.title,
-      childCat:childCatData,
-    };
-    cateListServiceData.push(superCategoriesListObj);
-  }
-  console.log(cateListServiceData);
-
- const cateListServiceData= await getCategoriesByRoot();
- for (cateListServiceDataIrr of cateListServiceData) {
-
-  console.log(cateListServiceDataIrr.categories);
-
-  for (cateListServiceDataIrr of cateListServiceData) {
-    
-  }
-
-
- }
- //console.log(cateListServiceData);
-  return cateListServiceData;
-};
-
-const fetchchildCategoriesService = async function (ChildListArr) {
-  var cateChildListServiceData = [];
-  for (childCateId of ChildListArr) {
-    const childCateList = await fetchChildCategories("active", childCateId);
-    let childCategoriesListObj = {
-      _id: childCateList._id,
-      title: childCateList.title,
-    };
-    cateChildListServiceData.push(childCategoriesListObj);
-  }
-  return cateChildListServiceData;
-};*/
 
 const fetchSuperCategoriesService = async function (code) {
   let rootCategory = await CategoryModel.findOne({
@@ -146,7 +103,29 @@ const fetchAllCategoriesService = async function (code) {
     .sort({ rank: "asc" });
   return rootCategory;
 };
+const fetchCategoryByCodeOnly = async function (code) {
+  return CategoryModel.findOne({ code: code}).lean();
+};
 
+const getCategoriesById2LevelService = async function () {
+  let rootCategory = await CategoryModel.findOne({
+    code: 10,
+  })
+    .populate([
+      {
+        path: "categories",
+        model: "Category",
+        populate: {
+          path: "categories",
+          model: "Category",
+        },
+      },
+      { path: "catalog" },
+    ])
+    .lean()
+    .sort({ rank: "asc" });
+  return rootCategory;
+};
 
 module.exports = {
   getCategoryList,
@@ -155,5 +134,7 @@ module.exports = {
   getCategoryByID,
   getCategoriesByRoot,
   fetchSuperCategoriesService,
-  fetchAllCategoriesService  
+  fetchAllCategoriesService,
+  fetchCategoryByCodeOnly,
+  getCategoriesById2LevelService  
 };
