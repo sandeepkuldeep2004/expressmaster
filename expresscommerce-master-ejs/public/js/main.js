@@ -8,22 +8,20 @@ $(document).ready(function () {
 
     $('#example').DataTable();
 
-    $('tr.submenu').click(function (evt) {
+    $('tr.submenu, i.cat_submenu').click(function (evt) {
         var currentID = this.id || "No ID!";
-        if ($('.d_' + currentID).hasClass("d-none")) {
-            $('#' + currentID).addClass('table-primary');
-            $('.d_' + currentID).removeClass('d-none');
-            $('.bi_' + currentID).removeClass('bi-plus-circle').addClass('bi-dash-circle');
-            $('.d_' + currentID).removeClass('table-primary');
+        $(this).removeClass('table-primary'); 
+        if ($('.d_'+currentID).hasClass("d-none")) {
+            $(this).addClass('table-primary');
+            $('.d_'+currentID).removeClass('d-none');
+            $('.bi_'+currentID).removeClass('bi-plus-circle').addClass('bi-dash-circle');
         }
         else {
-            $('.d_' + currentID).addClass('d-none');
-            $('.last_level_' + currentID).addClass('d-none');
-            $('.last_level_' + currentID).removeClass('table-primary');
-            $('.bi_' + currentID).removeClass('bi-dash-circle').addClass('bi-plus-circle');
-            $('.last_plus_circle_' + currentID).removeClass('bi-dash-circle').addClass('bi-plus-circle');            
-            $('.d_' + currentID).removeClass('table-primary');
-        }
+            $('.d_'+ currentID).addClass('d-none').removeClass('table-primary');
+            $('.last_level_'+currentID).addClass('d-none')            
+            $('.bi_'+currentID).removeClass('bi-dash-circle').addClass('bi-plus-circle');
+            $('.last_plus_circle_'+currentID).removeClass('bi-dash-circle').addClass('bi-plus-circle');
+        }        
     })
     var elems = [];
     $("input.form-check-input:checkbox").on('click', function () {

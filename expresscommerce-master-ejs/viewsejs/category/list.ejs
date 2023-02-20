@@ -15,11 +15,11 @@
     <table class="table table-hover" id="example_">
       <thead>
         <tr>
-          <th scope="col">code</th>
+          <th scope="col">Code</th>
           <th scope="col">Title</th>
           <th scope="col">Description</th>
           <th scope="col">Catalog</th>
-          <th scope="col">visible</th>
+          <th scope="col">Visible</th>
           <th scope="col">Position</th>
           <th scope="col">Status</th>
           <th scope="col" class="text-right">Action</th>
@@ -74,7 +74,7 @@
 
         <% if(categoriesListIrr.categories.length >0) { %>
         <% categoriesListIrr.categories.forEach(categoriesListIrr1=> { %>
-        <tr id="<%=categoriesListIrr1._id %>" class="d-none d_<%=categoriesListIrr._id %> <%if(categoriesListIrr1.categories.length > 0) { %>submenu<% } %>"">
+        <tr id="<%=categoriesListIrr1._id %>" class="d-none level2 d_<%=categoriesListIrr._id %> <%if(categoriesListIrr1.categories.length > 0) { %>submenu<% } %>"">
           <td>
             &nbsp; &nbsp;<%if(categoriesListIrr1.categories.length > 0) { %><i class="bi_<%=categoriesListIrr1._id %> bi bi-plus-circle last_plus_circle_<%=categoriesListIrr._id %>"></i><% } %>
            <%=categoriesListIrr1.title %>
