@@ -7,8 +7,7 @@ const CategoryModel = require("../../models/Category");
 const CatalogModel = require("../../models/Catalog");
 const { getCatalogList } = require("../../services/commons.js");
 const { fetchCategoryByCode,fetchAllCategoriesService,fetchCategoryByCodeOnly,getCategoryByID,getCategoriesById2LevelService } = require("../../services/category.js");
-const { getCatalog } = require("../../services/catalog.js");
-const { getCatalogListService } = require('../../services/catalog');
+const { getCatalogListService,getCatalog,getCatalogByIdService } = require('../../services/catalog');
 var leftnavigationlinkactive = "manageCatalogs";
 
 // @desc    Show add page
@@ -38,18 +37,21 @@ router.post(
       
       //One of more validation fails then return back to same page
       if (result.errors.length > 0) {
-        const catalogList = await getCatalogList(true);
-         res.render("category/add", {
+        const catalogList= await getCatalogListService("active");
+        res.render("category/add", {
           code: req.body.code,
           title: req.body.title,
           description: req.body.description,
+          rank: req.body.rank,
+          visible: req.body.visible,
+          status: req.body.status,
           catalogList: catalogList,
           errorMessage: "One or more fields are missing.",
           csrfToken: req.csrfToken(),
         });
       } else {
-        const { code, title, description, catalogCode } = req.body;
-        const catalog = await getCatalog(catalogCode);
+        const { code, title, description, catalogCode,rank,visible,status,parentId } = req.body;
+        const catalog = await getCatalogByIdService(catalogCode);
         if (!catalog) {
           console.log(
             colors.red("There is no catalog with code :" + catalogCode)
@@ -65,16 +67,37 @@ router.post(
             title: req.body.title,
             description: req.body.description,
             catalogList: catalogList,
+            parentId:parentId,
             errorMessage: "Category with same code already exists.",
             csrfToken: req.csrfToken(),
           });
         } else {
-          CategoryModel.create({
+         const insertedId= await CategoryModel.create({
             code: code,
             title: title,
             description: description,
             catalog: catalog,
+            superCategories:parentId,
+            rank:rank,
+            visible:visible,
+            status:status,
           });
+          console.log(insertedId);
+
+         
+          //console.log("last"+laseInsertedCat._id);
+          console.log("parent"+parentId);
+
+          if (insertedId) {
+            const updsupercat=await CategoryModel.updateOne(
+              { _id: parentId },
+              { $push: { categories: insertedId._id } }
+           );
+           console.log("upd"+updsupercat);
+          }
+
+          
+
           res.redirect("/category/viewAll");
         }
       }
@@ -112,9 +135,7 @@ router.get("/viewall", ensureAuth, async (req, res) => {
 router.get("/:id", ensureAuth, async (req, res) => {
   try {
     const catalogList= await getCatalogListService("active");
-
     const parentCatList=await getCategoriesById2LevelService();
-
     const categoriesList = await getCategoryByID(req.params.id);
 
     if (!categoriesList) {
@@ -137,18 +158,26 @@ router.get("/:id", ensureAuth, async (req, res) => {
 
 // @desc    Update catalog
 // @route   PUT /category/:_id
-router.put("/:id", ensureAuth, async (req, res) => {
+router.post("/:id", ensureAuth, async (req, res) => {
   try {
     let category = await CategoryModel.findById(req.params.id).lean();
     console.log(category);
     if (!category) {
       return res.render("error/404");
     }
-
-    category = await CategoryModel.findOneAndUpdate(
+      
+    const updCategory = await CategoryModel.findOneAndUpdate(
       { _id: req.params.id },
-      req.body
-    );
+      {
+      $set: {
+        title: req.body.title,
+        status:req.body.status,
+        description:req.body.description,
+        rank:req.body.rank,
+        visible:req.body.visible,        
+      } 
+    }   
+      );
 
     res.redirect("/category/viewAll");
   } catch (err) {
@@ -159,7 +188,7 @@ router.put("/:id", ensureAuth, async (req, res) => {
 
 // @desc    Delete story
 // @route   DELETE /category/remove/:code
-router.delete("remove/:id", ensureAuth, async (req, res) => {
+router.post("/remove/:id", ensureAuth, async (req, res) => {
   try {
     console.log("delete query with param " + req.params.id);
     let category = await CategoryModel.findById({ _id: req.params.id }).lean();
@@ -167,7 +196,14 @@ router.delete("remove/:id", ensureAuth, async (req, res) => {
       return res.render("error/404");
     }
 
-    await CategoryModel.remove({ _id: req.params.id });
+    const catRemove=await CategoryModel.remove({ _id: req.params.id });
+
+    if (catRemove) {
+      const updsupercat=await CategoryModel.updateOne(
+        { _id: category.superCategories },
+        { $pull: { categories: category._id } }
+     );
+      }
     res.redirect("/category/viewAll");
   } catch (err) {
     console.error(err);

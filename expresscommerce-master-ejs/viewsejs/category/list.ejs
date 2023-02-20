@@ -60,12 +60,14 @@
               <a href="/category/<%=categoriesListIrr._id%>" class="btn btn-float">
                 <i class="fas fa-edit"></i>
               </a>
-              <form action="/navigation/remove/<%=categoriesListIrr._id%>" method="post" id="delete-form<%=categoriesListIrr.code %>">
+              <%if(categoriesListIrr.categories.length <= 0) { %>
+              <form action="/category/remove/<%=categoriesListIrr._id%>" method="post" id="delete-form<%=categoriesListIrr.code %>">
                 <input type="hidden" name="_csrf" value="<%=csrfToken %>">
                 <button type="submit" class="btn red">
                   <i class="fas fa-trash"></i>
                 </button>
               </form>
+              <% } %>
             </div>
           </td>
         </tr>
@@ -105,12 +107,16 @@
               <a href="/category/<%=categoriesListIrr1._id%>" class="btn btn-float">
                 <i class="fas fa-edit"></i>
               </a>
+              <%if(categoriesListIrr1.categories.length <= 0) { %>
+
               <form action="/category/remove/<%=categoriesListIrr1._id%>" method="post" id="delete-form<%=categoriesListIrr1.code %>">
                 <input type="hidden" name="_csrf" value="<%=csrfToken %>">
                 <button type="submit" class="btn red">
                   <i class="fas fa-trash"></i>
                 </button>
               </form>
+              <%} %>
+
             </div>
           </td>
         </tr>
@@ -147,7 +153,7 @@
               <a href="/category/<%=categoriesListIrr2._id%>" class="btn btn-float">
                 <i class="fas fa-edit"></i>
               </a>
-              <form action="/navigation/remove/<%=categoriesListIrr2._id%>" method="post" id="delete-form<%=categoriesListIrr2.code %>">
+              <form action="/category/remove/<%=categoriesListIrr2._id%>" method="post" id="delete-form<%=categoriesListIrr2.code %>">
                 <input type="hidden" name="_csrf" value="<%=csrfToken %>">
                 <button type="submit" class="btn red">
                   <i class="fas fa-trash"></i>

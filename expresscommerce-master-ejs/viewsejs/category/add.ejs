@@ -11,7 +11,7 @@
             <form action="/category/add" method="POST" class="row g-3 needs-validation">
                 <input type="hidden" name="_csrf" value="<%=csrfToken %>">
                 <input type="hidden" name="parentId" value="<%=parentCat._id %>">
-                <input type="hidden" id="catalog" name="catalog" class="form-control" value="<%=parentCat.catalog%>">
+                <input type="hidden" id="catalogCode" name="catalogCode" class="form-control" value="<%=parentCat.catalog%>">
 
 
                 <div class="col-12 mg-3">
