@@ -1,173 +1,166 @@
 <%- include('../layouts/header') %>
 
-    <%if (categoriesList) { %>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title float-right">
-                    <a href="/navigation/add" class="btn-floating btn btn-primary btn-sm">
-                        <i class="fas fa-plus"></i> Add Super Category
-                    </a>
-                   
+<%if (categoriesList) { %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title float-right">
+      <a href="/navigation/add" class="btn-floating btn btn-primary btn-sm">
+        <i class="fas fa-plus"></i> Add Super Category
+      </a>
+    </h5>
+    <%if(locals.errorMessage) { %>
+    <div class="alert alert-success" role="alert">
+      <%=errorMessage%>
+    </div>
+    <% } %>
+    <table class="table table-hover" id="example_">
+      <thead>
+        <tr>
+          <th scope="col">code</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Catalog</th>
+          <th scope="col">visible</th>
+          <th scope="col">Status</th>
+          <th scope="col" class="text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% categoriesList.categories.forEach(categoriesListIrr=> { %>
+        <tr id="<%=categoriesListIrr._id %>" class="<%if(categoriesListIrr.categories.length > 0) { %>submenu<% } %>">
+          <td>
+            <%if(categoriesListIrr.categories.length > 0) { %><i class="bi_<%=categoriesListIrr._id %> bi bi-plus-circle"></i><% } %>
 
-                </h5>
-                <%if(locals.errorMessage) { %>
-                        <div class="alert alert-success" role="alert">
-                            <%=errorMessage%>
-                            </div>
-                    <% } %> 
-                <table class="table table-hover" id="example_">
-                    <thead>
-                        <tr>
-                            <th scope="col">code</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Catalog</th>
-                            <th scope="col">visible</th>
-                            <th scope="col">Status</th>
-                            <th scope="col" class="text-right">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <% categoriesList.categories.forEach(categoriesListIrr=> { %>
-                                <tr id="<%=categoriesListIrr._id %>" class="<%if(categoriesListIrr.categories.length > 0) { %>submenu<% } %>">
-                                    <td> 
-                                        <%if(categoriesListIrr.categories.length > 0) { %><i class="bi_<%=categoriesListIrr._id %> bi bi-plus-circle"></i><% } %>
-    
-                                    <%=categoriesListIrr.title %>
-                                </td>
-                                <td><%=categoriesListIrr.code %></a></td>
-                                <td><span class="dash-status">
-                                        <%=categoriesListIrr.description %>
-                                    </span></td>
-                                <td><span class="dash-status">
-                                        <%=categoriesList.catalog.name %>
-                                    </span>
-                                </td>
-                                <td><span class="dash-status">
-                                    <%=categoriesListIrr.visible %>
-                                </span>
-                            </td>
-                                <td><span class="dash-status">
-                                        <%=categoriesListIrr.status %>
-                                    </span></td>
-                                <td>
-                                    <div class="bo-edit-row">
-                                        <a href="/subnavigation/add" class="btn-floating btn btn-sm btn-outline-primary">
-                                            <i class="fas fa-plus"></i> Add Sub Category
-                                        </a>
-                                        <a href="/navigation/<%=categoriesListIrr._id%>" class="btn btn-float">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <form action="/navigation/remove/<%=categoriesListIrr._id%>" method="post"
-                                            id="delete-form<%=categoriesListIrr.code %>">
-                                            <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                                            <button type="submit" class="btn red">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <% if(categoriesListIrr.categories.length >0) { %>
-
-
-                                <% categoriesListIrr.categories.forEach(categoriesListIrr1=> { %>
-                                    <tr>
-                                        <td> 
-        
-                                        &nbsp; &nbsp;<%=categoriesListIrr1.title %>
-                                    </td>
-                                    <td><%=categoriesListIrr1.code %></a></td>
-                                    <td><span class="dash-status">
-                                            <%=categoriesListIrr1.description %>
-                                        </span></td>
-                                    <td><span class="dash-status">
-                                            <%=categoriesList.catalog.name %>
-                                        </span>
-                                    </td>
-                                    <td><span class="dash-status">
-                                        <%=categoriesListIrr1.visible %>
-                                    </span>
-                                </td>
-                                    <td><span class="dash-status">
-                                            <%=categoriesListIrr1.status %>
-                                        </span></td>
-                                    <td>
-                                        <div class="bo-edit-row">
-                                            <a href="/subnavigation/add" class="btn-floating btn btn-sm btn-outline-primary">
-                                                <i class="fas fa-plus"></i> Add Sub Category
-                                            </a>
-                                            <a href="/navigation/<%=categoriesListIrr1._id%>" class="btn btn-float">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <form action="/navigation/remove/<%=categoriesListIrr1._id%>" method="post"
-                                                id="delete-form<%=categoriesListIrr1.code %>">
-                                                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                                                <button type="submit" class="btn red">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <% if(categoriesListIrr1.categories.length >0) { %>
-
-
-                                    <% categoriesListIrr1.categories.forEach(categoriesListIrr2=> { %>
-                                        <tr>
-                                            <td> 
-            
-                                            &nbsp; &nbsp;&nbsp; &nbsp;<%=categoriesListIrr2.title %>
-                                        </td>
-                                        <td><%=categoriesListIrr2.code %></a></td>
-                                        <td><span class="dash-status">
-                                                <%=categoriesListIrr2.description %>
-                                            </span></td>
-                                        <td><span class="dash-status">
-                                                <%=categoriesList.catalog.name %>
-                                            </span>
-                                        </td>
-                                        <td><span class="dash-status">
-                                            <%=categoriesListIrr2.visible %>
-                                        </span>
-                                    </td>
-                                        <td><span class="dash-status">
-                                                <%=categoriesListIrr2.status %>
-                                            </span></td>
-                                        <td>
-                                            <div class="bo-edit-row">
-                                              
-                                                <a href="/navigation/<%=categoriesListIrr2._id%>" class="btn btn-float">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <form action="/navigation/remove/<%=categoriesListIrr2._id%>" method="post"
-                                                    id="delete-form<%=categoriesListIrr2.code %>">
-                                                    <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                                                    <button type="submit" class="btn red">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <% }) %>
-                                    <% } %>
-                                <% }) %>
-                                <% } %>
-                            <% }) %>
-
-                           
-
-
-                        </tbody>
-                </table>
+            <%=categoriesListIrr.title %>
+          </td>
+          <td><%=categoriesListIrr.code %></a></td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr.description %>
+            </span></td>
+          <td><span class="dash-status">
+              <%=categoriesList.catalog.name %>
+            </span>
+          </td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr.visible %>
+            </span>
+          </td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr.status %>
+            </span></td>
+          <td>
+            <div class="bo-edit-row">
+                <form action="/subcategory/add/<%=categoriesListIrr._id%>" method="post" id="addSubCategory-form<%=categoriesListIrr.code %>">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken %>">                    
+                    <button type="submit" class="btn-floating btn-sm btn-outline-secondary" title="Add sub Category"><i class="fas fa-plus"></i></button>
+                  </form>
+              <a href="/navigation/<%=categoriesListIrr._id%>" class="btn btn-float">
+                <i class="fas fa-edit"></i>
+              </a>
+              <form action="/navigation/remove/<%=categoriesListIrr._id%>" method="post" id="delete-form<%=categoriesListIrr.code %>">
+                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                <button type="submit" class="btn red">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
             </div>
+          </td>
+        </tr>
 
-            <%} else{ %>
-                <p>Not found</p>
-                <% } %>
-        </div>
-        </div>
-        <%- include('../layouts/footer') %>
+        <% if(categoriesListIrr.categories.length >0) { %>
+        <% categoriesListIrr.categories.forEach(categoriesListIrr1=> { %>
+        <tr id="<%=categoriesListIrr1._id %>" class="d-none d_<%=categoriesListIrr._id %> <%if(categoriesListIrr1.categories.length > 0) { %>submenu<% } %>"">
+          <td>
+            &nbsp; &nbsp;<%if(categoriesListIrr1.categories.length > 0) { %><i class="bi_<%=categoriesListIrr1._id %> bi bi-plus-circle last_plus_circle_<%=categoriesListIrr._id %>"></i><% } %>
+           <%=categoriesListIrr1.title %>
+          </td>
+          <td><%=categoriesListIrr1.code %></a></td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr1.description %>
+            </span></td>
+          <td><span class="dash-status">
+              <%=categoriesList.catalog.name %>
+            </span>
+          </td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr1.visible %>
+            </span>
+          </td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr1.status %>
+            </span></td>
+          <td>
+            <div class="bo-edit-row">
+                <form action="/subcategory/add/<%=categoriesListIrr1._id%>" method="post" id="addSubCategory-form<%=categoriesListIrr1.code %>">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                    <button type="submit" class="btn red">
+                        <span class="btn-floating btn btn-secondary btn-sm">
+                            <i class="fas fa-plus"></i> Add sub Category
+                          </span>
+                    </button>
+                  </form>
+              <a href="/navigation/<%=categoriesListIrr1._id%>" class="btn btn-float">
+                <i class="fas fa-edit"></i>
+              </a>
+              <form action="/navigation/remove/<%=categoriesListIrr1._id%>" method="post" id="delete-form<%=categoriesListIrr1.code %>">
+                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                <button type="submit" class="btn red">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+
+        <% if(categoriesListIrr1.categories.length >0) { %>
+
+        <% categoriesListIrr1.categories.forEach(categoriesListIrr2=> { %>
+            <tr class="d-none d_<%=categoriesListIrr1._id %> last_level_<%=categoriesListIrr._id %>">
+          <td>
+            &nbsp; &nbsp;&nbsp; &nbsp;<%=categoriesListIrr2.title %>
+          </td>
+          <td><%=categoriesListIrr2.code %></a></td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr2.description %>
+            </span></td>
+          <td><span class="dash-status">
+              <%=categoriesList.catalog.name %>
+            </span>
+          </td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr2.visible %>
+            </span>
+          </td>
+          <td><span class="dash-status">
+              <%=categoriesListIrr2.status %>
+            </span></td>
+          <td>
+            <div class="bo-edit-row">
+
+              <a href="/navigation/<%=categoriesListIrr2._id%>" class="btn btn-float">
+                <i class="fas fa-edit"></i>
+              </a>
+              <form action="/navigation/remove/<%=categoriesListIrr2._id%>" method="post" id="delete-form<%=categoriesListIrr2.code %>">
+                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                <button type="submit" class="btn red">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+        <% } %>
+        <% }) %>
+        <% } %>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <%} else{ %>
+  <p>Page Not found</p>
+  <% } %>
+</div>
+</div>
+
+<%- include('../layouts/footer') %>

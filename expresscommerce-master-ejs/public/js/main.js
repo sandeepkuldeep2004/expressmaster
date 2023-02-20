@@ -11,14 +11,18 @@ $(document).ready(function () {
     $('tr.submenu').click(function (evt) {
         var currentID = this.id || "No ID!";
         if ($('.d_' + currentID).hasClass("d-none")) {
-            $(this).addClass('table-primary');
+            $('#' + currentID).addClass('table-primary');
             $('.d_' + currentID).removeClass('d-none');
             $('.bi_' + currentID).removeClass('bi-plus-circle').addClass('bi-dash-circle');
+            $('.d_' + currentID).removeClass('table-primary');
         }
         else {
             $('.d_' + currentID).addClass('d-none');
+            $('.last_level_' + currentID).addClass('d-none');
+            $('.last_level_' + currentID).removeClass('table-primary');
             $('.bi_' + currentID).removeClass('bi-dash-circle').addClass('bi-plus-circle');
-            $(this).removeClass('table-primary');
+            $('.last_plus_circle_' + currentID).removeClass('bi-dash-circle').addClass('bi-plus-circle');            
+            $('.d_' + currentID).removeClass('table-primary');
         }
     })
     var elems = [];
