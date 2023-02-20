@@ -28,7 +28,7 @@ router.get("/register", ensureAuth, async (req, res) => {
 });
 
 // Register
-router.post("/register",[
+router.post("/register",ensureAuth,[
   // username must be an email
   body('name').notEmpty(),
     // email
@@ -202,4 +202,20 @@ router.post("/:id", ensureAuth, async (req, res) => {
   }
 });
 
+router.post("/remove/:id", ensureAuth, async (req, res) => {
+  try {
+    let user = await User.findById({
+      _id: req.params.id,
+    }).lean();
+    if (!user) {
+      return res.render(_404View);
+    }
+
+    await User.remove({ _id: req.params.id });
+    res.redirect("/user/viewAll");
+  } catch (err) {
+    console.error(err);
+    return res.render(_500errorView);
+  }
+});
 module.exports = router;
