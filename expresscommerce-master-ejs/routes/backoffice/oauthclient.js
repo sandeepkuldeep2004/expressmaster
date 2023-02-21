@@ -12,13 +12,16 @@ const editView='oauthclient/edit';
 const addView='oauthclient/add';
 const _404View='error/404';
 const _500errorView='error/500';
+var leftnavigationlinkactive = "oauthClient";
 
 
 // @desc    Show add page
 // @route   GET /oauthclient/add
 router.get('/add', ensureAuth, (req, res) => {
     res.render(addView,{
-      csrfToken:req.csrfToken()
+      csrfToken:req.csrfToken(),
+      leftsubnavigationlinkactive:"oauthClient",
+      leftnavigationlinkactive:leftnavigationlinkactive,
     })
 
   })
@@ -48,7 +51,9 @@ async (req, res) => {
         status:req.body.status,
         csrfToken: req.csrfToken(),
         errorMessage:'One or more fields value missing',
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        leftsubnavigationlinkactive:"oauthClient",
+        leftnavigationlinkactive:leftnavigationlinkactive,
       });
     } 
    const oauthclient= await OAuthClientModel.findOne({clientId:req.body.clientId});
@@ -62,7 +67,9 @@ async (req, res) => {
       status:req.body.status,
       csrfToken: req.csrfToken(),
       errorMessage:'AuthClient with same clientid already exist',
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      leftsubnavigationlinkactive:"oauthClient",
+      leftnavigationlinkactive:leftnavigationlinkactive,
     });
    }else{
     await OAuthClientModel.create(req.body)
@@ -84,6 +91,8 @@ router.get('/viewAll', ensureAuth, async (req, res) => {
        res.render(listView, {
         oauthclientList,
         csrfToken: req.csrfToken(),
+        leftsubnavigationlinkactive:"oauthClient",
+        leftnavigationlinkactive:leftnavigationlinkactive,
       })
     } catch (err) {
       console.error(err)
@@ -106,7 +115,9 @@ router.get('/:clientId', ensureAuth, async (req, res) => {
   
        return res.render(editView, {
           oauthclient,
-          csrfToken: req.csrfToken()
+          csrfToken: req.csrfToken(),
+          leftsubnavigationlinkactive:"oauthClient",
+          leftnavigationlinkactive:leftnavigationlinkactive,
         })
       
     } catch (err) {
@@ -117,7 +128,7 @@ router.get('/:clientId', ensureAuth, async (req, res) => {
   
   // @desc    Update oauthclient
 // @route   PUT /oauthclients/:_id
-router.put('/:id', ensureAuth, async (req, res) => {
+router.post('/:id', ensureAuth, async (req, res) => {
     try {
       let oauthclient = await OAuthClientModel.findById(req.params.id).lean()
       console.log(oauthclient);

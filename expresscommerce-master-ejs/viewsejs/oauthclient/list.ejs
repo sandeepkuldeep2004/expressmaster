@@ -1,50 +1,58 @@
 <%- include('../layouts/header') %>
-{{#if oauthclientList}}
-<div class="table-responsive">
-    <table class="table table-striped">
+<% if(oauthclientList) { %>
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title float-right">
+        <a href="/oauthclient/add" class="btn-floating btn btn-primary btn-sm">
+          <i class="fas fa-plus"></i> Add new Auth Client
+        </a>
+      </h5>
+      <table class="table table-hover" id="example">
         <thead>
-            <tr>
-                <th>Client Id</th>
-                <th>Secret Key</th>
-                <th>Scope</th>
-                <th>Authrity</th>
-                <th>Status</th>
-                
-            </tr>
+          <tr>
+            <th>Client Id</th>
+            <th>Secret Key</th>
+            <th>Scope</th>
+            <th>Authrity</th>
+            <th>Status</th>
+            <th class="text-right">Action</th>
+          </tr>
         </thead>
         <tbody>
-            {{#each oauthclientList}}
-            <tr>
-                <td><a href="/oauthclient/{{clientId}}">{{clientId}}</a></td>
-                <td><a href="/oauthclient/{{clientId}}">{{clientSecret}}</a></td>
-                <td><span class="dash-status">{{scope}}</span></td>
-                <td><span class="dash-status">{{authorities}}</span></td>
-                <td><span class="dash-status">{{status}}</span></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/oauthclient/{{clientId}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
-
-                        <form action="/oauthclient/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
+          <% oauthclientList.forEach(oauthclientList=> { %>
+          <tr>
+            <td><%=oauthclientList.clientId%></td>
+            <td><%=oauthclientList.clientSecret%></td>
+            <td><%=oauthclientList.scope%></td>   
+            <td><%=oauthclientList.authorities%></td>           
+            <td><span class="dash-status">                
+                <% if(oauthclientList.active) { %>
+                Active
+                <% }else{ %>
+                Inactive
+                <% } %>
+              </span></td>
+            <td>
+              <div class="bo-edit-row">
+                <a href="/oauthclient/<%=oauthclientList.clientId%>" class="btn btn-float">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <form action="/oauthclient/remove/<%=oauthclientList._id%>" method="POST" id="delete-form">
+                  <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit" class="btn red">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
         </tbody>
-    </table>
-</div>
-{{else}}
-<p>You have not created any Auth Client</p>
-{{/if}}
-
-<div class="fixed-action-btn">
-    <a href="/oauthclient/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
+      </table>
+    </div>
+    <%} else{ %>
+    <p>You have not created any Auth Client</p>
+    <% } %>
+  </div>
 <%- include('../layouts/footer') %>
