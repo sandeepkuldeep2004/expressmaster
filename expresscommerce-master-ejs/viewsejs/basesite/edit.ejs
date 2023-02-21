@@ -1,77 +1,127 @@
 <%- include('../layouts/header') %>
+    <div class="card">
+        <div class="card-body col-lg-6">
+            <h5 class="card-title">Edit Basesite</h5>
+            <%if(locals.errorMessage) { %>
+                <div class="alert alert-success" role="alert">
+                    <%=errorMessage%>
+                </div>
+                <% } %>
+                    <!-- Vertical Form -->
+                    <form action="/basesite/<%=basesite._id %>" method="POST" class="row g-3 needs-validation">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                        <div class="col-md-6 mg-3">
+                            <label for="inputNanme4" class="form-label">Code</label>
+                            <input type="text" class="form-control" id="code" name="code" value="<%=basesite.code %>" required>
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" value="<%=basesite.name %>" required>
+                            <div class="invalid-feedback">Please provide a Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">Description</label>
+                            <input type="text" id="description" name="description" class="form-control" value="<%=basesite.description %>">
+                        </div>
+                        
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Product Catalog</label>
+                            <select class="form-control" id="productCatalog" name="productCatalog">
+                                <%if (productCatalogList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% productCatalogList.forEach(productCatalogIrr=> { %>
+                                        <%if(String(productCatalogIrr._id)==basesite.productCatalog) { %>
+                                        <option value="<%=productCatalogIrr._id%>" selected><%=productCatalogIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=productCatalogIrr._id%>"><%=productCatalogIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Content catalog</label>
+                            <select class="form-control" id="contentCatalog" name="contentCatalog">
+                                <%if (contentCatalogList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% contentCatalogList.forEach(contentCatalogIrr=> { %>
+                                        <%if(String(contentCatalogIrr._id)==basesite.contentCatalog) { %>
+                                        <option value="<%=contentCatalogIrr._id%>" selected><%=contentCatalogIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=contentCatalogIrr._id%>"><%=contentCatalogIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
 
-<h3>Edit Base Site</h3>
-<div class="main-form">
-    <form action="/basesite/<%=basesite._id%>" method="POST" class="form-horizontal">
-    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="form-group row">
-            <label class="control-label col-sm-3" for="name">Name:</label>
-            <div class="col-sm-9">
-                <input class="form-control" type="text" id="name" name="name" value="<%=basesite.name%>">
-            </div>
-        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Default Currency</label>
+                            <select class="form-control" id="defaultCurrency" name="defaultCurrency">
+                                <%if (currencyList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% currencyList.forEach(currencyIrr=> { %>
+                                        <%if(String(currencyIrr._id)==basesite.defaultCurrency) { %>
+                                        <option value="<%=currencyIrr._id%>" selected ><%=currencyIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=currencyIrr._id%>"><%=currencyIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Default Language</label>
+                            <select class="form-control" id="defaultLanguage" name="defaultLanguage">
+                                <%if (languageList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% languageList.forEach(languageIrr=> { %>
+                                        <%if(String(languageIrr._id)==basesite.defaultLanguage) { %>
+                                        <option value="<%=languageIrr._id%>" selected><%=languageIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=languageIrr._id%>"><%=languageIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Company</label>
+                            <select class="form-control" id="company" name="company">
+                                <%if (companyList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% companyList.forEach(companyIrr=> { %>
+                                        <%if(String(companyIrr._id)==basesite.company) { %>
+                                        <option value="<%=companyIrr._id%>" selected ><%=companyIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=companyIrr._id%>"><%=companyIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="col-6 mg-3">
+                            <label for="exampleFormControlSelect2" class="form-label">Status</label>
+                            <select class="form-control" id="status" name="status" required>
+                                
+                                    <%if(basesite.status=="active") { %>
+                                        <option value="active" selected>Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <%}else{%>
+                                        <option value="active">Active</option>
+                                        <option value="inactive" selected>Inactive</option>
+                                    <%}%>
+                            </select>
+                          </div>
 
-        <div class="form-group row">
-             <label class="control-label col-sm-3" for="Status">Status:</label>
-              <div class="col-sm-9">
-                <select class="form-control" id="status" name="status">
-                    {{#select basesite.status}}
-                    <option value="active" selected>active</option>
-                    <option value="inactive">Inactive</option>
-                    {{/select}}
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-             <label class="control-label col-sm-3" for="catalog">Product Catalog:</label>
-              <div class="col-sm-9">
-               <select class="form-control" id="productCatalog" name="productCatalog">
-                     {{#select 'us-product-catalog'}}
-                        {{#each productCatalogList}}
-                            <option value="{{this.code}}"> {{this.name}} </option>
-                        {{/each}}
-                     {{/select}}
-                 </select>
-            </div>
-        </div>
+                        <div class="text-center mg-3 col-12 mg-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <!-- <input type="submit" value="Save" class="btn"> -->
+                            <a href="/basesite/viewAll" class="btn orange btn-secondary">Cancel</a>
 
-        <div class="form-group row">
-             <label class="control-label col-sm-3" for="Content">Content Catalog:</label>
-              <div class="col-sm-9">
-               <select class="form-control" id="status" name="contentCatalog">
-                     {{#select 'us-content-catalog'}}
-                        {{#each contentCatalogList}}
-                            <option value="{{this.code}}"> {{this.name}} </option>
-                        {{/each}}
-                     {{/select}}
-                 </select>
-            </div>
+                        </div>
+                    </form><!-- Vertical Form -->
         </div>
-
-        <div class="form-group row">
-             <label class="control-label col-sm-3" for="Status">Status:</label>
-              <div class="col-sm-9">
-              <select class="form-control" id="status" name="status">
-                    {{#select basesite.status}}
-                    <option value="active" selected>active</option>
-                    <option value="inactive">Inactive</option>
-                    {{/select}}
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-             <label class="control-label col-sm-3" for="title">Description:</label>
-              <div class="col-sm-9">
-                <textarea class="form-control" rows="5" id="description">{{basesite.description}}</textarea>
-            </div>
-        </div>
-
-        <div class="row">
-             <a href="/dashboard" class="btn btn btn-cancel-btn">Cancel</a>
-            <input type="submit" value="Save" class="btn btn-save-btn">
-           
-        </div>
-    </form>
-</div>
-<%- include('../layouts/footer') %>
+    </div>
+    <%- include('../layouts/footer') %>

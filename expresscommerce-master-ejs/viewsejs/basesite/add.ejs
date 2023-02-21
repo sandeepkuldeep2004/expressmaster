@@ -1,45 +1,121 @@
 <%- include('../layouts/header') %>
+    <div class="card">
+        <div class="card-body col-lg-6">
+            <h5 class="card-title">Add Basesite</h5>
+            <%if(locals.errorMessage) { %>
+                <div class="alert alert-success" role="alert">
+                    <%=errorMessage%>
+                </div>
+                <% } %>
+                    <!-- Vertical Form -->
+                    <form action="/basesite/add" method="POST" class="row g-3 needs-validation">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                        <div class="col-md-6 mg-3">
+                            <label for="inputNanme4" class="form-label">Code</label>
+                            <input type="text" class="form-control" id="code" name="code" required>
+                            <div class="invalid-feedback">Please provide a Code.</div>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="invalid-feedback">Please provide a Name.</div>
+                        </div>
+                        <div class="col-12 mg-3">
+                            <label for="inputPassword4" class="form-label">Description</label>
+                            <input type="text" id="description" name="Description" class="form-control" required>
+                        </div>
+                       
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Product Catalog</label>
+                            <select class="form-control" id="productCatalog" name="productCatalog" required>
+                                <%if (productCatalogList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% productCatalogList.forEach(productCatalogIrr=> { %>
+                                        <%if(String(productCatalogIrr._id)) { %>
+                                        <option value="<%=productCatalogIrr._id%>" ><%=productCatalogIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=productCatalogIrr._id%>"><%=productCatalogIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Content catalog</label>
+                            <select class="form-control" id="contentCatalog" name="contentCatalog" required>
+                                <%if (contentCatalogList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% contentCatalogList.forEach(contentCatalogIrr=> { %>
+                                        <%if(String(contentCatalogIrr._id)) { %>
+                                        <option value="<%=contentCatalogIrr._id%>" ><%=contentCatalogIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=contentCatalogIrr._id%>"><%=contentCatalogIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
 
-<h3>Add Base Site</h3>
-<div class="row">
-    <form action="/basesite/add" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="code" name="code" value={{code}}>
-                <label for="title">Code</label>
-            </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Default Currency</label>
+                            <select class="form-control" id="defaultCurrency" name="defaultCurrency">
+                                <%if (currencyList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% currencyList.forEach(currencyIrr=> { %>
+                                        <%if(String(currencyIrr._id)) { %>
+                                        <option value="<%=currencyIrr._id%>" ><%=currencyIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=currencyIrr._id%>"><%=currencyIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Default Language</label>
+                            <select class="form-control" id="defaultLanguage" name="defaultLanguage" required>
+                                <%if (languageList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% languageList.forEach(languageIrr=> { %>
+                                        <%if(String(languageIrr._id)) { %>
+                                        <option value="<%=languageIrr._id%>" ><%=languageIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=languageIrr._id%>"><%=languageIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Company</label>
+                            <select class="form-control" id="company" name="company" required>
+                                <%if (companyList) { %> 
+                                    <option value="" selected >---Select--</option>
+                                    <% companyList.forEach(companyIrr=> { %>
+                                        <%if(String(companyIrr._id)) { %>
+                                        <option value="<%=companyIrr._id%>" ><%=companyIrr.name%></option>
+                                        <%}else{%>
+                                            <option value="<%=companyIrr._id%>"><%=companyIrr.name%></option>
+                                        <%}%>
+                                    <% }) %>
+                                <%}%>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mg-3">
+                            <label for="inputEmail4" class="form-label">Status</label>
+                            <select class="form-control" id="status" name="status" required="">
+                                <option value="active" selected>active</option>
+                                <option value="inactive">inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="text-center mg-3 col-12 mg-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <!-- <input type="submit" value="Save" class="btn"> -->
+                            <a href="/basesite/viewAll" class="btn orange btn-secondary">Cancel</a>
+
+                        </div>
+                    </form><!-- Vertical Form -->
         </div>
-         <div class="row">
-            <div class="input-field">
-                <input type="text" id="name" name="name" value={{name}}>
-                <label for="title">Name</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="description" name="description" value={{description}}>
-                <label for="title">Description</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="url" name="url" value={{url}}>
-                <label for="title">Url</label>
-            </div>
-        </div>
-        <div class="row">
-                <input type="text" id="productCatalog" name="productCatalog" value={{productCatalog}}>
-                <label for="title">Product Catalog</label>
-        </div>
-        <div class="row">
-                <input type="text" id="contentCatalog" name="contentCatalog" value={{contentCatalog}}>
-                <label for="title">Content Catalog</label>
-        </div>
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/dashboard" class="btn orange">Cancel</a>
-        </div>
-    </form>
-</div>
-<%- include('../layouts/footer') %>
+    </div>
+    <%- include('../layouts/footer') %>
