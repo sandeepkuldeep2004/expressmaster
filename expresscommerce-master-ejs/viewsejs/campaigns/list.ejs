@@ -23,8 +23,8 @@
                     <tr>
                         <td><%=campaignList.code%></td>
                         <td><%=campaignList.type%></td>
-                        <td><%=campaignList.startDate%></td>
-                        <td><%=campaignList.expiryDate%></td>
+                        <td><%=moment(campaignList.startDate).format('Do MMMM, YYYY');%></td>
+                        <td><%=moment(campaignList.expiryDate).format('Do MMMM, YYYY');%></td>
                         <td><span class="dash-status"><%=campaignList.status%></span></td>
                         <td>
                             <div class="bo-edit-row">
