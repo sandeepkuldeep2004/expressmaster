@@ -9,6 +9,7 @@ const { getCustomers, getCustomerById } = require('../../lib/ctuser');
 
 const OrderModel=require('../../models/Order')
 const CustomerModel=require('../../models/Customer')
+var leftnavigationlinkactive = "orders";
 
 
 // @desc    Show all orders
@@ -21,7 +22,8 @@ router.get("/orders/viewAll", async (req, res) => {
 console.log(orders)
     res.render("orders/list", {
       orders,
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      leftnavigationlinkactive
     });
   } catch (err) {
     console.error(err);
@@ -43,7 +45,9 @@ router.get("/order/:id", ensureAuth, async (req, res) => {
 
     res.render("orders/edit", {
       order,
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      leftnavigationlinkactive,
+
     });
   } catch (err) {
     console.error(err);

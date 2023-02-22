@@ -1,28 +1,63 @@
 <%- include('../layouts/header') %>
-<h3>Edit Catalog</h3>
-<div class="row">
-    <form action="/sync/order/{{order._id}}" method="POST" class="col s12">
-    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="row">
-            <div class="input-field">
-                <input type="text" id="id" name="id" value="{{order.id}}">
-                <label for="title">Order Number</label>
-            </div>
-            <div class="input-field">
-                <input type="text" id="totalPrice" name="totalPrice" value="{{order.totalPrice}}">
-                <label for="title">Total price ({{order.currencyCode}})</label>
-            </div>
-             <div class="input-field">
-                <input type="text" id="deliveryCost" name="deliveryCost" value="{{order.deliveryCost}}">
-                <label for="title">Delivery Cost ({{order.currencyCode}})</label>
-            </div>
+    <div class="card">
+
+        <div class="card-header">
+            <ul class="nav nav-tabs justify-content-left" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#Order" role="tab">
+                        <i class="now-ui-icons objects_umbrella-13"></i> Order Details
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#OrderEntry" role="tab">
+                        <i class="now-ui-icons shopping_cart-simple"></i> Order entry
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#price" role="tab">
+                        <i class="now-ui-icons shopping_cart-simple"></i> Price
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#ShippingDetail" role="tab">
+                        <i class="now-ui-icons shopping_shop"></i> Shipping Detail
+                    </a>
+                </li>
+                
+            </ul>
         </div>
-       
-        <div class="row">
-            <input type="submit" value="Save" class="btn">
-            <a href="/sync/orders/viewAll" class="btn orange">Cancel</a>
+        <div class="card-body col-lg-12">
+            <!-- Tab panes -->
+                <div class="tab-content text-left">
+
+                    <div class="tab-pane active" id="Order" role="tabpanel">
+                        <h5 class="card-title">Order Details</h5>
+                    </div>
+                
+
+                    <div class="tab-pane" id="OrderEntry" role="tabpanel">
+                        <h5 class="card-title">Order entry</h5>
+                                             
+                    </div>
+
+                    <div class="tab-pane" id="price" role="tabpanel">
+                        <h5 class="card-title">Price</h5>
+                                             
+                    </div>
+
+                    <div class="tab-pane" id="ShippingDetail" role="tabpanel">
+                        <h5 class="card-title">Shipping Detail</h5>
+                                             
+                    </div>
+                    <!-- Category started here -->
+                    
+                </div>
+                    
+                       
+                        
+               
         </div>
-    </form>
-</div>
-<%- include('../layouts/footer') %>
+
+    </div>
+
+    <%- include('../layouts/footer') %>

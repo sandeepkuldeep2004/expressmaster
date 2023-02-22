@@ -1,46 +1,59 @@
 <%- include('../layouts/header') %>
-{{#if orders}}
-<div class="bo-fixed-action-btn">
-    <a href="/orders/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            Total order: {{orders.length}}
-            <tr>
-                <th>Order Number</th>
-                <th>Total Price</th>
-                <th>Delivery cost</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each orders}}
-            <tr>
-                <td><a href="/sync/order/{{id}}">{{id}}</a></td>
-                <td>{{totalPrice}} {{currencyCode}}</td>
-                <td>{{deliveryCost}} {{currencyCode}}</td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/sync/order/{{id}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
+<%if (orders) { %>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title float-right">
 
-                        <form action="/sync/order/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</div>
-{{else}}
-<p>You have not created any orders</p>
-{{/if}}
-<%- include('../layouts/footer') %>
+               <!-- <a href="/products/add" class="btn-floating btn btn-primary btn-sm">
+                    <i class="fas fa-plus"></i> Add new product
+                </a>-->
+                <!--<a href="/usergroup/user/add" class="btn-floating btn btn-sm btn-outline-primary">
+                    <i class="fas fa-plus"></i> Add user in group
+                </a>-->
+               
+            </h5>
+           
+            <table class="table table-hover" id="example">
+                <thead>
+                    <tr>
+                        <th scope="col">Order Id</th>
+                        <th scope="col">Purchase Order No</th>
+                        <th scope="col">Delivery Cost</th>
+                        <th scope="col">Total Price</th>
+                        <th scope="col">OMS  Status</th>
+                        <th scope="col">Order Date</th>
+                        <th scope="col">View Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <% orders.forEach(ordersIrr => { %> 
+                        <tr>
+                            <td>    <span class="dash-status"></span><%=ordersIrr.id%><span></td>
+                                    <td><span class="dash-status"></span><%=ordersIrr.purchaseOrderNumber%></span></td>
+                                    <td><span class="dash-status"></span><%=ordersIrr.deliveryCost%></span></td>
+                                    <td><span class="dash-status"></span><%=ordersIrr.totalPrice%></span></td>
+                                    <td><span class="dash-status"></span><%=ordersIrr.omsStatus%></span></td>
+                                    <td><span class="dash-status"></span><%=ordersIrr.creationdate%></span></td>
+                                    <td>
+                                        <div class="bo-edit-row">
+                                            <a href="/sync/order/<%=ordersIrr.id%>" class="btn btn-float">
+                                                <i class="bi bi-view-list"></i>
+                                            </a>
+                                            
+                                        </div>
+                                       
+                                    </td>
+                                </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <%} else{ %>
+            <p>Not found</p>
+            <% } %>
+    </div>
+    </div>
+    <%- include('../layouts/footer') %>
 
+ 
