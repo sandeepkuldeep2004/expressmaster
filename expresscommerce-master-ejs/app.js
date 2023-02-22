@@ -16,6 +16,8 @@ const MongoStore = require('connect-mongo')
 const connectDB = require('./config/db')
 const {cronJob} = require('./lib/schedulers')
 const NavigationModel = require('./models/LeftNavigation')
+const moment = require("moment");
+
 
 require('./routes/backoffice/productindex')
 
@@ -132,6 +134,7 @@ if (leftMenuList) {
 // Set global var
 app.use(function (req, res, next) {
   res.locals.user = req.user || null;
+  res.locals.moment=moment;
   //console.log(res.locals.user);  
   next()
 })

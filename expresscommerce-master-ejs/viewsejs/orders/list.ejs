@@ -34,7 +34,7 @@
                                     <td><span class="dash-status"></span><%=ordersIrr.deliveryCost%></span></td>
                                     <td><span class="dash-status"></span><%=ordersIrr.totalPrice%></span></td>
                                     <td><span class="dash-status"></span><%=ordersIrr.omsStatus%></span></td>
-                                    <td><span class="dash-status"></span><%=ordersIrr.creationdate%></span></td>
+                                    <td><span class="dash-status"></span><%=moment(ordersIrr.creationdate).format('Do MMMM, YYYY');%></span></td>
                                     <td>
                                         <div class="bo-edit-row">
                                             <a href="/sync/order/<%=ordersIrr.id%>" class="btn btn-float">
