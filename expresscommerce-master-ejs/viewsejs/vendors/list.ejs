@@ -1,48 +1,56 @@
 <%- include('../layouts/header') %>
-{{#if vendors}}
-<div class="table-responsive">
-    <table class="table table-striped">
+<% if(vendors) { %>
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title float-right">
+        <a href="/vendors/add" class="btn-floating btn btn-primary btn-sm">
+          <i class="fas fa-plus"></i> Add new Vendor
+        </a>
+      </h5>
+      <table class="table table-hover" id="example">
         <thead>
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Status</th>
-                <th>{{csrfToken}}</th>
-            </tr>
+          <tr>
+            <th>Code</th>
+            <th>name</th>
+            <th>{{csrfToken}}</th>
+            <th>Status</th>            
+            <th class="text-right">Action</th>
+          </tr>
         </thead>
         <tbody>
-            
-            {{#each vendors}}
-            <tr>
-        
-                <td><a href="/vendors/{{code}}">{{code}}</a></td>
-                <td><a href="/vendors/{{code}}">{{name}}</a></td>
-                <td><span class="dash-status">{{status}}</span></td>
-                <td>
-                    <div class="bo-edit-row">
-                        <a href="/vendors/{{code}}" class="btn btn-float">
-                            <i class="fas fa-edit"></i>
-                        </a>
-
-                        <form action="/vendors/remove/{{_id}}" method="POST" id="delete-form">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                            <button type="submit" class="btn red">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            {{/each}}
+          <% vendors.forEach(vendors=> { %>
+          <tr>
+            <td><%=vendors.code%></td>
+            <td><%=vendors.name%></td>
+            <td><%=csrfToken %></td>
+            <td><span class="dash-status">                
+                <% if(vendors.status) { %>
+                Active
+                <% }else{ %>
+                Inactive
+                <% } %>
+              </span></td>
+            <td>
+              <div class="bo-edit-row">
+                <a href="/vendors/<%=vendors.code%>" class="btn btn-float">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <form action="/oauthclient/remove/<%=vendors._id%>" method="POST" id="delete-form">
+                  <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button type="submit" class="btn red">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
         </tbody>
-    </table>
-</div>
-{{else}}
-<p>You have not created any vendors</p>
-{{/if}}
-
-<div class="fixed-action-btn">
-    <a href="/vendors/add" class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a>
-</div>
+      </table>
+    </div>
+    <%} else{ %>
+        <p>You have not created any vendors</p>
+    <% } %>
+  </div>
 <%- include('../layouts/footer') %>

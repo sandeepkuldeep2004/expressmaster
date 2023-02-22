@@ -6,11 +6,15 @@ const { ensureAuth } = require("../../middleware/auth");
 
 const VendorModel = require("../../models/Vendor");
 
+var leftnavigationlinkactive = "vendors";
+
 // @desc    Show add page
 // @route   GET /vendors/add
 router.get("/add", ensureAuth, (req, res) => {
   res.render("vendors/add",{
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    leftsubnavigationlinkactive:"vendors",
+    leftnavigationlinkactive:leftnavigationlinkactive,
   });
 });
 
@@ -26,7 +30,9 @@ router.post("/add", ensureAuth, async (req, res) => {
         name: req.body.name,
         status: req.body.status,
         errorMessage: "Vendor with same code already exists.",
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        leftsubnavigationlinkactive:"vendors",
+        leftnavigationlinkactive:leftnavigationlinkactive,
       });
     } else {
       await VendorModel.create(req.body);
@@ -49,6 +55,8 @@ router.get("/viewAll", ensureAuth, async (req, res) => {
     res.render("vendors/list", {
       vendors,
       csrfToken: req.csrfToken(),
+      leftsubnavigationlinkactive:"vendors",
+      leftnavigationlinkactive:leftnavigationlinkactive,
     });
   } catch (err) {
     console.error(err);
@@ -70,7 +78,9 @@ router.get("/:code", ensureAuth, async (req, res) => {
 
     res.render("vendors/edit", {
       vendor,
-      csrfToken: req.csrfToken()
+      csrfToken: req.csrfToken(),
+      leftsubnavigationlinkactive:"vendors",
+      leftnavigationlinkactive:leftnavigationlinkactive,
     });
   } catch (err) {
     console.error(err);
@@ -80,7 +90,7 @@ router.get("/:code", ensureAuth, async (req, res) => {
 
 // @desc    Update vendor
 // @route   PUT /vendors/:_id
-router.put("/:id", ensureAuth, async (req, res) => {
+router.post("/:id", ensureAuth, async (req, res) => {
   try {
     let vendor = await VendorModel.findById(req.params.id).lean();
     if (!vendor) {
