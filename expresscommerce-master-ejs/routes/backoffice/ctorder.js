@@ -35,9 +35,15 @@ console.log(orders)
 // @route   GET /orders/edit/:code
 router.get("/order/:id", ensureAuth, async (req, res) => {
   try {
-    const order = await OrderModel.findOne({
-      id: req.params.id,
-    }).lean();
+    let order = await OrderModel.findById(req.params.id).populate([
+       
+      { path: 'currency',model:'Currency', select: 'isocode name symbol', },
+      { path: 'deliveryAddress',model:'Address', },
+      { path: 'orderEntries',model:'OrderEntry' },
+      { path: 'owner',model:'Customer' },
+    ]).lean();
+
+    console.log("orderDetail"+order.orderEntries);
 
     if (!order) {
       return res.render("error/404");
@@ -55,26 +61,6 @@ router.get("/order/:id", ensureAuth, async (req, res) => {
   }
 });
 
-// @desc    Update Order
-// @route   PUT /orders/:_id
-router.put("/order/:id", ensureAuth, async (req, res) => {
-  try {
-    let order = await OrderModel.findById(req.params.id).lean();
-    if (!order) {
-      return res.render("error/404");
-    }
-
-    order = await OrderModel.findOneAndUpdate(
-      { _id: req.params.id },
-      req.body
-    );
-
-    res.redirect("/sync/orders/viewAll");
-  } catch (err) {
-    console.error(err);
-    return res.render("error/500");
-  }
-});
 
 // @desc    Delete story
 // @route   DELETE /orders/remove/:code
