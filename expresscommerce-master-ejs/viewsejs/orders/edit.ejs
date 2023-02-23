@@ -30,7 +30,6 @@
 
                     <div class="tab-pane active" id="Order" role="tabpanel">
                         <h5 class="card-title">Order Details</h5>
-
                         <div class="col-lg-12 row g-3">
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Order No.</strong></label>
@@ -45,9 +44,8 @@
                                 <label for="inputNanme4" class="form-label"><%=order.omsOrderId%></label>
                             </div>
                             <div class="col-md-6 mg-3">
-                                <label for="inputNanme4" class="form-label"><strong>Oms Shipmen tId</strong></label>
+                                <label for="inputNanme4" class="form-label"><strong>Oms Shipment Id</strong></label>
                                 <label for="inputNanme4" class="form-label"><%=order.omsShipmentId%></label>
-                              
                             </div>
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Order date</strong></label>
@@ -63,12 +61,45 @@
                             </div>
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Currency</strong></label>
-                                <label for="inputNanme4" class="form-label"><%=order.currency%></label>
+                                <label for="inputNanme4" class="form-label"><%=order.currency.name%></label>
+                            </div>
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Total Price</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.currency.symbol%> <%=order.totalPrice%></label>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="OrderEntry" role="tabpanel">
                         <h5 class="card-title">Order entry</h5>
+
+                        <table class="table table-hover" id="example_">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Id</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Price</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                <% var totalPrice=0.0; var totalqt=0; 
+                                
+                                order.orderEntries.forEach(ordersIrr => { 
+                                    totalPrice=Number(totalPrice) + Number(ordersIrr.totalPrice); 
+                                    totalqt=totalqt+ordersIrr.quantity;
+                                    %> 
+                                    <tr>
+                                        <td>    <span class="dash-status"></span><%=ordersIrr.productCode%><span></td>
+                                                <td><span class="dash-status"></span><%=ordersIrr.quantity%></span></td>
+                                                <td><span class="dash-status"></span><%=order.currency.symbol%> <%=ordersIrr.totalPrice%></span></td>
+                                                
+                                            </tr>
+                                    <% }) %>
+
+                                    <tr><td></td> <td><strong><%=totalqt%></strong></td><td ><strong><%=order.currency.symbol%> <%=totalPrice.toFixed(8)%></strong></td></tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="tab-pane" id="price" role="tabpanel">
                         <h5 class="card-title">Price</h5>
