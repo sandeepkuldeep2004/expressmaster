@@ -1,6 +1,5 @@
 <%- include('../layouts/header') %>
     <div class="card">
-
         <div class="card-header">
             <ul class="nav nav-tabs justify-content-left" role="tablist">
                 <li class="nav-item">
@@ -23,7 +22,6 @@
                         <i class="now-ui-icons shopping_shop"></i> Shipping Detail
                     </a>
                 </li>
-                
             </ul>
         </div>
         <div class="card-body col-lg-12">
@@ -41,9 +39,7 @@
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Purchase Order Number</strong></label>
                                 <label for="inputNanme4" class="form-label"><%=order.purchaseOrderNumber%></label>
-                              
                             </div>
-
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Oms Order Id</strong></label>
                                 <label for="inputNanme4" class="form-label"><%=order.omsOrderId%></label>
@@ -53,7 +49,6 @@
                                 <label for="inputNanme4" class="form-label"><%=order.omsShipmentId%></label>
                               
                             </div>
-
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Order date</strong></label>
                                 <label for="inputNanme4" class="form-label"><%=order.creationdate%></label>
@@ -61,49 +56,28 @@
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Delivery Mode</strong></label>
                                 <label for="inputNanme4" class="form-label"><%=order.deliveryMode%></label>
-                              
                             </div>
-
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Payment Transaction</strong></label>
                                 <label for="inputNanme4" class="form-label"><%=order.paymentTransaction%></label>
-                              
                             </div>
-
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Currency</strong></label>
                                 <label for="inputNanme4" class="form-label"><%=order.currency%></label>
-                              
                             </div>
-
-                            
                         </div>
                     </div>
-                
-
                     <div class="tab-pane" id="OrderEntry" role="tabpanel">
                         <h5 class="card-title">Order entry</h5>
-                                             
                     </div>
-
                     <div class="tab-pane" id="price" role="tabpanel">
                         <h5 class="card-title">Price</h5>
-                                             
                     </div>
-
                     <div class="tab-pane" id="ShippingDetail" role="tabpanel">
                         <h5 class="card-title">Shipping Detail</h5>
-                                             
                     </div>
                     <!-- Category started here -->
-                    
                 </div>
-                    
-                       
-                        
-               
         </div>
-
     </div>
-
-    <%- include('../layouts/footer') %>
+<%- include('../layouts/footer') %>
