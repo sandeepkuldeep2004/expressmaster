@@ -12,7 +12,6 @@
           <tr>
             <th>Code</th>
             <th>name</th>
-            <th>{{csrfToken}}</th>
             <th>Status</th>            
             <th class="text-right">Action</th>
           </tr>
@@ -22,7 +21,6 @@
           <tr>
             <td><%=vendors.code%></td>
             <td><%=vendors.name%></td>
-            <td><%=csrfToken %></td>
             <td><span class="dash-status">                
                 <% if(vendors.status) { %>
                 Active
