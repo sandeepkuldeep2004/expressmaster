@@ -153,3 +153,21 @@ function populatePaymentDetails(order) {
   return paymentDetails;
 }
 
+// @desc get order detail by purchaseOrderNumber
+const getOrderViewById = async function (id) {
+  let order = await OrderModel.findById(req.params.id).populate([
+       
+    { path: 'currency',model:'Currency', select: 'isocode name symbol', },
+    { path: 'deliveryAddress',model:'Address', },
+    { path: 'orderEntries',model:'OrderEntry',},
+    { path: 'owner',model:'Customer' },
+    { path: 'paymentTransaction',model:'PaymentTransaction' },
+  ]).lean();
+  // console.log("get order detail by Id", order)
+  if (order) {
+    return order;
+  } else {
+    return null;
+  }
+}
+

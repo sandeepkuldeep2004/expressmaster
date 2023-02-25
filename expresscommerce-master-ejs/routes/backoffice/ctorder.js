@@ -1,14 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const { ensureAuth } = require("../../middleware/auth");
-
 const mongoose=require('mongoose')
+const { getOrderViewById, getOrderById,getPagedOrderQueryResults } = require('../../services/ctorder');
+const { getCustomers, getCustomerById } = require('../../services/ctuser');
+const { getProductByIds } = require('../../dao/product');
 
-const { getOrders, getOrderById,getPagedOrderQueryResults } = require('../../lib/ctorder');
-const { getCustomers, getCustomerById } = require('../../lib/ctuser');
 
 const OrderModel=require('../../models/Order')
 const CustomerModel=require('../../models/Customer')
+const PaymentTransaction=require('../../models/PaymentTransaction')
+const Product=require('../../models/Product')
+
+
+
+
+
 var leftnavigationlinkactive = "orders";
 
 
@@ -35,22 +42,27 @@ console.log(orders)
 // @route   GET /orders/edit/:code
 router.get("/order/:id", ensureAuth, async (req, res) => {
   try {
-    let order = await OrderModel.findById(req.params.id).populate([
-       
-      { path: 'currency',model:'Currency', select: 'isocode name symbol', },
-      { path: 'deliveryAddress',model:'Address', },
-      { path: 'orderEntries',model:'OrderEntry' },
-      { path: 'owner',model:'Customer' },
-    ]).lean();
+    let order = await getOrderViewById(req.params.id);
+if(order.orderEntries.length > 0){
+  var objPro = {};
+  
+  for(orderEntriesData of order.orderEntries) {
+    let productdata = await getProductByIds(orderEntriesData.productCode);
+    objPro[orderEntriesData._id] = productdata;
 
-    console.log("orderDetail"+order.orderEntries);
+    
+  }
+}
 
+
+console.log("productData"+objPro);
     if (!order) {
       return res.render("error/404");
     }
 
     res.render("orders/edit", {
       order,
+      objPro:objPro,
       csrfToken: req.csrfToken(),
       leftnavigationlinkactive,
 

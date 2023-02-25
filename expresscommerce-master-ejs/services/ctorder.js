@@ -1,5 +1,7 @@
 const { createRequestBuilder } = require('@commercetools/api-request-builder');
 const { projectKey,getClient } = require('../config/ct_client');
+const OrderModel = require('../models/Order');
+const OrderEntryModel = require('../models/OrderEntry')
 
 const simulatePagination = async (perPage, where) => getClient().execute({
   uri: createRequestBuilder({projectKey}).orders.parse({ 
@@ -33,9 +35,29 @@ const getOrders = () =>
     method: 'GET'
 });
 
+
+// @desc get order detail by purchaseOrderNumber
+const getOrderViewById = async function (id) {
+  let order = await OrderModel.findById(id).populate([
+       
+    { path: 'currency',model:'Currency', select: 'isocode name symbol', },
+    { path: 'deliveryAddress',model:'Address', },
+    { path: 'orderEntries',model:'OrderEntry',},
+    { path: 'owner',model:'Customer' },
+    { path: 'paymentTransaction',model:'PaymentTransaction' },
+  ]).lean();
+  // console.log("get order detail by Id", order)
+  if (order) {
+    return order;
+  } else {
+    return null;
+  }
+}
+
 module.exports={
   getOrders,
   getOrderById,
-  getPagedOrderQueryResults
+  getPagedOrderQueryResults,
+  getOrderViewById,
 
 }

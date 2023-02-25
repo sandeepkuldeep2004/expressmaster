@@ -13,8 +13,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#price" role="tab">
-                        <i class="now-ui-icons shopping_cart-simple"></i> Price
+                    <a class="nav-link" data-toggle="tab" href="#PaymentTransaction" role="tab">
+                        <i class="now-ui-icons shopping_cart-simple"></i>Transaction
                     </a>
                 </li>
                 <li class="nav-item">
@@ -57,7 +57,7 @@
                             </div>
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Payment Transaction</strong></label>
-                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction%></label>
+                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction.paymentMethod%></label>
                             </div>
                             <div class="col-md-6 mg-3">
                                 <label for="inputNanme4" class="form-label"><strong>Currency</strong></label>
@@ -76,36 +76,115 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Product Id</th>
+                                    <th scope="col"></th>
+
+                                    <th scope="col">Title</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Price</th>
                                    
                                 </tr>
                             </thead>
                             <tbody>
-                               
                                 <% var totalPrice=0.0; var totalqt=0; 
-                                
                                 order.orderEntries.forEach(ordersIrr => { 
                                     totalPrice=Number(totalPrice) + Number(ordersIrr.totalPrice); 
                                     totalqt=totalqt+ordersIrr.quantity;
                                     %> 
                                     <tr>
                                         <td>    <span class="dash-status"></span><%=ordersIrr.productCode%><span></td>
+                                            <td><span class="dash-status"></span><%=objPro[ordersIrr._id].thumbnail%><span></td>
+                                            <td><span class="dash-status"></span><%=objPro[ordersIrr._id].title%><span></td>
                                                 <td><span class="dash-status"></span><%=ordersIrr.quantity%></span></td>
                                                 <td><span class="dash-status"></span><%=order.currency.symbol%> <%=ordersIrr.totalPrice%></span></td>
                                                 
                                             </tr>
                                     <% }) %>
-
-                                    <tr><td></td> <td><strong><%=totalqt%></strong></td><td ><strong><%=order.currency.symbol%> <%=totalPrice.toFixed(8)%></strong></td></tr>
+                                    <tr><td>&nbsp;</td><td>&nbsp;</td><td></td> <td><strong><%=totalqt%></strong></td><td ><strong><%=order.currency.symbol%> <%=totalPrice.toFixed(8)%></strong></td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="tab-pane" id="price" role="tabpanel">
+                    <div class="tab-pane" id="PaymentTransaction" role="tabpanel">
                         <h5 class="card-title">Price</h5>
+                        <div class="col-lg-12 row g-3">
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Transaction Code</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction.code%></label>
+                            </div>
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Purchase Order Number</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.purchaseOrderNumber%></label>
+                            </div>
+
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Status</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction.status%></label>
+                            </div>
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Creation Date</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction.creationdate%></label>
+                            </div>
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>is Cash On Delivery</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction.isCashOnDelivery%></label>
+                            </div>
+
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Planned Amount</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction.currencyCode%> <%=order.paymentTransaction.plannedAmount%></label>
+                            </div>
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Is Razorpay</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction.isRazorpay%></label>
+                            </div>
+
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Comment</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.paymentTransaction.comment%></label>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane" id="ShippingDetail" role="tabpanel">
                         <h5 class="card-title">Shipping Detail</h5>
+
+                        <div class="col-lg-12 row g-3">
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Customer Name</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.owner.name%></label>
+                            </div>
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Email</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.owner.email%></label>
+                            </div>
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Customer Id</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.deliveryAddress.uid%></label>
+                            </div>
+
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Customer name</strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.deliveryAddress.firstname%> <%=order.deliveryAddress.lastname%></label>
+                            </div>
+
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Email </strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.deliveryAddress.email%> <%=order.deliveryAddress.lastname%></label>
+                            </div>
+
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Delivery Address </strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.deliveryAddress.streetno%> <%=order.deliveryAddress.streetname%>
+                                    <%=order.deliveryAddress.appartment%> <%=order.deliveryAddress.building%>
+                                    <%=order.deliveryAddress.city%> <%=order.deliveryAddress.postalCode%>
+
+                                </label>
+                            </div>
+
+                            <div class="col-md-6 mg-3">
+                                <label for="inputNanme4" class="form-label"><strong>Contact </strong></label>
+                                <label for="inputNanme4" class="form-label"><%=order.deliveryAddress.cellphone%> <%=order.deliveryAddress.phone1%>
+                                </label>
+                            </div>
+                            </div>
                     </div>
                     <!-- Category started here -->
                 </div>
