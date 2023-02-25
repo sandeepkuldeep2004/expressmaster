@@ -30,7 +30,10 @@ console.log(orders)
     res.render("orders/list", {
       orders,
       csrfToken: req.csrfToken(),
-      leftnavigationlinkactive
+      leftnavigationlinkactive,
+      leftsubnavigationlinkactive: "manageorder",
+
+      
     });
   } catch (err) {
     console.error(err);
@@ -65,6 +68,8 @@ console.log("productData"+objPro);
       objPro:objPro,
       csrfToken: req.csrfToken(),
       leftnavigationlinkactive,
+      leftsubnavigationlinkactive: "manageorder",
+
 
     });
   } catch (err) {
