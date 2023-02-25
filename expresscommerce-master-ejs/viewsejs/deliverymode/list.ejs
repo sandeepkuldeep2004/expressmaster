@@ -1,0 +1,55 @@
+<%- include('../layouts/header') %>
+<% if(deliveryModeList) { %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title float-right">
+      <a href="/deliverymode/add" class="btn-floating btn btn-primary btn-sm">
+        <i class="fas fa-plus"></i> Add new delivery mode
+      </a>
+    </h5>
+    <table class="table table-hover" id="example">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Delivery Cost</th>
+          <th>Status</th>
+          <th class="text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% deliveryModeList.forEach(deliveryModeList=> { %>
+        <tr>
+          <td><%=deliveryModeList.code%></td>
+          <td><%=deliveryModeList.name%></td>
+          <td><%=deliveryModeList.deliveryCost%></td>
+          <td><span class="dash-status">
+              <% if(deliveryModeList.status) { %>
+              Active
+              <% }else{ %>
+              Inactive
+              <% } %>
+            </span></td>
+          <td>
+            <div class="bo-edit-row">
+              <a href="/deliverymode/<%=deliveryModeList._id%>" class="btn btn-float">
+                <i class="fas fa-edit"></i>
+              </a>
+              <form action="/deliverymode/remove/<%=deliveryModeList._id%>" method="post" id="delete-form<%=deliveryModeList._id%>">
+                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                <button type="submit" class="btn red">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <%} else{ %>
+  <p>You have not created any Country</p>
+  <% } %>
+</div>
+<%- include('../layouts/footer') %>
