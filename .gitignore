@@ -11,3 +11,4 @@ solr-9.0.0/server/logs/solr_gc.log
 solr-9.0.0/server/logs/solr_gc.log.2
 solr-9.0.0/server/logs/solr_gc.log
 solr-9.0.0/server/logs/solr.log
+*.log

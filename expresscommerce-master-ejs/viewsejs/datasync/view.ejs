@@ -1,4 +1,6 @@
 <%- include('../layouts/header') %>
+
+ 
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -13,9 +15,21 @@
                 <% } %> 
         </thead>
         <tbody>
+           
             <tr>
                 <td><b>Setup Essential Data</b></br>(language, currency, country, region, usergroup, zone, basesite, deliverymode, oauth, brand
-                )</td>
+                )<br/><br/>
+                <form action="/ajax/uploadFile?_csrf=<%=csrfToken%>" method="POST" id="fileUpload" enctype="multipart/form-data" >
+                    <span><strong>Upload essential data:</strong></span>  
+                    <input type="file" name="essentialData">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                    <input type="submit" value="upload" class="fa fa-upload btn btn-primary" > 
+                </form>
+            </td>
+
+                <td><a href="/data/essentialdata/download"><i class="fa fa-download btn btn-primary" aria-hidden="true"></i>
+                </a></td>
+                
                 <td>
                     <form action="/data/essentialdata/synch" method="post" id="syncEssentialDataForm">
                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -26,6 +40,7 @@
             <tr>
                 <td><b>Setup Sample Data</b></br>(catalogData, categoryData, categoryToCategoryRelData, productData, categoryProductRelData, productStockData,  productPriceData, numberSeriesData, productMediaData
                 )</td>
+                <td>&nbsp;</td>
                 <td>
                     <form action="/data/sampledata/synch" method="post" id="syncSampleDataForm">
                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -35,6 +50,8 @@
             </tr>
             <tr>
                 <td><b>Setup Cms Data</b></br>(CMS)</td>
+                <td>&nbsp;</td>
+
                 <td>
                     <form action="/data/cms/synch" method="post" id="syncCmsDataForm">
                     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -44,6 +61,8 @@
             </tr>
             <tr>
                 <td><b>Setup Media Data</b></br>(Media)</td>
+                <td>&nbsp;</td>
+
                 <td>
                     <form action="/data/mediadata/synch" method="post" id="synMediaDataForm">
                     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -53,6 +72,8 @@
             </tr>
             <tr>
                 <td><b>Setup B2B Sample Data</b></br>(Media)</td>
+                <td>&nbsp;</td>
+
                 <td>
                     <form action="/data/b2b/sampledata/synch" method="post" id="synB2BDataForm">
                     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -63,6 +84,8 @@
 
             <tr>
                 <td><b>Sync left navigation</b></br></td>
+                <td>&nbsp;</td>
+
                 <td>
                     <form action="/data/leftNavigation/synch" method="post" id="leftNavigation">
                     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
