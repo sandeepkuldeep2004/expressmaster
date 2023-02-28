@@ -33,6 +33,10 @@ const { saveMedia } = require("../../dao/Media");
 const { saveB2BUnit } = require("../../dao/Account");
 const { saveNumberSeries } = require("../../dao/NumberSeries");
 
+const path = require('path');
+const fs = require('fs');
+
+
 
 
 
@@ -182,4 +186,22 @@ router.post("/b2b/sampledata/synch", async (req, res) => {
     });
   }
 });
+
+
+router.get("/essentialdata/download", async (req, res) => {
+   const fileName= "essentialData";
+    //const file = fs.readFileSync(path.join(__dirname, '../../data/' + fileName + '.json'), 'utf8');
+   
+   //console.log("folderpat"+file);
+    res.download(path.join(__dirname, '../../data/' + fileName + '.json')); // Set disposition and send it.
+  
+ 
+});
+
+
+
+
+
+
+
 module.exports = router;
