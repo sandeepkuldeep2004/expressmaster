@@ -134,7 +134,7 @@ router.post('/:id', ensureAuth, async (req, res) => {
   
 // @desc    Delete story
 // @route   DELETE /language/remove/:code
-router.delete('remove/:id', ensureAuth, async (req, res) => {
+router.post('/remove/:id', ensureAuth, async (req, res) => {
     try {
       console.log('delete query with param '+req.params.id);
       let language = await LanguageModel.findById({_id:req.params.id}).lean()

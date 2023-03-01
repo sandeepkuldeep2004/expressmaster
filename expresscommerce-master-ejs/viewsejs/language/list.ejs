@@ -35,9 +35,8 @@
               <a href="/language/<%=languageList.isocode%>" class="btn btn-float">
                 <i class="fas fa-edit"></i>
               </a>
-              <form action="/language/remove/<%=languageList._id%>" method="POST" id="delete-form">
+              <form action="/language/remove/<%=languageList._id%>" method="post" id="delete-form<%=languageList._id%>">
                 <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" class="btn red">
                   <i class="fas fa-trash"></i>
                 </button>
