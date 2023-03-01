@@ -126,7 +126,7 @@ router.post('/:id', ensureAuth, async (req, res) => {
   
 // @desc    Delete story
 // @route   DELETE /currency/remove/:id
-router.delete('remove/:id', ensureAuth, async (req, res) => {
+router.post('/remove/:id', ensureAuth, async (req, res) => {
     try {
       console.log('delete query with param '+req.params.id);
       let currency = await CurrencyModel.findById({_id:req.params.id}).lean()

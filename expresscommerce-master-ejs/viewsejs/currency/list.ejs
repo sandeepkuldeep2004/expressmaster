@@ -37,9 +37,8 @@
                   <a href="/currency/<%=currencyList.isocode%>" class="btn btn-float">
                     <i class="fas fa-edit"></i>
                   </a>
-                  <form action="/currency/remove/<%=currencyList._id%>" method="POST" id="delete-form">
-                    <input type="hidden" name="_csrf" value="<%=csrfToken %>">
-                    <input type="hidden" name="_method" value="DELETE">
+                  <form action="/currency/remove/<%=currencyList._id%>" method="post" id="delete-form">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken %>">                   
                     <button type="submit" class="btn red">
                       <i class="fas fa-trash"></i>
                     </button>

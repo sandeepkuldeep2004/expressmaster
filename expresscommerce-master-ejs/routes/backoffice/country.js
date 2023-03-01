@@ -136,7 +136,7 @@ router.post("/:id", ensureAuth, async (req, res) => {
 
 // @desc    Delete story
 // @route   DELETE /country/remove/:code
-router.delete("remove/:id", ensureAuth, async (req, res) => {
+router.post("/remove/:id", ensureAuth, async (req, res) => {
   try {
     let country = await CountryModel.findById({ _id: req.params.id }).lean();
     if (!country) {

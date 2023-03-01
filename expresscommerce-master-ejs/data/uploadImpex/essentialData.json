@@ -10,14 +10,16 @@
    {"isocode":"de","name":"Germany","fallbacklanguage":"en_US"},
    {"isocode":"ja","name":"Japenese","fallbacklanguage":"en_US"},
    {"isocode":"zh","name":"Chinese","fallbacklanguage":"en_US"},
-   {"isocode":"hi","name":"Hindi","fallbacklanguage":"en_US"}
+   {"isocode":"hi","name":"Hindi","fallbacklanguage":"en_US"},
+   {"isocode":"NIR","name":"Tamil","fallbacklanguage":"hi"}
 ],
 "currency":
 [   
    {"isocode":"USD","name":"USD","fallbackcurrency":"","conversion":"","digit":"2","symbol":"$"},
    {"isocode":"CAD","name":"CANADIAN DOLLAR","fallbackcurrency":"","conversion":"","digit":"2","symbol":"C$"},
    {"isocode":"EUR","name":"USD","fallbackcurrency":"","conversion":"","digit":"2","symbol":"€"},
-   {"isocode":"INR","name":"INR","fallbackcurrency":"","conversion":"","digit":"2","symbol":"₹"}
+   {"isocode":"INR","name":"INR","fallbackcurrency":"","conversion":"","digit":"2","symbol":"₹"},
+   {"isocode":"AUS","name":"AUS DOLLAR","fallbackcurrency":"","conversion":"","digit":"2","symbol":"A$"}
 ],
 "country":
 [  
