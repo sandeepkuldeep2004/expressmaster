@@ -191,9 +191,18 @@ router.post("/b2b/sampledata/synch", async (req, res) => {
 router.get("/essentialdata/download", async (req, res) => {
    const fileName= "essentialData";
     //const file = fs.readFileSync(path.join(__dirname, '../../data/' + fileName + '.json'), 'utf8');
-   
+    var chkFile = path.join(__dirname, '../../data/uploadImpex/' + fileName + '.json');
+
+    if (fs.existsSync(chkFile)) {
+      res.download(path.join(__dirname, '../../data/uploadImpex/' + fileName + '.json')); // Set disposition and send it.
+console.log("00000000000");
+  }else{
+      res.download(path.join(__dirname, '../../data/' + fileName + '.json')); // Set disposition and send it.
+      console.log("111111111111");
+
+  }
+
    //console.log("folderpat"+file);
-    res.download(path.join(__dirname, '../../data/' + fileName + '.json')); // Set disposition and send it.
   
  
 });
