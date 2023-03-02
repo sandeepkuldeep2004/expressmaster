@@ -1,4 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
+import * as DOMPurify from 'dompurify';
+import parse from 'html-react-parser';
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -44,7 +46,7 @@ function Product() {
     mainProduct.medias &&
     Array.isArray(mainProduct.medias) &&
     mainProduct.medias.length > 0 &&
-    mainProduct.medias.find((media) => media.priority == 1);
+    mainProduct.medias.find((media) => media.priority > 0);
   let mainImage;
   let thumbnail;
 
@@ -189,7 +191,7 @@ function Product() {
                 </div>
                 <div className="details">
                   <h2>Details</h2>
-                  <p className="">{mainProduct.description}</p>
+                  <p className="">{parse(mainProduct.description)}</p>
                 </div>
 
                 <div className="colors-details mt-5">

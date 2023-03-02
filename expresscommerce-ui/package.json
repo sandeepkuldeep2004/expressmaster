@@ -16,6 +16,8 @@
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "axios": "^0.27.2",
     "cookies-next": "^2.1.1",
+    "dompurify": "^3.0.1",
+    "html-react-parser": "^3.0.9",
     "moment": "^2.29.4",
     "next": "^12.3.2-canary.25",
     "razorpay": "^2.8.3",
@@ -25,7 +27,7 @@
     "react-icons": "^4.4.0",
     "react-multi-carousel": "^2.8.2",
     "react-responsive-carousel": "^3.2.23",
-    "shortid": "^2.2.16"
+    "shortid": "^2.2.16"    
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",

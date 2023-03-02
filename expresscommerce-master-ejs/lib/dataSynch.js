@@ -16,7 +16,7 @@ const { saveSubModule,removeSubModule} = require("../dao/SubModule");
 const { saveLeftMenu,updLeftnavigation } = require("../dao/LeftNavigation");
 
 async function essentialDataUpload(fileName, callBack) {
-    const chkFile = path.join(__dirname, '../data/uploadImpex/' + fileName + '.json');
+    const chkFile = path.join(__dirname, '../data/uploadImpex/' + fileName + '.json')
     if (fs.existsSync(chkFile)) {
         var file = fs.readFileSync(path.join(__dirname, '../data/uploadImpex/' + fileName + '.json'), 'utf8');
 
