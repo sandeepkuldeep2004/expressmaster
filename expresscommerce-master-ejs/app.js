@@ -169,6 +169,10 @@ app.use('/ajax', require('./routes/backoffice/ajax'))
 app.use('/register',require('./routes/backoffice/users'))
 app.use('/user',require('./routes/backoffice/users'))
 app.use('/deliverymode', require('./routes/backoffice/deliverymode'))
+app.use('/customer', require('./routes/backoffice/customers'))
+app.use('/b2bunit', require('./routes/backoffice/b2bunit'))
+
+
 
 
 

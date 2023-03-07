@@ -1,0 +1,68 @@
+<%- include('../layouts/header') %>
+<div class="card">
+  <div class="card-body col-lg-6">
+    <h5 class="card-title float-none">Edit User</h5>
+    <form action="/user/<%=userList._id%>" method="POST">
+      <input type="hidden" name="_csrf" id= "_csrf" value="<%=csrfToken%>">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" type="name" id="name" name="name" class="form-control" placeholder="Enter Name" value="<%=userList.name%>"/>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="<%=userList.email%>" readonly />
+      </div>
+      <!--<div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" class="form-control" placeholder="Create Password" />
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirm Password</label>
+        <input class="form-control" type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password" />
+      </div>-->
+      <div class="form-group">
+        <label for="superadminname">Make Super Admin</label>
+        
+        <%if ((userList.issuperadmin) && userList.issuperadmin==true){ %>
+        <input type="checkbox" name="issuperadmin" checked>
+
+        <%}else{%>
+          <input type="checkbox" name="issuperadmin">
+
+          <% } %>
+
+      </div>
+      <div class="form-group">
+        <label for="inputEmail4" class="form-label">Base Site</label>
+        <select class="form-control" id="basesitereg" name="basesite" required>
+          <%if (basesiteList) { %>
+          <option value="" selected>---Select--</option>
+          <% basesiteList.forEach(basesiteListIrr=> { %>
+          <%if(String(basesiteListIrr._id) == userList.baseSiteId ) { %>
+          <option value="<%=String(basesiteListIrr._id)%>" selected>
+            <%=basesiteListIrr.name%>
+          </option>
+          <%}else{%>
+          <option value="<%=String(basesiteListIrr._id)%>">
+            <%=basesiteListIrr.name%>
+          </option>
+          <% } %>
+          <% }) %>
+          <% } %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="usergroup" title="<%=userList.accessmoules%>">Select User Group</label>
+        <select class="form-control" id="UserGroupDropDownByBaseId" name="usergroup" required>
+            <option value="<%=userList.groupId%>" selected><%=userList.groupName%></option>
+
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">
+        Save
+      </button>
+    </form>
+
+  </div>
+</div>
+<%- include('../layouts/footer') %>

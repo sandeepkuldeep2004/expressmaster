@@ -1,0 +1,56 @@
+<%- include('../layouts/header') %>
+<% if(B2BUnitList) { %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title float-right">
+      <a href="/country/add" class="btn-floating btn btn-primary btn-sm">
+        <i class="fas fa-plus"></i> Add new B2BUnit
+      </a>
+    </h5>
+    <table class="table table-hover" id="example">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Creation Date</th>
+          <th>Status</th>
+          <th class="text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% B2BUnitList.forEach(B2BUnitList=> { %>
+        <tr>
+          <td><%=B2BUnitList.code%></td>
+          <td><%=B2BUnitList.name%></td>
+          <td><%=moment(B2BUnitList.creationdate).format('Do MMMM, YYYY');%></td>
+
+          <td><span class="dash-status">
+              <% if(B2BUnitList.active) { %>
+              Active
+              <% }else{ %>
+              Inactive
+              <% } %>
+            </span></td>
+          <td>
+            <div class="bo-edit-row">
+              <a href="/country/<%=B2BUnitList.code%>" class="btn btn-float">
+                <i class="fas fa-edit"></i>
+              </a>
+              <form action="/country/remove/<%=B2BUnitList._id%>" method="post" id="delete-form">
+                <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+                <button type="submit" class="btn red">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <%} else{ %>
+  <p>You have not created any B2BUnite</p>
+  <% } %>
+</div>
+<%- include('../layouts/footer') %>
